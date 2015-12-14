@@ -201,7 +201,8 @@ header .dropdown-off-sidebar {
   background: #e9e9e9;
 }
 .no-touch #sidebar nav ul > li:hover {
-  background: #e9e9e9;
+  # background: #e9e9e9;
+  background: #ccc;
 }
 #sidebar nav ul > li.open {
   background: #e9e9e9;
