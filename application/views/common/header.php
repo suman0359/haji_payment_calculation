@@ -32,7 +32,13 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/styles.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/plugins.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/themes/theme-1.css" id="skin_color" />
-        
+
+        <!-- start: CSS REQUIRED FOR Data Table PAGE ONLY -->
+        <link href="<?php echo base_url(); ?>vendor/select2/select2.min.css" rel="stylesheet" media="screen">
+        <link href="<?php echo base_url(); ?>vendor/DataTables/css/DT_bootstrap.css" rel="stylesheet" media="screen">
+        <!-- end: CSS REQUIRED FOR Data Table PAGE ONLY -->
+
+
         <!-- end: CLIP-TWO CSS -->
         <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
         <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
