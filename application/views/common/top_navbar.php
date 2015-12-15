@@ -4,7 +4,7 @@
         <a href="#" class="sidebar-mobile-toggler pull-left hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
             <i class="ti-align-justify"></i>
         </a>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="<?php echo base_url()."dashboard"; ?>">
             <img src="<?php echo base_url(); ?>assets/images/logo.png" alt="Clip-Two"/>
         </a>
         <a href="#" class="sidebar-toggler pull-right visible-md visible-lg" data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
@@ -141,7 +141,8 @@
             <!-- start: USER OPTIONS DROPDOWN -->
             <li class="dropdown current-user">
                 <a href class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="<?php echo base_url(); ?>assets/images/avatar-1.jpg" alt="Peter"> <span class="username">Peter <i class="ti-angle-down"></i></i></span>
+                    <?php $profile_picture=$this->session->userdata("profile_picture"); ?>
+                    <img src="<?php echo base_url(); ?><?php echo $profile_picture; ?>" alt="Peter"> <span class="username"><?php $username = $this->session->userdata("username"); echo $username; ?> <i class="ti-angle-down"></i></i></span>
                 </a>
                 <ul class="dropdown-menu dropdown-dark">
                     <li>
@@ -165,7 +166,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="login_signin.html">
+                        <a href="<?php echo base_url()."auth/logout"; ?>">
                             Log Out
                         </a>
                     </li>

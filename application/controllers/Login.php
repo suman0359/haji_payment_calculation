@@ -24,6 +24,6 @@ class Login extends CI_Controller {
 		// $data['login_page'] = $this->load->view('common/login_page');
 		// $data['footer'] = $this->load->view('common/footer');
 
-		$this->load->view('login_page');
+		$this->load->view('includes/auth/login_page');
 	}
 }

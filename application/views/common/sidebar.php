@@ -26,7 +26,7 @@
             </div>
             <ul class="main-navigation-menu">
                 <li class="active open">
-                    <a href="index.html">
+                    <a href="<?php echo base_url()."dashboard"; ?>">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-home"></i>
@@ -37,6 +37,37 @@
                         </div>
                     </a>
                 </li>
+                
+                <li>
+                    <a href="javascript:void(0)">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <i class="ti-layout-grid2"></i>
+                            </div>
+                            <div class="item-inner">
+                                <span class="title"> Haji Information </span><i class="icon-arrow"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="<?php echo base_url()."haji_info"; ?>">
+                                <span class="title">Haji List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url()."haji_info/add_form"; ?>">
+                                <span class="title">Add or Registration New Haji</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="table_data.html">
+                                <span class="title">Advanced Data Tables</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
                 <li>
                     <a href="javascript:void(0)">
                         <div class="item-content">
