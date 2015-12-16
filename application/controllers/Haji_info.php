@@ -80,26 +80,35 @@ class Haji_info extends CI_Controller {
         $data['haji_passport_no'] = $this->input->post('haji_passport_no');
         $data['haji_mobile_no'] = $this->input->post('haji_mobile_no');
         $data['haji_marital_status'] = $this->input->post('marital_status');
-        $data['haji_profile_photo'] = $this->input->post('haji_profile_photo');
+        //$data['haji_profile_photo'] = $this->input->post('haji_profile_photo');
 
+        // echo '<pre>';
+        // print_r($_POST);
+        // echo '<br/>';
+        // print_r($_FILES);
+        // exit();
         
+        //$this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+        // $this->email_model->account_opening_email('teacher', $data['email']); //SEND EMAIL ACCOUNT OPENING EMAIL
+        // redirect(base_url() . 'index.php?admin/teacher/', 'refresh');
+
         /*
          * -------Start Profile Image Upload-------------
          */
-        $config['upload_path'] = 'uploads/haji_profile_photo/';
-        $config['allowed_types'] = 'gif|jpg|png|pdf';
-        $config['max_size'] = '2048';
-        $config['max_width'] = '1024';
-        $config['max_height'] = '768';
-        $error = array();
-        $fdata = array();
-        $this->load->library('upload', $config);
-        if (!$this->upload->do_upload('haji_profile_photo')) {
-            $error = $this->upload->display_errors();
-        } else {
-            $fdata = $this->upload->data();
-            $data['haji_profile_photo'] = $config['upload_path'] . $fdata['file_name'];
-        }
+        // $config['upload_path'] = 'uploads/haji_profile_photo/';
+        // $config['allowed_types'] = 'gif|jpg|png|pdf';
+        // $config['max_size'] = '2048';
+        // $config['max_width'] = '1024';
+        // $config['max_height'] = '768';
+        // $error = array();
+        // $fdata = array();
+        // $this->load->library('upload', $config);
+        // if (!$this->upload->do_upload('haji_profile_photo')) {
+        //     $error = $this->upload->display_errors();
+        // } else {
+        //     $fdata = $this->upload->data();
+        //     $data['haji_profile_photo'] = $config['upload_path'] . $fdata['file_name'];
+        // }
         /*
          * --------End Profile Image Upload----------------
          */
@@ -107,6 +116,10 @@ class Haji_info extends CI_Controller {
         $this->load->model('Haji_info_model');
 
         $insert = $this->Haji_info_model->new_haji_registration($data);
+
+        $haji_id = $this->db->insert_id();
+        move_uploaded_file($_FILES['haji_profile_photo']['tmp_name'], 'uploads/haji_profile_photo/' . $haji_id . "suman" . '.jpg');
+
         if ($insert) {
             $msg = "Operation Successfull!!";
             $this->session->set_flashdata('success', $msg);
