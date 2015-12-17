@@ -1,0 +1,38 @@
+.nowrap{
+  white-space: pre-line;
+}
+
+/*input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+  
+}*/
+
+.tin-no input[type="number"]::-webkit-outer-spin-button,
+.tin-no input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.tin-no input[type="number"] {
+    -moz-appearance: textfield;
+
+}
+
+.tin-no input.tin_no {
+    display: inline;
+    vertical-align: middle;
+    width: 60px !important;
+    padding: 6px 5px 5px;
+    text-align: left;
+    -moz-appearance: textfield;
+}
+
+.tin_no input[type="text"]{
+  width: 40px;
+}
+
+.tin_no input[type="text"]:last-child{
+  width: 80px;
+}

@@ -80,14 +80,7 @@ class Haji_info extends CI_Controller {
         $data['haji_passport_no'] = $this->input->post('haji_passport_no');
         $data['haji_mobile_no'] = $this->input->post('haji_mobile_no');
         $data['haji_marital_status'] = $this->input->post('marital_status');
-        //$data['haji_profile_photo'] = $this->input->post('haji_profile_photo');
-
-        // echo '<pre>';
-        // print_r($_POST);
-        // echo '<br/>';
-        // print_r($_FILES);
-        // exit();
-        
+               
         //$this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
         // $this->email_model->account_opening_email('teacher', $data['email']); //SEND EMAIL ACCOUNT OPENING EMAIL
         // redirect(base_url() . 'index.php?admin/teacher/', 'refresh');
