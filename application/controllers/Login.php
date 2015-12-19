@@ -3,6 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
+	public $_notification = "";
+
+    public function __construct() {
+        parent::__construct();
+
+        
+        $this->load->library('Encrypt');
+        $user_id = $this->session->userdata('user_id');
+        
+        if ($this->session->userdata('user_logged')) {
+        redirect('dashboard');
+        }
+    }
+
 	/**
 	 * Index Page for this controller.
 	 *
