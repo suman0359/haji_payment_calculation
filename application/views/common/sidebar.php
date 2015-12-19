@@ -77,13 +77,13 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="ui_elements.html">
-                                <span class="title"> Add Commission Agent </span>
+                            <a href="<?php echo base_url(); ?>commission_agent">
+                                <span class="title">Commission Agent List </span>
                             </a>
                         </li>
                         <li>
-                            <a href="ui_buttons.html">
-                                <span class="title"> Commission Agent List</span>
+                            <a href="<?php echo base_url(); ?>">
+                                <span class="title"> Add Commission Agent Agent</span>
                             </a>
                         </li>
                         
