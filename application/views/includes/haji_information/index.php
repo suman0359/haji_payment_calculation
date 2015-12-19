@@ -3,10 +3,10 @@
         <!-- start: PAGE TITLE -->
         <section id="page-title">
             <div class="row">
-                <div class="col-sm-8">
+                <!-- <div class="col-sm-8">
                     <h1 class="mainTitle">Advanced Data Tables</h1>
                     <span class="mainDescription">Refers to data arranged in rows and columns. A spreadsheet, for example, is a table. In relational database management systems, all information is stored in the form of tables. <small class="block">Webopedia - Online Tech Dictionary for IT Professionals</small></span>
-                </div>
+                </div> -->
                 <ol class="breadcrumb">
                     <li>
                         <span>Tables</span>
@@ -33,7 +33,7 @@
                                 <th class="hidden-xs">Creator</th>
                                 <th>Passport</th>
                                 <th class="hidden-xs"> Name & Location</th>
-                                <th>Flight</th>
+                                <th>Mobile No</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -41,11 +41,10 @@
                             <?php foreach ($pilgrim_list as $value) { ?>
                             <tr>
                                 <td><?php echo $value->pilgrim_id ?></td>
-                                <td class="hidden-xs">W3C,
-                                    INRIA</td>
+                                <td class="hidden-xs">Creator Name or UserName</td>
                                 <td><?php echo $value->pilgrim_passport_number; ?></td>
                                 <td class="hidden-xs"><?php echo $value->pilgrim_full_name; ?></td>
-                                <td>Amaya</td>
+                                <td><?php echo $value->pilgrim_present_address_mobile_no; ?></td>
                                 <td>Action</td>
                             </tr>
 

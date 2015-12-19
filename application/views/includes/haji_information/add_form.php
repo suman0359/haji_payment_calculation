@@ -1089,9 +1089,12 @@
                                         <div class="form-group">
                                            <select name="pilgrim_blood_group" id="pilgrim_blood_group" class="form-control" >
                                                 <option value="">-SELECT-</option>
-                                                <option value="01">ORDINARY</option>
-                                                <option value="02">OFFICIAL</option>
-                                                <option value="03">DIPLOMATIC</option>
+                                                <option value="A+">A+</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="O+">O+</option>
+                                                <option value="O+">O-</option>
+                                                <option value="B+">B+</option>
+                                                <option value="B-">B-</option>
                                                 
                                             </select>
                                         </div>
