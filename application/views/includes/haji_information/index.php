@@ -29,25 +29,28 @@
                     <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
                         <thead>
                             <tr>
-                                <th>Browser</th>
+                                <th>P ID</th>
                                 <th class="hidden-xs">Creator</th>
-                                <th>Cost (
-                                    USD)</th>
-                                <th class="hidden-xs"> Software license</th>
-                                <th>Current
-                                    layout engine</th>
+                                <th>Passport</th>
+                                <th class="hidden-xs"> Name & Location</th>
+                                <th>Flight</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach ($pilgrim_list as $value) { ?>
                             <tr>
-                                <td>Amaya</td>
+                                <td><?php echo $value->pilgrim_id ?></td>
                                 <td class="hidden-xs">W3C,
                                     INRIA</td>
-                                <td>Free</td>
-                                <td class="hidden-xs">W3C</td>
+                                <td><?php echo $value->pilgrim_passport_number; ?></td>
+                                <td class="hidden-xs"><?php echo $value->pilgrim_full_name; ?></td>
                                 <td>Amaya</td>
+                                <td>Action</td>
                             </tr>
-                            <tr>
+
+                            <?php } ?>
+                            <!-- <tr>
                                 <td>AOL Explorer</td>
                                 <td class="hidden-xs">America Online, Inc</td>
                                 <td>Free</td>
@@ -369,7 +372,7 @@
                                 <td>Free</td>
                                 <td class="hidden-xs">MIT</td>
                                 <td>-</td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>

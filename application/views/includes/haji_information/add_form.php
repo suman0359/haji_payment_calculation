@@ -53,11 +53,11 @@
                                                 Pilgrim Type <span class="symbol required"></span>
                                             </label>
                                             <div class="clip-radio radio-primary">
-                                                <input type="radio" value="" name="pilgrim_type" id="pilgrim_type_pilgrim">
+                                                <input type="radio" value="1" checked="checked" name="pilgrim_type" id="pilgrim_type_pilgrim">
                                                 <label for="pilgrim_type_pilgrim">
                                                     Pilgrim
                                                 </label>
-                                                <input type="radio" value="" name="pilgrim_type" id="pilgrim_type_guide">
+                                                <input type="radio" value="2" name="pilgrim_type" id="pilgrim_type_guide">
                                                 <label for="pilgrim_type_guide">
                                                     Guide
                                                 </label>
@@ -77,7 +77,7 @@
                                     <label class="control-label">
                                         Full Name: (As Per Passport) <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert your Full Name" class="form-control" id="firstname" name="haji_name">
+                                    <input type="text" placeholder="Insert your Full Name" class="form-control" id="firstname" name="pilgrim_full_name">
                                     <span class="label label-warning nowrap">(As Per Saudi Visa)
                                     </span>
                                     <span class="label label-info nowrap">এটা মুলত ভিসা লজমেন্টের অনুরুপ করা হয়েছে।ভিসা লজমেন্টের সময় ৪ টা অংশ পূরণ করতে হয়। প্রয়োজনে ২য় বা ৩য় অংশে পিতার নাম বা নামের অংশ বিশেষ লিখে পূরণ করুন।</span>
@@ -87,25 +87,25 @@
                                         <label class="control-label">
                                             First Part <span class="symbol required"></span>
                                         </label>
-                                        <input type="text" placeholder="Insert First Part Name" class="form-control" id="firstname" name="first_part_of_name">
+                                        <input type="text" placeholder="Insert First Part Name" class="form-control" id="firstname" name="pilgrim_name_part_one">
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label class="control-label">
                                             Second Part <span class="symbol required"></span>
                                         </label>
-                                        <input type="text" placeholder="Insert Second Part Name" class="form-control" id="firstname" name="second_part_of_name">
+                                        <input type="text" placeholder="Insert Second Part Name" class="form-control" id="firstname" name="pilgrim_name_part_two">
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label class="control-label">
                                             Thired Part <span class="symbol required"></span>
                                         </label>
-                                        <input type="text" placeholder="Insert Thired Part Name" class="form-control" id="firstname" name="third_part_of_name">
+                                        <input type="text" placeholder="Insert Thired Part Name" class="form-control" id="firstname" name="pilgrim_name_part_three">
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label class="control-label">
                                             Fourth Part <span class="symbol required"></span>
                                         </label>
-                                        <input type="text" placeholder="Insert Fourth Part Name" class="form-control" id="firstname" name="fourth_part_of_name">
+                                        <input type="text" placeholder="Insert Fourth Part Name" class="form-control" id="firstname" name="pilgrim_name_part_four">
                                     </div>
                                 </row>
 
@@ -119,11 +119,11 @@
                                                 Father or Husband <span class="symbol required"></span>
                                             </label>
                                             <div class="clip-radio radio-primary">
-                                                <input type="radio" value="" name="father_or_husband_type" id="father_or_husband_type_father">
+                                                <input type="radio" value="1" name="pilgrim_father_or_husband_type" id="father_or_husband_type_father">
                                                 <label for="father_or_husband_type_father">
                                                     Father
                                                 </label>
-                                                <input type="radio" value="" name="father_or_husband_type" id="father_or_husband_type_husband">
+                                                <input type="radio" value="2" name="pilgrim_father_or_husband_type" id="father_or_husband_type_husband">
                                                 <label for="father_or_husband_type_husband">
                                                     Husband
                                                 </label>
@@ -135,7 +135,7 @@
                                             <label class="control-label">
                                                  <span class="symbol required"></span>
                                             </label>
-                                            <input type="text" placeholder="Insert your Father's or Husband Name" class="form-control" id="father_or_husband_name" name="father_or_husband_name">
+                                            <input type="text" placeholder="Insert your Father's or Husband Name" class="form-control" id="father_or_husband_name" name="pilgrim_father_or_husband_name">
                                         </div>
                                     </div>
                                 </div>    
@@ -144,7 +144,7 @@
                                     <label class="control-label">
                                         3. Mother's Name <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Mother's Name" class="form-control" id="lastname" name="haji_mothers_name">
+                                    <input type="text" placeholder="Insert Mother's Name" class="form-control" id="lastname" name="pilgrim_mothers_name">
                                 </div>
 
                                 <hr>
@@ -152,79 +152,41 @@
                                 <h4>4. Basic Information</h4>
 
                                 <div class="form-group connected-group">
-                                    <label class="control-label">
-                                        Date of Birth <span class="symbol required"></span>
-                                    </label>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <select name="dd" id="dd" class="form-control" >
-                                                <option value="">DD</option>
-                                                <option value="01">1</option>
-                                                <option value="02">2</option>
-                                                <option value="03">3</option>
-                                                <option value="04">4</option>
-                                                <option value="05">5</option>
-                                                <option value="06">6</option>
-                                                <option value="07">7</option>
-                                                <option value="08">8</option>
-                                                <option value="09">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                                <option value="13">13</option>
-                                                <option value="14">14</option>
-                                                <option value="15">15</option>
-                                                <option value="16">16</option>
-                                                <option value="17">17</option>
-                                                <option value="18">18</option>
-                                                <option value="19">19</option>
-                                                <option value="20">20</option>
-                                                <option value="21">21</option>
-                                                <option value="22">22</option>
-                                                <option value="23">23</option>
-                                                <option value="24">24</option>
-                                                <option value="25">25</option>
-                                                <option value="26">26</option>
-                                                <option value="27">27</option>
-                                                <option value="28">28</option>
-                                                <option value="29">29</option>
-                                                <option value="30">30</option>
-                                                <option value="31">31</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <select name="mm" id="mm" class="form-control" >
-                                                <option value="">MM</option>
-                                                <option value="01">1</option>
-                                                <option value="02">2</option>
-                                                <option value="03">3</option>
-                                                <option value="04">4</option>
-                                                <option value="05">5</option>
-                                                <option value="06">6</option>
-                                                <option value="07">7</option>
-                                                <option value="08">8</option>
-                                                <option value="09">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="text" placeholder="YYYY" id="yyyy" name="yyyy" class="form-control">
-                                        </div>
 
-                                        <div class="col-md-3">
-                                            <input type="text" placeholder="Age" id="age" name="age" class="form-control">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group" style="margin-top: 10px;">
+                                                <label class="control-label">
+                                                    Date of Birth: <span class="symbol required"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                
+                                                <input type="date" class="form-control" id="pilgrim_date_of_birth" name="pilgrim_date_of_birth">
+                                                
+                                            </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Nationality <span class="symbol required"></span>
-                                    </label>
-                                    <input type="text" placeholder="Insert your Nationality" class="form-control" id="lastname" name="haji_nationality">
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                            <div class="form-group" style="margin-top: 10px;">
+                                                <label class="control-label">
+                                                    Nationality: <span class="symbol required"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Insert your Nationality" class="form-control" id="lastname" name="pilgrim_nationality">
+                                            </div>
+                                        </div>
                                 </div>
+                                
 
                                 <div class="row">
                                     <div class="col-md-6">
@@ -233,11 +195,11 @@
                                                 Marital Status <span class="symbol required"></span>
                                             </label>
                                             <div class="clip-radio radio-primary">
-                                                <input type="radio" value="" name="marital_status" id="marital_status_married">
+                                                <input type="radio" value="" name="pilgrim_marital_status" id="marital_status_married">
                                                 <label for="marital_status_married">
                                                     Married
                                                 </label>
-                                                <input type="radio" value="" name="marital_status" id="marital_status_unmarried">
+                                                <input type="radio" value="" name="pilgrim_marital_status" id="marital_status_unmarried">
                                                 <label for="marital_status_unmarried">
                                                     Unmarried
                                                 </label>
@@ -250,11 +212,11 @@
                                                 Gender <span class="symbol required"></span>
                                             </label>
                                             <div class="clip-radio radio-primary">
-                                                <input type="radio" value="" name="gender" id="gender_female">
+                                                <input type="radio" value="" name="pilgrim_gender" id="gender_female">
                                                 <label for="gender_female">
                                                     Female
                                                 </label>
-                                                <input type="radio" value="" name="gender" id="gender_male">
+                                                <input type="radio" value="" name="pilgrim_gender" id="gender_male">
                                                 <label for="gender_male">
                                                     Male
                                                 </label>
@@ -275,7 +237,7 @@
                                             <label for="Educational Qualification" class="control-lebel">
                                                 Educational Qualification <span class="symbol required"></span>
                                             </label>
-                                            <select name="educational_qualification" id="educational_qualification" class="form-control" >
+                                            <select name="pilgrim_educational_qualification" id="educational_qualification" class="form-control" >
                                                 <option value="">-SELECT-</option>
                                                 <option value="">S.S.C</option>
                                                 <option value="01">BELOW S.S.C</option>
@@ -291,7 +253,7 @@
                                             <label class="control-label">
                                                 Occupation : <span class="symbol required"></span>
                                             </label>
-                                            <input type="text" placeholder="Insert Occupation" class="form-control" id="occupation" name="occupation">
+                                            <input type="text" placeholder="Insert Occupation" class="form-control" id="occupation" name="pilgrim_occupation">
                                         </div>
                                     </div>
                                 </div>
@@ -303,7 +265,7 @@
                                         <label class="control-label">
                                             Position <span class="symbol required"></span>
                                         </label>
-                                        <input type="text" placeholder="Insert Position" class="form-control" id="position" name="position">
+                                        <input type="text" placeholder="Insert Position" class="form-control" id="position" name="pilgrim_position">
                                     </div>
                                     </div>
                                     <div class="col-md-6">
@@ -311,7 +273,7 @@
                                             <label class="control-label">
                                                7. National ID No <span class="symbol required"></span>
                                             </label>
-                                            <input type="text" placeholder="Insert your National ID No" class="form-control" id="lastname" name="haji_national_id_no">
+                                            <input type="text" placeholder="Insert your National ID No" class="form-control" id="lastname" name="pilgrim_national_id_no">
                                         </div>
                                     </div>
                                 </div>
@@ -321,7 +283,7 @@
                                     <label class="control-label">
                                         8. Place of Birth  <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert your Haji Birth Place" class="form-control" id="lastname" name="haji_date_of_birth">
+                                    <input type="text" placeholder="Insert your Haji Birth Place" class="form-control" id="lastname" name="pilgrim_place_of_birth">
                                 </div>
 
                                 <hr>
@@ -334,11 +296,11 @@
                                                 TIN No <span class="symbol required"></span>
                                             </label>
                                             <div class="clip-radio radio-primary">
-                                                <input type="radio" value="" name="tin_no" id="tin_no_yes">
+                                                <input type="radio" value="" name="pilgrim_tin_no_status" id="tin_no_yes">
                                                 <label for="tin_no_yes">
                                                     YES
                                                 </label>
-                                                <input type="radio" value="" name="tin_no" id="tin_no_no">
+                                                <input type="radio" value="" name="pilgrim_tin_no_status" id="tin_no_no">
                                                 <label for="tin_no_no">
                                                     No
                                                 </label>
@@ -352,9 +314,9 @@
                                             </label>
                                             <div class="form-inline tin_no">
                                         
-                                                <input type="text" class="form-control" name="tin_number[]" maxlength="3">
-                                                <input type="text" class="form-control" name="tin_number[]" maxlength="3">
-                                                <input type="text" class="form-control" name="tin_number[]" maxlength="6">
+                                                <input type="text" class="form-control" name="pilgrim_tin_no_number[]" maxlength="3">
+                                                <input type="text" class="form-control" name="pilgrim_tin_no_number[]" maxlength="3">
+                                                <input type="text" class="form-control" name="pilgrim_tin_no_number[]" maxlength="6">
                                             </div>
                                         </div>
                                     </div>
@@ -369,11 +331,11 @@
                                                 Traveling Before <span class="symbol required"></span>
                                             </label>
                                             <div class="clip-radio radio-primary">
-                                                <input type="radio" value="" name="traveling_before" id="traveling_before_yes">
+                                                <input type="radio" value="" name="traveling_before_status" id="traveling_before_yes">
                                                 <label for="traveling_before_yes">
                                                     YES
                                                 </label>
-                                                <input type="radio" value="" name="traveling_before" id="traveling_before_no">
+                                                <input type="radio" value="" name="traveling_before_status" id="traveling_before_no">
                                                 <label for="traveling_before_no">
                                                     No
                                                 </label>
@@ -401,11 +363,11 @@
                                                 Perform Hajj Before <span class="symbol required"></span>
                                             </label>
                                             <div class="clip-radio radio-primary">
-                                                <input type="radio" value="" name="perform_hajj_before" id="perform_hajj_beforeyes">
+                                                <input type="radio" value="" name="pilgrim_perform_hajj_before_status" id="perform_hajj_before_yes">
                                                 <label for="perform_hajj_before_yes">
                                                     YES
                                                 </label>
-                                                <input type="radio" value="" name="perform_hajj_before" id="perform_hajj_before_no">
+                                                <input type="radio" value="" name="pilgrim_perform_hajj_before_status" id="perform_hajj_before_no">
                                                 <label for="perform_hajj_before_no">
                                                     No
                                                 </label>
@@ -418,7 +380,7 @@
                                                     10.gha: Last Year of Performed Hajj ? <span class="symbol "></span>
                                             </label>
                                             <div class="form-inline">
-                                                <input type="text" class="form-control" name="number_of_country_traveling" maxlength="3">
+                                                <input type="text" class="form-control" name="pilgrim_perform_hajj_before" maxlength="3">
                                             </div>
                                         </div>
                                     </div>
@@ -436,7 +398,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                <input type="text" class="form-control" id="lastname" name="identification_mark">
+                                                <input type="text" class="form-control" id="lastname" name="pilgrim_identification_mark">
                                             </label>
                                         </div>
                                     </div>
@@ -458,7 +420,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                <input type="text" class="form-control" id="passport_no" name="passport_no">
+                                                <input type="text" class="form-control" id="pilgrim_passport_number" name="pilgrim_passport_number">
                                             </label>
                                         </div>
                                     </div>
@@ -473,7 +435,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                <input type="text" class="form-control" id="confirm_passport_no" name="confirm_passport_no">
+                                                <input type="text" class="form-control" id="confirm_confirm_passport_no" name="pilgrim_confirm_passport_number">
                                             </label>
                                         </div>
                                     </div>
@@ -490,7 +452,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                <select name="passport_type" id="passport_type" class="form-control" >
+                                                <select name="pilgrim_passport_type" id="passport_type" class="form-control" >
                                                 <option value="">-SELECT-</option>
                                                 <option value="01">ORDINARY</option>
                                                 <option value="02">OFFICIAL</option>
@@ -511,61 +473,9 @@
                                             </label>
                                         </div>
 
-                                        <div class="col-md-2">
-                                            <select name="dd" id="dd" class="form-control" >
-                                                <option value="">DD</option>
-                                                <option value="01">1</option>
-                                                <option value="02">2</option>
-                                                <option value="03">3</option>
-                                                <option value="04">4</option>
-                                                <option value="05">5</option>
-                                                <option value="06">6</option>
-                                                <option value="07">7</option>
-                                                <option value="08">8</option>
-                                                <option value="09">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                                <option value="13">13</option>
-                                                <option value="14">14</option>
-                                                <option value="15">15</option>
-                                                <option value="16">16</option>
-                                                <option value="17">17</option>
-                                                <option value="18">18</option>
-                                                <option value="19">19</option>
-                                                <option value="20">20</option>
-                                                <option value="21">21</option>
-                                                <option value="22">22</option>
-                                                <option value="23">23</option>
-                                                <option value="24">24</option>
-                                                <option value="25">25</option>
-                                                <option value="26">26</option>
-                                                <option value="27">27</option>
-                                                <option value="28">28</option>
-                                                <option value="29">29</option>
-                                                <option value="30">30</option>
-                                                <option value="31">31</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <select name="mm" id="mm" class="form-control" >
-                                                <option value="">MM</option>
-                                                <option value="01">1</option>
-                                                <option value="02">2</option>
-                                                <option value="03">3</option>
-                                                <option value="04">4</option>
-                                                <option value="05">5</option>
-                                                <option value="06">6</option>
-                                                <option value="07">7</option>
-                                                <option value="08">8</option>
-                                                <option value="09">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="text" placeholder="YYYY" id="yyyy" name="yyyy" class="form-control">
+                                        
+                                        <div class="col-md-4">
+                                            <input type="date" class="form-control" id="pilgrim_passport_issue_date" name="pilgrim_passport_issue_date">
                                         </div>
 
                                     </div>
@@ -579,61 +489,8 @@
                                                 Date of Expire <span class="symbol required"></span>
                                             </label>
                                         </div>
-                                        <div class="col-md-2">
-                                            <select name="dd" id="dd" class="form-control" >
-                                                <option value="">DD</option>
-                                                <option value="01">1</option>
-                                                <option value="02">2</option>
-                                                <option value="03">3</option>
-                                                <option value="04">4</option>
-                                                <option value="05">5</option>
-                                                <option value="06">6</option>
-                                                <option value="07">7</option>
-                                                <option value="08">8</option>
-                                                <option value="09">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                                <option value="13">13</option>
-                                                <option value="14">14</option>
-                                                <option value="15">15</option>
-                                                <option value="16">16</option>
-                                                <option value="17">17</option>
-                                                <option value="18">18</option>
-                                                <option value="19">19</option>
-                                                <option value="20">20</option>
-                                                <option value="21">21</option>
-                                                <option value="22">22</option>
-                                                <option value="23">23</option>
-                                                <option value="24">24</option>
-                                                <option value="25">25</option>
-                                                <option value="26">26</option>
-                                                <option value="27">27</option>
-                                                <option value="28">28</option>
-                                                <option value="29">29</option>
-                                                <option value="30">30</option>
-                                                <option value="31">31</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <select name="mm" id="mm" class="form-control" >
-                                                <option value="">MM</option>
-                                                <option value="01">1</option>
-                                                <option value="02">2</option>
-                                                <option value="03">3</option>
-                                                <option value="04">4</option>
-                                                <option value="05">5</option>
-                                                <option value="06">6</option>
-                                                <option value="07">7</option>
-                                                <option value="08">8</option>
-                                                <option value="09">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="text" placeholder="YYYY" id="yyyy" name="yyyy" class="form-control">
+                                        <div class="col-md-4">
+                                            <input type="date" class="form-control" id="pilgrim_passport_expire_date" name="pilgrim_passport_expire_date">
                                         </div>
 
                                     </div>
@@ -650,13 +507,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                <select name="educational_qualification" id="educational_qualification" class="form-control" >
+                                                <select name="pilgrim_place_of_passport_issue" id="pilgrim_place_of_passport_issue" class="form-control" >
                                                 <option value="">-SELECT-</option>
                                                 <option value="01">ORDINARY</option>
                                                 <option value="02">OFFICIAL</option>
                                                 <option value="03">DIPLOMATIC</option>
                                                 
-                                            </select>
+                                                </select>
                                             </label>
                                         </div>
                                     </div>
@@ -677,7 +534,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                <input type="text" class="form-control" id="village" name="village">
+                                                <input type="text" class="form-control" id="pilgrim_permanent_address_village" name="pilgrim_permanent_address_village">
                                             </label>
                                         </div>
                                     </div>
@@ -693,7 +550,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <label for="" class="control-label">
-                                                    <select name="dd" id="dd" class="form-control" >
+                                                    <select name="pilgrim_permanent_address_district" id="pilgrim_permanent_address_district" class="form-control" >
                                                     <option value="">DISTRICT SELECT </option>
                                                     <option value="01">1</option>
                                                     <option value="02">2</option>
@@ -738,7 +595,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <label for="" class="control-label">
-                                                    <select name="dd" id="dd" class="form-control" >
+                                                    <select name="pilgrim_permanent_address_police_station" id="pilgrim_permanent_address_police_station" class="form-control" >
                                                     <option value="">POLICE STATION  </option>
                                                     <option value="01">1</option>
                                                     <option value="02">2</option>
@@ -789,7 +646,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                <input type="text" class="form-control" id="village" name="village">
+                                                <input type="text" class="form-control" id="pilgrim_permanent_address_post_code" name="pilgrim_permanent_address_post_code">
                                             </label>
                                         </div>
                                     </div>
@@ -803,7 +660,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                <input type="text" class="form-control" id="mobile_no" name="mobile_no">
+                                                <input type="text" class="form-control" id="pilgrim_permanent_address_mobile_no" name="pilgrim_permanent_address_mobile_no">
                                             </label>
                                         </div>
                                     </div>
@@ -825,7 +682,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                <input type="text" class="form-control" id="village" name="village">
+                                                <input type="text" class="form-control" id="pilgrim_present_address_village" name="pilgrim_present_address_village">
                                             </label>
                                         </div>
                                     </div>
@@ -841,7 +698,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <label for="" class="control-label">
-                                                    <select name="dd" id="dd" class="form-control" >
+                                                    <select name="pilgrim_present_address_district" id="pilgrim_present_address_district" class="form-control" >
                                                     <option value="">DISTRICT SELECT </option>
                                                     <option value="01">1</option>
                                                     <option value="02">2</option>
@@ -886,7 +743,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <label for="" class="control-label">
-                                                    <select name="dd" id="dd" class="form-control" >
+                                                    <select name="pilgrim_present_address_police_station" id="pilgrim_present_address_police_station" class="form-control" >
                                                     <option value="">POLICE STATION  </option>
                                                     <option value="01">1</option>
                                                     <option value="02">2</option>
@@ -937,7 +794,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                <input type="text" class="form-control" id="village" name="village">
+                                                <input type="text" class="form-control" id="pilgrim_presenet_address_post_code" name="pilgrim_presenet_address_post_code">
                                             </label>
                                         </div>
                                     </div>
@@ -951,7 +808,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                <input type="text" class="form-control" id="present_mobile" name="present_mobile">
+                                                <input type="text" class="form-control" id="pilgrim_present_address_mobile_no" name="pilgrim_present_address_mobile_no">
                                             </label>
                                         </div>
                                     </div>
@@ -963,54 +820,450 @@
                             <!-- Second Column --> 
                             <div class="col-md-6">
                                 
-
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Passport ID No <span class="symbol required"></span>
-                                    </label>
-                                    <input type="text" placeholder="Insert your Passport ID No" class="form-control" id="lastname" name="haji_passport_no">
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Mobile No <span class="symbol required"></span>
-                                    </label>
-                                    <input type="text" placeholder="Insert your Passport ID No" class="form-control" id="lastname" name="haji_mobile_no">
-                                </div>
-
-                                
-                                
                                 
                                 <div class="form-group">
-                                <label for="" class="control-label">
-                                    <img src="" alt="" id="target" width="300px" height="200px">
-                                </label>
-                                    <label class="control-label">
-                                        Photo <span class="symbol"></span>
-                                    </label>
-                                    <input type="file" class="form-control" id="select_image" name="haji_profile_photo" onchange="putImage()">
-                                </div>
-
-
-                                <!-- <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label">
-                                                Zip Code <span class="symbol required"></span>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="" class="control-label">
+                                                <img src="" alt="" id="target" width="300px" height="200px">
                                             </label>
-                                            <input class="form-control" type="text" name="zipcode" id="zipcode">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="file" class="form-control" id="select_image" name="pilgrim_profile_photo" onchange="putImage()">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <hr>
+
+                                <h4>15. From Bangladesh or Soudia Arabia for Emergency communication and Close relative mobile no to get Hajj Related Emergency information by SMS(2 taka charge and VAT for every SMS)</h4>
+
+                                <row>
+                                    <div class="col-md-6 form-group">
+                                        <label class="control-label">
+                                            Name: <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Insert Clode Relative Name" class="form-control" id="pilgrim_close_relative_name" name="pilgrim_close_relative_name">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="control-label">
+                                            Relation <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Insert Second Part Name" class="form-control" id="pilgrim_close_relative_relation" name="pilgrim_close_relative_relation">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="control-label">
+                                            Mobile No: <span class="symbol required"></span>
+                                        </label>
+                                        <div class="">
+                                            <div class="row">
+                                                <div class="col-md-6 form-group">
+                                                    <label class="control-label">
+                                                        <input type="text" class="form-control" name="pilgrim_close_relative_mobile_no_one">
+                                                    </label>
+                                                    
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label class="control-label">
+                                                        <input type="text" class="form-control" name="pilgrim_close_relative_mobile_no_two" >
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
+                                    <div class="col-md-6 form-group">
+                                        <label class="control-label">
+                                            Email: <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Insert Fourth Part Name" class="form-control" id="firstname" name="pilgrim_close_relative_email">
+                                    </div>
+
+                                </row>
+
+                                <hr>
+
+                                <div class="clearfix"></div>
+
+                                <h4> 17. Child Info (below two years - if any) </h4>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group" style="margin-top: 10px;">
+                                            <label class="control-label">
+                                                Child Name: <span class="symbol required"></span>
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label class="control-label">
-                                                City <span class="symbol required"></span>
-                                            </label>
-                                            <input class="form-control tooltips" type="text" data-original-title="We'll display it when you write reviews" data-rel="tooltip"  title="" data-placement="top" name="city" id="city">
+                                            <input type="text" class="form-control" id="pilgrim_child_name" name="pilgrim_child_name">
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
+
+                                <hr>
+
+                                <h4>18. Agency Information (Govt. Approved)</h4>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group" style="margin-top: 10px;">
+                                            <label class="control-label">
+                                                Agency Name: <span class="symbol required"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            
+                                            <input type="text" class="form-control" id="pilgrim_agency_name" name="pilgrim_agency_name">
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group" style="margin-top: 10px;">
+                                            <label class="control-label">
+                                                License No: <span class="symbol required"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            
+                                            <input type="text" class="form-control" id="pilgrim_license_no" name="pilgrim_license_no">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group" style="margin-top: 10px;">
+                                            <label class="control-label">
+                                                Package Name: <span class="symbol required"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            
+                                            <input type="text" class="form-control" id="pilgrim_package_name" name="pilgrim_package_name">
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group" style="margin-top: 10px;">
+                                            <label class="control-label">
+                                                Package Amount: <span class="symbol required"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            
+                                            <input type="text" class="form-control" id="pilgrim_package_amount" name="pilgrim_package_amount">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group" style="margin-top: 10px;">
+                                            <label class="control-label">
+                                                Amount in Words: <span class="symbol required"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 form-group">                                         
+                                        <input type="text" class="form-control" id="pilgrim_package_amount_in_word" name="pilgrim_package_amount_in_word">
+                                    </div>
+                                    
+                                </div>
+
+                                <hr>
+
+                                <h4>19. Particulars of the Nominee (in case of death of pilgrim)</h4>
+
+                                <div class="row">
+                                    <div class="clip-radio radio-primary">
+                                        <input type="radio" value="1" name="pilgrim_nominee_status" id="pilgrim_nominee_status_present_yes">
+                                        <label for="pilgrim_nominee_status_present_yes">
+                                            Same as Present Address
+                                        </label>
+                                        <input type="radio" value="2" name="pilgrim_nominee_status_permanent" id="pilgrim_nominee_status_present_no">
+                                        <label for="pilgrim_nominee_status_present_no">
+                                            Same as Permanent Address
+                                        </label>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group" style="margin-top: 10px;">
+                                            <label class="control-label">
+                                                Name of Nominee: <span class="symbol required"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            
+                                            <input type="text" class="form-control" id="pilgrim_name_of_nominee" name="pilgrim_name_of_nominee">
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group" style="margin-top: 10px;">
+                                            <label class="control-label">
+                                                Relationship: <span class="symbol required"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            
+                                            <input type="text" class="form-control" id="pilgrim_noinee_relationship" name="pilgrim_noinee_relationship">
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group" style="margin-top: 10px;">
+                                            <label class="control-label">
+                                                Address: <span class="symbol required"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            
+                                            <input type="text" class="form-control" id="pilgrim_nominee_address" name="pilgrim_nominee_address">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <h4>20.ka Others family member (Father, Mother, Husband, wife, child etc) going hajj together? if yes then at least one member ID</h4>
+
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Father or Husband <span class="symbol required"></span>
+                                            </label>
+                                            <div class="clip-radio radio-primary">
+                                                <input type="radio" value="1" name="pilgrim_family_member_id_type" id="pilgrim_family_member_id_type_yes">
+                                                <label for="pilgrim_family_member_id_type_yes">
+                                                    Yes
+                                                </label>
+                                                <input type="radio" value="2" name="pilgrim_family_member_id_type" id="pilgrim_family_member_id_type_no">
+                                                <label for="pilgrim_family_member_id_type_no">
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                 <span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" placeholder="Insert your Father's or Husband Name" class="form-control" id="pilgrim_family_member_id" name="pilgrim_family_member_id">
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <hr>
+
+                                <h4>21. Health Information</h4>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group" style="margin-top: 10px;">
+                                            <label class="control-label">
+                                                Blood Group: <span class="symbol required"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                           <select name="pilgrim_blood_group" id="pilgrim_blood_group" class="form-control" >
+                                                <option value="">-SELECT-</option>
+                                                <option value="01">ORDINARY</option>
+                                                <option value="02">OFFICIAL</option>
+                                                <option value="03">DIPLOMATIC</option>
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h4>Disease</h4>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Services <em>(select at least two)</em> <span class="symbol required"></span>
+                                            </label>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="1" name="pilgrim_health_information_of_disease" id="disease1">
+                                                <label for="disease1">
+                                                    No disease
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="2" name="pilgrim_health_information_of_disease" id="disease2">
+                                                <label for="disease2">
+                                                    High blood pressure
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="3" name="pilgrim_health_information_of_disease" id="disease3">
+                                                <label for="disease3">
+                                                    Cardiac
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="4" name="pilgrim_health_information_of_disease" id="disease4">
+                                                <label for="disease4">
+                                                    Mental disease
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="5" name="pilgrim_health_information_of_disease" id="disease5">
+                                                <label for="disease5">
+                                                    Epilepsy
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="6" name="pilgrim_health_information_of_disease" id="disease6">
+                                                <label for="disease6">
+                                                    Asthma
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="7" name="pilgrim_health_information_of_disease" id="disease7">
+                                                <label for="disease7">
+                                                    Diabetics
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="8" name="pilgrim_health_information_of_disease" id="disease8">
+                                                <label for="disease8">
+                                                    Cancer
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="9" name="pilgrim_health_information_of_disease" id="disease9">
+                                                <label for="disease9">
+                                                    Blood secretion brain
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="10" name="pilgrim_health_information_of_disease" id="disease10">
+                                                <label for="disease10">
+                                                    Insulin based diabetics
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="11" name="pilgrim_health_information_of_disease" id="disease11">
+                                                <label for="disease11">
+                                                    Enlarged prostate gland
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="12" name="pilgrim_health_information_of_disease" id="disease12">
+                                                <label for="disease12">
+                                                    Accused kidney disease
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                       
+                                       
+                                    </div>
+                                </div>
+
+                                <h4>Medicine</h4>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="1" name="pilgrim_health_information_of_medicine" id="medicine1">
+                                                <label for="medicine1">
+                                                    Don't take medicine
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="2" name="pilgrim_health_information_of_medicine" id="medicine2">
+                                                <label for="medicine2">
+                                                    Diabetics tablet
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="3" name="pilgrim_health_information_of_medicine" id="medicine3">
+                                                <label for="medicine3">
+                                                    Insulin
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="4" name="pilgrim_health_information_of_medicine" id="medicine4">
+                                                <label for="medicine4">
+                                                    Cardiac preventive
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="5" name="pilgrim_health_information_of_medicine" id="medicine5">
+                                                <label for="medicine5">
+                                                    Medicine for diploes
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="6" name="pilgrim_health_information_of_medicine" id="medicine6">
+                                                <label for="medicine6">
+                                                    Anti cancer medicine
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="7" name="pilgrim_health_information_of_medicine" id="medicine7">
+                                                <label for="medicine7">
+                                                    Medicine for anti convulsion
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="8" name="pilgrim_health_information_of_medicine" id="medicine8">
+                                                <label for="medicine8">
+                                                    Anti hypertension medicine
+                                                </label>
+                                            </div>
+                                            <div class="checkbox clip-check check-primary">
+                                                <input type="checkbox" value="9" name="pilgrim_health_information_of_medicine" id="medicine9">
+                                                <label for="medicine9">
+                                                    High blood pressure preventive
+                                                </label>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                       
+                                       
+                                    </div>
+                                </div>
+
+<hr>
+                                </div>
+
                                 
+
+                                <h4>সম্মানিত হজ্জ এজেন্সির প্রতিনিধিগনের অবগতির জন্য জানানো যাচ্ছে যে, হজ্জযাত্রীর ছবি ও ১৫ থেকে ২১ নং কলামের তথ্যসহ গাইড মোবাইল নাম্বার পরিবর্তন করলে সরাসরি মুল ডাটাবেইজে সংরক্ষিত হবে।</h4>
+
+                                
+
+
+                               
                             </div>
                         </div>
                         <div class="row">
@@ -1059,55 +1312,3 @@ function putImage() {
 }
 
 </script>
-
-<style type="text/css">
-        .file-input-wrapper {
-            height: 30px;
-            margin: 2px;
-            overflow: hidden;
-            position: relative;
-            width: 118px;
-            background-color: #fff;
-            cursor: pointer;
-        }
-        .file-input-wrapper > input[type="file"] {
-            font-size: 40px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            opacity: 0;
-            cursor: pointer;
-        }
-        .file-input-wrapper > .btn-file-input {
-            background-color: #494949;
-            border-radius: 4px;
-            color: #fff;
-            display: inline-block;
-            height: 34px;
-            margin: 0 0 0 -1px;
-            padding-left: 0;
-            width: 121px;
-            cursor: pointer;
-        }
-        .file-input-wrapper:hover > .btn-file-input {
-            //background-color: #494949;
-        }
-        </style>
-
-        <body>
-            <div class="file-input-wrapper">
-              <button class="btn-file-input">SELECT FILES</button>
-              <input type="file" name="image" id="image" value="" />      
-            </div>
-            <span id="img_text" style="float: right;
-            margin-right: -80px;
-            margin-top: -14px;"></span>
-    </body>
-
-        <script>
-            (function($){       
-                $('input[type="file"]').bind('change',function(){           
-                    $("#img_text").html($('input[type="file"]').val());
-                });
-            })(jQuery)
-        </script>
