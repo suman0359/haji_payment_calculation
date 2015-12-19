@@ -552,37 +552,9 @@
                                                 <label for="" class="control-label">
                                                     <select name="pilgrim_permanent_address_district" id="pilgrim_permanent_address_district" class="form-control" >
                                                     <option value="">DISTRICT SELECT </option>
-                                                    <option value="01">1</option>
-                                                    <option value="02">2</option>
-                                                    <option value="03">3</option>
-                                                    <option value="04">4</option>
-                                                    <option value="05">5</option>
-                                                    <option value="06">6</option>
-                                                    <option value="07">7</option>
-                                                    <option value="08">8</option>
-                                                    <option value="09">9</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                    <option value="13">13</option>
-                                                    <option value="14">14</option>
-                                                    <option value="15">15</option>
-                                                    <option value="16">16</option>
-                                                    <option value="17">17</option>
-                                                    <option value="18">18</option>
-                                                    <option value="19">19</option>
-                                                    <option value="20">20</option>
-                                                    <option value="21">21</option>
-                                                    <option value="22">22</option>
-                                                    <option value="23">23</option>
-                                                    <option value="24">24</option>
-                                                    <option value="25">25</option>
-                                                    <option value="26">26</option>
-                                                    <option value="27">27</option>
-                                                    <option value="28">28</option>
-                                                    <option value="29">29</option>
-                                                    <option value="30">30</option>
-                                                    <option value="31">31</option>
+                                                    <?php foreach($district_list as $value){ ?>
+                                                    <option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
+                                                    <?php } ?>
                                                 </select>
                                                 </label>
                                             </div>
@@ -597,37 +569,9 @@
                                                 <label for="" class="control-label">
                                                     <select name="pilgrim_permanent_address_police_station" id="pilgrim_permanent_address_police_station" class="form-control" >
                                                     <option value="">POLICE STATION  </option>
-                                                    <option value="01">1</option>
-                                                    <option value="02">2</option>
-                                                    <option value="03">3</option>
-                                                    <option value="04">4</option>
-                                                    <option value="05">5</option>
-                                                    <option value="06">6</option>
-                                                    <option value="07">7</option>
-                                                    <option value="08">8</option>
-                                                    <option value="09">9</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                    <option value="13">13</option>
-                                                    <option value="14">14</option>
-                                                    <option value="15">15</option>
-                                                    <option value="16">16</option>
-                                                    <option value="17">17</option>
-                                                    <option value="18">18</option>
-                                                    <option value="19">19</option>
-                                                    <option value="20">20</option>
-                                                    <option value="21">21</option>
-                                                    <option value="22">22</option>
-                                                    <option value="23">23</option>
-                                                    <option value="24">24</option>
-                                                    <option value="25">25</option>
-                                                    <option value="26">26</option>
-                                                    <option value="27">27</option>
-                                                    <option value="28">28</option>
-                                                    <option value="29">29</option>
-                                                    <option value="30">30</option>
-                                                    <option value="31">31</option>
+                                                    <?php foreach($police_station_list as $value){ ?>
+                                                    <option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
+                                                    <?php } ?>
                                                 </select>
                                                 </label>
                                             </div>
@@ -700,37 +644,9 @@
                                                 <label for="" class="control-label">
                                                     <select name="pilgrim_present_address_district" id="pilgrim_present_address_district" class="form-control" >
                                                     <option value="">DISTRICT SELECT </option>
-                                                    <option value="01">1</option>
-                                                    <option value="02">2</option>
-                                                    <option value="03">3</option>
-                                                    <option value="04">4</option>
-                                                    <option value="05">5</option>
-                                                    <option value="06">6</option>
-                                                    <option value="07">7</option>
-                                                    <option value="08">8</option>
-                                                    <option value="09">9</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                    <option value="13">13</option>
-                                                    <option value="14">14</option>
-                                                    <option value="15">15</option>
-                                                    <option value="16">16</option>
-                                                    <option value="17">17</option>
-                                                    <option value="18">18</option>
-                                                    <option value="19">19</option>
-                                                    <option value="20">20</option>
-                                                    <option value="21">21</option>
-                                                    <option value="22">22</option>
-                                                    <option value="23">23</option>
-                                                    <option value="24">24</option>
-                                                    <option value="25">25</option>
-                                                    <option value="26">26</option>
-                                                    <option value="27">27</option>
-                                                    <option value="28">28</option>
-                                                    <option value="29">29</option>
-                                                    <option value="30">30</option>
-                                                    <option value="31">31</option>
+                                                    <?php foreach($district_list as $value){ ?>
+                                                    <option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
+                                                    <?php } ?>
                                                 </select>
                                                 </label>
                                             </div>
@@ -745,37 +661,9 @@
                                                 <label for="" class="control-label">
                                                     <select name="pilgrim_present_address_police_station" id="pilgrim_present_address_police_station" class="form-control" >
                                                     <option value="">POLICE STATION  </option>
-                                                    <option value="01">1</option>
-                                                    <option value="02">2</option>
-                                                    <option value="03">3</option>
-                                                    <option value="04">4</option>
-                                                    <option value="05">5</option>
-                                                    <option value="06">6</option>
-                                                    <option value="07">7</option>
-                                                    <option value="08">8</option>
-                                                    <option value="09">9</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                    <option value="13">13</option>
-                                                    <option value="14">14</option>
-                                                    <option value="15">15</option>
-                                                    <option value="16">16</option>
-                                                    <option value="17">17</option>
-                                                    <option value="18">18</option>
-                                                    <option value="19">19</option>
-                                                    <option value="20">20</option>
-                                                    <option value="21">21</option>
-                                                    <option value="22">22</option>
-                                                    <option value="23">23</option>
-                                                    <option value="24">24</option>
-                                                    <option value="25">25</option>
-                                                    <option value="26">26</option>
-                                                    <option value="27">27</option>
-                                                    <option value="28">28</option>
-                                                    <option value="29">29</option>
-                                                    <option value="30">30</option>
-                                                    <option value="31">31</option>
+                                                    <?php foreach($police_station_list as $value){ ?>
+                                                    <option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
+                                                    <?php } ?>
                                                 </select>
                                                 </label>
                                             </div>
@@ -1110,73 +998,73 @@
                                                 Services <em>(select at least two)</em> <span class="symbol required"></span>
                                             </label>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="1" name="pilgrim_health_information_of_disease" id="disease1">
+                                                <input type="checkbox" value="1" name="pilgrim_health_information_of_disease[]" id="disease1">
                                                 <label for="disease1">
                                                     No disease
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="2" name="pilgrim_health_information_of_disease" id="disease2">
+                                                <input type="checkbox" value="2" name="pilgrim_health_information_of_disease[]" id="disease2">
                                                 <label for="disease2">
                                                     High blood pressure
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="3" name="pilgrim_health_information_of_disease" id="disease3">
+                                                <input type="checkbox" value="3" name="pilgrim_health_information_of_disease[]" id="disease3">
                                                 <label for="disease3">
                                                     Cardiac
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="4" name="pilgrim_health_information_of_disease" id="disease4">
+                                                <input type="checkbox" value="4" name="pilgrim_health_information_of_disease[]" id="disease4">
                                                 <label for="disease4">
                                                     Mental disease
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="5" name="pilgrim_health_information_of_disease" id="disease5">
+                                                <input type="checkbox" value="5" name="pilgrim_health_information_of_disease[]" id="disease5">
                                                 <label for="disease5">
                                                     Epilepsy
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="6" name="pilgrim_health_information_of_disease" id="disease6">
+                                                <input type="checkbox" value="6" name="pilgrim_health_information_of_disease[]" id="disease6">
                                                 <label for="disease6">
                                                     Asthma
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="7" name="pilgrim_health_information_of_disease" id="disease7">
+                                                <input type="checkbox" value="7" name="pilgrim_health_information_of_disease[]" id="disease7">
                                                 <label for="disease7">
                                                     Diabetics
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="8" name="pilgrim_health_information_of_disease" id="disease8">
+                                                <input type="checkbox" value="8" name="pilgrim_health_information_of_disease[]" id="disease8">
                                                 <label for="disease8">
                                                     Cancer
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="9" name="pilgrim_health_information_of_disease" id="disease9">
+                                                <input type="checkbox" value="9" name="pilgrim_health_information_of_disease[]" id="disease9">
                                                 <label for="disease9">
                                                     Blood secretion brain
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="10" name="pilgrim_health_information_of_disease" id="disease10">
+                                                <input type="checkbox" value="10" name="pilgrim_health_information_of_disease[]" id="disease10">
                                                 <label for="disease10">
                                                     Insulin based diabetics
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="11" name="pilgrim_health_information_of_disease" id="disease11">
+                                                <input type="checkbox" value="11" name="pilgrim_health_information_of_disease[]" id="disease11">
                                                 <label for="disease11">
                                                     Enlarged prostate gland
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="12" name="pilgrim_health_information_of_disease" id="disease12">
+                                                <input type="checkbox" value="12" name="pilgrim_health_information_of_disease[]" id="disease12">
                                                 <label for="disease12">
                                                     Accused kidney disease
                                                 </label>
@@ -1195,55 +1083,55 @@
                                         <div class="form-group">
                                             
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="1" name="pilgrim_health_information_of_medicine" id="medicine1">
+                                                <input type="checkbox" value="1" name="pilgrim_health_information_of_medicine[]" id="medicine1">
                                                 <label for="medicine1">
                                                     Don't take medicine
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="2" name="pilgrim_health_information_of_medicine" id="medicine2">
+                                                <input type="checkbox" value="2" name="pilgrim_health_information_of_medicine[]" id="medicine2">
                                                 <label for="medicine2">
                                                     Diabetics tablet
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="3" name="pilgrim_health_information_of_medicine" id="medicine3">
+                                                <input type="checkbox" value="3" name="pilgrim_health_information_of_medicine[]" id="medicine3">
                                                 <label for="medicine3">
                                                     Insulin
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="4" name="pilgrim_health_information_of_medicine" id="medicine4">
+                                                <input type="checkbox" value="4" name="pilgrim_health_information_of_medicine[]" id="medicine4">
                                                 <label for="medicine4">
                                                     Cardiac preventive
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="5" name="pilgrim_health_information_of_medicine" id="medicine5">
+                                                <input type="checkbox" value="5" name="pilgrim_health_information_of_medicine[]" id="medicine5">
                                                 <label for="medicine5">
                                                     Medicine for diploes
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="6" name="pilgrim_health_information_of_medicine" id="medicine6">
+                                                <input type="checkbox" value="6" name="pilgrim_health_information_of_medicine[]" id="medicine6">
                                                 <label for="medicine6">
                                                     Anti cancer medicine
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="7" name="pilgrim_health_information_of_medicine" id="medicine7">
+                                                <input type="checkbox" value="7" name="pilgrim_health_information_of_medicine[]" id="medicine7">
                                                 <label for="medicine7">
                                                     Medicine for anti convulsion
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="8" name="pilgrim_health_information_of_medicine" id="medicine8">
+                                                <input type="checkbox" value="8" name="pilgrim_health_information_of_medicine[]" id="medicine8">
                                                 <label for="medicine8">
                                                     Anti hypertension medicine
                                                 </label>
                                             </div>
                                             <div class="checkbox clip-check check-primary">
-                                                <input type="checkbox" value="9" name="pilgrim_health_information_of_medicine" id="medicine9">
+                                                <input type="checkbox" value="9" name="pilgrim_health_information_of_medicine[]" id="medicine9">
                                                 <label for="medicine9">
                                                     High blood pressure preventive
                                                 </label>

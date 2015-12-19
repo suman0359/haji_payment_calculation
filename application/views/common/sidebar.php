@@ -60,11 +60,7 @@
                                 <span class="title">Add or Registration New Haji</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="table_data.html">
-                                <span class="title">Advanced Data Tables</span>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </li>
                 
@@ -75,81 +71,22 @@
                                 <i class="ti-settings"></i>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> UI Elements </span><i class="icon-arrow"></i>
+                                <span class="title"> Commission Agent Information </span><i class="icon-arrow"></i>
                             </div>
                         </div>
                     </a>
                     <ul class="sub-menu">
                         <li>
                             <a href="ui_elements.html">
-                                <span class="title"> Elements </span>
+                                <span class="title"> Add Commission Agent </span>
                             </a>
                         </li>
                         <li>
                             <a href="ui_buttons.html">
-                                <span class="title"> Buttons </span>
+                                <span class="title"> Commission Agent List</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="ui_links.html">
-                                <span class="title"> Links </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ui_icons.html">
-                                <span class="title"> Font Awesome Icons </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ui_line_icons.html">
-                                <span class="title"> Linear Icons </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ui_modals.html">
-                                <span class="title"> Modals </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ui_toggle.html">
-                                <span class="title"> Toggle </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ui_tabs_accordions.html">
-                                <span class="title"> Tabs &amp; Accordions </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ui_panels.html">
-                                <span class="title"> Panels </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ui_notifications.html">
-                                <span class="title"> Notifications </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ui_treeview.html">
-                                <span class="title"> Treeview </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ui_media.html">
-                                <span class="title"> Media Object </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ui_nestable.html">
-                                <span class="title"> Nestable List </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ui_typography.html">
-                                <span class="title"> Typography </span>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </li>
                 <li>

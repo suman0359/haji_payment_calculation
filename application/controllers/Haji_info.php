@@ -54,10 +54,15 @@ class Haji_info extends CI_Controller {
         $data = array();
         $sub_data = array();
 
+        $this->load->model('common_model');
+
+        $sub_data['district_list'] = $this->common_model->selectAll('district');
+        $sub_data['police_station_list'] = $this->common_model->selectAll('police_station');
+
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
-        $data['main_content'] = $this->load->view('includes/haji_information/add_form', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/haji_information/add_form', $sub_data, TRUE);
         //$data['main_content'] = $this->load->view('includes/main_content', '', TRUE);
         $data['footer'] = $this->load->view('common/footer', '', TRUE);
 
@@ -70,6 +75,64 @@ class Haji_info extends CI_Controller {
         // echo '<pre>';
         //       print_r($_POST);
         //       exit(); 
+
+        $data['pilgrim_id']                         = "";
+        $data['pilgrim_type']                       = "";
+        $data['pilgrim_full_name']                  = "";
+        $data['pilgrim_name_part_one']              = "";
+        $data['pilgrim_name_part_two']              = "";
+        $data['pilgrim_name_part_three']            = "";
+        $data['pilgrim_name_part_four']             = "";
+        $data['pilgrim_father_or_husband_type']     = "";
+        $data['pilgrim_father_or_husband_name']     = "";
+        $data['pilgrim_mothers_name']               = "";
+        $data['pilgrim_date_of_birth']              = "";
+        $data['pilgrim_nationality']                = "";
+        $data['pilgrim_marital_status']             = "";
+        $data['pilgrim_gender']                     = "";
+        $data['pilgrim_educational_qualification']  = "";
+        $data['pilgrim_occupation']                 = "";
+        $data['pilgrim_position']                   = "";
+        $data['pilgrim_national_id_no']             = "";
+        $data['pilgrim_place_of_birth']             = "";
+        $data['pilgrim_tin_no_status']              = "";
+        //$data['pilgrim_tin_no_number']            = "";
+        $data['pilgrim_traveling_before_status']    = "";
+        $data['pilgrim_how_many_country_traveling'] = "";
+        $data['pilgrim_perform_hajj_before_status'] = "";
+        $data['pilgrim_perform_hajj_before']        = "";
+        $data['pilgrim_identification_mark']        = "";
+        $data['pilgrim_passport_number']            = "";
+        //$data['pilgrim_confirm_passport_number']  = "";
+        $data['pilgrim_passport_type']              = "";
+        $data['pilgrim_passport_issue_date']        = "";
+        $data['pilgrim_passport_expire_date']       = "";
+        $data['pilgrim_place_of_passport_issue']    = "";
+        $data['pilgrim_permanent_address_village']  = "";
+        $data['pilgrim_permanent_address_district'] = "";
+        $data['pilgrim_permanent_address_police_station']= "";
+        $data['pilgrim_permanent_address_post_code']= "";
+        $data['pilgrim_permanent_address_mobile_no']= "";
+        $data['pilgrim_present_address_village']    = "";
+        $data['pilgrim_present_address_district']   = "";
+        $data['pilgrim_present_address_police_station']= "";
+        $data['pilgrim_presenet_address_post_code'] = "";
+        $data['pilgrim_close_relative_name']        = "";
+        $data['pilgrim_close_relative_relation']    = "";
+        $data['pilgrim_close_relative_mobile_no_one']= "";
+        $data['pilgrim_close_relative_mobile_no_two']= "";
+        $data['pilgrim_close_relative_email']       = "";
+        $data['pilgrim_child_name']                 = "";
+        $data['pilgrim_agency_name']                = "";
+        $data['pilgrim_license_no']                 = "";
+        $data['pilgrim_package_name']               = "";
+        $data['pilgrim_package_amount']             = "";
+        $data['pilgrim_package_amount_in_word']     = "";
+        $data['pilgrim_name_of_nominee']            = "";
+        $data['pilgrim_noinee_relationship']        = "";
+        $data['pilgrim_nominee_address']            = "";
+        $data['pilgrim_family_member_id']           = "";  
+        $data['pilgrim_blood_group']                = "";
 
         $data['pilgrim_id'] = $this->input->post('pilgrim_id');
         $data['pilgrim_type'] = $this->input->post('pilgrim_type');
@@ -128,36 +191,20 @@ class Haji_info extends CI_Controller {
         $data['pilgrim_noinee_relationship']= $this->input->post('pilgrim_noinee_relationship');      
         $data['pilgrim_nominee_address']= $this->input->post('pilgrim_nominee_address');      
         $data['pilgrim_family_member_id']= $this->input->post('pilgrim_family_member_id');      
-        $data['pilgrim_blood_group']= $this->input->post('pilgrim_blood_group');      
-        //$data['pilgrim_health_information_of_disease']= $this->input->post('pilgrim_health_information_of_disease');      
+        $data['pilgrim_blood_group']= $this->input->post('pilgrim_blood_group'); 
+
+        $pilgrim_health_information_of_disease = $this->input->post('pilgrim_health_information_of_disease');     
+
+        $pilgrim_health_information_of_disease=implode(",", $pilgrim_health_information_of_disease);
+
+        // $pilgrim_health_information_of_disease = 
+
+        $data['pilgrim_health_information_of_disease']=  $pilgrim_health_information_of_disease  ;   
         //$data['pilgrim_health_information_of_medicine']= $this->input->post('pilgrim_health_information_of_disease');      
     
 
               
-        //$this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
-        // $this->email_model->account_opening_email('teacher', $data['email']); //SEND EMAIL ACCOUNT OPENING EMAIL
-        // redirect(base_url() . 'index.php?admin/teacher/', 'refresh');
-
-        /*
-         * -------Start Profile Image Upload-------------
-         */
-        // $config['upload_path'] = 'uploads/haji_profile_photo/';
-        // $config['allowed_types'] = 'gif|jpg|png|pdf';
-        // $config['max_size'] = '2048';
-        // $config['max_width'] = '1024';
-        // $config['max_height'] = '768';
-        // $error = array();
-        // $fdata = array();
-        // $this->load->library('upload', $config);
-        // if (!$this->upload->do_upload('haji_profile_photo')) {
-        //     $error = $this->upload->display_errors();
-        // } else {
-        //     $fdata = $this->upload->data();
-        //     $data['haji_profile_photo'] = $config['upload_path'] . $fdata['file_name'];
-        // }
-        /*
-         * --------End Profile Image Upload----------------
-         */
+        
 
         $this->load->model('Haji_info_model');
 

@@ -29,7 +29,7 @@
                     <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
                         <thead>
                             <tr>
-                                <th>P ID</th>
+                                <th>Pilgrim ID</th>
                                 <th class="hidden-xs">Creator</th>
                                 <th>Passport</th>
                                 <th class="hidden-xs"> Name & Location</th>
@@ -45,7 +45,10 @@
                                 <td><?php echo $value->pilgrim_passport_number; ?></td>
                                 <td class="hidden-xs"><?php echo $value->pilgrim_full_name; ?></td>
                                 <td><?php echo $value->pilgrim_present_address_mobile_no; ?></td>
-                                <td>Action</td>
+                                <td>
+                                    <a href="<?php echo base_url(); ?>haji_info/edit/<?php echo $value->haji_id; ?>" class="btn btn-primary">Edit</a>
+                                    <a href="<?php echo base_url(); ?>haji_info/delete/<?php echo $value->haji_id; ?>" class="btn btn-primary" onclick="return confirm('Do you want to allow him to');">Delete</a>
+                                </td>
                             </tr>
 
                             <?php } ?>
