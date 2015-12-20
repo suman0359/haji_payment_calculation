@@ -22,12 +22,17 @@
         <div class="container-fluid container-fullw bg-white">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="text-center">Commission Agent Entry Form</h2>
+                    <h2 class="text-center">Payment Collection Form</h2>
                     <p class="text-center">
                         Create one account to manage everything you do with Clip-Two, from your shopping preferences to your Clip-Two activity.
                     </p>
                     <hr>
-                    <!-- <form action="<?php echo base_url() . "haji_info/add"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data"> -->
+                    <form action="<?php echo base_url() . "haji_info/add"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data"> 
+                        
+
+                        <h2 class="text-center">Due Collection Form</h2>
+
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="errorHandler alert alert-danger no-display">
@@ -40,7 +45,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Haji Code <span class="symbol required"></span>
+                                        Date <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
                                 </div>
@@ -48,7 +53,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Date of Birth <span class="symbol required"></span>
+                                        Voucher no <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
                                 </div>
@@ -56,7 +61,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Mother's Name <span class="symbol required"></span>
+                                        Total Amount <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
                                 </div>
@@ -68,7 +73,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Name <span class="symbol required"></span>
+                                        Haji Name <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
                                 </div>
@@ -76,7 +81,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Father's Name <span class="symbol required"></span>
+                                        Commission Agent Name <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
                                 </div>
@@ -84,14 +89,18 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Passport No <span class="symbol required"></span>
+                                        Commission Amount <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
                                 </div>
                             </div><!-- End Second Column -->
 
-                            <hr>
+                            
                         </div>
+
+
+
+
 
 
 
@@ -116,7 +125,7 @@
                         </button>
                     </div>
                 </div>
-                <!-- </form> -->
+                </form>
             </div>
         </div>
     </div>

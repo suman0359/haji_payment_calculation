@@ -27,7 +27,7 @@
                         Create one account to manage everything you do with Clip-Two, from your shopping preferences to your Clip-Two activity.
                     </p>
                     <hr>
-                    <form action="<?php echo base_url()."haji_info/add"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
+                    <form action="<?php echo base_url() . "haji_info/add"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="errorHandler alert alert-danger no-display">
@@ -65,9 +65,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                
 
-                                
+
+
 
                                 <hr>
 
@@ -82,7 +82,7 @@
                                     </span>
                                     <span class="label label-info nowrap">এটা মুলত ভিসা লজমেন্টের অনুরুপ করা হয়েছে।ভিসা লজমেন্টের সময় ৪ টা অংশ পূরণ করতে হয়। প্রয়োজনে ২য় বা ৩য় অংশে পিতার নাম বা নামের অংশ বিশেষ লিখে পূরণ করুন।</span>
                                 </div>
-                                <row>
+                                <div class="row">
                                     <div class="col-md-6 form-group">
                                         <label class="control-label">
                                             First Part <span class="symbol required"></span>
@@ -107,7 +107,7 @@
                                         </label>
                                         <input type="text" placeholder="Insert Fourth Part Name" class="form-control" id="firstname" name="pilgrim_name_part_four">
                                     </div>
-                                </row>
+                                </div>
 
                                 <hr/>
 
@@ -133,7 +133,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                 <span class="symbol required"></span>
+                                                <span class="symbol required"></span>
                                             </label>
                                             <input type="text" placeholder="Insert your Father's or Husband Name" class="form-control" id="father_or_husband_name" name="pilgrim_father_or_husband_name">
                                         </div>
@@ -163,30 +163,30 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                
+
                                                 <input type="date" class="form-control" id="pilgrim_date_of_birth" name="pilgrim_date_of_birth">
-                                                
+
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-md-6">
-                                            <div class="form-group" style="margin-top: 10px;">
-                                                <label class="control-label">
-                                                    Nationality: <span class="symbol required"></span>
-                                                </label>
-                                            </div>
+                                        <div class="form-group" style="margin-top: 10px;">
+                                            <label class="control-label">
+                                                Nationality: <span class="symbol required"></span>
+                                            </label>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" placeholder="Insert your Nationality" class="form-control" id="lastname" name="pilgrim_nationality">
-                                            </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Insert your Nationality" class="form-control" id="lastname" name="pilgrim_nationality">
                                         </div>
+                                    </div>
                                 </div>
-                                
+
 
                                 <div class="row">
                                     <div class="col-md-6">
@@ -225,7 +225,7 @@
                                     </div>            
                                 </div>
 
-                                
+
 
                                 <hr>
 
@@ -258,26 +258,26 @@
                                     </div>
                                 </div>
 
-                                
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                        <label class="control-label">
-                                            Position <span class="symbol required"></span>
-                                        </label>
-                                        <input type="text" placeholder="Insert Position" class="form-control" id="position" name="pilgrim_position">
-                                    </div>
+                                            <label class="control-label">
+                                                Position <span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" placeholder="Insert Position" class="form-control" id="position" name="pilgrim_position">
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">
-                                               7. National ID No <span class="symbol required"></span>
+                                                7. National ID No <span class="symbol required"></span>
                                             </label>
                                             <input type="text" placeholder="Insert your National ID No" class="form-control" id="lastname" name="pilgrim_national_id_no">
                                         </div>
                                     </div>
                                 </div>
-                                  
+
 
                                 <div class="form-group">
                                     <label class="control-label">
@@ -313,7 +313,7 @@
                                                  &nbsp; <!-- <span class="symbol required"></span> -->
                                             </label>
                                             <div class="form-inline tin_no">
-                                        
+
                                                 <input type="text" class="form-control" name="pilgrim_tin_no_number[]" maxlength="3">
                                                 <input type="text" class="form-control" name="pilgrim_tin_no_number[]" maxlength="3">
                                                 <input type="text" class="form-control" name="pilgrim_tin_no_number[]" maxlength="6">
@@ -345,14 +345,14 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                    10.kha: How many country (If Traveled)? <span class="symbol "></span>
+                                                10.kha: How many country (If Traveled)? <span class="symbol "></span>
                                             </label>
                                             <div class="form-inline">
                                                 <input type="text" class="form-control" name="number_of_country_traveling" maxlength="3">
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
 
                                 <h4>10. Perform Hajj Before ?</h4>
@@ -377,14 +377,14 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                    10.gha: Last Year of Performed Hajj ? <span class="symbol "></span>
+                                                10.gha: Last Year of Performed Hajj ? <span class="symbol "></span>
                                             </label>
                                             <div class="form-inline">
                                                 <input type="text" class="form-control" name="pilgrim_perform_hajj_before" maxlength="3">
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div> 
 
                                 <div class="row">
@@ -453,19 +453,19 @@
                                         <div class="form-group">
                                             <label class="control-label">
                                                 <select name="pilgrim_passport_type" id="passport_type" class="form-control" >
-                                                <option value="">-SELECT-</option>
-                                                <option value="01">ORDINARY</option>
-                                                <option value="02">OFFICIAL</option>
-                                                <option value="03">DIPLOMATIC</option>
-                                                
-                                            </select>
+                                                    <option value="">-SELECT-</option>
+                                                    <option value="01">ORDINARY</option>
+                                                    <option value="02">OFFICIAL</option>
+                                                    <option value="03">DIPLOMATIC</option>
+
+                                                </select>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group connected-group">
-                                    
+
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label class="control-label" style="margin-top: 8px;">
@@ -473,7 +473,7 @@
                                             </label>
                                         </div>
 
-                                        
+
                                         <div class="col-md-4">
                                             <input type="date" class="form-control" id="pilgrim_passport_issue_date" name="pilgrim_passport_issue_date">
                                         </div>
@@ -482,7 +482,7 @@
                                 </div>
 
                                 <div class="form-group connected-group">
-                                    
+
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label class="control-label" style="margin-top: 8px;">
@@ -508,11 +508,11 @@
                                         <div class="form-group">
                                             <label class="control-label">
                                                 <select name="pilgrim_place_of_passport_issue" id="pilgrim_place_of_passport_issue" class="form-control" >
-                                                <option value="">-SELECT-</option>
-                                                <option value="01">ORDINARY</option>
-                                                <option value="02">OFFICIAL</option>
-                                                <option value="03">DIPLOMATIC</option>
-                                                
+                                                    <option value="">-SELECT-</option>
+                                                    <option value="01">ORDINARY</option>
+                                                    <option value="02">OFFICIAL</option>
+                                                    <option value="03">DIPLOMATIC</option>
+
                                                 </select>
                                             </label>
                                         </div>
@@ -539,46 +539,46 @@
                                         </div>
                                     </div>
 
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-4">
+                                        <label class="control-label" style="margin-top: 8px;">
+                                            District <span class="symbol required"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label for="" class="control-label">
+                                            <select name="pilgrim_permanent_address_district" id="pilgrim_permanent_address_district" class="form-control" >
+                                                <option value="">DISTRICT SELECT </option>
+                                                <?php foreach ($district_list as $value) { ?>
+                                                    <option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </label>
                                     </div>
 
-                                    <div class="row">
 
-                                            <div class="col-md-4">
-                                                <label class="control-label" style="margin-top: 8px;">
-                                                    District <span class="symbol required"></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="" class="control-label">
-                                                    <select name="pilgrim_permanent_address_district" id="pilgrim_permanent_address_district" class="form-control" >
-                                                    <option value="">DISTRICT SELECT </option>
-                                                    <?php foreach($district_list as $value){ ?>
+                                    <div class="col-md-4">
+                                        <label class="control-label" style="margin-top: 8px;">
+                                            Police Station <span class="symbol required"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label for="" class="control-label">
+                                            <select name="pilgrim_permanent_address_police_station" id="pilgrim_permanent_address_police_station" class="form-control" >
+                                                <option value="">POLICE STATION  </option>
+                                                <?php foreach ($police_station_list as $value) { ?>
                                                     <option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                                </label>
-                                            </div>
+                                                <?php } ?>
+                                            </select>
+                                        </label>
+                                    </div>
 
+                                </div>
 
-                                            <div class="col-md-4">
-                                                <label class="control-label" style="margin-top: 8px;">
-                                                    Police Station <span class="symbol required"></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="" class="control-label">
-                                                    <select name="pilgrim_permanent_address_police_station" id="pilgrim_permanent_address_police_station" class="form-control" >
-                                                    <option value="">POLICE STATION  </option>
-                                                    <?php foreach($police_station_list as $value){ ?>
-                                                    <option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                                </label>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
+                                <div class="row">
 
                                     <div class="col-md-4">
                                         <div class="form-group" style="margin-top: 10px;">
@@ -631,46 +631,46 @@
                                         </div>
                                     </div>
 
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-4">
+                                        <label class="control-label" style="margin-top: 8px;">
+                                            District <span class="symbol required"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label for="" class="control-label">
+                                            <select name="pilgrim_present_address_district" id="pilgrim_present_address_district" class="form-control" >
+                                                <option value="">DISTRICT SELECT </option>
+                                                <?php foreach ($district_list as $value) { ?>
+                                                    <option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </label>
                                     </div>
 
-                                    <div class="row">
 
-                                            <div class="col-md-4">
-                                                <label class="control-label" style="margin-top: 8px;">
-                                                    District <span class="symbol required"></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="" class="control-label">
-                                                    <select name="pilgrim_present_address_district" id="pilgrim_present_address_district" class="form-control" >
-                                                    <option value="">DISTRICT SELECT </option>
-                                                    <?php foreach($district_list as $value){ ?>
+                                    <div class="col-md-4">
+                                        <label class="control-label" style="margin-top: 8px;">
+                                            Police Station <span class="symbol required"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label for="" class="control-label">
+                                            <select name="pilgrim_present_address_police_station" id="pilgrim_present_address_police_station" class="form-control" >
+                                                <option value="">POLICE STATION  </option>
+                                                <?php foreach ($police_station_list as $value) { ?>
                                                     <option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                                </label>
-                                            </div>
+                                                <?php } ?>
+                                            </select>
+                                        </label>
+                                    </div>
 
+                                </div>
 
-                                            <div class="col-md-4">
-                                                <label class="control-label" style="margin-top: 8px;">
-                                                    Police Station <span class="symbol required"></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="" class="control-label">
-                                                    <select name="pilgrim_present_address_police_station" id="pilgrim_present_address_police_station" class="form-control" >
-                                                    <option value="">POLICE STATION  </option>
-                                                    <?php foreach($police_station_list as $value){ ?>
-                                                    <option value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                                </label>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
+                                <div class="row">
 
                                     <div class="col-md-4">
                                         <div class="form-group" style="margin-top: 10px;">
@@ -707,8 +707,8 @@
 
                             <!-- Second Column --> 
                             <div class="col-md-6">
-                                
-                                
+
+
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -720,14 +720,14 @@
                                             <input type="file" class="form-control" id="select_image" name="pilgrim_profile_photo" onchange="putImage()">
                                         </div>
                                     </div>
-                                    
+
                                 </div>
 
                                 <hr>
 
                                 <h4>15. From Bangladesh or Soudia Arabia for Emergency communication and Close relative mobile no to get Hajj Related Emergency information by SMS(2 taka charge and VAT for every SMS)</h4>
 
-                                <row>
+                                <div class="row">
                                     <div class="col-md-6 form-group">
                                         <label class="control-label">
                                             Name: <span class="symbol required"></span>
@@ -750,7 +750,7 @@
                                                     <label class="control-label">
                                                         <input type="text" class="form-control" name="pilgrim_close_relative_mobile_no_one">
                                                     </label>
-                                                    
+
                                                 </div>
                                                 <div class="col-md-6 form-group">
                                                     <label class="control-label">
@@ -760,7 +760,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                        
+
                                     <div class="col-md-6 form-group">
                                         <label class="control-label">
                                             Email: <span class="symbol required"></span>
@@ -768,7 +768,7 @@
                                         <input type="text" placeholder="Insert Fourth Part Name" class="form-control" id="firstname" name="pilgrim_close_relative_email">
                                     </div>
 
-                                </row>
+                                </div>
 
                                 <hr>
 
@@ -805,9 +805,9 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            
+
                                             <input type="text" class="form-control" id="pilgrim_agency_name" name="pilgrim_agency_name">
-                                            
+
                                         </div>
                                     </div>
 
@@ -820,9 +820,9 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            
+
                                             <input type="text" class="form-control" id="pilgrim_license_no" name="pilgrim_license_no">
-                                            
+
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -834,9 +834,9 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            
+
                                             <input type="text" class="form-control" id="pilgrim_package_name" name="pilgrim_package_name">
-                                           
+
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -848,9 +848,9 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            
+
                                             <input type="text" class="form-control" id="pilgrim_package_amount" name="pilgrim_package_amount">
-                                            
+
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -863,7 +863,7 @@
                                     <div class="col-md-8 form-group">                                         
                                         <input type="text" class="form-control" id="pilgrim_package_amount_in_word" name="pilgrim_package_amount_in_word">
                                     </div>
-                                    
+
                                 </div>
 
                                 <hr>
@@ -891,9 +891,9 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            
+
                                             <input type="text" class="form-control" id="pilgrim_name_of_nominee" name="pilgrim_name_of_nominee">
-                                            
+
                                         </div>
                                     </div>
 
@@ -906,9 +906,9 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            
+
                                             <input type="text" class="form-control" id="pilgrim_noinee_relationship" name="pilgrim_noinee_relationship">
-                                            
+
                                         </div>
                                     </div>
 
@@ -921,9 +921,9 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            
+
                                             <input type="text" class="form-control" id="pilgrim_nominee_address" name="pilgrim_nominee_address">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -954,7 +954,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                 <span class="symbol required"></span>
+                                                <span class="symbol required"></span>
                                             </label>
                                             <input type="text" placeholder="Insert your Father's or Husband Name" class="form-control" id="pilgrim_family_member_id" name="pilgrim_family_member_id">
                                         </div>
@@ -975,7 +975,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                           <select name="pilgrim_blood_group" id="pilgrim_blood_group" class="form-control" >
+                                            <select name="pilgrim_blood_group" id="pilgrim_blood_group" class="form-control" >
                                                 <option value="">-SELECT-</option>
                                                 <option value="A+">A+</option>
                                                 <option value="AB+">AB+</option>
@@ -983,7 +983,7 @@
                                                 <option value="O+">O-</option>
                                                 <option value="B+">B+</option>
                                                 <option value="B-">B-</option>
-                                                
+
                                             </select>
                                         </div>
                                     </div>
@@ -1069,10 +1069,10 @@
                                                     Accused kidney disease
                                                 </label>
                                             </div>
-                                            
+
                                         </div>
-                                       
-                                       
+
+
                                     </div>
                                 </div>
 
@@ -1081,7 +1081,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            
+
                                             <div class="checkbox clip-check check-primary">
                                                 <input type="checkbox" value="1" name="pilgrim_health_information_of_medicine[]" id="medicine1">
                                                 <label for="medicine1">
@@ -1136,70 +1136,70 @@
                                                     High blood pressure preventive
                                                 </label>
                                             </div>
-                                            
-                                            
+
+
                                         </div>
-                                       
-                                       
+
+
                                     </div>
                                 </div>
 
-<hr>
-                                </div>
-
-                                
-
-                                <h4>সম্মানিত হজ্জ এজেন্সির প্রতিনিধিগনের অবগতির জন্য জানানো যাচ্ছে যে, হজ্জযাত্রীর ছবি ও ১৫ থেকে ২১ নং কলামের তথ্যসহ গাইড মোবাইল নাম্বার পরিবর্তন করলে সরাসরি মুল ডাটাবেইজে সংরক্ষিত হবে।</h4>
-
-                                
-
-
-                               
+                                <hr>
                             </div>
+
+
+
+                            <h4>সম্মানিত হজ্জ এজেন্সির প্রতিনিধিগনের অবগতির জন্য জানানো যাচ্ছে যে, হজ্জযাত্রীর ছবি ও ১৫ থেকে ২১ নং কলামের তথ্যসহ গাইড মোবাইল নাম্বার পরিবর্তন করলে সরাসরি মুল ডাটাবেইজে সংরক্ষিত হবে।</h4>
+
+
+
+
+
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div>
-                                    <span class="symbol required"></span>Required Fields
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <p>
-                                    By clicking REGISTER, you are agreeing to the Policy and Terms &amp; Conditions.
-                                </p>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn btn-primary btn-wide pull-right" type="submit">
-                                    Register <i class="fa fa-arrow-circle-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <span class="symbol required"></span>Required Fields
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>
+                            By clicking REGISTER, you are agreeing to the Policy and Terms &amp; Conditions.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary btn-wide pull-right" type="submit">
+                            Register <i class="fa fa-arrow-circle-right"></i>
+                        </button>
+                    </div>
+                </div>
+                </form>
             </div>
         </div>
-        <!-- end: FORM VALIDATION EXAMPLE 1 -->
-
     </div>
+    <!-- end: FORM VALIDATION EXAMPLE 1 -->
+
+</div>
 </div>
 
 
 <script>
     function showImage(src, target) {
-    var fr = new FileReader();
-    fr.onload = function(){
-        target.src = fr.result;
+        var fr = new FileReader();
+        fr.onload = function () {
+            target.src = fr.result;
+        }
+        fr.readAsDataURL(src.files[0]);
     }
-    fr.readAsDataURL(src.files[0]);
-}
 
-function putImage() {
-    var src = document.getElementById("select_image");
-    var target = document.getElementById("target");
-    showImage(src, target);
-}
+    function putImage() {
+        var src = document.getElementById("select_image");
+        var target = document.getElementById("target");
+        showImage(src, target);
+    }
 
 </script>

@@ -19,11 +19,33 @@ class Commission_agent extends CI_Controller {
 
 	
 	public function index(){
-		// $data = array();
-		// $data['header'] = $this->load->view('common/header');
-		// $data['login_page'] = $this->load->view('common/login_page');
-		// $data['footer'] = $this->load->view('common/footer');
+		$data = array();
 
-		$this->load->view('includes/commission_agent/index');
+		$data['header'] = $this->load->view('common/header', '', TRUE);
+        $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/commission_agent/index', $data, TRUE);
+        $data['footer'] = $this->load->view('common/footer', '', TRUE);
+
+		$this->load->view('master_dashboard', $data);
+	}
+
+	public function add_form(){
+		$data = array();
+        $sub_data = array();
+
+        $this->load->model('common_model');
+
+        $sub_data['district_list'] = $this->common_model->selectAll('district');
+        $sub_data['police_station_list'] = $this->common_model->selectAll('police_station');
+
+        $data['header'] = $this->load->view('common/header', '', TRUE);
+        $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/commission_agent/add_form', $sub_data, TRUE);
+        //$data['main_content'] = $this->load->view('includes/main_content', '', TRUE);
+        $data['footer'] = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
 	}
 }

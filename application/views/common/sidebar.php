@@ -82,7 +82,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>">
+                            <a href="<?php echo base_url(); ?>commission_agent/add_form">
                                 <span class="title"> Add Commission Agent Agent</span>
                             </a>
                         </li>
@@ -96,26 +96,29 @@
                                 <i class="ti-layout-grid2"></i>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> Tables </span><i class="icon-arrow"></i>
+                                <span class="title"> Payment Collection </span><i class="icon-arrow"></i>
                             </div>
                         </div>
                     </a>
                     <ul class="sub-menu">
+
                         <li>
-                            <a href="table_basic.html">
-                                <span class="title">Basic Tables</span>
+                            <a href="<?php echo base_url(); ?>payment_collection/index">
+                                <span class="title">Payment Information</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url(); ?>payment_collection/add_form">
+                                <span class="title">Entry Form</span>
                             </a>
                         </li>
                         <li>
-                            <a href="table_responsive.html">
-                                <span class="title">Responsive Tables</span>
+                            <a href="<?php echo base_url(); ?>payment_collection/due_collection">
+                                <span class="title">Due Collection </span>
                             </a>
                         </li>
-                        <li>
-                            <a href="table_data.html">
-                                <span class="title">Advanced Data Tables</span>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </li>
                 <li>
@@ -125,41 +128,34 @@
                                 <i class="ti-pencil-alt"></i>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> Forms </span><i class="icon-arrow"></i>
+                                <span class="title"> Expense Calculation </span><i class="icon-arrow"></i>
                             </div>
                         </div>
                     </a>
+
                     <ul class="sub-menu">
+
                         <li>
-                            <a href="form_elements.html">
-                                <span class="title">Form Elements</span>
+                            <a href="<?php echo base_url()."expense"; ?>">
+                                <span class="title">Expense Information</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url()."expense/expense_main_head"; ?>">
+                                <span class="title">Expense Main Head Entry</span>
                             </a>
                         </li>								
                         <li>
-                            <a href="form_text_editor.html">
-                                <span class="title">Text Editor</span>
+                            <a href="<?php echo base_url()."expense/expense_head"; ?>">
+                                <span class="title">Expense Head Entry</span>
                             </a>
                         </li>
                         <li>
-                            <a href="form_wizard.html">
-                                <span class="title">Form Wizard</span>
+                            <a href="<?php echo base_url()."expense/expense_entry_form"; ?>">
+                                <span class="title">Expense Entry Form</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="form_validation.html">
-                                <span class="title">Form Validation</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="form_image_cropping.html">
-                                <span class="title">Image Cropping</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="form_multiple_upload.html">
-                                <span class="title">Multiple File Upload</span>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </li>
                 <li>
