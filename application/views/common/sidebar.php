@@ -96,7 +96,7 @@
                                 <i class="ti-layout-grid2"></i>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> Payment Collection </span><i class="icon-arrow"></i>
+                                <span class="title"> Payment or Voucher </span><i class="icon-arrow"></i>
                             </div>
                         </div>
                     </a>
@@ -165,31 +165,22 @@
                                 <i class="ti-user"></i>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> Login </span><i class="icon-arrow"></i>
+                                <span class="title"> Income Head </span><i class="icon-arrow"></i>
                             </div>
                         </div>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="login_signin.html">
-                                <span class="title"> Login Form </span>
+                            <a href="<?php echo base_url()."income_head"; ?>">
+                                <span class="title"> Details of Income Head </span>
                             </a>
                         </li>
                         <li>
-                            <a href="login_registration.html">
-                                <span class="title"> Registration Form </span>
+                            <a href="<?php echo base_url()."income_head/add_form"; ?>">
+                                <span class="title"> Add Income Head </span>
                             </a>
                         </li>
-                        <li>
-                            <a href="login_forgot.html">
-                                <span class="title"> Forgot Password Form </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="login_lockscreen.html">
-                                <span class="title">Lock Screen</span>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </li>
                 <li>

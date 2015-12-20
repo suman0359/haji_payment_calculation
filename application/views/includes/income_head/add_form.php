@@ -40,19 +40,12 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Agent Code <span class="symbol required"></span>
+                                        Name <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Agent Code" class="form-control" id="haji_code" name="haji_code">
+                                    <input type="text" placeholder="Income Head Name" class="form-control" id="income_head_name" name="income_head_name">
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Agent Name <span class="symbol required"></span>
-                                    </label>
-                                    <input type="text" placeholder="Agent Name" class="form-control" id="date_of_birth" name="date_of_birth">
-                                </div>
-                            </div>
+                            
                             <!-- End First Column -->
                             
                             <!-- Second Column --> 
@@ -61,20 +54,13 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Mobile Number <span class="symbol required"></span>
+                                        Comments <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Mobile Number" class="form-control" id="name" name="name">
+                                    <input type="text" placeholder="Add Comments" class="form-control" id="comments" name="comments">
                                 </div>
                             </div> 
                             
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Passport No <span class="symbol required"></span>
-                                    </label>
-                                    <input type="text" placeholder="Insert Passport No" class="form-control" id="passport_no" name="passport_no">
-                                </div>
-                            </div>
+                            
                             <!-- End Second Column -->
 
                             <hr>

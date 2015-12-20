@@ -22,7 +22,7 @@
         <div class="container-fluid container-fullw bg-white">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="text-center">Payment Collection Form</h2>
+                    <h2 class="text-center">Payment or Voucher Form</h2>
                     <p class="text-center">
                         Create one account to manage everything you do with Clip-Two, from your shopping preferences to your Clip-Two activity.
                     </p>
@@ -110,25 +110,34 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Date <span class="symbol required"></span>
+                                        Voucher No <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <input type="text" placeholder="Voucher No" class="form-control" id="voucher_no" name="voucher_no">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Voucher no <span class="symbol required"></span>
+                                        MRR NO <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <input type="text" placeholder="MRR NO" class="form-control" id="mrr_no" name="mrr_no">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Total Amount <span class="symbol required"></span>
+                                        Payment Date <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <input type="date" class="form-control" id="payment_date" name="payment_date">
+                                </div>
+                            </div> <!-- End First Column -->
+                            
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Payment Mode <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" class="form-control" id="payment_mode" name="payment_mode">
                                 </div>
                             </div> <!-- End First Column -->
                             
@@ -138,7 +147,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Haji Name <span class="symbol required"></span>
+                                        Cheque Number <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
                                 </div>
@@ -146,7 +155,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Commission Agent Name <span class="symbol required"></span>
+                                        Bank Name <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
                                 </div>
@@ -154,11 +163,21 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Commission Amount <span class="symbol required"></span>
+                                         Amount <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
                                 </div>
-                            </div><!-- End Second Column -->
+                            </div>
+                            
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                         Branch Name <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                </div>
+                            </div>
+                            <!-- End Second Column -->
 
                             
                         </div>
