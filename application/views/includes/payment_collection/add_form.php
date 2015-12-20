@@ -4,7 +4,7 @@
         <section id="page-title">
             <div class="row">
                 <div class="col-sm-8">
-                    <h1 class="mainTitle">Form Validation</h1>
+                    <h1 class="mainTitle">Hajj Management Application</h1>
                     <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span>
                 </div>
                 <ol class="breadcrumb">
@@ -22,7 +22,7 @@
         <div class="container-fluid container-fullw bg-white">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="text-center">Payment or Voucher Form</h2>
+                    <h2 class="text-center"> Hajj Payment Collection </h2>
                     <p class="text-center">
                         Create one account to manage everything you do with Clip-Two, from your shopping preferences to your Clip-Two activity.
                     </p>
@@ -61,10 +61,10 @@
                                     <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
                                 </div>
                             </div> <!-- End First Column -->
-                            
+
                             <!-- Second Column --> 
-                            
-                                
+
+
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
@@ -90,12 +90,12 @@
                                 </div>
                             </div><!-- End Second Column -->
 
-                            
+
                         </div>
 
                         <hr>
 
-                        <h2 class="text-center">Payment Collection Form</h2>
+                        <!--                        <h2 class="text-center">Payment Collection Form</h2>-->
 
 
                         <div class="row">
@@ -107,14 +107,14 @@
                                     <i class="fa fa-ok"></i> Your form validation is successful!
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Voucher No <span class="symbol required"></span>
-                                    </label>
-                                    <input type="text" placeholder="Voucher No" class="form-control" id="voucher_no" name="voucher_no">
-                                </div>
-                            </div>
+                            <!--                            <div class="col-md-6 col-sm-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label">
+                                                                    Voucher No <span class="symbol required"></span>
+                                                                </label>
+                                                                <input type="text" placeholder="Voucher No" class="form-control" id="voucher_no" name="voucher_no">
+                                                            </div>
+                                                        </div>-->
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
@@ -126,24 +126,32 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
+                                        Payment Mode <span class="symbol required"></span>
+                                    </label>
+
+                                    <select class="form-control">
+                                        <option> Select Payment Mode <option>
+                                        <option> Cash <option>
+                                        <option> Bank<option>
+                                        <option> BKash<option>
+                                    </select>
+
+<!--                                    <input type="date" class="form-control" id="payment_date" name="payment_date">-->
+                                </div>
+                            </div> <!-- End First Column -->
+
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">
                                         Payment Date <span class="symbol required"></span>
                                     </label>
                                     <input type="date" class="form-control" id="payment_date" name="payment_date">
                                 </div>
                             </div> <!-- End First Column -->
-                            
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Payment Mode <span class="symbol required"></span>
-                                    </label>
-                                    <input type="text" class="form-control" id="payment_mode" name="payment_mode">
-                                </div>
-                            </div> <!-- End First Column -->
-                            
+
                             <!-- Second Column --> 
-                            
-                                
+
+
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
@@ -171,16 +179,16 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                         Amount <span class="symbol required"></span>
+                                        Amount <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="amount" name="amount">
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                         Branch Name <span class="symbol required"></span>
+                                        Branch Name <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Branch Name" class="form-control" id="branch_name" name="branch_name">
                                 </div>
@@ -188,14 +196,14 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                         Payment Head <span class="symbol required"></span>
+                                        Payment Head <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Payment Head" class="form-control" id="pilgrim_id" name="payment_head">
                                 </div>
                             </div>
                             <!-- End Second Column -->
 
-                            
+
                         </div>
 
 

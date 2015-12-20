@@ -141,8 +141,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url()."expense/expense_main_head"; ?>">
-                                <span class="title">Expense Main Head Entry</span>
+                            <a href="<?php echo base_url()."expense/expense_group_entry"; ?>">
+                                <span class="title">Expense Group Entry</span>
                             </a>
                         </li>								
                         <li>

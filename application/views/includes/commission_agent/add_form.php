@@ -4,7 +4,7 @@
         <section id="page-title">
             <div class="row">
                 <div class="col-sm-8">
-                    <h1 class="mainTitle">Form Validation</h1>
+                    <h1 class="mainTitle">Hajj Management Application</h1>
                     <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span>
                 </div>
                 <ol class="breadcrumb">
@@ -51,6 +51,14 @@
                                         Agent Name <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Agent Name" class="form-control" id="date_of_birth" name="date_of_birth">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Address <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="Address" class="form-control" id="address" name="address">
                                 </div>
                             </div>
                             <!-- End First Column -->

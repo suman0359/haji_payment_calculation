@@ -66,7 +66,7 @@ class Expense extends CI_Controller {
         $this->load->view('master_dashboard', $data);
     }
 
-    public function expense_main_head(){
+    public function expense_group_entry(){
         $data = array();
         $sub_data = array();
 
@@ -78,7 +78,7 @@ class Expense extends CI_Controller {
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
-        $data['main_content']               = $this->load->view('includes/expense/due_collection_form', $sub_data, TRUE);
+        $data['main_content']               = $this->load->view('includes/expense/group_entry', $sub_data, TRUE);
         $data['footer']                     = $this->load->view('common/footer', '', TRUE);
 
         $this->load->view('master_dashboard', $data);
@@ -96,7 +96,7 @@ class Expense extends CI_Controller {
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
-        $data['main_content']               = $this->load->view('includes/expense/due_collection_form', $sub_data, TRUE);
+        $data['main_content']               = $this->load->view('includes/expense/head_entry', $sub_data, TRUE);
         $data['footer']                     = $this->load->view('common/footer', '', TRUE);
 
         $this->load->view('master_dashboard', $data);

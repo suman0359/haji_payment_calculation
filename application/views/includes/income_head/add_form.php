@@ -4,7 +4,7 @@
         <section id="page-title">
             <div class="row">
                 <div class="col-sm-8">
-                    <h1 class="mainTitle">Form Validation</h1>
+                    <h1 class="mainTitle">Hajj Mananagement Application</h1>
                     <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span>
                 </div>
                 <ol class="breadcrumb">
@@ -40,6 +40,14 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
+                                        Code <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="Income Head Name" class="form-control" id="income_head_name" name="income_head_name">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">
                                         Name <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Income Head Name" class="form-control" id="income_head_name" name="income_head_name">
@@ -51,14 +59,7 @@
                             <!-- Second Column --> 
                             
                                 
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Comments <span class="symbol required"></span>
-                                    </label>
-                                    <input type="text" placeholder="Add Comments" class="form-control" id="comments" name="comments">
-                                </div>
-                            </div> 
+                            
                             
                             
                             <!-- End Second Column -->

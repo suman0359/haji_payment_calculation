@@ -4,7 +4,7 @@
         <section id="page-title">
             <div class="row">
                 <div class="col-sm-8">
-                    <h1 class="mainTitle">Form Validation</h1>
+                    <h1 class="mainTitle">Hajj Management Application</h1>
                     <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span>
                 </div>
                 <ol class="breadcrumb">
