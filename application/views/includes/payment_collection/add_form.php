@@ -149,7 +149,15 @@
                                     <label class="control-label">
                                         Cheque Number <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <input type="text" placeholder="Cheque Number X X X " class="form-control" id="chaque_number" name="chaque_number">
+                                </div>
+                            </div> 
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Cheque Date <span class="symbol required"></span>
+                                    </label>
+                                    <input type="date" placeholder="Insert Prilgrim ID" class="form-control" id="chaque_date" name="chaque_date">
                                 </div>
                             </div> 
                             <div class="col-md-6 col-sm-6">
@@ -157,7 +165,7 @@
                                     <label class="control-label">
                                         Bank Name <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="bank_name" name="bank_name">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -165,7 +173,7 @@
                                     <label class="control-label">
                                          Amount <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="amount" name="amount">
                                 </div>
                             </div>
                             
@@ -174,7 +182,15 @@
                                     <label class="control-label">
                                          Branch Name <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <input type="text" placeholder="Branch Name" class="form-control" id="branch_name" name="branch_name">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                         Payment Head <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="Payment Head" class="form-control" id="pilgrim_id" name="payment_head">
                                 </div>
                             </div>
                             <!-- End Second Column -->

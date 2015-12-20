@@ -13,4 +13,9 @@ class Common_model extends CI_Model{
         $result=$query_result->result();
         return $result;
     }
+    
+    public function delete($table_name, $id){
+        $this->db->where($id);
+        $this->db->delete($table_name);
+    }
 }

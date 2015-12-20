@@ -230,5 +230,11 @@ class Haji_info extends CI_Controller {
     public function edit(){
 
     }
+    
+    public function delete($id){
+        $this->load->model('common_model');
+        $this->common_model->delete('haji_info', array('haji_id' => $id));
+        redirect('haji_info');
+    }
 
 }
