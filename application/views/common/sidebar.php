@@ -77,13 +77,22 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
+<<<<<<< HEAD
                             <a href="<?php echo base_url(); ?>">
                                 <span class="title"> Add Commission Agent </span>
+=======
+                            <a href="<?php echo base_url(); ?>commission_agent">
+                                <span class="title">Commission Agent List </span>
+>>>>>>> 9577beef0cd2600f84d3cdd48fbf372a6419afb7
                             </a>
                         </li>
                         <li>
                             <a href="<?php echo base_url(); ?>">
+<<<<<<< HEAD
                                 <span class="title"> Commission Agent List</span>
+=======
+                                <span class="title"> Add Commission Agent Agent</span>
+>>>>>>> 9577beef0cd2600f84d3cdd48fbf372a6419afb7
                             </a>
                         </li>
                         
