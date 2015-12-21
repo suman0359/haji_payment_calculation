@@ -7,7 +7,7 @@ class Common_model extends CI_Model{
     
     public function update($table_name, $data, $id){
         $this->db->where($id);
-        $this->db->update($table_name, $data);
+        $this->db->insert($table_name, $data);
     }
 
     public function selectAll($table_name){

@@ -27,7 +27,7 @@
                         Create one account to manage everything you do with Clip-Two, from your shopping preferences to your Clip-Two activity.
                     </p>-->
                     <hr>
-                    <form action="<?php echo base_url() . "haji_info/add"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data"> 
+                    <form action="<?php echo base_url() . "expense/add"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data"> 
                         
 
                         <h2 class="text-center">Expense Group Entry</h2>
@@ -47,7 +47,7 @@
                                     <label class="control-label">
                                         Code <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Code" class="form-control" id="code" name="code">
+                                    <input type="text" name="expense_group_entry_code" placeholder="Insert Code" class="form-control" id="code" name="code">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -55,7 +55,7 @@
                                     <label class="control-label">
                                         Group Name <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Group Name" class="form-control" id="group_name" name="group_name">
+                                    <input type="text" name="expense_group_entry_name"placeholder="Insert Group Name" class="form-control" id="group_name" name="group_name">
                                 </div>
                             </div>
                             <!-- End Second Column -->

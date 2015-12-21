@@ -31,25 +31,19 @@
                     <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
                         <thead>
                             <tr>
-                                <th>AGENT CODE</th>
-                                <th class="hidden-xs">AGENT NAME</th>
-                                <th>Passport</th>
-                                <th class="hidden-xs"> ADDRESS</th>
-                                <th>MOBILE</th>
+                                <th>Espense Group Entry Code</th>
+                                <th>Espense Group Entry Code</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if(!empty($commission_agent_list)){ foreach ($commission_agent_list as $value) { ?>
+                            <?php if(!empty($group_entry_list)){ foreach ($group_entry_list as $value) { ?>
                             <tr>
-                                <td><?php echo $value->commission_agent_code ?></td>
-                                <td class="hidden-xs"><?php echo $value->commision_agent_name ?></td>
-                                <td><?php echo $value->passport_no; ?></td>
-                                <td class="hidden-xs"><?php echo $value->commision_agent_address; ?></td>
-                                <td><?php echo $value->commision_agent_mobile; ?></td>
+                                <td><?php echo $value->expense_group_entry_code ?></td>
+                                <td><?php echo $value->expense_group_entry_code; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url(); ?>commission_agent/update_form/<?php echo $value->id; ?>" class="btn btn-primary">Edit</a>
-                                    <a href="<?php echo base_url(); ?>commission_agent/update_form/<?php echo $value->id; ?>" class="btn btn-primary" onclick="return confirm('Do you want to allow him to');">Delete</a>
+                                    <a href="<?php echo base_url(); ?>expense/edit/<?php echo $value->haji_id; ?>" class="btn btn-primary">Edit</a>
+                                    <a href="<?php echo base_url(); ?>haji_info/delete/<?php echo $value->haji_id; ?>" class="btn btn-primary" onclick="return confirm('Do you want to allow him to');">Delete</a>
                                 </td>
                             </tr>
 

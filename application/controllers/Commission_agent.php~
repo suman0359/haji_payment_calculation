@@ -72,8 +72,6 @@ class Commission_agent extends CI_Controller {
 	
 	public function update(){
 	$data = array();
-	
-	$id= $this->input->post('id');
 
         $data['commission_agent_code'] = $this->input->post('agent_code');
         $data['commision_agent_name'] = $this->input->post('agent_name');

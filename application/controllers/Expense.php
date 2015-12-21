@@ -30,6 +30,25 @@ class Expense extends CI_Controller {
 		$this->load->view('master_dashboard', $data);
 	}
 
+    public function expense_entry_index(){
+        $data = array();
+
+        $data['header']       = $this->load->view('common/header', '', TRUE);
+        $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar']   = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/expense/group_entry_expense_index', $data, TRUE);
+        $data['footer']       = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
+    }
+
+    public function delete($id){
+        $this->load->model('common_model');
+        $this->common_model->delete('expense_group_entry
+', array('id' => $id));
+        redirect('expense');
+    }
+
     public function add_form(){
         $data = array();
         $sub_data = array();
@@ -46,6 +65,18 @@ class Expense extends CI_Controller {
         $data['footer']                     = $this->load->view('common/footer', '', TRUE);
 
         $this->load->view('master_dashboard', $data);
+    }
+
+    public function add(){
+        $data = array();
+
+        $data['expense_group_entry_code'] = $this->input->post('expense_group_entry_code');
+        $data['expense_group_entry_name'] = $this->input->post('expense_group_entry_name');
+
+        $this->load->model('common_model');
+        $this->common_model->insert('expense_group_entry', $data);
+
+        redirect('expense');
     }
 
 	public function expense_entry_form(){
@@ -65,6 +96,8 @@ class Expense extends CI_Controller {
 
         $this->load->view('master_dashboard', $data);
     }
+
+
 
     public function expense_group_entry(){
         $data = array();

@@ -136,7 +136,6 @@
                                         <option> BKash<option>
                                     </select>
 
-<!--                                    <input type="date" class="form-control" id="payment_date" name="payment_date">-->
                                 </div>
                             </div> <!-- End First Column -->
 
