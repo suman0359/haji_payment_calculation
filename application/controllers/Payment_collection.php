@@ -8,6 +8,7 @@ class Payment_collection extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
+        $this->load->model('common_model');
         
         $this->load->library('Encrypt');
         $user_id = $this->session->userdata('user_id');
@@ -34,7 +35,7 @@ class Payment_collection extends CI_Controller {
         $data = array();
         $sub_data = array();
 
-        $this->load->model('common_model');
+        $sub_data['income_head_list'] = $this->common_model->selectAll('income_head');
 
         $sub_data['commission_agent_list']  = $this->common_model->selectAll('commission_agent', 'commision_agent_name ASC');
         $sub_data['police_station_list']    = $this->common_model->selectAll('police_station');
@@ -52,13 +53,30 @@ class Payment_collection extends CI_Controller {
 
         $data = array();
 
+        $data['passport_number'] = "";
+        $data['voucher_no'] = "";
+        $data['total_amount'] = "";
+        $data['commission_agent_id'] = "";
+
+        $sub_data['money_receipt_number'] = "";
+        $sub_data['payment_mode'] = "";
+        $sub_data['chaque_number'] = "";
+        $sub_data['chaque_date'] = "";
+        $sub_data['bank_name'] = "";
+        $sub_data['amount'] = "";
+        $sub_data['branch_name'] = "";
+        $sub_data['payment_head'] = "";
+        
+
+
+
         $data['passport_number'] = $this->input->post('passport_number');
         $data['voucher_no'] = $this->input->post('voucher_no');
         $data['total_amount'] = $this->input->post('total_amount');
         $data['commission_agent_id'] = $this->input->post('commission_agent_id');
         $data['commission_amount'] = $this->input->post('commission_amount');
 
-        $sub_data['mrr_no'] = $this->input->post('mrr_no');
+        $sub_data['money_receipt_number'] = $this->input->post('mrr_no');
         $sub_data['payment_mode'] = $this->input->post('payment_mode');
         $sub_data['chaque_number'] = $this->input->post('chaque_number');
         $sub_data['chaque_date'] = $this->input->post('chaque_date');

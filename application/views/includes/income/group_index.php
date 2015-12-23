@@ -31,25 +31,22 @@
                     <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
                         <thead>
                             <tr>
-                                <th>Pilgrim ID</th>
-                                <th class="hidden-xs">Creator</th>
-                                <th>Passport</th>
-                                <th class="hidden-xs"> Name & Location</th>
-                                <th>Mobile No</th>
+                                <th>Group Code</th>
+                                <th>Group Name</th>
+                                
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if(!empty($pilgrim_list)){ foreach ($pilgrim_list as $value) { ?>
+                            <?php if(!empty($income_group_list)){ foreach ($income_group_list as $value) { ?>
                             <tr>
-                                <td><?php echo $value->pilgrim_id ?></td>
-                                <td class="hidden-xs">Creator Name or UserName</td>
-                                <td><?php echo $value->pilgrim_passport_number; ?></td>
-                                <td class="hidden-xs"><?php echo $value->pilgrim_full_name; ?></td>
-                                <td><?php echo $value->pilgrim_present_address_mobile_no; ?></td>
+                                <td><?php echo $value->income_group_code ?></td>
+                                
+                                <td><?php echo $value->income_group_name; ?></td>
+                                
                                 <td>
-                                    <a href="<?php echo base_url(); ?>haji_info/edit/<?php echo $value->haji_id; ?>" class="btn btn-primary">Edit</a>
-                                    <a href="<?php echo base_url(); ?>haji_info/delete/<?php echo $value->haji_id; ?>" class="btn btn-primary" onclick="return confirm('Do you want to allow him to');">Delete</a>
+                                    <a href="<?php echo base_url(); ?>income/edit_income_group/<?php echo $value->id; ?>" class="btn btn-primary">Edit</a>
+                                    <a href="<?php echo base_url(); ?>income/delete_income_group/<?php echo $value->id; ?>" class="btn btn-primary" onclick="return confirm('Do you want to allow him to');">Delete</a>
                                 </td>
                             </tr>
 

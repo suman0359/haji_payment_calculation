@@ -186,13 +186,23 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="<?php echo base_url()."income_head"; ?>">
-                                <span class="title"> Details of Income Head </span>
+                            <a href="<?php echo base_url()."income/group_index"; ?>">
+                                <span class="title"> Income Group Entry Details</span>
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url()."income_head/add_form"; ?>">
-                                <span class="title"> Add Income Head </span>
+                            <a href="<?php echo base_url()."income/group_form"; ?>">
+                                <span class="title"> Income Group Entry Form </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url()."income/head_index"; ?>">
+                                <span class="title"> Income Head Entry Details </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url()."income/head_form"; ?>">
+                                <span class="title"> Income Head Entry Form </span>
                             </a>
                         </li>
                         

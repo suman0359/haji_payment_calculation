@@ -27,7 +27,7 @@
                         Create one account to manage everything you do with Clip-Two, from your shopping preferences to your Clip-Two activity.
                     </p>
                     <hr>
-                    <!-- <form action="<?php echo base_url() . "haji_info/add"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data"> -->
+                    <form action="<?php echo base_url() . "income/add_group_data"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="errorHandler alert alert-danger no-display">
@@ -40,17 +40,17 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Code <span class="symbol required"></span>
+                                        Group Code <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Income Head Name" class="form-control" id="income_head_name" name="income_head_name">
+                                    <input type="text" placeholder="Income Group Code" class="form-control" id="income_head_name" name="income_group_code">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Name <span class="symbol required"></span>
+                                        Group Name <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Income Head Name" class="form-control" id="income_head_name" name="income_head_name">
+                                    <input type="text" placeholder="Income Group Name" class="form-control" id="income_head_name" name="income_group_name">
                                 </div>
                             </div>
                             
@@ -90,7 +90,7 @@
                         </button>
                     </div>
                 </div>
-                <!-- </form> -->
+                </form>
             </div>
         </div>
     </div>

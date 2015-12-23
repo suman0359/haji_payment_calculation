@@ -73,10 +73,8 @@ class Expense extends CI_Controller {
         $data = array();
         $sub_data = array();
 
-        $sub_data['group_entry_list']          = $this->common_model->selectAll('expense_group_entry
-');
-        $sub_data['head_entry_list']          = $this->common_model->selectAll('expense_head_entry
-');
+        $sub_data['group_entry_list']          = $this->common_model->selectAll('expense_group_entry');
+        $sub_data['head_entry_list']          = $this->common_model->selectAll('expense_head_entry');
 
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);

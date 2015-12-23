@@ -30,15 +30,15 @@ class Common_model extends CI_Model{
 
         $this->db->from($table_name);
 
-        $query_result=$this->db->get();
-        $result=$query_result->row();
-        return $result;
+       return $query_result=$this->db->get()->row();
+       // $result=$query_result->row();
+       // return $result;
     }
 
     public function getInfo($table, $id) {
         $this->db->from($table);
-        $this->db->where('status !=', 13);
-        $this->db->where('id', $id);
+        $this->db->where('status !=', 0);
+        $this->db->where($id);
         $query = $this->db->get()->row();
         return $query;
     }
