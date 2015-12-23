@@ -36,7 +36,7 @@ class Payment_collection extends CI_Controller {
 
         $this->load->model('common_model');
 
-        $sub_data['district_list']          = $this->common_model->selectAll('district');
+        $sub_data['commission_agent_list']  = $this->common_model->selectAll('commission_agent', 'commision_agent_name ASC');
         $sub_data['police_station_list']    = $this->common_model->selectAll('police_station');
 
         $data['header']                     = $this->load->view('common/header', '', TRUE);
@@ -46,6 +46,32 @@ class Payment_collection extends CI_Controller {
         $data['footer']                     = $this->load->view('common/footer', '', TRUE);
 
         $this->load->view('master_dashboard', $data);
+    }
+
+    public function add_payment(){
+
+        $data = array();
+
+        $data['passport_number'] = $this->input->post('passport_number');
+        $data['voucher_no'] = $this->input->post('voucher_no');
+        $data['total_amount'] = $this->input->post('total_amount');
+        $data['commission_agent_id'] = $this->input->post('commission_agent_id');
+        $data['commission_amount'] = $this->input->post('commission_amount');
+
+        $sub_data['mrr_no'] = $this->input->post('mrr_no');
+        $sub_data['payment_mode'] = $this->input->post('payment_mode');
+        $sub_data['chaque_number'] = $this->input->post('chaque_number');
+        $sub_data['chaque_date'] = $this->input->post('chaque_date');
+        $sub_data['bank_name'] = $this->input->post('bank_name');
+        $sub_data['amount'] = $this->input->post('amount');
+        $sub_data['branch_name'] = $this->input->post('branch_name');
+        $sub_data['payment_head'] = $this->input->post('payment_head');
+
+        $this->common_model->insert('haji_payment_contact', $data);
+        $this->common_model->insert('money_receipt', $sub_data);
+
+        redirect('');
+
     }
 
     public function due_collection(){

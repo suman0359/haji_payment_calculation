@@ -27,7 +27,7 @@
                         Create one account to manage everything you do with Clip-Two, from your shopping preferences to your Clip-Two activity.
                     </p>
                     <hr>
-                    <form action="<?php echo base_url() . "haji_info/add"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data"> 
+                    <form action="<?php echo base_url() . "payment_collection/add_payment"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data"> 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="errorHandler alert alert-danger no-display">
@@ -40,9 +40,9 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Date <span class="symbol required"></span>
+                                        Passport No <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <input type="text" placeholder="Insert Passport Number" class="form-control" id="passport_number" name="passport_number">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -50,7 +50,7 @@
                                     <label class="control-label">
                                         Voucher no <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <input type="text" placeholder="Insert Voucher No" class="form-control" id="voucher_no" name="voucher_no">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -58,7 +58,7 @@
                                     <label class="control-label">
                                         Total Amount <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <input type="text" placeholder="Insert Total Amount" class="form-control" id="total_amount" name="total_amount">
                                 </div>
                             </div> <!-- End First Column -->
 
@@ -70,7 +70,7 @@
                                     <label class="control-label">
                                         Haji Name <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <input type="text" disabled placeholder="Insert Passport Number First" class="form-control" id="haji_name" name="haji_name">
                                 </div>
                             </div> 
                             <div class="col-md-6 col-sm-6">
@@ -78,7 +78,13 @@
                                     <label class="control-label">
                                         Commission Agent Name <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <select class="form-control" name="commission_agent_id" id="commission_agent_id">
+                                        <option> Select Agent Name <option>
+                                        <?php foreach ($commission_agent_list as $value) { ?>
+                                        <option value="<?php echo $value->id; ?>"> <?php echo $value->commision_agent_name; ?> <option>
+                                        
+                                        <?php }  ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -86,7 +92,7 @@
                                     <label class="control-label">
                                         Commission Amount <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="pilgrim_id" name="pilgrim_id">
+                                    <input type="text" placeholder="Insert ssion Amount" class="form-control" id="commission_amount" name="commission_amount">
                                 </div>
                             </div><!-- End Second Column -->
 
@@ -120,7 +126,7 @@
                                     <label class="control-label">
                                         MRR NO <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="MRR NO" class="form-control" id="mrr_no" name="mrr_no">
+                                    <input type="text" placeholder="MRR NO" class="form-control" id="money_receipt_number" name="money_receipt_number">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -129,24 +135,24 @@
                                         Payment Mode <span class="symbol required"></span>
                                     </label>
 
-                                    <select class="form-control">
+                                    <select class="form-control" name="payment_mode" id="payment_mode">
                                         <option> Select Payment Mode <option>
-                                        <option> Cash <option>
-                                        <option> Bank<option>
-                                        <option> BKash<option>
+                                        <option value="1"> Cash <option>
+                                        <option value="2"> Bank<option>
+                                        <option value="3"> BKash<option>
                                     </select>
 
                                 </div>
                             </div> <!-- End First Column -->
 
-                            <div class="col-md-6 col-sm-6">
+                            <!-- <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
                                         Payment Date <span class="symbol required"></span>
                                     </label>
                                     <input type="date" class="form-control" id="payment_date" name="payment_date">
                                 </div>
-                            </div> <!-- End First Column -->
+                            </div>  --><!-- End First Column -->
 
                             <!-- Second Column --> 
 
@@ -172,7 +178,7 @@
                                     <label class="control-label">
                                         Bank Name <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="bank_name" name="bank_name">
+                                    <input type="text" placeholder="Insert Bank Name" class="form-control" id="bank_name" name="bank_name">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -180,7 +186,7 @@
                                     <label class="control-label">
                                         Amount <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="amount" name="amount">
+                                    <input type="text" placeholder="Insert Amount" class="form-control" id="amount" name="amount">
                                 </div>
                             </div>
 
@@ -195,9 +201,17 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Payment Head <span class="symbol required"></span>
+                                        Income Head <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Payment Head" class="form-control" id="pilgrim_id" name="payment_head">
+
+                                    <select class="form-control" name="payment_head" id="payment_head">
+                                        <option> Select Agent Name <option>
+                                        <?php foreach ($income_head_list as $value) { ?>
+                                        <option value="<?php echo $value->id; ?>"> <?php echo $value->commision_agent_name; ?> <option>
+                                        
+                                        <?php }  ?>
+                                    </select>
+
                                 </div>
                             </div>
                             <!-- End Second Column -->

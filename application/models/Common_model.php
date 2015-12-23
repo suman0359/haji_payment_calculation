@@ -10,8 +10,13 @@ class Common_model extends CI_Model{
         $this->db->update($table_name, $data);
     }
 
-    public function selectAll($table_name){
+    public function selectAll($table_name, $order = NULL){
     	$this->db->select('*');
+
+        if (!($order == NULL)) {
+            $this->db->order_by($order);
+        }
+
     	$this->db->from($table_name);
 
     	$query_result=$this->db->get();
@@ -19,9 +24,33 @@ class Common_model extends CI_Model{
         return $result;
     }
 
-    public function selectWhere($table_name, $id){
+    public function selectNameWhere($table_name, $field_name, $id){
+        //$this->db->select($field_name);
+        $this->db->where($id);
+
+        $this->db->from($table_name);
+
+        $query_result=$this->db->get();
+        $result=$query_result->row();
+        return $result;
+    }
+
+    public function getInfo($table, $id) {
+        $this->db->from($table);
+        $this->db->where('status !=', 13);
+        $this->db->where('id', $id);
+        $query = $this->db->get()->row();
+        return $query;
+    }
+
+    public function selectWhere($table_name, $id, $order = NULL){
         $this->db->select('*');
         $this->db->where($id);
+
+        if (!($order == NULL)) {
+            $this->db->order_by($order);
+        }
+
         $this->db->from($table_name);
 
         $query_result=$this->db->get();

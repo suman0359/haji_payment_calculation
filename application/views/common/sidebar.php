@@ -141,13 +141,28 @@
                             </a>
                         </li>
                         <li>
+                            <a href="<?php echo base_url()."expense/group_entry_index"; ?>">
+                                <span class="title">Expense Group Entry List</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?php echo base_url()."expense/expense_group_entry"; ?>">
                                 <span class="title">Expense Group Entry</span>
                             </a>
-                        </li>								
+                        </li>	
                         <li>
-                            <a href="<?php echo base_url()."expense/expense_head"; ?>">
+                            <a href="<?php echo base_url()."expense/expense_head_entry_index"; ?>">
+                                <span class="title">Expense Head Entry List</span>
+                            </a>
+                        </li>							
+                        <li>
+                            <a href="<?php echo base_url()."expense/expense_head_entry"; ?>">
                                 <span class="title">Expense Head Entry</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url()."expense/expense_entry_index"; ?>">
+                                <span class="title">Expense Entry Form List</span>
                             </a>
                         </li>
                         <li>

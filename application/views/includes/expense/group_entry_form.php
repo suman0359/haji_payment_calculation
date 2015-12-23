@@ -27,10 +27,10 @@
                         Create one account to manage everything you do with Clip-Two, from your shopping preferences to your Clip-Two activity.
                     </p>-->
                     <hr>
-                    <form action="<?php echo base_url() . "haji_info/add"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data"> 
+                    <form action="<?php echo base_url() . "expense/add_group_entry"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data"> 
                         
 
-                        <h2 class="text-center">Expense Head Entry</h2>
+                        <h2 class="text-center">Expense Group Entry</h2>
 
 
                         <div class="row">
@@ -42,35 +42,20 @@
                                     <i class="fa fa-ok"></i> Your form validation is successful!
                                 </div>
                             </div>
-                             <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Group Name <span class="symbol required"></span>
-                                    </label>
-
-                                    <select class="form-control">
-                                        <option> Select Payment Mode <option>
-                                        <option> Cash <option>
-                                        <option> Bank<option>
-                                        <option> BKash<option>
-                                    </select>
-
-                                </div>
-                            </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
                                         Code <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Code" class="form-control" id="code" name="code">
+                                    <input type="text" name="expense_group_entry_code" placeholder="Insert Code" class="form-control" id="code" name="code">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Head Name <span class="symbol required"></span>
+                                        Group Name <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Insert Head Name" class="form-control" id="head_name" name="head_name">
+                                    <input type="text" name="expense_group_entry_name"placeholder="Insert Group Name" class="form-control" id="group_name" name="group_name">
                                 </div>
                             </div>
                             <!-- End Second Column -->
