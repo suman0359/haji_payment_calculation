@@ -24,15 +24,15 @@
         <!-- start: MAIN CSS -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/fontawesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/themify-icons/themify-icons.min.css">
+<!--         <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/themify-icons/themify-icons.min.css">
         <link href="<?php echo base_url(); ?>vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
         <link href="<?php echo base_url(); ?>vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
-        <link href="<?php echo base_url(); ?>vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
+        <link href="<?php echo base_url(); ?>vendor/switchery/switchery.min.css" rel="stylesheet" media="screen"> -->
         <!-- end: MAIN CSS -->
         <!-- start: CLIP-TWO CSS -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/styles.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/plugins.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/themes/theme-1.css" id="skin_color" />
+        <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/plugins.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/themes/theme-1.css" id="skin_color" /> -->
         <!-- end: CLIP-TWO CSS -->
         <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
         <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
@@ -91,7 +91,7 @@
                     </form>
                     <!-- start: COPYRIGHT -->
                     <div class="copyright">
-                        &copy; <span class="current-year"></span><span class="text-bold text-uppercase"> Micron Techno</span>. <span>All rights reserved</span>
+                        &copy; <span class="current-year"></span><span class="text-bold text-uppercase">2016 Micron Techno</span>. <span>All rights reserved</span>
                     </div>
                     <!-- end: COPYRIGHT -->
                 </div>
@@ -102,14 +102,9 @@
         <!-- end: LOGIN -->
         <!-- start: MAIN JAVASCRIPTS -->
         <script src="<?php echo base_url(); ?>vendor/jquery/jquery.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendor/modernizr/modernizr.js"></script>
-        <script src="<?php echo base_url(); ?>vendor/jquery-cookie/jquery.cookie.js"></script>
-        <script src="<?php echo base_url(); ?>vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendor/switchery/switchery.min.js"></script>
+        
         <!-- end: MAIN JAVASCRIPTS -->
-        <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-        <script src="<?php echo base_url(); ?>vendor/jquery-validation/jquery.validate.min.js"></script>
+     
         <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
         <!-- start: CLIP-TWO JAVASCRIPTS -->
         <script src="<?php echo base_url(); ?>assets/js/main.js"></script>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.5.0.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Dec 23, 2015 at 05:20 PM
--- Server version: 5.5.46-0ubuntu0.14.04.2
--- PHP Version: 5.5.9-1ubuntu4.14
+-- Host: 127.0.0.1
+-- Generation Time: Dec 26, 2015 at 03:21 PM
+-- Server version: 10.0.17-MariaDB
+-- PHP Version: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `haji_payment_calculation`
@@ -26,25 +26,24 @@ SET time_zone = "+00:00";
 -- Table structure for table `commission_agent`
 --
 
-CREATE TABLE IF NOT EXISTS `commission_agent` (
-  `id` int(4) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `commission_agent` (
+  `id` int(4) NOT NULL,
   `commission_agent_code` varchar(30) NOT NULL,
   `commision_agent_name` varchar(150) NOT NULL,
   `commision_agent_mobile` varchar(15) NOT NULL,
   `commision_agent_address` text NOT NULL,
   `passport_no` varchar(25) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `commission_agent`
 --
 
 INSERT INTO `commission_agent` (`id`, `commission_agent_code`, `commision_agent_name`, `commision_agent_mobile`, `commision_agent_address`, `passport_no`, `status`) VALUES
-(1, '43434', 'Tasfir Hossain Suman', '01911198784', 'Dhaka', '454DFDS', 0),
+(1, '43434', 'Raihan Hossain', '0182585488', 'Uttora', '454DFDS', 0),
 (2, '43435', 'Tasfir Hossain Suman', '01911198784', 'Dhaka', '454DFDS', 0),
-(3, '43440', 'Tasfir Hossain Suman', '01911198784', 'Dhaka', '454DFDS', 0);
+(4, '001', 'kamal', '01552302176', 'Dhaka', 'p123321d', 0);
 
 -- --------------------------------------------------------
 
@@ -52,12 +51,11 @@ INSERT INTO `commission_agent` (`id`, `commission_agent_code`, `commision_agent_
 -- Table structure for table `district`
 --
 
-CREATE TABLE IF NOT EXISTS `district` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `district` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=66 ;
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `district`
@@ -136,8 +134,8 @@ INSERT INTO `district` (`id`, `name`, `status`) VALUES
 -- Table structure for table `expense_entry`
 --
 
-CREATE TABLE IF NOT EXISTS `expense_entry` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `expense_entry` (
+  `id` int(3) NOT NULL,
   `date` varchar(10) NOT NULL,
   `expense_number` varchar(30) NOT NULL,
   `expense_group_id` int(3) NOT NULL,
@@ -149,17 +147,15 @@ CREATE TABLE IF NOT EXISTS `expense_entry` (
   `bank_acc_number` varchar(30) NOT NULL,
   `amount` varchar(30) NOT NULL,
   `data_entry_user_name` int(3) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `status` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `expense_entry`
 --
 
 INSERT INTO `expense_entry` (`id`, `date`, `expense_number`, `expense_group_id`, `expense_head_id`, `payment_mode`, `cheque_number`, `cheque_date`, `bank_name`, `bank_acc_number`, `amount`, `data_entry_user_name`, `status`) VALUES
-(1, '', '', 0, 0, 1, '', '', '', '', '', 0, 1),
-(2, '2015-12-16', 'dfgdfg', 0, 0, 1, 'fgdfgdf', '2015-12-09', 'dfgdgfd', 'fdgdfgdfg', 'dfgdfdgfd', 0, 1);
+(2, '2015-12-16', '444444444444', 0, 0, 1, '5555555555', '2015-12-09', 'dfgdgfd', 'fdgdfgdfg', 'dfgdfdgfd', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -167,13 +163,12 @@ INSERT INTO `expense_entry` (`id`, `date`, `expense_number`, `expense_group_id`,
 -- Table structure for table `expense_group_entry`
 --
 
-CREATE TABLE IF NOT EXISTS `expense_group_entry` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `expense_group_entry` (
+  `id` int(3) NOT NULL,
   `expense_group_entry_code` varchar(50) NOT NULL,
   `expense_group_entry_name` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `status` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `expense_group_entry`
@@ -181,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `expense_group_entry` (
 
 INSERT INTO `expense_group_entry` (`id`, `expense_group_entry_code`, `expense_group_entry_name`, `status`) VALUES
 (1, '343432sdrs', 'Tasfir Hossain', 1),
-(2, '45454 ', 'Tasfir Hossain SUMAN', 1);
+(2, '45454 yy', 'Tasfir Hossain SUMAN', 1);
 
 -- --------------------------------------------------------
 
@@ -189,31 +184,59 @@ INSERT INTO `expense_group_entry` (`id`, `expense_group_entry_code`, `expense_gr
 -- Table structure for table `expense_head_entry`
 --
 
-CREATE TABLE IF NOT EXISTS `expense_head_entry` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `expense_head_entry` (
+  `id` int(3) NOT NULL,
   `expense_group_entry_id` varchar(3) NOT NULL,
   `expense_head_entry_code` varchar(50) NOT NULL,
   `expense_head_entry_name` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `status` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `expense_head_entry`
 --
 
 INSERT INTO `expense_head_entry` (`id`, `expense_group_entry_id`, `expense_head_entry_code`, `expense_head_entry_name`, `status`) VALUES
-(1, '2', '34342', 'Inspan Lorem...', 1),
-(2, '1', '54545', 'dklsjdklfjsdlk;fjsldafjl;sajldsdl', 1);
+(1, '1', '444444', 'Inspan Lorem...', 1),
+(3, '2', '34342', 'Inspan Lorem...', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `haji_info`
+-- Table structure for table `haji_information`
 --
 
-CREATE TABLE IF NOT EXISTS `haji_info` (
-  `haji_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `haji_information` (
+  `id` int(3) NOT NULL,
+  `haji_id` varchar(8) NOT NULL,
+  `haji_name` varchar(150) NOT NULL,
+  `haji_passport` varchar(20) NOT NULL,
+  `haji_mobile` varchar(15) NOT NULL,
+  `haji_address` text NOT NULL,
+  `hajj_year` year(4) NOT NULL,
+  `commission_agent_id` varchar(3) NOT NULL,
+  `date_time` datetime NOT NULL,
+  `creator_user_id` varchar(3) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `haji_information`
+--
+
+INSERT INTO `haji_information` (`id`, `haji_id`, `haji_name`, `haji_passport`, `haji_mobile`, `haji_address`, `hajj_year`, `commission_agent_id`, `date_time`, `creator_user_id`, `status`) VALUES
+(1, '444444', 'rrrrr', 'rrrrr', 'dffffffffffffff', 'rrrr', 2044, '1', '0000-00-00 00:00:00', '', 1),
+(2, '1907', 'Kofil Uddin', '4545ED', '0171215458', 'Dhaka Rampura', 2016, '4', '0000-00-00 00:00:00', '', 1),
+(3, '444444', 'rrrrr', 'rrrrr', 'sdfsfsfsdfsdfsa', 'rrrr', 2044, '2', '0000-00-00 00:00:00', '', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `haji_info_old`
+--
+
+CREATE TABLE `haji_info_old` (
+  `haji_id` int(11) NOT NULL,
   `pilgrim_id` int(11) NOT NULL,
   `pilgrim_type` tinyint(4) NOT NULL,
   `pilgrim_full_name` varchar(255) NOT NULL,
@@ -275,17 +298,19 @@ CREATE TABLE IF NOT EXISTS `haji_info` (
   `pilgrim_health_information_of_disease` varchar(30) NOT NULL,
   `pilgrim_health_information_of_medicine` varchar(50) NOT NULL,
   `pilgrim_blood_group` varchar(20) NOT NULL,
-  `haji_status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`haji_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `haji_status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `haji_info`
+-- Dumping data for table `haji_info_old`
 --
 
-INSERT INTO `haji_info` (`haji_id`, `pilgrim_id`, `pilgrim_type`, `pilgrim_full_name`, `pilgrim_name_part_one`, `pilgrim_name_part_two`, `pilgrim_name_part_three`, `pilgrim_name_part_four`, `pilgrim_father_or_husband_name`, `pilgrim_father_or_husband_type`, `pilgrim_mothers_name`, `pilgrim_date_of_birth`, `pilgrim_nationality`, `pilgrim_marital_status`, `pilgrim_gender`, `pilgrim_educational_qualification`, `pilgrim_occupation`, `pilgrim_position`, `pilgrim_national_id_no`, `pilgrim_place_of_birth`, `pilgrim_tin_no_number`, `pilgrim_tin_no_status`, `pilgrim_how_many_country_traveling`, `pilgrim_traveling_before_status`, `pilgrim_perform_hajj_before`, `pilgrim_perform_hajj_before_status`, `pilgrim_identification_mark`, `pilgrim_passport_number`, `pilgrim_passport_type`, `pilgrim_passport_issue_date`, `pilgrim_passport_expire_date`, `pilgrim_place_of_passport_issue`, `pilgrim_permanent_address_village`, `pilgrim_permanent_address_district`, `pilgrim_permanent_address_police_station`, `pilgrim_permanent_address_post_code`, `pilgrim_permanent_address_mobile_no`, `pilgrim_present_address_village`, `pilgrim_present_address_district`, `pilgrim_present_address_police_station`, `pilgrim_presenet_address_post_code`, `pilgrim_present_address_mobile_no`, `pilgrim_close_relative_name`, `pilgrim_close_relative_relation`, `pilgrim_close_relative_mobile_no_one`, `pilgrim_close_relative_mobile_no_two`, `pilgrim_close_relative_email`, `pilgrim_child_name`, `pilgrim_agency_name`, `pilgrim_license_no`, `pilgrim_package_name`, `pilgrim_package_amount`, `pilgrim_package_amount_in_word`, `pilgrim_nominee_status`, `pilgrim_name_of_nominee`, `pilgrim_noinee_relationship`, `pilgrim_nominee_address`, `pilgrim_family_member_id`, `pilgrim_family_member_id_type`, `pilgrim_health_information_of_disease`, `pilgrim_health_information_of_medicine`, `pilgrim_blood_group`, `haji_status`) VALUES
-(1, 454545, 1, 'Tasfir Hossain Suman', 'Tasfir ', 'Hossain', 'Suman', 'm', 'MD SHOHRAB ALI', 1, 'Mrs Tahmina Begum', '1989-04-17', 'Bangladeshi', 0, 0, '03', 'Job Holder', 'Web Programmer', '512168564646546', 'Jamalpur', '', 0, 3, 0, 'yes', 0, 'Have', '545454', 1, '0018-04-19', '2020-05-30', '01', 'dsfsdf', 16, 17, 1219, '213165', 'sdfsdfs', 16, 0, 1219, '+8801675704139', 'Tasfir Hossain Suman', 'SELF', '+8801675704139', '+8801675704139', 'ratul1623@gmail.com', 'SADID', 'dfsdfs', '4545454', 'sdfsdfsfd', '333', 'dfsdfsafsdfs', 0, 'Tasfir Hossain Suman', 'sdfsdfsd', 'House#01, Road# 06, Block# C, Banasree, Rampura', 'sdfsadfsd', 0, '', '', '01', 0),
-(2, 454545, 1, 'Tasfir Hossain Suman', 'Tasfir ', 'Hossain', 'Suman', 'm', 'MD SHOHRAB ALI', 1, 'Mrs Tahmina Begum', '1989-04-17', 'Bangladeshi', 0, 0, '03', 'Job Holder', 'Web Programmer', '512168564646546', 'Jamalpur', '', 0, 3, 0, 'yes', 0, 'Have', '545454', 1, '0018-04-19', '2020-05-30', '01', 'dsfsdf', 16, 17, 1219, '213165', 'sdfsdfs', 16, 0, 1219, '+8801675704139', 'Tasfir Hossain Suman', 'SELF', '+8801675704139', '+8801675704139', 'ratul1623@gmail.com', 'SADID', 'dfsdfs', '4545454', 'sdfsdfsfd', '333', 'dfsdfsafsdfs', 0, 'Tasfir Hossain Suman', 'sdfsdfsd', 'House#01, Road# 06, Block# C, Banasree, Rampura', 'sdfsadfsd', 0, '', '', '01', 0);
+INSERT INTO `haji_info_old` (`haji_id`, `pilgrim_id`, `pilgrim_type`, `pilgrim_full_name`, `pilgrim_name_part_one`, `pilgrim_name_part_two`, `pilgrim_name_part_three`, `pilgrim_name_part_four`, `pilgrim_father_or_husband_name`, `pilgrim_father_or_husband_type`, `pilgrim_mothers_name`, `pilgrim_date_of_birth`, `pilgrim_nationality`, `pilgrim_marital_status`, `pilgrim_gender`, `pilgrim_educational_qualification`, `pilgrim_occupation`, `pilgrim_position`, `pilgrim_national_id_no`, `pilgrim_place_of_birth`, `pilgrim_tin_no_number`, `pilgrim_tin_no_status`, `pilgrim_how_many_country_traveling`, `pilgrim_traveling_before_status`, `pilgrim_perform_hajj_before`, `pilgrim_perform_hajj_before_status`, `pilgrim_identification_mark`, `pilgrim_passport_number`, `pilgrim_passport_type`, `pilgrim_passport_issue_date`, `pilgrim_passport_expire_date`, `pilgrim_place_of_passport_issue`, `pilgrim_permanent_address_village`, `pilgrim_permanent_address_district`, `pilgrim_permanent_address_police_station`, `pilgrim_permanent_address_post_code`, `pilgrim_permanent_address_mobile_no`, `pilgrim_present_address_village`, `pilgrim_present_address_district`, `pilgrim_present_address_police_station`, `pilgrim_presenet_address_post_code`, `pilgrim_present_address_mobile_no`, `pilgrim_close_relative_name`, `pilgrim_close_relative_relation`, `pilgrim_close_relative_mobile_no_one`, `pilgrim_close_relative_mobile_no_two`, `pilgrim_close_relative_email`, `pilgrim_child_name`, `pilgrim_agency_name`, `pilgrim_license_no`, `pilgrim_package_name`, `pilgrim_package_amount`, `pilgrim_package_amount_in_word`, `pilgrim_nominee_status`, `pilgrim_name_of_nominee`, `pilgrim_noinee_relationship`, `pilgrim_nominee_address`, `pilgrim_family_member_id`, `pilgrim_family_member_id_type`, `pilgrim_health_information_of_disease`, `pilgrim_health_information_of_medicine`, `pilgrim_blood_group`, `haji_status`) VALUES
+(1, 454545, 1, 'Sanzid Arham', 'Tasfir ', 'Hossain', 'Suman', 'm', 'MD SHOHRAB ALI', 1, 'Mrs Tahmina Begum', '1989-04-17', 'Bangladeshi', 0, 0, '03', 'Job Holder', 'Web Programmer', '512168564646546', 'Jamalpur', '', 0, 3, 0, 'yes', 0, 'Have', '545454', 1, '0018-04-19', '2020-05-30', '01', 'dsfsdf', 16, 17, 1219, '213165', 'sdfsdfs', 16, 0, 1219, '01911198784', 'Tasfir Hossain Suman', 'SELF', '+8801675704139', '+8801675704139', 'ratul1623@gmail.com', 'SADID', 'dfsdfs', '4545454', 'sdfsdfsfd', '333', 'dfsdfsafsdfs', 0, 'Tasfir Hossain Suman', 'sdfsdfsd', 'House#01, Road# 06, Block# C, Banasree, Rampura', 'sdfsadfsd', 0, '', '', '01', 0),
+(2, 454545, 1, 'Tasfir Hossain Suman', 'Tasfir ', 'Hossain', 'Suman', 'm', 'MD SHOHRAB ALI', 1, 'Mrs Tahmina Begum', '1989-04-17', 'Bangladeshi', 0, 0, '03', 'Job Holder', 'Web Programmer', '512168564646546', 'Jamalpur', '', 0, 3, 0, 'yes', 0, 'Have', '545454', 1, '0018-04-19', '2020-05-30', '01', 'dsfsdf', 16, 17, 1219, '213165', 'sdfsdfs', 16, 0, 1219, '+8801675704139', 'Tasfir Hossain Suman', 'SELF', '+8801675704139', '+8801675704139', 'ratul1623@gmail.com', 'SADID', 'dfsdfs', '4545454', 'sdfsdfsfd', '333', 'dfsdfsafsdfs', 0, 'Tasfir Hossain Suman', 'sdfsdfsd', 'House#01, Road# 06, Block# C, Banasree, Rampura', 'sdfsadfsd', 0, '', '', '01', 0),
+(6, 0, 1, '', '', '', '', '', '', NULL, '', '', '', NULL, NULL, '', '', '', '', '', '', NULL, 0, NULL, '', NULL, '', '', 0, '', '', '', '', 0, 0, 0, '', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', NULL, '', '', '', 0),
+(7, 0, 1, '', '', '', '', '', '', NULL, '', '', '', NULL, NULL, '', '', '', '', '', '', NULL, 0, NULL, '', NULL, '', '', 0, '', '', '', '', 0, 0, 0, '', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', NULL, '1,5', '', '', 0),
+(8, 0, 1, 'Rahim Uddin', '', '', '', '', '', NULL, '', '', '', NULL, NULL, '', '', '', '', '', '', NULL, 0, NULL, '', NULL, '', '', 0, '', '', '', '', 0, 0, 1219, '01672839609', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', NULL, '3,4,5,6,7,8,9,10,11,12', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -293,18 +318,16 @@ INSERT INTO `haji_info` (`haji_id`, `pilgrim_id`, `pilgrim_type`, `pilgrim_full_
 -- Table structure for table `haji_payment_contact`
 --
 
-CREATE TABLE IF NOT EXISTS `haji_payment_contact` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `haji_payment_contact` (
+  `id` int(11) NOT NULL,
   `voucher_no` varchar(10) DEFAULT NULL,
   `passport_number` varchar(20) DEFAULT NULL,
   `total_amount` varchar(10) DEFAULT NULL,
   `commission_agent_id` varchar(5) DEFAULT NULL,
   `commission_amount` varchar(10) DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `status` tinyint(1) DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `voucher_no` (`voucher_no`,`passport_number`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+  `status` tinyint(1) DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `haji_payment_contact`
@@ -319,7 +342,8 @@ INSERT INTO `haji_payment_contact` (`id`, `voucher_no`, `passport_number`, `tota
 (6, '', '', '', 'Selec', '', '0000-00-00', 1),
 (7, NULL, NULL, NULL, NULL, NULL, NULL, 1),
 (8, NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(9, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+(9, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(10, '2222222222', '111111', '300000', '1', '10%', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -327,20 +351,23 @@ INSERT INTO `haji_payment_contact` (`id`, `voucher_no`, `passport_number`, `tota
 -- Table structure for table `income_group`
 --
 
-CREATE TABLE IF NOT EXISTS `income_group` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `income_group` (
+  `id` int(3) NOT NULL,
   `income_group_code` varchar(50) NOT NULL,
   `income_group_name` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `status` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `income_group`
 --
 
 INSERT INTO `income_group` (`id`, `income_group_code`, `income_group_name`, `status`) VALUES
-(2, '45454 ', 'Tasfir Hossain SUMAN', 1);
+(2, '45454 ', 'Tasfir Hossain ', 1),
+(3, '333', '3545', 1),
+(4, '4', '45454klhikhkhjkh', 1),
+(5, '4', '544545', 1),
+(7, '45454', '45454', 1);
 
 -- --------------------------------------------------------
 
@@ -348,22 +375,21 @@ INSERT INTO `income_group` (`id`, `income_group_code`, `income_group_name`, `sta
 -- Table structure for table `income_head`
 --
 
-CREATE TABLE IF NOT EXISTS `income_head` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `income_head` (
+  `id` int(3) NOT NULL,
   `income_group_id` varchar(3) NOT NULL,
   `income_head_code` varchar(50) NOT NULL,
   `income_head_name` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `status` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `income_head`
 --
 
 INSERT INTO `income_head` (`id`, `income_group_id`, `income_head_code`, `income_head_name`, `status`) VALUES
-(5, '2', '3434HHH', 'sdfsfe3wrwer', 1),
-(6, '2', 'dffgdfdfdsf', 'ssdfsdfsdfsd', 1);
+(3, '2', '666666', '444', 1),
+(5, '2', '55555555555555555555', '55252', 1);
 
 -- --------------------------------------------------------
 
@@ -371,8 +397,9 @@ INSERT INTO `income_head` (`id`, `income_group_id`, `income_head_code`, `income_
 -- Table structure for table `money_receipt`
 --
 
-CREATE TABLE IF NOT EXISTS `money_receipt` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `money_receipt` (
+  `id` int(11) NOT NULL,
+  `haji_id` varchar(5) NOT NULL,
   `money_receipt_number` varchar(10) DEFAULT NULL,
   `payment_mode` tinyint(1) DEFAULT '1',
   `payment_date` datetime DEFAULT NULL,
@@ -382,16 +409,18 @@ CREATE TABLE IF NOT EXISTS `money_receipt` (
   `branch_name` varchar(255) DEFAULT NULL,
   `amount` varchar(10) DEFAULT NULL,
   `payment_head` varchar(3) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `money_receipt`
 --
 
-INSERT INTO `money_receipt` (`id`, `money_receipt_number`, `payment_mode`, `payment_date`, `chaque_number`, `chaque_date`, `bank_name`, `branch_name`, `amount`, `payment_head`, `status`) VALUES
-(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `money_receipt` (`id`, `haji_id`, `money_receipt_number`, `payment_mode`, `payment_date`, `chaque_number`, `chaque_date`, `bank_name`, `branch_name`, `amount`, `payment_head`, `status`) VALUES
+(1, '', '', 2, '2015-12-16 00:00:00', '12121212121', '15-12-24', 'DBBl', 'Rampura', '2000', '1', 1),
+(2, '', NULL, 1, NULL, '12121212121', '2015-12-18', 'DBBL', 'rampura', '50000', 'Sel', 0),
+(3, '1907', '2121212', 2, NULL, '12121212121', '2015-12-31', 'DBBL', 'rampura', '50000', '5', 0),
+(4, '1907', '2121213', 0, NULL, '', '', '', '', '', 'Sel', 0);
 
 -- --------------------------------------------------------
 
@@ -399,13 +428,12 @@ INSERT INTO `money_receipt` (`id`, `money_receipt_number`, `payment_mode`, `paym
 -- Table structure for table `police_station`
 --
 
-CREATE TABLE IF NOT EXISTS `police_station` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `police_station` (
+  `id` int(11) NOT NULL,
   `district_id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `status` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=580 ;
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `police_station`
@@ -996,8 +1024,8 @@ INSERT INTO `police_station` (`id`, `district_id`, `name`, `status`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `user_email` varchar(50) NOT NULL,
@@ -1006,18 +1034,170 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` varchar(14) NOT NULL,
   `address` text NOT NULL,
   `profile_picture` varchar(255) NOT NULL,
-  `user_type` tinyint(1) NOT NULL,
-  `user_status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `user_type` tinyint(1) NOT NULL DEFAULT '1',
+  `user_status` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `user_email`, `user_first_name`, `user_last_name`, `phone`, `address`, `profile_picture`, `user_type`, `user_status`) VALUES
-(1, 'admin', '40c076e29f6106a4f4e3c8d5c8c3d2c5', 'tasfirsuman@gmail.com', 'Tasfir Hossain', 'Suman', '01911198784', 'Micron Techno', 'uploads/profile_picture/suman.jpg', 1, 1);
+(1, 'admin', '40c076e29f6106a4f4e3c8d5c8c3d2c5', 'tasfirsuman@gmail.com', 'Tasfir Hossain', 'Suman', '01911198784', 'Micron Techno', 'uploads/profile_picture/suman.jpg', 1, 1),
+(2, 'micron', '123321', '', '', '', '', '', '', 1, 1);
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `commission_agent`
+--
+ALTER TABLE `commission_agent`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `district`
+--
+ALTER TABLE `district`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `expense_entry`
+--
+ALTER TABLE `expense_entry`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `expense_group_entry`
+--
+ALTER TABLE `expense_group_entry`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `expense_head_entry`
+--
+ALTER TABLE `expense_head_entry`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `haji_information`
+--
+ALTER TABLE `haji_information`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `haji_info_old`
+--
+ALTER TABLE `haji_info_old`
+  ADD PRIMARY KEY (`haji_id`);
+
+--
+-- Indexes for table `haji_payment_contact`
+--
+ALTER TABLE `haji_payment_contact`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `voucher_no` (`voucher_no`,`passport_number`);
+
+--
+-- Indexes for table `income_group`
+--
+ALTER TABLE `income_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `income_head`
+--
+ALTER TABLE `income_head`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `money_receipt`
+--
+ALTER TABLE `money_receipt`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `police_station`
+--
+ALTER TABLE `police_station`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `commission_agent`
+--
+ALTER TABLE `commission_agent`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `district`
+--
+ALTER TABLE `district`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+--
+-- AUTO_INCREMENT for table `expense_entry`
+--
+ALTER TABLE `expense_entry`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `expense_group_entry`
+--
+ALTER TABLE `expense_group_entry`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `expense_head_entry`
+--
+ALTER TABLE `expense_head_entry`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `haji_information`
+--
+ALTER TABLE `haji_information`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `haji_info_old`
+--
+ALTER TABLE `haji_info_old`
+  MODIFY `haji_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `haji_payment_contact`
+--
+ALTER TABLE `haji_payment_contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `income_group`
+--
+ALTER TABLE `income_group`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `income_head`
+--
+ALTER TABLE `income_head`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `money_receipt`
+--
+ALTER TABLE `money_receipt`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `police_station`
+--
+ALTER TABLE `police_station`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=580;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

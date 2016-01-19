@@ -1,18 +1,18 @@
 <div class="main-content" >
     <div class="wrap-content container" id="container">
         <!-- start: PAGE TITLE -->
-        <section id="page-title">
+        <section id="page-title" style="padding: 20px 0">
             <div class="row">
                 <div class="col-sm-8">
-                    <h1 class="mainTitle">Hajj Management Application</h1>
-                    <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span>
+                    <h1 class="mainTitle text-center">Expense Head Entry</h1>
+                   
                 </div>
                 <ol class="breadcrumb">
                     <li>
-                        <span>Forms</span>
+                        <span>Expense</span>
                     </li>
                     <li class="active">
-                        <span>Form Validation</span>
+                        <span>Head Entry Form</span>
                     </li>
                 </ol>
             </div>
@@ -26,11 +26,11 @@
                     <p class="text-center">
                         Create one account to manage everything you do with Clip-Two, from your shopping preferences to your Clip-Two activity.
                     </p>-->
-                    <hr>
+                
                     <form action="<?php echo base_url() . "expense/add_head_entry"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data"> 
                         
 
-                        <h2 class="text-center">Expense Head Entry</h2>
+                        
 
 
                         <div class="row">
@@ -112,4 +112,4 @@
     </div>
     <!-- end: FORM VALIDATION EXAMPLE 1 -->
 
-</div>
+<!-- </div> -->

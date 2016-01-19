@@ -215,7 +215,7 @@ var Main = function() {
 			fixedSidebar: true,
 			closedSidebar: false,
 			fixedFooter: false,
-			theme: 'theme-1'
+			theme: 'theme-3'
 		};
 		if($.cookie) {
 			if($.cookie("clip-setting")) {
@@ -274,11 +274,11 @@ var Main = function() {
 				case "theme-3":
 				case "theme-5":
 				case "theme-6":
-					$(".navbar-brand img").attr("src", "http://localhost/haji_payment_calculation/assets/images/logo2.png");
+					$(".navbar-brand img").attr("src", "http://localhost/haji_payment_calculation/assets/images/Logo-Bag.gif");
 					break;
 
 				default:
-					$(".navbar-brand img").attr("src", "http://localhost/haji_payment_calculation/assets/images/logo.png");
+					$(".navbar-brand img").attr("src", "http://localhost/haji_payment_calculation/assets/images/Logo-Bag.gif");
 					break;
 			};
 		};
@@ -288,7 +288,7 @@ var Main = function() {
 			$('#closed-sidebar').prop('checked', false);
 			$('#fixed-footer').prop('checked', false);
 			$('#skin_color').attr("href", "http://localhost/haji_payment_calculation/assets/css/themes/theme-1.css");
-			$(".navbar-brand img").attr("src", "http://localhost/haji_payment_calculation/assets/images/logo.png");
+			$(".navbar-brand img").attr("src", "http://localhost/haji_payment_calculation/assets/images/Logo-Bag.gif");
 
 		};
 	};

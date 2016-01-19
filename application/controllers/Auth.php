@@ -46,7 +46,10 @@ class Auth extends CI_Controller {
             
             if (!empty($checkdata)) {
                 $userinfo = array(
-                    'name' => $checkdata->user_last_name,
+                    'firstname' => $checkdata->user_first_name,
+                    'lastname' => $checkdata->user_last_name,
+                    'user_email' => $checkdata->user_email,
+                    'user_phone' => $checkdata->phone,
                     'username' => $checkdata->username,
                     'uid' => $checkdata->user_id,
                     'user_type' => $checkdata->user_type,
@@ -61,13 +64,29 @@ class Auth extends CI_Controller {
                 /*
                   $logininfo = $this->Logins->updateLoginInfo($uid);
                  */
+
+                $msg = "Successfully Loged In";
+                $this->session->set_flashdata('success', $msg);
+
                 redirect('dashboard');
             } else {
                 $msg = "There is an error in login, Please try again!!";
                 $this->session->set_flashdata('error', $msg);
-                $this->load->view('includes/auth/login_page');
+                
+                redirect('./');
             }
         }
+    }
+
+    public function my_profile(){
+        $data['header']       = $this->load->view('common/header', '', TRUE);
+        $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar']   = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/user/my_profile', $data, TRUE);
+        //$data['main_content'] = $this->load->view('includes/user/profile', $data, TRUE);
+        $data['footer']       = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
     }
 
     public function logout() {

@@ -1,18 +1,18 @@
 <div class="main-content" >
     <div class="wrap-content container" id="container">
         <!-- start: PAGE TITLE -->
-        <section id="page-title">
+        <section id="page-title" style="padding: 20px 0">
             <div class="row">
                 <div class="col-sm-8">
-                    <h1 class="mainTitle">Hajj Mananagement Application</h1>
-                    <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span>
+                    <h1 class="mainTitle text-center">Income Head Entry Form</h1>
+                    <!-- <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span> -->
                 </div>
                 <ol class="breadcrumb">
                     <li>
-                        <span>Forms</span>
+                        <span>Income Group</span>
                     </li>
                     <li class="active">
-                        <span>Form Validation</span>
+                        <span>Add Form</span>
                     </li>
                 </ol>
             </div>
@@ -22,11 +22,11 @@
         <div class="container-fluid container-fullw bg-white">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="text-center">Commission Agent Entry Form</h2>
+                    <!-- <h2 class="text-center">Income Head Entry Form</h2>
                     <p class="text-center">
                         Create one account to manage everything you do with Clip-Two, from your shopping preferences to your Clip-Two activity.
                     </p>
-                    <hr>
+                    <hr> -->
                     <form action="<?php echo base_url() . "income/add_head_data"; ?>" method="POST" role="form" id="form">
                         <div class="row">
                             <div class="col-md-12">
@@ -37,7 +37,7 @@
                                     <i class="fa fa-ok"></i> Your form validation is successful!
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <!-- <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
                                         Income Head Code <span class="symbol required"></span>
@@ -45,7 +45,7 @@
                                     <input type="text" placeholder="Income Head Code" class="form-control" id="income_head_code" name="income_head_code">
                                 </div>
                             </div>
-
+ -->
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
@@ -113,7 +113,7 @@
     </div>
     <!-- end: FORM VALIDATION EXAMPLE 1 -->
 
-</div>
+<!-- </div> -->
 
 
 

@@ -1,0 +1,70 @@
+@media screen
+   {
+      p.bodyText, small {font-family:verdana, arial, sans-serif; }
+
+   }
+
+   @media print
+   {
+      p.bodyText, small {font-family:georgia, times, serif; color: red;}
+
+      .money-receipt-form .col-md-6 label:last-child{
+         border-bottom: 1px dotted #ccc;
+         width: 60%;
+         display: inline-block;
+      }
+
+      .money-receipt-form .col-md-3 label{
+         
+      }
+   }
+
+   @media screen, print{
+
+      .row {
+          margin-right: -15px !important;
+          margin-left: -15px !important;
+      }
+
+      .col-md-3 {
+         width: 25% !important;
+      }
+
+      .col-md-3 {
+         width: 33% !important;
+      }
+
+      .col-md-6 {
+         width: 50% !important;
+      }
+
+      .col-md-offset-6 {
+          margin-left: 50% !important;
+      }
+
+      .pull-left {
+          float: left!important;
+      }
+
+      .pull-right {
+          float: right!important;
+      }
+
+      .row.mr_sub_header .col-md-3 label{
+         
+      }
+
+      p.bodyText, small {font-size:10pt;}
+
+   
+
+
+      .money-receipt-form .col-md-6 label:last-child{
+         border-bottom: 1px dotted #ccc;
+         width: 60%;
+         display: inline-block;
+      }
+
+      
+
+}

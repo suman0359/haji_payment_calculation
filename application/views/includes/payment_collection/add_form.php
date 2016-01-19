@@ -45,14 +45,14 @@
                                     <input type="text" placeholder="Insert Passport Number" class="form-control" id="passport_number" name="passport_number">
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                            <!-- <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
                                         Voucher no <span class="symbol required"></span>
                                     </label>
                                     <input type="text" placeholder="Insert Voucher No" class="form-control" id="voucher_no" name="voucher_no">
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
@@ -207,7 +207,7 @@
                                     <select class="form-control" name="payment_head" id="payment_head">
                                         <option> Select Agent Name <option>
                                         <?php foreach ($income_head_list as $value) { ?>
-                                        <option value="<?php echo $value->id; ?>"> <?php echo $value->commision_agent_name; ?> <option>
+                                        <option value="<?php echo $value->id; ?>"> <?php echo $value->income_head_name; ?> <option>
                                         
                                         <?php }  ?>
                                     </select>
@@ -252,6 +252,6 @@
     </div>
     <!-- end: FORM VALIDATION EXAMPLE 1 -->
 
-</div>
-
+<!-- </div>
+ -->
 

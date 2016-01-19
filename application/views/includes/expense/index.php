@@ -20,6 +20,7 @@
             </div>
         </section>
         <!-- end: PAGE TITLE -->
+        <?php $this->load->view('common/error_show'); ?>
         <!-- start: DYNAMIC TABLE -->
         <div class="container-fluid container-fullw bg-white">
             <div class="row">
@@ -63,5 +64,5 @@
         <!-- end: DYNAMIC TABLE -->
         
     </div>
-</div>
+<!-- </div> -->
 

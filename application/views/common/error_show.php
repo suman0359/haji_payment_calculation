@@ -1,14 +1,14 @@
  
 <?php
-       $suc = $this->session->flashdata('success') ; 
+       $success = $this->session->flashdata('success') ; 
        $error = $this->session->flashdata('error') ;
-       if($suc){
+       if($success){
        ?>
          
          
 <div class="alert alert-success alert-dismissable">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-  <?php echo $suc ;?>
+  <?php echo $success ;?>
 </div>
        <?php } 
        if($error){

@@ -96,7 +96,7 @@
     </div>
     <!-- end: FORM VALIDATION EXAMPLE 1 -->
 
-</div>
+<!-- </div> -->
 
 
 

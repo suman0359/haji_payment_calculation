@@ -1,9 +1,9 @@
-<!-- sidebar -->
+<!--sidebar -->
 <div class="sidebar app-aside" id="sidebar">
     <div class="sidebar-container perfect-scrollbar">
         <nav>
             <!-- start: SEARCH FORM -->
-            <div class="search-form">
+            <!-- <div class="search-form">
                 <a class="s-open" href="#">
                     <i class="ti-search"></i>
                 </a>
@@ -18,12 +18,14 @@
                         </button>
                     </div>
                 </form>
-            </div>
+            </div> -->
+
+
             <!-- end: SEARCH FORM -->
             <!-- start: MAIN NAVIGATION MENU -->
-            <div class="navbar-title">
+            <!-- <div class="navbar-title">
                 <span>Main Navigation</span>
-            </div>
+            </div> -->
             <ul class="main-navigation-menu">
                 <li class="active open">
                     <a href="<?php echo base_url()."dashboard"; ?>">
@@ -33,76 +35,74 @@
                             </div>
                             <div class="item-inner">
                                 <span class="title"> Dashboard </span>
+                                <span class="pull-right">HOME</span>
                             </div>
                         </div>
                     </a>
                 </li>
                 
-                <li>
+                <li class="open">
                     <a href="javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
-                                <i class="ti-layout-grid2"></i>
+                                <i class="ti-user"></i>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> Haji Information </span><i class="icon-arrow"></i>
+                                <span class="title"> HAJJI Or OMRA Information </span><i class="icon-arrow"></i>
                             </div>
                         </div>
                     </a>
-                    <ul class="sub-menu">
+                    <ul class="sub-menu"  style="display: block;">
                         <li>
                             <a href="<?php echo base_url()."haji_info"; ?>">
-                                <span class="title">Haji List</span>
+                                <span class="title">HAJJI Or OMRA List</span>
                             </a>
                         </li>
                         <li>
                             <a href="<?php echo base_url()."haji_info/add_form"; ?>">
-                                <span class="title">Add or Registration New Haji</span>
+                                <span class="title">ADD/Registration New HAJI OR OMRA</span>
                             </a>
+                            <hr>
                         </li>
                         
                     </ul>
                 </li>
-                
-                <li>
-                    <a href="javascript:void(0)">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <i class="ti-settings"></i>
-                            </div>
-                            <div class="item-inner">
-                                <span class="title"> Commission Agent Information </span><i class="icon-arrow"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="<?php echo base_url(); ?>commission_agent">
-                                <span class="title">Commission Agent List </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>commission_agent/add_form">
-                                <span class="title"> Add Commission Agent Agent</span>
-                            </a>
-                        </li>
-                        
-                    </ul>
-                </li>
-                <li>
+
+                <li class="open">
                     <a href="javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-layout-grid2"></i>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> Payment or Voucher </span><i class="icon-arrow"></i>
+                                <span class="title"> Collection Report </span><i class="icon-arrow"></i>
                             </div>
                         </div>
                     </a>
-                    <ul class="sub-menu">
+                    <ul class="sub-menu"  style="display: block;">
 
                         <li>
+                            <a href="<?php echo base_url(); ?>payment_collection/money_receipt_index">
+                                <span class="title">Money Receipt Information</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url(); ?>payment_collection/date_report">
+                                <span class="title">Daily/ Monthly/Yearly Collection Statement</span>
+                                <hr>
+                            </a>
+                            
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url(); ?>expense/expense_statement">
+                                <span class="title">Expense Statement</span>
+                            </a>
+                            <hr>
+                        </li>
+
+                        <!-- <li>
                             <a href="<?php echo base_url(); ?>payment_collection/index">
                                 <span class="title">Payment Information</span>
                             </a>
@@ -117,63 +117,136 @@
                             <a href="<?php echo base_url(); ?>payment_collection/due_collection">
                                 <span class="title">Due Collection </span>
                             </a>
-                        </li>
+                        </li> -->
                         
                     </ul>
                 </li>
-                <li>
+                
+                
+                
+                <li class="open">
                     <a href="javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-pencil-alt"></i>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> Expense Calculation </span><i class="icon-arrow"></i>
+                                <span class="title"> Expense Information </span><i class="icon-arrow"></i>
                             </div>
                         </div>
                     </a>
 
-                    <ul class="sub-menu">
+                    <ul class="sub-menu"  style="display: block;">
 
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo base_url()."expense"; ?>">
                                 <span class="title">Expense Information</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="<?php echo base_url()."expense/group_entry_index"; ?>">
-                                <span class="title">Expense Group Entry List</span>
+                                <span class="title">Expense Group List/ Entry</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="<?php echo base_url()."expense/expense_group_entry"; ?>">
-                                <span class="title">Expense Group Entry</span>
-                            </a>
-                        </li>	
+
                         <li>
                             <a href="<?php echo base_url()."expense/expense_head_entry_index"; ?>">
-                                <span class="title">Expense Head Entry List</span>
+                                <span class="title">Expense Head List/ Entry</span>
                             </a>
-                        </li>							
-                        <li>
-                            <a href="<?php echo base_url()."expense/expense_head_entry"; ?>">
-                                <span class="title">Expense Head Entry</span>
-                            </a>
-                        </li>
+                        </li>  
+
                         <li>
                             <a href="<?php echo base_url()."expense/expense_entry_index"; ?>">
-                                <span class="title">Expense Entry Form List</span>
+                                <span class="title">Expense List/ Entry</span>
                             </a>
                         </li>
+                        <hr>
+                       <!--  <li>
+                            <a href="<?php echo base_url()."expense/expense_group_entry"; ?>">
+                                <span class="title">Expense Group Entry Form</span>
+                            </a>
+                        </li>	
+                        <hr>
+                        						
+                        <li>
+                            <a href="<?php echo base_url()."expense/expense_head_entry"; ?>">
+                                <span class="title">Expense Head Entry Form</span>
+                            </a>
+                        </li>
+                        <hr>
+                        
                         <li>
                             <a href="<?php echo base_url()."expense/expense_entry_form"; ?>">
                                 <span class="title">Expense Entry Form</span>
                             </a>
-                        </li>
+                        </li> -->
                         
                     </ul>
                 </li>
-                <li>
+
+                <!-- Expense Statement -->
+                <li class="open">
+                    <a href="javascript:void(0)">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <i class="ti-settings"></i>
+                            </div>
+                            <div class="item-inner">
+                                <span class="title"> Expense Statement </span><i class="icon-arrow"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <ul class="sub-menu"  style="display: block;">
+                        <li>
+                            <a href="<?php echo base_url(); ?>expense/expense_statement">
+                                <span class="title">Daily/Monthly Expense Statement </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>payment_collection/summery_report">
+                                <span class="title">Daily Summery Report</span>
+                            </a>
+                        </li>
+
+                        <hr>
+                    </ul>
+                </li>
+                <!-- Expense Statement -->
+
+                <li class="open">
+                    <a href="javascript:void(0)">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <i class="ti-settings"></i>
+                            </div>
+                            <div class="item-inner">
+                                <span class="title"> Commission Agent Information </span><i class="icon-arrow"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <ul class="sub-menu"  style="display: block;">
+                        <li>
+                            <a href="<?php echo base_url(); ?>commission_agent">
+                                <span class="title">Commission Agent List </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>commission_agent/add_form">
+                                <span class="title"> Add New Commission Agent </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url(); ?>commission_agent/add_form">
+                                <span class="title">Commission Agent Payment Report</span>
+                            </a>
+                        </li>
+                        
+                        <hr>
+                    </ul>
+                </li>
+
+                <li class="open">
                     <a href="javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
@@ -184,20 +257,23 @@
                             </div>
                         </div>
                     </a>
-                    <ul class="sub-menu">
+                    <ul class="sub-menu"  style="display: block;">
                         <li>
                             <a href="<?php echo base_url()."income/group_index"; ?>">
-                                <span class="title"> Income Group Entry Details</span>
+                                <span class="title"> Income Group Details</span>
                             </a>
+
                         </li>
                         <li>
                             <a href="<?php echo base_url()."income/group_form"; ?>">
                                 <span class="title"> Income Group Entry Form </span>
+                                <hr>
                             </a>
+                            
                         </li>
                         <li>
                             <a href="<?php echo base_url()."income/head_index"; ?>">
-                                <span class="title"> Income Head Entry Details </span>
+                                <span class="title"> Income Head Details </span>
                             </a>
                         </li>
                         <li>
@@ -208,463 +284,63 @@
                         
                     </ul>
                 </li>
-                <li>
+
+
+                <li class="open">
                     <a href="javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
-                                <i class="ti-layers-alt"></i>
+                                <i class="ti-user"></i>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> Pages </span><i class="icon-arrow"></i>
+                                <span class="title"> Loan Information </span><i class="icon-arrow"></i>
                             </div>
                         </div>
                     </a>
-                    <ul class="sub-menu">
+
+                    <ul class="sub-menu"  style="display: block;">
+
                         <li>
-                            <a href="pages_user_profile.html">
-                                <span class="title">User Profile</span>
+                            <a href="<?php echo base_url()."loan/user_list"; ?>">
+                                <span class="title"> Loan User Information </span>
                             </a>
                         </li>
+
                         <li>
-                            <a href="pages_invoice.html">
-                                <span class="title">Invoice</span>
+                            <a href="<?php echo base_url()."loan/add_loan_paid_form"; ?>">
+                                <span class="title"> Add New User </span>
                             </a>
                         </li>
+
                         <li>
-                            <a href="pages_timeline.html">
-                                <span class="title">Timeline</span>
+                            <a href="<?php echo base_url()."loan/loan_paid_info"; ?>">
+                                <span class="title"> Loan Paid Information </span>
                             </a>
                         </li>
+
                         <li>
-                            <a href="pages_calendar.html">
-                                <span class="title">Calendar</span>
+                            <a href="<?php echo base_url()."loan/loan_paid_form"; ?>">
+                                <span class="title"> Loan Paid Form </span>
                             </a>
                         </li>
+
                         <li>
-                            <a href="pages_messages.html">
-                                <span class="title">Messages</span>
+                            <a href="<?php echo base_url()."loan/loan_receive_info"; ?>">
+                                <span class="title"> Loan Receive Information </span>
                             </a>
                         </li>
+
                         <li>
-                            <a href="pages_blank_page.html">
-                                <span class="title">Blank Page</span>
+                            <a href="<?php echo base_url()."loan/loan_receive_form"; ?>">
+                                <span class="title"> Loan Receive Form </span>
                             </a>
                         </li>
+                        
+                        
                     </ul>
                 </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <i class="ti-package"></i>
-                            </div>
-                            <div class="item-inner">
-                                <span class="title"> Utilities </span><i class="icon-arrow"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="utilities_search_result.html">
-                                <span class="title">Search Results</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="utilities_error_404.html">
-                                <span class="title">Error 404</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="utilities_error_500.html">
-                                <span class="title">Error 500</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="utilities_pricing_table.html">
-                                <span class="title">Pricing Table</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <i class="ti-folder"></i>
-                            </div>
-                            <div class="item-inner">
-                                <span class="title"> 3 Level Menu </span><i class="icon-arrow"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="javascript:;">
-                                <span>Item 1</span> <i class="icon-arrow"></i>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="#">
-                                        Sample Link 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Sample Link 2
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Sample Link 3
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <span>Item 2</span> <i class="icon-arrow"></i>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="#">
-                                        Sample Link 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Sample Link 2
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Sample Link 3
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <span>Item 3</span> <i class="icon-arrow"></i>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="#">
-                                        Sample Link 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Sample Link 2
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Sample Link 3
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <i class="ti-menu-alt"></i>
-                            </div>
-                            <div class="item-inner">
-                                <span class="title"> 4 Level Menu </span><i class="icon-arrow"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="javascript:;">
-                                <span>Item 1</span> <i class="icon-arrow"></i>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="javascript:;">
-                                        <span>Sample Link 1</span> <i class="icon-arrow"></i>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 3
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span>Sample Link 2</span> <i class="icon-arrow"></i>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 3
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span>Sample Link 3</span> <i class="icon-arrow"></i>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 3
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <span>Item 2</span> <i class="icon-arrow"></i>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="javascript:;">
-                                        <span>Sample Link 1</span> <i class="icon-arrow"></i>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 3
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span>Sample Link 2</span> <i class="icon-arrow"></i>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 3
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span>Sample Link 3</span> <i class="icon-arrow"></i>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 3
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <span>Item 3</span> <i class="icon-arrow"></i>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="javascript:;">
-                                        <span>Sample Link 1</span> <i class="icon-arrow"></i>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 3
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span>Sample Link 2</span> <i class="icon-arrow"></i>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 3
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span>Sample Link 3</span> <i class="icon-arrow"></i>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Sample Link 3
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="maps.html">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <i class="ti-location-pin"></i>
-                            </div>
-                            <div class="item-inner">
-                                <span class="title"> Maps </span>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="charts.html">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <i class="ti-pie-chart"></i>
-                            </div>
-                            <div class="item-inner">
-                                <span class="title"> Charts </span>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <!-- end: MAIN NAVIGATION MENU -->
-            <!-- start: CORE FEATURES -->
-            <div class="navbar-title">
-                <span>Core Features</span>
-            </div>
-            <ul class="folders">
-                <li>
-                    <a href="pages_calendar.html">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <span class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
-                            </div>
-                            <div class="item-inner">
-                                <span class="title"> Calendar </span>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="pages_messages.html">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <span class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-folder-open-o fa-stack-1x fa-inverse"></i> </span>
-                            </div>
-                            <div class="item-inner">
-                                <span class="title"> Messages </span>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <!-- end: CORE FEATURES -->
-            <!-- start: DOCUMENTATION BUTTON -->
-            <div class="wrapper">
-                <a href="documentation.html" class="button-o">
-                    <i class="ti-help"></i>
-                    <span>Documentation</span>
-                </a>
-            </div>
-            <!-- end: DOCUMENTATION BUTTON -->
+               
         </nav>
     </div>
 </div>
-<!-- / sidebar -->
+<!-- / sidebar

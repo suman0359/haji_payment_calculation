@@ -10,6 +10,15 @@ class Common_model extends CI_Model{
         $this->db->update($table_name, $data);
     }
 
+    public function test_insert($data){
+        $this->db->insert('expense_entry', $data);
+    }
+
+    public function delete($table_name, $id){
+        $this->db->where($id);
+        $this->db->delete($table_name);
+    }
+
     public function selectAll($table_name, $order = NULL){
     	$this->db->select('*');
 
@@ -35,10 +44,20 @@ class Common_model extends CI_Model{
        // return $result;
     }
 
+
     public function getInfo($table, $id) {
         $this->db->from($table);
-        $this->db->where('status !=', 0);
+        $this->db->where('status !=', 13);
         $this->db->where($id);
+        $query = $this->db->get()->row();
+        return $query;
+    }
+
+    public function getLastRow($table_name){
+        $this->db->from($table_name);
+        $this->db->where('status !=', 13);
+        $this->db->order_by('id','desc');
+        $this->db->limit(1);
         $query = $this->db->get()->row();
         return $query;
     }
@@ -57,9 +76,167 @@ class Common_model extends CI_Model{
         $result=$query_result->row();
         return $result;
     }
-    
-    public function delete($table_name, $id){
-        $this->db->where($id);
-        $this->db->delete($table_name);
+
+    public function payment_report_haji_wise($haji_id){
+        $this->db->select('*');
+        $this->db->where('haji_id', $haji_id);
+        $this->db->from('money_receipt');
+
+        $query_result=$this->db->get();
+        $result=$query_result->result();
+        return $result;
     }
+
+    //public function payment_report_date_wise($start_date, $end_date){
+
+    //     $query="select * from money_receipt where payment_date between '$start_date' and '$end_date' ";
+    //     //$query = mysql_query($query);
+    //    // $query = mysql_fetch_array($query);
+    //     // $this->db->select('*');
+    //     // $this->db->where('payment_date <', $start_date);
+    //     // $this->db->where('payment_date >', $end_date);
+    //     // $this->db->from('money_receipt');
+
+    //     // $query_result=$this->db->get();
+    //     // $result=$query_result->result();
+    //     //return $query;
+
+    //     $result=$this->db->query($query) ; 
+    //     return $result->result() ; 
+    // }
+    
+    public function payment_report_date_wise($start_date, $end_date){
+        $this->db->select('*');
+        $this->db->select_sum('amount');
+        $this->db->where('payment_date >=', $start_date);
+        $this->db->where('payment_date <=', $end_date);
+        $this->db->group_by('haji_id');
+        $this->db->from('money_receipt');
+
+        $query_result=$this->db->get();
+        $result=$query_result->result();
+        return $result;
+
+    }
+
+    public function expense_statement_collection($start_date, $end_date){
+        $this->db->select('*');
+        $this->db->select_sum('amount');
+        $this->db->where('expense_entry_date >=', $start_date);
+        $this->db->where('expense_entry_date <=', $end_date);
+        $this->db->group_by('expense_head_id');
+        $this->db->from('expense_entry');
+
+        $query_result=$this->db->get();
+        $result=$query_result->result();
+        return $result;
+    }
+
+    // public function summery_report($start_date, $end_date){
+    //     $this->db->select('*, count(payment_date)');
+    //     $this->db->select_sum('amount');
+    //     $this->db->where('payment_date >=', $start_date);
+    //     $this->db->where('payment_date <=', $end_date);
+    //     $this->db->group_by('haji_id');
+    //     $this->db->from('money_receipt');
+
+    //     $query_result=$this->db->get();
+
+    //      $query1 = $this->db->last_query();
+    //     //$this->db->join('expense_entry', 'money_receipt.payment_date', 'expense_entry.id', 'money_receipt.id');
+
+    //     $this->db->select('*');
+    //     $this->db->select_sum('amount');
+    //     $this->db->where('expense_entry_date >=', $start_date);
+    //     $this->db->where('expense_entry_date <=', $end_date);
+    //     $this->db->group_by('expense_head_id');
+    //     $this->db->from('expense_entry');
+
+    //     $query_result=$this->db->get();
+
+    //     $query2 =  $this->db->last_query();
+
+    //     $query = $this->db->query($query1." UNION ".$query2);
+
+    //     $result=$query_result->result();
+    //     return $result;
+    // }
+
+//     SELECT Customers.CustomerName, Orders.OrderID
+// FROM Customers
+// FULL OUTER JOIN Orders
+// ON Customers.CustomerID=Orders.CustomerID
+// ORDER BY Customers.CustomerName;
+    
+
+    // public function summery_report($start_date, $end_date){
+    //     $this->db->select('id, haji_id, amount, payment_date');
+    //     $this->db->from('money_receipt');
+    //     $query1 = $this->db->get()->result();
+
+    //     // Query #2
+
+    //     $this->db->select('id, amount, expense_entry_date');
+    //     $this->db->from('expense_entry');
+    //     $query2 = $this->db->get()->result_array();
+
+    //     // Merge both query results
+
+    //     $query = array_merge($query1, $query2);
+    //     return $query;
+    // }
+
+    // public function summery_report($start_date, $end_date){
+    //     $this->db->select('haji_id, payment_date, distinct()amount');
+    //     $this->db->from('money_receipt');
+    //     $this->db->where('payment_date >=', $start_date);
+    //     $this->db->where('payment_date <=', $end_date);
+
+    //     $this->db->join('expense_entry', 'expense_entry_date=1');
+
+    //     $query_result=$this->db->get();
+    //     $result=$query_result->result();
+    //     return $result;
+    // }
+
+    // public function summery_report($start_date, $end_date){
+    //     $sql = "SELECT expense_entry.expense_name expense_name, expense_entry.expense_entry_date expense_entry_date, money_receipt.payment_date payment_date, money_receipt.haji_id haji_name, money_receipt.amount cash_collection, expense_entry.amount total_expense
+    //             from money_receipt,expense_entry 
+    //             WHERE money_receipt.payment_date=expense_entry.expense_entry_date 
+    //             AND money_receipt.payment_date BETWEEN '$start_date' AND '$end_date'
+                
+    //             ";
+
+    //     $query_result=$this->db->query($sql);
+    //     $result=$query_result->result();
+    //     return $result;
+    // }
+
+
+    public function summery_report($start_date, $end_date){
+        $sql = "SELECT expense_entry.expense_name expense_name, expense_entry.expense_entry_date expense_entry_date, money_receipt.payment_date payment_date, money_receipt.haji_id haji_name, money_receipt.amount cash_collection, expense_entry.amount total_expense
+                from money_receipt,expense_entry 
+                WHERE money_receipt.payment_date BETWEEN '$start_date' AND '$end_date'
+                and expense_entry.expense_entry_date BETWEEN '$start_date' AND '$end_date'
+                GROUP BY money_receipt.payment_date 
+                ";
+
+        $query_result=$this->db->query($sql);
+        $result=$query_result->result();
+        return $result;
+    }
+
+    public function summery_report_by_transaction($start_date, $end_date){
+        $this->db->select('*');
+        //$this->db->select_sum('debit');
+        $this->db->where('date >=', $start_date);
+        $this->db->where('date <=', $end_date);
+        //$this->db->group_by('date');
+        $this->db->from('transactions');
+
+        $query_result=$this->db->get();
+        $result=$query_result->result();
+        return $result;
+    }
+    
 }

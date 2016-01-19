@@ -5,7 +5,7 @@
             <i class="ti-align-justify"></i>
         </a>
         <a class="navbar-brand" href="<?php echo base_url()."dashboard"; ?>">
-            <img src="<?php echo base_url(); ?>assets/images/logo.png" alt="Clip-Two"/>
+            <img style="width: 70px" src="<?php echo base_url(); ?>assets/images/Logo-Bag.gif" alt="Micron Techno BD" />
         </a>
         <a href="#" class="sidebar-toggler pull-right visible-md visible-lg" data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
             <i class="ti-align-justify"></i>
@@ -18,139 +18,28 @@
     <!-- end: NAVBAR HEADER -->
     <!-- start: NAVBAR COLLAPSE -->
     <div class="navbar-collapse collapse">
+        <div class="home">
+            <div class="pull-left"  style="margin-top: 15px;">
+                <a class="btn btn-primary" href="<?php echo base_url(); ?>">HOME</a>
+            </div>
+        </div>
         <ul class="nav navbar-right">
-            <!-- start: MESSAGES DROPDOWN -->
-            <li class="dropdown">
-                <a href class="dropdown-toggle" data-toggle="dropdown">
-                    <span class="dot-badge partition-red"></span> <i class="ti-comment"></i> <span>MESSAGES</span>
-                </a>
-                <ul class="dropdown-menu dropdown-light dropdown-messages dropdown-large">
-                    <li>
-                        <span class="dropdown-header"> Unread messages</span>
-                    </li>
-                    <li>
-                        <div class="drop-down-wrapper ps-container">
-                            <ul>
-                                <li class="unread">
-                                    <a href="javascript:;" class="unread">
-                                        <div class="clearfix">
-                                            <div class="thread-image">
-                                                <img src="<?php echo base_url(); ?>assets/images/avatar-2.jpg" alt="">
-                                            </div>
-                                            <div class="thread-content">
-                                                <span class="author">Nicole Bell</span>
-                                                <span class="preview">Duis mollis, est non commodo luctus, nisi erat porttitor ligula...</span>
-                                                <span class="time"> Just Now</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" class="unread">
-                                        <div class="clearfix">
-                                            <div class="thread-image">
-                                                <img src="<?php echo base_url(); ?>assets/images/avatar-3.jpg" alt="">
-                                            </div>
-                                            <div class="thread-content">
-                                                <span class="author">Steven Thompson</span>
-                                                <span class="preview">Duis mollis, est non commodo luctus, nisi erat porttitor ligula...</span>
-                                                <span class="time">8 hrs</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <div class="clearfix">
-                                            <div class="thread-image">
-                                                <img src="<?php echo base_url(); ?>assets/images/avatar-5.jpg" alt="">
-                                            </div>
-                                            <div class="thread-content">
-                                                <span class="author">Kenneth Ross</span>
-                                                <span class="preview">Duis mollis, est non commodo luctus, nisi erat porttitor ligula...</span>
-                                                <span class="time">14 hrs</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="view-all">
-                        <a href="#">
-                            See All
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <!-- end: MESSAGES DROPDOWN -->
-            <!-- start: ACTIVITIES DROPDOWN -->
-            <li class="dropdown">
-                <a href class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="ti-check-box"></i> <span>ACTIVITIES</span>
-                </a>
-                <ul class="dropdown-menu dropdown-light dropdown-messages dropdown-large">
-                    <li>
-                        <span class="dropdown-header"> You have new notifications</span>
-                    </li>
-                    <li>
-                        <div class="drop-down-wrapper ps-container">
-                            <div class="list-group no-margin">
-                                <a class="media list-group-item" href="">
-                                    <img class="img-circle" alt="..." src="<?php echo base_url(); ?>assets/images/avatar-1.jpg">
-                                    <span class="media-body block no-margin"> Use awesome animate.css <small class="block text-grey">10 minutes ago</small> </span>
-                                </a>
-                                <a class="media list-group-item" href="">
-                                    <span class="media-body block no-margin"> 1.0 initial released <small class="block text-grey">1 hour ago</small> </span>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="view-all">
-                        <a href="#">
-                            See All
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <!-- end: ACTIVITIES DROPDOWN -->
-            <!-- start: LANGUAGE SWITCHER -->
-            <li class="dropdown">
-                <a href class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="ti-world"></i> English
-                </a>
-                <ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
-                    <li>
-                        <a href="#" class="menu-toggler">
-                            Deutsch
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="menu-toggler">
-                            English
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="menu-toggler">
-                            Italiano
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <!-- start: LANGUAGE SWITCHER -->
+            
             <!-- start: USER OPTIONS DROPDOWN -->
+            
+
             <li class="dropdown current-user">
                 <a href class="dropdown-toggle" data-toggle="dropdown">
                     <?php $profile_picture=$this->session->userdata("profile_picture"); ?>
-                    <img src="<?php echo base_url(); ?><?php echo $profile_picture; ?>" alt="Peter"> <span class="username"><?php $username = $this->session->userdata("username"); echo $username; ?> <i class="ti-angle-down"></i></i></span>
+                    <img src="<?php echo base_url(); ?><?php if(!empty($profile_picture)) echo $profile_picture; ?>" alt="Peter"> <span class="username"><?php $username = $this->session->userdata("username"); echo $username; ?> <i class="ti-angle-down"></i></i></span>
                 </a>
                 <ul class="dropdown-menu dropdown-dark">
                     <li>
-                        <a href="pages_user_profile.html">
+                        <a href="<?php echo base_url()."auth/my_profile";?>">
                             My Profile
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="pages_calendar.html">
                             My Calendar
                         </a>
@@ -164,7 +53,7 @@
                         <a href="login_lockscreen.html">
                             Lock Screen
                         </a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="<?php echo base_url()."auth/logout"; ?>">
                             Log Out
@@ -174,15 +63,7 @@
             </li>
             <!-- end: USER OPTIONS DROPDOWN -->
         </ul>
-        <!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
-        <div class="close-handle visible-xs-block menu-toggler" data-toggle="collapse" href=".navbar-collapse">
-            <div class="arrow-left"></div>
-            <div class="arrow-right"></div>
-        </div>
-        <!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+        
     </div>
-    <a class="dropdown-off-sidebar" data-toggle-class="app-offsidebar-open" data-toggle-target="#app" data-toggle-click-outside="#off-sidebar">
-        &nbsp;
-    </a>
-    <!-- end: NAVBAR COLLAPSE -->
+   
 </header>
