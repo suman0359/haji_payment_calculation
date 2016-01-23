@@ -307,7 +307,62 @@
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url()."loan/add_loan_paid_form"; ?>">
+                            <a href="<?php echo base_url()."loan/add_new_user"; ?>">
+                                <span class="title"> Add New User </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url()."loan/loan_paid_info"; ?>">
+                                <span class="title"> Loan Paid Information </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url()."loan/loan_paid_form"; ?>">
+                                <span class="title"> Loan Paid Form </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url()."loan/loan_receive_info"; ?>">
+                                <span class="title"> Loan Receive Information </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url()."loan/loan_receive_form"; ?>">
+                                <span class="title"> Loan Receive Form </span>
+                            </a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+
+
+                 <li class="open">
+                    <a href="javascript:void(0)">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <i class="ti-user"></i>
+                            </div>
+                            <div class="item-inner">
+                                <span class="title"> User Management </span><i class="icon-arrow"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <ul class="sub-menu"  style="display: block;">
+
+                        <li>
+                            <a href="<?php echo base_url()."user/user_list"; ?>">
+                                <span class="title"> User List </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url()."loan/add_new_user"; ?>">
                                 <span class="title"> Add New User </span>
                             </a>
                         </li>

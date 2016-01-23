@@ -178,16 +178,27 @@ class Loan extends CI_Controller {
     public function delete_loan_user($id){
         $file = "uploads/loan_user_photo/".$id.".jpg";
         $thumbs_file = "uploads/loan_user_photo/thumbs/".$id.".jpg";
+
+        $balance_status = $this->common_model->getInfo('loan_information', array('id' => $id));
+
+        if($balance_status->balance !=0 ){
+            $msg = "Sorry Can't Delete This User Because This User Balance is not 0 (ZERO)";
+            $this->session->set_flashdata('success', $msg);
+
+            redirect('loan/user_list');
+        }else{
+            unlink($file);
+            unlink($thumbs_file);
+            $this->common_model->delete('loan_information', array('id' => $id));
+
+
+            $msg = "Successfully Deleted Selected Loan User Information";
+            $this->session->set_flashdata('success', $msg);
+
+            redirect('loan/user_list');
+        }
         
-        unlink($file);
-        unlink($thumbs_file);
-        $this->common_model->delete('loan_information', array('id' => $id));
-
-
-        $msg = "Successfully Deleted Selected Loan User Information";
-        $this->session->set_flashdata('success', $msg);
-
-        redirect('loan/user_list');
+        
     }
 
     
@@ -237,6 +248,7 @@ class Loan extends CI_Controller {
         // load Breadcrumbs
         $this->load->library('breadcrumbcomponent');
 
+
         $data['user_info'] = $this->common_model->getInfo('loan_information', array('id' => $id));
 
         $data['loan_user_list']= $this->common_model->selectAll('loan_information'); 
@@ -260,6 +272,16 @@ class Loan extends CI_Controller {
         $data['entry_by']       = $this->input->post('entry_by');
         $data['amount']         = $this->input->post('amount');
         $data['entry_date']     = date('Y-m-d');
+
+        // Loan Information 
+        $balance = $this->common_model->getInfo('loan_information', array('id' => $data['loan_user_id']));
+        $loan_information = array();
+        $balance = $balance->balance;
+        $balance -= $data['amount'];
+        $loan_information['balance'] = $balance;
+
+        // Update User Balance 
+        $this->common_model->update('loan_information', $loan_information, array('id' => $data['loan_user_id']));
 
         $this->common_model->insert('loan_paid', $data);
 
@@ -316,6 +338,15 @@ class Loan extends CI_Controller {
         $data['entry_by']       = $this->input->post('entry_by');
         $data['amount']         = $this->input->post('amount');
         $data['entry_date']     = date('Y-m-d');
+
+        // Loan Information 
+        $balance = $this->common_model->getInfo('loan_information', array('id' => $data['loan_user_id']));
+        $loan_information = array();
+        $balance = $balance->balance;
+        $balance += $data['amount'];
+        $loan_information['balance'] = $balance;
+        // Update User Balance 
+        $this->common_model->update('loan_information', $loan_information, array('id' => $data['loan_user_id']));
 
         $this->common_model->insert('loan_receive', $data);
 

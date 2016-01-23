@@ -71,6 +71,10 @@ class Payment_collection extends CI_Controller {
 
         $this->common_model->insert('money_receipt', $data);
 
+        $money_receipt_id = $this->db->insert_id();
+        // echo '<pre>';
+        // print_r($get_id);
+        // exit();
         // Transaction Section Start From Here 
         $transaction['money_receipt_id']    = $this->db->insert_id();
         $transaction['date']                = date('Y-m-d');
@@ -100,7 +104,7 @@ class Payment_collection extends CI_Controller {
         $msg = "Successfully Add New Payment and Print Your Money Receipt";
         $this->session->set_flashdata('success', $msg);
 
-        redirect('payment_collection/money_receipt/'.$id);
+        redirect('payment_collection/money_receipt/'.$money_receipt_id);
     }
 
     public function money_receipt($id){

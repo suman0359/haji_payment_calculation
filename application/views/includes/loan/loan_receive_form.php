@@ -60,9 +60,9 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                Total Receivable Amount<span class="symbol required"></span>
+                                                Loan Status<span class="symbol required"></span>
                                             </label>
-                                            <input type="text" disabled="disabled" class="form-control" value="10000">
+                                            <input type="text" disabled="disabled" class="form-control" value="<?php echo $user_info->balance; ?>">
                                         </div>
                                     </div>
 
