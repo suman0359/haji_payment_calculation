@@ -41,8 +41,8 @@
                     </a>
                 </li>
                 
-                <li class="open">
-                    <a href="javascript:void(0)">
+                <li>
+                    <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-user"></i>
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                     </a>
-                    <ul class="sub-menu"  style="display: block;">
+                    <ul class="sub-menu">
                         <li>
                             <a href="<?php echo base_url()."haji_info"; ?>">
                                 <span class="title">HAJJI Or OMRA List</span>
@@ -68,8 +68,8 @@
                     </ul>
                 </li>
 
-                <li class="open">
-                    <a href="javascript:void(0)">
+                <li>
+                    <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-layout-grid2"></i>
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                     </a>
-                    <ul class="sub-menu"  style="display: block;">
+                    <ul class="sub-menu">
 
                         <li>
                             <a href="<?php echo base_url(); ?>payment_collection/money_receipt_index">
@@ -124,8 +124,8 @@
                 
                 
                 
-                <li class="open">
-                    <a href="javascript:void(0)">
+                <li>
+                    <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-pencil-alt"></i>
@@ -136,7 +136,7 @@
                         </div>
                     </a>
 
-                    <ul class="sub-menu"  style="display: block;">
+                    <ul class="sub-menu">
 
                         <!-- <li>
                             <a href="<?php echo base_url()."expense"; ?>">
@@ -185,8 +185,8 @@
                 </li>
 
                 <!-- Expense Statement -->
-                <li class="open">
-                    <a href="javascript:void(0)">
+                <li>
+                    <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-settings"></i>
@@ -196,7 +196,7 @@
                             </div>
                         </div>
                     </a>
-                    <ul class="sub-menu"  style="display: block;">
+                    <ul class="sub-menu">
                         <li>
                             <a href="<?php echo base_url(); ?>expense/expense_statement">
                                 <span class="title">Daily/Monthly Expense Statement </span>
@@ -213,8 +213,8 @@
                 </li>
                 <!-- Expense Statement -->
 
-                <li class="open">
-                    <a href="javascript:void(0)">
+                <li>
+                    <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-settings"></i>
@@ -224,7 +224,7 @@
                             </div>
                         </div>
                     </a>
-                    <ul class="sub-menu"  style="display: block;">
+                    <ul class="sub-menu">
                         <li>
                             <a href="<?php echo base_url(); ?>commission_agent">
                                 <span class="title">Commission Agent List </span>
@@ -246,8 +246,8 @@
                     </ul>
                 </li>
 
-                <li class="open">
-                    <a href="javascript:void(0)">
+                <li>
+                    <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-user"></i>
@@ -257,7 +257,7 @@
                             </div>
                         </div>
                     </a>
-                    <ul class="sub-menu"  style="display: block;">
+                    <ul class="sub-menu">
                         <li>
                             <a href="<?php echo base_url()."income/group_index"; ?>">
                                 <span class="title"> Income Group Details</span>
@@ -286,8 +286,8 @@
                 </li>
 
 
-                <li class="open">
-                    <a href="javascript:void(0)">
+                <li>
+                    <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-user"></i>
@@ -298,7 +298,7 @@
                         </div>
                     </a>
 
-                    <ul class="sub-menu"  style="display: block;">
+                    <ul class="sub-menu">
 
                         <li>
                             <a href="<?php echo base_url()."loan/user_list"; ?>">
@@ -341,8 +341,8 @@
                 </li>
 
 
-                 <li class="open">
-                    <a href="javascript:void(0)">
+                 <li>
+                    <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-user"></i>
@@ -353,7 +353,7 @@
                         </div>
                     </a>
 
-                    <ul class="sub-menu"  style="display: block;">
+                    <ul class="sub-menu">
 
                         <li>
                             <a href="<?php echo base_url()."user/user_list"; ?>">
