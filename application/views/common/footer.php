@@ -8,7 +8,7 @@
         </div>
     </div>
 </footer>
-<!-- end: FOOTER -->
+<!-- end: FOOTER --> 
 
 
 <!-- start: SETTINGS -->

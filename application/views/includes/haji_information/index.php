@@ -61,8 +61,17 @@
                                 <td><?php echo $value->hajj_year; ?></td>
                                 <td><?php if(!empty($commission_agent_name->commision_agent_name)) echo $commission_agent_name->commision_agent_name; ?></td>
                                 <td>
+
+                                    <?php
+                                       $user_type = $this->session->userdata('user_type');
+                                       // echo '<pre>';
+                                       // print_r($user_type);
+                                       // exit();
+                                     if($user_type==1){ ?>
                                     <a href="<?php echo base_url(); ?>haji_info/edit_form/<?php echo $value->id; ?>" class="btn btn-primary btn-sm">Edit</a>
                                     <a href="<?php echo base_url(); ?>haji_info/delete_haji/<?php echo $value->id; ?>" class="btn btn-primary btn-sm" onclick="return confirm('Do you want to allow him to');">Delete</a>
+
+                                    <?php } ?>
                                     
                                     <a href="<?php echo base_url(); ?>payment_collection/payment/<?php echo $value->id; ?>" class="btn btn-primary btn-sm" onclick="return confirm('Do you want to allow him to');">Payment</a>
                                     <a href="<?php echo base_url(); ?>payment_collection/haji_payment_report/<?php echo $value->id; ?>" class="btn btn-primary btn-sm" onclick="return confirm('Do you want to allow him to');">Report</a>
