@@ -115,6 +115,7 @@ header .dropdown-off-sidebar {
 
 #sidebar {
   background: #788290 !important;
+  background: #19293b !important;
 }
 #sidebar:before {
   border-right-width: 0 !important;
@@ -131,6 +132,7 @@ header .dropdown-off-sidebar {
 }
 #sidebar nav > ul {
   background: #646E7A !important;
+  background: #19293b !important;
   border-bottom-color: #75808e !important;
   border-top-color: #75808e !important;
 }
@@ -152,9 +154,11 @@ header .dropdown-off-sidebar {
 }
 #sidebar nav > ul > li.open {
   background: #59616c !important;
+  background: #19293b !important;
 }
 .no-touch #sidebar nav > ul > li:hover {
   background: #59616c !important;
+  background: #19293b !important;
 }
 #sidebar nav > ul > li.active {
   background: #1FBBA6 !important;
@@ -187,6 +191,7 @@ header .dropdown-off-sidebar {
 }
 #sidebar nav > ul .sub-menu {
   background: #5d6672;
+  background: #19293b;
 }
 #sidebar nav > ul .sub-menu > li.open {
   background: #59616c !important;

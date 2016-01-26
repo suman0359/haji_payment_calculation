@@ -339,8 +339,9 @@
                         
                     </ul>
                 </li>
-
-
+                
+                <!-- Start:  User Management Sidebar -->
+                <?php if($this->session->userdata('user_type')==1) {?>
                  <li>
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
@@ -356,7 +357,7 @@
                     <ul class="sub-menu">
 
                         <li>
-                            <a href="<?php echo base_url()."user/user_list"; ?>">
+                            <a href="<?php echo base_url()."user/index"; ?>">
                                 <span class="title"> User List </span>
                             </a>
                         </li>
@@ -394,6 +395,8 @@
                         
                     </ul>
                 </li>
+                <?php } ?>
+                 <!-- End: User Management Sidebar -->
                
         </nav>
     </div>
