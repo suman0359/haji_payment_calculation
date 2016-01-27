@@ -147,6 +147,7 @@ header .dropdown-off-sidebar {
 }
 #sidebar nav > ul > li > a .item-inner {
   color: #ffffff !important;
+  color: #ebf0f0 !important;
   border-bottom-color: #75808e;
 }
 #sidebar nav > ul > li.hover {
@@ -198,6 +199,7 @@ header .dropdown-off-sidebar {
 }
 #sidebar nav > ul .sub-menu > li a {
   color: #ffffff;
+  color: #ebf0f0;
 }
 #sidebar nav > ul .sub-menu > li.active a {
   background: #485058 !important;

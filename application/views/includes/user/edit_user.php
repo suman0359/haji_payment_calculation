@@ -24,12 +24,13 @@
             </div>
         </section>
         <!-- end: PAGE TITLE -->
+        <?php $this->load->view('common/error_show'); ?>
         <!-- start: FORM VALIDATION EXAMPLE 1 -->
         <div class="container-fluid container-fullw bg-white">
             <div class="row">
                 <div class="col-md-12">
                     
-                    <form action="<?php echo base_url() . "user/save_new_user"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
+                    <form action="<?php echo base_url() . "user/update_selected_user"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
                         <div class="row">
 
                             <div class="col-md-12">
@@ -55,7 +56,8 @@
                                             <label class="control-label">
                                                 User Name <span class="symbol required"></span>
                                             </label>
-                                            <input type="text" value="<?php echo $user_info->username; ?>" placeholder="Insert User Name" class="form-control" id="haji_name" name="user_first_name">
+                                            <input type="hidden" value="<?php echo $user_info->user_id; ?>" name="user_id" />
+                                            <input type="text" value="<?php echo $user_info->username; ?>" placeholder="Insert User Name" class="form-control" id="username" name="username">
                                         </div>
                                     </div>
 

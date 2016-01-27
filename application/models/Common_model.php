@@ -77,6 +77,54 @@ class Common_model extends CI_Model{
         return $result;
     }
 
+    /*
+    * Imange Manipulation 
+    */
+
+    // function do_upload($upload_path, $thumbs_path) {
+        
+    //     $config = array(
+    //         'allowed_types' => 'jpg|jpeg|gif|png',
+    //         'upload_path' => $upload_path,
+    //         'max_size' => 2000
+    //     );
+        
+    //     $this->load->library('upload', $config);
+    //     $this->upload->do_upload();
+    //     $image_data = $this->upload->data();
+        
+    //     $config = array(
+    //         'source_image' => $image_data['full_path'],
+    //         'new_image' => $thumbs_path,
+    //         'maintain_ration' => true,
+    //         'width' => 150,
+    //         'height' => 100
+    //     );
+        
+    //     $this->load->library('image_lib', $config);
+    //     $this->image_lib->resize();
+        
+    // }
+    
+    // function get_images() {
+        
+    //     $files = scandir($this->gallery_path);
+    //     $files = array_diff($files, array('.', '..', 'thumbs'));
+        
+    //     $images = array();
+        
+    //     foreach ($files as $file) {
+    //         $images []= array (
+    //             'url' => $this->gallery_path_url . $file,
+    //             'thumb_url' => $this->gallery_path_url . 'thumbs/' . $file
+    //         );
+    //     }
+        
+    //     return $images;
+    // }
+
+    /* --------------------------------------------------- */
+
     public function payment_report_haji_wise($haji_id){
         $this->db->select('*');
         $this->db->where('haji_id', $haji_id);

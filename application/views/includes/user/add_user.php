@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-md-12">
                     
-                    <form action="<?php echo base_url() . "user/save_new_user"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
+                    <form action="<?php echo base_url() . "user/save_new_user_info"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
                         <div class="row">
 
                             <div class="col-md-12">
@@ -55,7 +55,7 @@
                                             <label class="control-label">
                                                 User Name <span class="symbol required"></span>
                                             </label>
-                                            <input type="text" placeholder="Insert User Name" class="form-control" id="haji_name" name="user_first_name">
+                                            <input type="text" placeholder="Insert User Name" class="form-control" id="username" name="username">
                                         </div>
                                     </div>
 
@@ -91,7 +91,7 @@
                                             <label class="control-label">
                                                 Email<span class="symbol required"></span>
                                             </label>
-                                            <input type="email" placeholder="Insert Email Address" class="form-control" id="email" name="email">
+                                            <input type="email" placeholder="Insert Email Address" class="form-control" id="user_email" name="user_email">
                                         </div>
                                     </div>
                                 
