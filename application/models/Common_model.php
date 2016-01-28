@@ -44,6 +44,33 @@ class Common_model extends CI_Model{
         return $result;
     }
 
+    public function selectAllWhere($table_name, $id, $order = NULL){
+        $this->db->select('*');
+
+        if (!($order == NULL)) {
+            $this->db->order_by($order);
+        }
+        $this->db->where($id);
+        $this->db->from($table_name);
+
+        $query_result=$this->db->get();
+        $result=$query_result->result();
+        return $result;
+    }
+
+    public function get_account_name($bank_name, $account_id){
+        $this->db->select("*");
+        $this->db->where($account_id);
+        $this->db->from($bank_name);
+
+        $query_result=$this->db->get();
+        $result=$query_result->result();
+        // echo '<pre>';
+        // print_r($account_id);
+        // exit();
+        return $result;
+    }
+
     public function selectAllStatus($table_name, $order = NULL){
         $this->db->select('*');
 

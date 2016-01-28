@@ -15,7 +15,7 @@ class Bank extends CI_Controller {
     }
 
     public function index() {
-        
+        redirect('bank/bank_list');
     }
 
     public function bank_list(){
@@ -177,6 +177,13 @@ class Bank extends CI_Controller {
     }
 
     public function save_bank_deposit(){
+    	$data = array();
+
+    	$data['bank_id'] = $this->input->post('bank_name');
+    	$data['account_number'] = $this->input->post('account_number');
+    	$data['account_name'] = $this->input->post('account_name');
+    	$data['amount'] = $this->input->post('amount');
+    	$data['transaction_type'] = $this->input->post('transaction_type');
 
     }
 
@@ -207,7 +214,7 @@ class Bank extends CI_Controller {
     	$data['entry_by'] = $this->session->userdata('uid');
     	$data['entry_date'] = date('Y-m-d');
 
-    	$this->common_model->update('bank_info', $data, array('id' => $bank_id));
+    	$this->common_model->insert('bank_transaction', $data);
 
     	$msg = "Create Updated Selected Bank Successfully";
         $this->session->set_flashdata('success', $msg);
@@ -221,5 +228,21 @@ class Bank extends CI_Controller {
 
     public function bank_transaction_report(){
 
+    }
+
+
+    /* For Ajax Calling */
+    public function get_account_number_list($id){
+    	$id=trim($id);
+    	$account_number=$this->common_model->selectAllWhere('bank_account_info', array('bank_id' => $id));
+    	echo json_encode($account_number);
+    }
+
+    public function get_account_name($account_id){
+
+     	$account_id=trim($account_id);
+    	$account_name=$this->common_model->get_account_name('bank_account_info', array('id' => $account_id));
+
+    	echo json_encode($account_name);
     }
 }

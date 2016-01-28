@@ -66,7 +66,7 @@
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label class="control-label">
+                                            <label class="control-label" id="fff">
                                                 Account Name <span class="symbol required"></span>
                                             </label>
                                             <input type="text" placeholder="Insert Account Name" class="form-control" id="account_name" name="account_name">
@@ -81,24 +81,28 @@
                             </div> <!-- End First Column -->
 
                             <div class="col-md-6">
-
-                                
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="control-label">
-                                                Branch Name <span class="symbol required"></span>
-                                            </label>
-                                            <input type="text" placeholder="Insert Branch Name" class="form-control" id="branch_name" name="branch_name">
-                                        </div>
-                                    </div>
-
                                     
-                                    <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Account Number <span class="symbol required"></span>
+                                        </label>
+                                        <!-- <input type="text" placeholder="Insert Account Number" class="form-control" id="account_number" name="account_number"> -->
+                                    </div>
+                                    <select name="account_number" id="account_number" class="form-control">
+                                        <option value="">Select Account Number..</option>
+                                        <?php foreach ($account_list as $value) { ?>
+                                        <option value="<?php echo $value->id ?>"><?php echo $value->account_number ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+
+                                 <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                Account Number <span class="symbol required"></span>
+                                                Amount <span class="symbol required"></span>
                                             </label>
-                                            <input type="text" placeholder="Insert Account Number" class="form-control" id="account_number" name="account_number">
+                                            <input type="text" placeholder="Insert Amount" class="form-control" id="amount" name="amount">
                                         </div>
                                     </div>
 
@@ -134,4 +138,58 @@
 
 </div>
 <!-- </div> -->
+<script src="http://localhost/haji_payment_calculation/vendor/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+        $(".main-content").on('change', '#bank_name', function(){
+        var x = document.getElementById("bank_name").value;
+        var x = parseInt(x);
+        // document.getElementById('account_number').value=x;
+
+        // var div_id = $(this).val();
+        $.ajax({
+            url: "<?php echo base_url(); ?>bank/get_account_number_list/" + x,
+            beforeSend: function (xhr) {
+                xhr.overrideMimeType("text/plain; charset=x-user-defined");
+                $("#account_number").html("<option>Loading .... </option>");
+            }
+        })
+        .done(function (data) {
+            $("#account_number").html("<option value=''>Select Account Number </option>");
+            data = JSON.parse(data);
+            $.each(data, function (key, val) {
+                $("#account_number").append("<option value='" + val.id + "'>" + val.account_number + "</option>");
+                document.getElementById('account_name').value=null;
+            });
+
+        });
+    });
+
+        $(".main-content").on('change', '#account_number', function(){
+        
+        var account_id = $(this).val();
+        // alert(account_id);
+        $.ajax({
+            url: "<?php echo base_url(); ?>bank/get_account_name/" + account_id,
+            beforeSend: function (xhr) {
+                xhr.overrideMimeType("text/plain; charset=x-user-defined");
+                //$("#account_number").html("<option>Loading .... </option>");
+            }
+        })
+        .done(function (data) {
+            //$("#account_name").html("<option value=''>Select Account Number </option>");
+            data = JSON.parse(data);
+            $.each(data, function (key, val) {
+                // $("#account_name").append("<option value='" + val.id + "'>" + val.account_name + "</option>");
+                 document.getElementById('account_name').value=val.account_name;
+                 // alert(div_id);
+            });
+
+        });
+    });
+});
+</script>
 

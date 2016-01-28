@@ -43,5 +43,38 @@ $(document).ready(function(){
     		//$("#bank_section").removeClass("display_block");
     	}
 	});
+
+    // $(".main-content").on('change', '#bank_name', function(){
+    //     var x = document.getElementById("bank_name").value;
+    //     var x = parseInt(x);
+    //     document.getElementById('account_number').value=x;
+
+
+    // });
+    
+    // $(".main-content").on('change', '#bank_name', function(){
+    //     var x = document.getElementById("bank_name").value;
+    //     var x = parseInt(x);
+    //     // document.getElementById('account_number').value=x;
+
+    //     // var div_id = $(this).val();
+    //     $.ajax({
+    //         url: "http://localhost/haji_payment_calculation/index.php/bank/get_account_number/" + x,
+    //         beforeSend: function (xhr) {
+    //             xhr.overrideMimeType("text/plain; charset=x-user-defined");
+    //             $("#account_number").html("<option>Loading .... </option>");
+    //         }
+    //     })
+    //     .done(function (data) {
+    //         $("#account_number").html("<option value=''>Select Account Number </option>");
+    //         data = JSON.parse(data);
+    //         $.each(data, function (key, val) {
+    //             $("#account_number").append("<option value='" + val.id + "'>" + val.account_number + "</option>");
+
+    //         });
+    //         // alert(x);
+
+    //     });
+    // });
 });
 
