@@ -19,6 +19,17 @@ class Common_model extends CI_Model{
         $this->db->delete($table_name);
     }
 
+    public function change_status_unpublished($table_name, $id){
+        $this->db->set('status', 0);
+        $this->db->where($id);
+        $this->db->update($table_name);
+    }
+    public function change_status_published($table_name, $id){
+        $this->db->set('status', 1);
+        $this->db->where($id);
+        $this->db->update($table_name);
+    }
+
     public function selectAll($table_name, $order = NULL){
     	$this->db->select('*');
 
@@ -29,6 +40,21 @@ class Common_model extends CI_Model{
     	$this->db->from($table_name);
 
     	$query_result=$this->db->get();
+        $result=$query_result->result();
+        return $result;
+    }
+
+    public function selectAllStatus($table_name, $order = NULL){
+        $this->db->select('*');
+
+        if (!($order == NULL)) {
+            $this->db->order_by($order);
+        }
+
+        $this->db->from($table_name);
+        $this->db->where('status', 1);
+
+        $query_result=$this->db->get();
         $result=$query_result->result();
         return $result;
     }
@@ -49,6 +75,15 @@ class Common_model extends CI_Model{
         $this->db->from($table);
         $this->db->where('status !=', 13);
         $this->db->where($id);
+        $query = $this->db->get()->row();
+        return $query;
+    }
+
+    public function getInfoStatus($table, $id) {
+        $this->db->from($table);
+        $this->db->where('status !=', 13);
+        $this->db->where($id);
+        $this->db->where('status', 1);
         $query = $this->db->get()->row();
         return $query;
     }

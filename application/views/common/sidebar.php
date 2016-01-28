@@ -284,9 +284,9 @@
 
                 <!-- Bank Section Start From Here -->
                 
-                <li>
+                <li class="active open">
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
-                        <div class="item-content">
+                        <div class="item-content" style="display: block;">
                             <div class="item-media">
                                 <i class="ti-settings"></i>
                             </div>
@@ -305,32 +305,44 @@
                         </li>
 
                         <li>
+                            <a href="<?php echo base_url()."bank/bank_account_list"; ?>">
+                                <span class="title"> Bank Account Information </span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="<?php echo base_url()."bank/add_new_bank"; ?>">
-                                <span class="title"> Add New Bank </span>
+                                <span class="title"> Add New Bank Name </span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url()."loan/loan_paid_info"; ?>">
-                                <span class="title"> Loan Paid Information </span>
+                            <a href="<?php echo base_url()."bank/add_new_bank_account"; ?>">
+                                <span class="title"> Add New Bank Account </span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url()."loan/loan_paid_form"; ?>">
-                                <span class="title"> Loan Paid Form </span>
+                            <a href="<?php echo base_url()."bank/bank_deposit_form"; ?>">
+                                <span class="title"> Add Bank Deposit </span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url()."loan/loan_receive_info"; ?>">
-                                <span class="title"> Loan Receive Information </span>
+                            <a href="<?php echo base_url()."bank/bank_widthdrawal_form"; ?>">
+                                <span class="title"> Add Bank Withdrawal </span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url()."loan/loan_receive_form"; ?>">
-                                <span class="title"> Loan Receive Form </span>
+                            <a href="<?php echo base_url()."bank/bank_transaction_statement"; ?>">
+                                <span class="title"> Bank Trasaction Statement </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url()."bank/bank_transaction_report"; ?>">
+                                <span class="title"> Bank Transaction Report </span>
                             </a>
                         </li>
                         
