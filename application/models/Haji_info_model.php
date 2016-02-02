@@ -25,4 +25,8 @@ class Haji_info_model extends CI_Model{
         $result=$query_result->row();
         return $result;
     }
+
+    public function hajj_contact_and_due_statement(){
+        
+    }
 }

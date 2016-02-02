@@ -55,6 +55,7 @@ class User extends CI_Controller {
 		$data['user_last_name'] = $this->input->post('user_last_name', TRUE);
 		$data['phone'] = $this->input->post('phone', TRUE);
 		$data['user_email'] = $this->input->post('user_email', TRUE);
+		$data['username'] = $this->input->post('username', TRUE);
 
 		$data['password'] = md5($password);
 
@@ -69,16 +70,64 @@ class User extends CI_Controller {
 		$data['address'] = $this->input->post('address', TRUE);
 		$data['user_type'] = $this->input->post('user_type', TRUE);
 
+		
+
+        
 		$this->common_model->insert('users', $data);
 
 		$id = $this->db->insert_id();
-        $temp_path = $_FILES['profile_picture']['tmp_name'];
-        $upload_path = 'uploads/profile_picture/' . $id . '.jpg';
-        $thumb_path = 'uploads/profile_picture/thumbs/'. $id . '.jpg';
 
-        
-        move_uploaded_file($temp_path, $upload_path);
-        copy($upload_path, $thumb_path);
+		// get the Image Extension
+  		$path = $_FILES['profile_picture']['name'];
+		$ext = pathinfo($path, PATHINFO_EXTENSION);
+
+		$file_name = $id . '.'.$ext;
+
+        $data['profile_picture'] = $file_name;
+
+
+        if ($_FILES['profile_picture']['size'] > 0) {
+            $this->load->library('upload');
+
+            $config['upload_path'] = 'uploads/profile_picture/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            //$config['max_size'] = '500';
+            $config['max_width'] = '25255';
+            $config['max_height'] = '545454';
+            $config['overwrite'] = TRUE;
+            $config['max_filename'] = 25;
+            $config['file_name'] = $id;
+
+            $this->upload->initialize($config);
+
+            if (!$this->upload->do_upload('profile_picture')) {
+
+                    $error = $this->upload->display_errors();
+                    $this->session->set_flashdata('error', $error);
+                    redirect($_SERVER["HTTP_REFERER"]);
+                }
+
+            $photo = $this->upload->file_name;
+            
+            // echo '<pre>'; print_r($photo); exit();
+
+            $this->load->helper('file');
+            $this->load->library('image_lib');
+            $config['image_library'] = 'gd2';
+            $config['source_image']     = 'uploads/profile_picture/'.$photo;
+            $config['new_image']        = 'uploads/profile_picture/thumbs/'.$photo;
+            $config['maintain_ratio'] = TRUE;
+            $config['width'] = 150;
+            $config['height'] = 150;
+            $config['file_name'] = $id;
+
+            $this->image_lib->clear();
+            $this->image_lib->initialize($config);
+
+            if (!$this->image_lib->resize()) {
+                echo $this->image_lib->display_errors();
+            }
+        }
 
 		$msg = "Successfully Create a New User ";
         $this->session->set_flashdata('success', $msg);
@@ -128,44 +177,54 @@ class User extends CI_Controller {
 		$data['user_type'] = $this->input->post('user_type', TRUE);
 		
 
-		
+		if ($_FILES['profile_picture']['size'] > 0) {
+            $this->load->library('upload');
 
-		// $id = $this->db->insert_id();
-		if($_FILES['profile_picture']['name']!=null){
-			
-		
-	  //       $temp_path = $_FILES['profile_picture']['tmp_name'];
+            $config['upload_path'] = 'uploads/profile_picture/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            //$config['max_size'] = '500';
+            $config['max_width'] = '25255';
+            $config['max_height'] = '545454';
+            $config['overwrite'] = TRUE;
+            $config['max_filename'] = 25;
+            $config['file_name'] = $user_id;
 
-	  //       // get the Image Extension
+            $this->upload->initialize($config);
+
+            if (!$this->upload->do_upload('profile_picture')) {
+
+                    $error = $this->upload->display_errors();
+                    $this->session->set_flashdata('error', $error);
+                    redirect($_SERVER["HTTP_REFERER"]);
+                }
+
+            $photo = $this->upload->file_name;
+            
+            // echo '<pre>'; print_r($photo); exit();
+
+            $this->load->helper('file');
+            $this->load->library('image_lib');
+            $config['image_library'] = 'gd2';
+            $config['source_image']     = 'uploads/profile_picture/'.$photo;
+            $config['new_image']        = 'uploads/profile_picture/thumbs/'.$photo;
+            $config['maintain_ratio'] = TRUE;
+            $config['width'] = 150;
+            $config['height'] = 150;
+            $config['file_name'] = $id;
+
+            $this->image_lib->clear();
+            $this->image_lib->initialize($config);
+
+            if (!$this->image_lib->resize()) {
+                echo $this->image_lib->display_errors();
+            }
+        }	
+	        // get the Image Extension
 	  		$path = $_FILES['profile_picture']['name'];
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
+	        $file_name = $user_id . '.'.$ext;
 
-	        $upload_path = 'uploads/profile_picture/' . $user_id . '.'.$ext;
-	        $thumbs_path = 'uploads/profile_picture/thumbs/'. $user_id . '.'.$ext;
-
-	        $data['profile_picture'] = $thumbs_path;
-
-	  //       move_uploaded_file($temp_path, $upload_path);
-	  //       //copy($upload_path, $thumb_path);
-	  //       // Image Thumbnail Section Start From Here
-	  //       $config['image_library'] = 'gd2';
-			// $config['source_image'] = $thumb_path;
-			// $config['create_thumb'] = TRUE;
-			// $config['maintain_ratio'] = TRUE;
-			// $config['width']         = 75;
-			// $config['height']       = 50;
-
-			// $this->load->library('image_lib', $config);
-			
-			// $this->image_lib->resize();
-
-			$this->load->model('gallery_model');
-		
-			
-			$this->gallery_model->do_upload($upload_path, $thumbs_path);
-			
-
-        }
+	        $data['profile_picture'] = $file_name;
 
         $this->common_model->update('users', $data, array('user_id' => $user_id));
         

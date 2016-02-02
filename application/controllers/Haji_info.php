@@ -21,6 +21,7 @@ class Haji_info extends CI_Controller {
         parent::__construct();
 
         $this->load->model('common_model');
+        $this->load->model('haji_info_model');
         $this->load->library('Encrypt');
         $user_id = $this->session->userdata('user_id');
         
@@ -29,14 +30,9 @@ class Haji_info extends CI_Controller {
         }
     }
     
-    
-    
-    
     public function index() {
         $data = array();
         $sub_data = array();
-
-        
 
         $data['haji_information']=$this->common_model->selectAll('haji_information');
 
@@ -60,9 +56,7 @@ class Haji_info extends CI_Controller {
         $this->breadcrumbcomponent->add('Tutorials', base_url().'tutorials');       
         $this->breadcrumbcomponent->add('Spring Tutorial', base_url().'tutorials/spring-tutorials');
 
-
         $sub_data['commission_agent_list'] = $this->common_model->selectAll('commission_agent');
-
         
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
@@ -75,7 +69,6 @@ class Haji_info extends CI_Controller {
     }
 
     
-
     public function add_haji_information() {
         $data = array();
                 
@@ -90,13 +83,6 @@ class Haji_info extends CI_Controller {
             $haji_id = "HID-000"."1";
         }
         
-
-        // echo '<pre>';
-        // print_r($haji_id_last);
-        // print_r($haji_id);
-        // exit();
-
-
         $data['haji_id']                    = $haji_id;
         $data['haji_name']                  = $this->input->post('haji_name');
         $data['haji_passport']              = $this->input->post('haji_passport');
@@ -150,7 +136,6 @@ class Haji_info extends CI_Controller {
         $id = $this->input->post('id');
         $data = array();
 
-
         //$data['haji_id']                    = $this->input->post('haji_id');
         $data['haji_name']                  = $this->input->post('haji_name');
         $data['haji_passport']              = $this->input->post('haji_passport');
@@ -170,6 +155,41 @@ class Haji_info extends CI_Controller {
         $this->session->set_flashdata('success', $msg);
 
         redirect('haji_info');
+    }
+
+
+    public function hajj_contact_and_due_statement(){
+        $data = array();
+
+        $start_date = date('Y-m-d');
+        $end_date = date('Y-m-d');
+
+        $start_date = $this->input->post('start_date');
+
+        $end_date = $this->input->post('end_date');
+
+        @list($m,$d,$y) = explode('/',$start_date);    // split on underscore.
+        $start_date = $y.'-'.$m.'-'.$d;           // glue the pieces.
+
+        @list($m,$d,$y) = explode('/',$end_date);    // split on underscore.
+        $end_date = $y.'-'.$m.'-'.$d;  
+
+        if(empty($start_date) or empty($end_date)){
+            $start_date = date('Y-m-d');
+            $end_date = date('Y-m-d');
+        }
+
+        $hajj_contact_and_due_statement['hajj_contact_and_due_statement'] = $this->haji_info_model->hajj_contact_and_due_statement('transactions', $start_date, $end_date);
+
+
+        $data['header'] = $this->load->view('common/header', '', TRUE);
+        $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/haji_information/hajj_contact_and_due_statement', $hajj_contact_and_due_statement, TRUE);
+        //$data['main_content'] = $this->load->view('includes/main_content', '', TRUE);
+        $data['footer'] = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
     }
 
     /* ------------------------------------------------------------------------------------------------- */

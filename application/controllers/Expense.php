@@ -117,8 +117,6 @@ class Expense extends CI_Controller {
         $transaction['balance']             = $last_balance;
 
         $this->common_model->insert('transactions', $transaction);
-        
-        $id= $this->db->insert_id();
         // End Transaction From Here 
 
         $msg = "Your Expense Entry Successfully Added ";
@@ -381,7 +379,14 @@ class Expense extends CI_Controller {
 
         $start_date = $this->input->post('start_date');
 
+        @list($m,$d,$y) = explode('/',$start_date);    // split on underscore.
+        $start_date = $y.'-'.$m.'-'.$d;           // glue the pieces.
+
         $end_date = $this->input->post('end_date');
+
+
+        @list($m,$d,$y) = explode('/',$end_date);    // split on underscore.
+        $end_date = $y.'-'.$m.'-'.$d;           // glue the pieces. 
 
         if(empty($start_date) or empty($end_date)){
             $start_date = date('Y-m-d');

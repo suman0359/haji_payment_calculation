@@ -70,8 +70,8 @@
                                        // print_r($user_type);
                                        // exit();
                                      if($user_type==1){ ?>
-                                    <a href="<?php echo base_url(); ?>bank/edit_bank_info/<?php echo $value->id; ?>" class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="<?php echo base_url(); ?>bank/delete_bank_info/<?php echo $value->id; ?>" class="btn btn-primary btn-sm" onclick="return confirm('Do you want to allow him to');">Delete</a>
+                                    <a href="<?php echo base_url(); ?>bank/edit_bank_account_info/<?php echo $value->id; ?>" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="<?php echo base_url(); ?>bank/delete_bank_account_info/<?php echo $value->id; ?>" class="btn btn-primary btn-sm" onclick="return confirm('Do you want to allow him to');">Delete</a>
 
                                     <?php } ?>
                                     

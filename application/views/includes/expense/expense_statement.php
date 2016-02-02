@@ -28,7 +28,7 @@
                     <label class="control-label">
                         Start Date <span class="required"></span>
                     </label>
-                    <input type="date" class="form-control datepicker" id="start_date" name="start_date">
+                    <input type="text" class="form-control datepicker" id="start_date" name="start_date">
                 </div>
             </div>
             <div class="col-md-4">
@@ -36,7 +36,7 @@
                     <label class="control-label">
                         End Date <span class="required"></span>
                     </label>
-                    <input type="date" class="form-control datepicker" id="end_date" name="end_date">
+                    <input type="text" class="form-control datepicker" id="end_date" name="end_date">
                 </div>
             </div>
             <div class="col-md-4">

@@ -128,12 +128,12 @@
                 <div class="row">
                     <div class="col-md-8">
                         <p>
-                            By clicking REGISTER, you are agreeing to the Policy and Terms &amp; Conditions.
+                            By clicking SAVE NEW BANK ACCOUNT, you are agreeing to the Policy and Terms &amp; Conditions.
                         </p>
                     </div>
                     <div class="col-md-4">
                         <button class="btn btn-primary btn-wide pull-right" type="submit">
-                            Register <i class="fa fa-arrow-circle-right"></i>
+                            SAVE NEW BANK ACCOUNT <i class="fa fa-arrow-circle-right"></i>
                         </button>
                     </div>
                 </div>

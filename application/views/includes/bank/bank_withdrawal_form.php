@@ -1,0 +1,261 @@
+<div class="main-content" >
+    <div class="wrap-content container" id="container">
+        <!-- start: PAGE TITLE -->
+        <section id="page-title" style="padding: 20px 0">
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    <h1 class="mainTitle text-center">Bank Withdrawal Form</h1>
+                    
+                </div>
+                <div class="col-md-4">
+                    <ol class="breadcrumb">
+                    <?php 
+                // $this->load->library('breadcrumbcomponent');
+                // $this->breadcrumbcomponent->add('Home', base_url());
+                ?>
+                    <li>
+                        <span>Forms</span>
+                    </li>
+                    <li class="active">
+                        <span>Form Validation</span>
+                    </li>
+                </ol>
+                </div>
+            </div>
+        </section>
+        <!-- end: PAGE TITLE -->
+        <!-- start: FORM VALIDATION EXAMPLE 1 -->
+        <div class="container-fluid container-fullw bg-white">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <form action="<?php echo base_url() . "bank/save_bank_withdraw"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="errorHandler alert alert-danger no-display">
+                                    <i class="fa fa-times-sign"></i> You have some form errors. Please check below.
+                                </div>
+                                <div class="successHandler alert alert-success no-display">
+                                    <i class="fa fa-ok"></i> Your form validation is successful!
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <!-- <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                HAJI ID <span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="haji_id" name="haji_id">
+                                        </div>
+                                    </div> -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Bank Name <span class="symbol required"></span>
+                                            </label>
+                                            <select name="bank_name" id="bank_name" class="form-control">
+                                                <option value="">Select Bank Name..</option>
+                                                <?php foreach ($bank_list as $value) { ?>
+                                                <option value="<?php echo $value->id ?>"><?php echo $value->bank_name ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Account Number <span class="symbol required"></span>
+                                        </label> 
+                                        <select name="account_number" id="account_number" class="form-control">
+                                            <option value="">Select Account Number..</option>
+                                            <?php foreach ($account_list as $value) { ?>
+                                            <option value="<?php echo $value->id ?>"><?php echo $value->account_number ?></option>
+                                            <?php } ?>
+                                        </select>                                       
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" id="fff">
+                                            Account Name <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Insert Account Name" class="form-control" id="account_name" name="account_name">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Payment Mode <span class="symbol required"></span>
+                                        </label>
+                                        <select name="payment_mode" id="payment_mode" class="form-control">
+                                            <option value="">Select Payment Mode</option>
+                                            <option value="2"> Bank </option>
+                                            <option value="3"> ATM Booth </option>
+                                            <!-- <option value="3"> bKash </option> -->    
+                                        </select>
+                                    </div>
+                                </div> <!-- End First Column -->
+
+                            <div id="bank_section" class="display_none"> <!--Bank Section -->
+                                
+                            
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Cheque Number <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Cheque Number X X X " class="form-control" id="chaque_number" name="chaque_number">
+                                    </div>
+                                </div> 
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Cheque Date <span class="symbol required"></span>
+                                        </label>
+                                        <input type="date" placeholder="Insert Prilgrim ID" class="form-control" id="chaque_date" name="chaque_date">
+                                    </div>
+                                </div> 
+                                <!-- <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Bank Name <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Insert Bank Name" class="form-control" id="bank_name" name="bank_name">
+                                    </div>
+                                </div>
+                                
+
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Branch Name <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Branch Name" class="form-control" id="branch_name" name="branch_name">
+                                    </div>
+                                </div>  -->
+                            </div> <!-- /Bank Section -->
+
+                            <!-- bKash Section -->
+                            <div id="bkash_section" class="display_none">
+                                <!-- <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Bkash Phone No <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Bkash Phone No" class="form-control" id="branch_name" name="branch_name">
+                                    </div>
+                                </div>  -->
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            ATM Transaction No<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Bkash Transaction No" class="form-control" id="atm_transaction_no" name="atm_transaction_no">
+                                    </div>
+                                </div> 
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Amount <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="Insert Amount" class="form-control" id="amount" name="amount">
+                                </div>
+                            </div>
+
+
+
+                </div> <!-- End Row -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <span class="symbol required"></span>Required Fields
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>
+                            By clicking SAVE WITHDRAWAL, you are agreeing to the Policy and Terms &amp; Conditions.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary btn-wide pull-right" type="submit">
+                            SAVE WITHDRAWAL <i class="fa fa-arrow-circle-right"></i>
+                        </button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end: FORM VALIDATION EXAMPLE 1 -->
+
+</div>
+<!-- </div> -->
+<script src="http://localhost/haji_payment_calculation/vendor/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+        $(".main-content").on('change', '#bank_name', function(){
+        var x = document.getElementById("bank_name").value;
+        var x = parseInt(x);
+        // document.getElementById('account_number').value=x;
+
+        // var div_id = $(this).val();
+        $.ajax({
+            url: "<?php echo base_url(); ?>bank/get_account_number_list/" + x,
+            beforeSend: function (xhr) {
+                xhr.overrideMimeType("text/plain; charset=x-user-defined");
+                $("#account_number").html("<option>Loading .... </option>");
+            }
+        })
+        .done(function (data) {
+            $("#account_number").html("<option value=''>Select Account Number </option>");
+            data = JSON.parse(data);
+            $.each(data, function (key, val) {
+                $("#account_number").append("<option value='" + val.id + "'>" + val.account_number + "</option>");
+                document.getElementById('account_name').value=null;
+            });
+
+        });
+    });
+
+        $(".main-content").on('change', '#account_number', function(){
+        
+        var account_id = $(this).val();
+        // alert(account_id);
+        $.ajax({
+            url: "<?php echo base_url(); ?>bank/get_account_name/" + account_id,
+            beforeSend: function (xhr) {
+                xhr.overrideMimeType("text/plain; charset=x-user-defined");
+                //$("#account_number").html("<option>Loading .... </option>");
+            }
+        })
+        .done(function (data) {
+            //$("#account_name").html("<option value=''>Select Account Number </option>");
+            data = JSON.parse(data);
+            $.each(data, function (key, val) {
+                // $("#account_name").append("<option value='" + val.id + "'>" + val.account_name + "</option>");
+                 document.getElementById('account_name').value=val.account_name;
+                 // alert(div_id);
+            });
+
+        });
+    });
+});
+</script>
+

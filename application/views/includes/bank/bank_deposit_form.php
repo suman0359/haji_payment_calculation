@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-md-12">
                     
-                    <form action="<?php echo base_url() . "bank/save_new_bank_info"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
+                    <form action="<?php echo base_url() . "bank/save_bank_deposit"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
                         <div class="row">
 
                             <div class="col-md-12">
@@ -40,31 +40,38 @@
                                     <i class="fa fa-ok"></i> Your form validation is successful!
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="row">
-                                    <!-- <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="control-label">
-                                                HAJI ID <span class="symbol required"></span>
-                                            </label>
-                                            <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="haji_id" name="haji_id">
-                                        </div>
-                                    </div> -->
-                                    <div class="col-md-12">
+                                    
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">
                                                 Bank Name <span class="symbol required"></span>
                                             </label>
+                                            <select name="bank_name" id="bank_name" class="form-control">
+                                                <option value="">Select Bank Name..</option>
+                                                <?php foreach ($bank_list as $value) { ?>
+                                                <option value="<?php echo $value->id ?>"><?php echo $value->bank_name ?></option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
-                                        <select name="bank_name" id="bank_name" class="form-control">
-                                            <option value="">Select Bank Name..</option>
-                                            <?php foreach ($bank_list as $value) { ?>
-                                            <option value="<?php echo $value->id ?>"><?php echo $value->bank_name ?></option>
-                                            <?php } ?>
-                                        </select>
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Account Number <span class="symbol required"></span>
+                                            </label> 
+                                            <select name="account_number" id="account_number" class="form-control">
+                                                <option value="">Select Account Number..</option>
+                                                <?php foreach ($account_list as $value) { ?>
+                                                <option value="<?php echo $value->id ?>"><?php echo $value->account_number ?></option>
+                                                <?php } ?>
+                                            </select>                                       
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label" id="fff">
                                                 Account Name <span class="symbol required"></span>
@@ -73,69 +80,86 @@
                                         </div>
                                     </div>
 
-
-
-
-                                </div>
-
-                            </div> <!-- End First Column -->
-
-                            <div class="col-md-6">
-                                    
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="control-label">
-                                            Account Number <span class="symbol required"></span>
-                                        </label>
-                                        <!-- <input type="text" placeholder="Insert Account Number" class="form-control" id="account_number" name="account_number"> -->
-                                    </div>
-                                    <select name="account_number" id="account_number" class="form-control">
-                                        <option value="">Select Account Number..</option>
-                                        <?php foreach ($account_list as $value) { ?>
-                                        <option value="<?php echo $value->id ?>"><?php echo $value->account_number ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-
-                                 <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                Amount <span class="symbol required"></span>
+                                                Payment Mode <span class="symbol required"></span>
                                             </label>
-                                            <input type="text" placeholder="Insert Amount" class="form-control" id="amount" name="amount">
+                                            <select name="payment_mode" id="payment_mode" class="form-control">
+                                                <option value="">Select Payment Mode</option>
+                                                <option value="1"> Cash </option>
+                                                <option value="2"> Bank </option>
+                                                <!-- <option value="3"> bKash </option> -->    
+                                            </select>
                                         </div>
+                                    </div> <!-- End First Column -->
+                                </div>
+
+                            <div id="bank_section" class="display_none"> <!--Bank Section -->
+                                
+                            
+                                <div class="col-md-6 ">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Cheque Number <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Cheque Number X X X " class="form-control" id="chaque_number" name="chaque_number">
                                     </div>
+                                </div> 
 
-                            </div> <!-- End First Column -->
+                                <div class="col-md-6 ">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Cheque Date <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" class="form-control datepicker" id="chaque_date" name="chaque_date">
+                                    </div>
+                                </div> 
+                                
+                            </div> <!-- /Bank Section -->
 
-                </div> <!-- End Row -->
+                            <div class="row">
+                                
+                                <div class="col-md-6 ">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Amount <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Insert Amount" class="form-control" id="amount" name="amount">
+                                    </div>
+                                </div>
+                            </div> <!-- End: Amount Row -->
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div>
-                            <span class="symbol required"></span>Required Fields
-                            <hr>
+                        </div><!-- End: Row -->
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div>
+                                    <span class="symbol required"></span>Required Fields
+                                    <hr>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>
+                                    By clicking SAVE DEPOSIT, you are agreeing to the Policy and Terms &amp; Conditions.
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-primary btn-wide pull-right" type="submit">
+                                    SAVE DEPOSIT <i class="fa fa-arrow-circle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="row">
-                    <div class="col-md-8">
-                        <p>
-                            By clicking REGISTER, you are agreeing to the Policy and Terms &amp; Conditions.
-                        </p>
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn btn-primary btn-wide pull-right" type="submit">
-                            Register <i class="fa fa-arrow-circle-right"></i>
-                        </button>
-                    </div>
-                </div>
-                </form>
             </div>
         </div>
-    </div>
     <!-- end: FORM VALIDATION EXAMPLE 1 -->
 
+    </div>
 </div>
 <!-- </div> -->
 <script src="http://localhost/haji_payment_calculation/vendor/jquery/jquery.min.js"></script>

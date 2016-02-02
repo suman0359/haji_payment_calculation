@@ -70,10 +70,10 @@
                                     </label>
 
                                     <select class="form-control" name="payment_head" id="payment_head">
-                                        <option value=""> Select Agent Name <option>
+                                        <option value=""> Select Agent Name </option>
 
                                         <?php if(!empty($income_head_list)){ foreach ($income_head_list as $value) { ?>
-                                        <option value="<?php echo $value->id; ?>"> <?php echo $value->income_head_name; ?> <option>
+                                        <option value="<?php echo $value->id; ?>"> <?php echo $value->income_head_name; ?> </option>
                                         
                                         <?php } } ?>
                                     </select>
@@ -88,10 +88,10 @@
                                     </label>
 
                                     <select class="form-control" name="payment_mode" id="payment_mode">
-                                        <option> Select Payment Mode <option>
-                                        <option value="1" selected> Cash <option>
-                                        <option value="2"> Bank<option>
-                                        <option value="3"> BKash<option>
+                                        <option> Select Payment Mode </option>
+                                        <option value="1" selected> Cash </option>
+                                        <option value="2"> Bank</option>
+                                        <option value="3"> BKash</option>
                                     </select>
 
                                 </div>

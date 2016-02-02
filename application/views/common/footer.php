@@ -144,19 +144,31 @@
 <script src="<?php echo base_url(); ?>vendor/Chart.js/Chart.min.js"></script>
 <script src="<?php echo base_url(); ?>vendor/jquery.sparkline/jquery.sparkline.min.js"></script>
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+<!-- Start: For Date Picker -->
+<script src="<?php echo base_url(); ?>vendor/maskedinput/jquery.maskedinput.min.js"></script>
+<script src="<?php echo base_url(); ?>vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+<script src="<?php echo base_url(); ?>vendor/autosize/autosize.min.js"></script>
+
+<script src="<?php echo base_url(); ?>vendor/select2/select2.min.js"></script>
+<script src="<?php echo base_url(); ?>vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo base_url(); ?>vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+<!-- End: Date Picker --> 
+
 <!-- start: CLIP-TWO JAVASCRIPTS -->
 <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/index.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.js"></script>
+
 <!-- start: JavaScript Event Handlers for this page -->
  <script src="<?php echo base_url(); ?>assets/js/table-data.js"></script>
  <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
+ <script src="<?php echo base_url(); ?>assets/js/form-elements.js"></script>
 <script>
     jQuery(document).ready(function () {
         Main.init();
         //Index.init();
-        TableData.init();
-
+        //TableData.init();
+        FormElements.init();
     });
 </script>
 <!-- end: JavaScript Event Handlers for this page -->

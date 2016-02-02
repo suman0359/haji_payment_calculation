@@ -95,6 +95,22 @@ class Bank extends CI_Controller {
         redirect('bank/bank_account_list');
     }
 
+    public function edit_bank_account_info($id){
+        $data = array();
+
+        $bank_info=array();
+        $bank_info['bank_info'] = $this->common_model->getInfo('bank_info', array('id' => $id));
+
+        $data['header'] = $this->load->view('common/header', '', TRUE);
+        $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/bank/edit_bank', $bank_info, TRUE);
+        //$data['main_content'] = $this->load->view('includes/main_content', '', TRUE);
+        $data['footer'] = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
+    }
+
     public function save_new_bank_info(){
     	$data = array();
 
@@ -118,7 +134,7 @@ class Bank extends CI_Controller {
     	$data = array();
 
     	$bank_info=array();
-    	$bank_info['bank_info'] = $this->common_model->getInfoStatus('bank_info', array('id' => $id));
+    	$bank_info['bank_info'] = $this->common_model->getInfo('bank_info', array('id' => $id));
 
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
@@ -179,12 +195,61 @@ class Bank extends CI_Controller {
     public function save_bank_deposit(){
     	$data = array();
 
+        // echo '<pre>';
+        // print_r($_POST);
+        // exit();
+
     	$data['bank_id'] = $this->input->post('bank_name');
     	$data['account_number'] = $this->input->post('account_number');
     	$data['account_name'] = $this->input->post('account_name');
-    	$data['amount'] = $this->input->post('amount');
-    	$data['transaction_type'] = $this->input->post('transaction_type');
+        $data['chaque_number'] = $this->input->post('chaque_number');
+        $data['chaque_date'] = $this->input->post('chaque_date');
 
+    	$data['amount'] = $this->input->post('amount');
+    	$data['transaction_type'] = $this->input->post('payment_mode');
+
+        $data['entry_by'] = $this->session->userdata('uid');
+        $data['entry_date'] = date('Y-m-d');
+
+        $this->common_model->insert('bank_deposit', $data);
+
+        // Transaction Section Start From Here 
+        $transaction['deposit_id']          = $this->db->insert_id();
+        $transaction['date']                = date('Y-m-d');
+        $transaction['debit']               = $data['amount'];
+        $transaction['transaction_type']    = $data['transaction_type'];
+        $transaction['entry_by']            = $data['entry_by'];
+
+        // For Sequence Last Balance of the transaction 
+        $last_balance                       = $this->common_model->getLastRow('bank_transaction');
+        $last_balance                       = $last_balance->balance;
+        $last_balance                       = $last_balance+$data['amount'];
+
+        $transaction['balance']             = $last_balance;
+
+        $this->common_model->insert('bank_transaction', $transaction);
+        // End Transaction From Here 
+
+        $msg = "Successfully Save Bank Deposit Info ";
+        $this->session->set_flashdata('success', $msg);
+        
+        redirect('bank/bank_deposit_history');
+
+    }
+
+    public function bank_deposit_history(){
+        $data = array();
+        $bank_deposit_history = array();
+        $bank_deposit_history['bank_deposit_history']=$this->common_model->selectAllStatus('bank_deposit');
+
+        $data['header'] = $this->load->view('common/header', '', TRUE);
+        $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/bank/bank_deposit_history', $bank_deposit_history, TRUE);
+        //$data['main_content'] = $this->load->view('includes/main_content', '', TRUE);
+        $data['footer'] = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
     }
 
     public function bank_widthdrawal_form(){
@@ -195,7 +260,7 @@ class Bank extends CI_Controller {
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
-        $data['main_content'] = $this->load->view('includes/bank/bank_widthdrawal_form', $bank_data, TRUE);
+        $data['main_content'] = $this->load->view('includes/bank/bank_withdrawal_form', $bank_data, TRUE);
         //$data['main_content'] = $this->load->view('includes/main_content', '', TRUE);
         $data['footer'] = $this->load->view('common/footer', '', TRUE);
 
@@ -205,25 +270,96 @@ class Bank extends CI_Controller {
     public function save_bank_withdraw(){
     	$data = array();
 
-    	$bank_id = $this->input->post('bank_id');
+        // echo '<pre>';
+        // print_r($_POST);
+        // exit();
 
-    	$data['bank_name'] = $this->input->post('bank_name', TRUE);
-    	$data['branch_name'] = $this->input->post('branch_name', TRUE);
-    	$data['account_name'] = $this->input->post('account_name', TRUE);
-    	$data['account_number'] = $this->input->post('account_number', TRUE);
-    	$data['entry_by'] = $this->session->userdata('uid');
-    	$data['entry_date'] = date('Y-m-d');
+        $data['bank_id'] = $this->input->post('bank_name');
+        $data['account_number'] = $this->input->post('account_number');
+        $data['account_name'] = $this->input->post('account_name');
+        $data['chaque_number'] = $this->input->post('chaque_number');
+        $data['chaque_date'] = $this->input->post('chaque_date');
 
-    	$this->common_model->insert('bank_transaction', $data);
+        $data['amount'] = $this->input->post('amount');
+        $data['transaction_type'] = $this->input->post('payment_mode');
+        $data['atm_transaction_no'] = $this->input->post('atm_transaction_no');
 
-    	$msg = "Create Updated Selected Bank Successfully";
+
+        $data['entry_by'] = $this->session->userdata('uid');
+        $data['entry_date'] = date('Y-m-d');
+
+        $this->common_model->insert('bank_withdrawal', $data);
+
+        // Transaction Section Start From Here 
+        $transaction['withdrawal_id']       = $this->db->insert_id();
+        $transaction['date']                = date('Y-m-d');
+        $transaction['credit']              = $data['amount'];
+        $transaction['transaction_type']    = $data['transaction_type'];
+        $transaction['entry_by']          = $data['entry_by'];
+
+        // For Sequence Last Balance of the transaction 
+        $last_balance                       = $this->common_model->getLastRow('bank_transaction');
+        $last_balance                       = $last_balance->balance;
+        $last_balance                       = $last_balance-$data['amount'];
+
+        $transaction['balance']             = $last_balance;
+
+        $this->common_model->insert('bank_transaction', $transaction);
+        // End Transaction From Here 
+
+        $msg = "Successfully Save Bank Deposit Info ";
         $this->session->set_flashdata('success', $msg);
         
-        redirect('bank/bank_list');
+        redirect('bank/bank_withdrawal_history');
+    }
+
+    public function bank_withdrawal_history(){
+        $data = array();
+        $bank_withdrawal_history = array();
+        $bank_withdrawal_history['bank_withdrawal_history']=$this->common_model->selectAllStatus('bank_withdrawal');
+
+        $data['header'] = $this->load->view('common/header', '', TRUE);
+        $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/bank/bank_withdrawal_history', $bank_withdrawal_history, TRUE);
+        //$data['main_content'] = $this->load->view('includes/main_content', '', TRUE);
+        $data['footer'] = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
     }
 
     public function bank_transaction_statement(){
+        $data = array();
 
+        $start_date = date('Y-m-d');
+        $end_date = date('Y-m-d');
+
+        $start_date = $this->input->post('start_date');
+
+        $end_date = $this->input->post('end_date');
+
+        list($m,$d,$y) = explode('/',$start_date);    // split on underscore.
+        $start_date = $y.'-'.$m.'-'.$d;           // glue the pieces.
+
+        list($m,$d,$y) = explode('/',$end_date);    // split on underscore.
+        $end_date = $y.'-'.$m.'-'.$d;  
+
+        if(empty($start_date) or empty($end_date)){
+            $start_date = date('Y-m-d');
+            $end_date = date('Y-m-d');
+        }
+
+        $bank_withdrawal_history['bank_withdrawal_history'] = $this->common_model->summery_report_by_transaction('bank_transaction', $start_date, $end_date);
+
+
+        $data['header'] = $this->load->view('common/header', '', TRUE);
+        $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/bank/bank_transaction_statement', $bank_withdrawal_history, TRUE);
+        //$data['main_content'] = $this->load->view('includes/main_content', '', TRUE);
+        $data['footer'] = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
     }
 
     public function bank_transaction_report(){

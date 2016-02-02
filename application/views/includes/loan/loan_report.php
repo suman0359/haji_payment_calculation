@@ -18,41 +18,10 @@
             </div>
         </section> -->
         <!-- end: PAGE TITLE -->
+        <?php $this->load->view('common/error_show'); ?>
         <!-- start: FORM VALIDATION EXAMPLE 1 -->
-        <!-- start Search Section -->
-<div id="" class="container-fluid container-fullw bg-white">
-        <div class="row">
-            <form action="<?php echo base_url(); ?>payment_collection/date_report" method="POST">
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label class="control-label">
-                        Start Date <span class="required"></span>
-                    </label>
-                    <input type="date" class="form-control datepicker" id="start_date" name="start_date">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label class="control-label">
-                        End Date <span class="required"></span>
-                    </label>
-                    <input type="date" class="form-control datepicker" id="end_date" name="end_date">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <button class="btn btn-primary btn-wide pull-right" type="submit">
-                    Search <i class="fa fa-arrow-circle-right"></i>
-                </button>
-            </div>
-
-            </form>
-        </div>
-        </div>
-
-        <!-- End Search Section -->
-
         <div id="div1" class="container-fluid container-fullw bg-white">
-            <h3 class="text-center">Collection Statement <!-- <br/><small>From : 01/12/2015 to 31/12/2015</small>  --></h3>
+            <h3 class="text-center">Loan Report  <!-- <br/><small>From : 01/12/2015 to 31/12/2015</small>  --> </h3>
 
             <div class="row">
         <div class="col-sm-12">
@@ -60,42 +29,85 @@
                 <thead>
                     <tr>
                         <th> # </th>
-                        <th> Haji Name </th>
-                        <th> Haji Passport </th>
-                        <th> Receipt ID </th>
-                        <th>Payment Date</th>
-                        <th> Amount </th>
+                        <th>Photo</th>
+                        <th> Loan User Name </th>
+                        <th> Phone No </th>
+                        <th> Payment Date </th>
+                        <th> Loan Receive </th>
+                        <th> Loan Paid </th>
+                        <!-- <th> Balance </th> -->
                         <!-- <th> Total </th> -->
                     </tr>
                 </thead>
                 <tbody>
 
-                <?php $total = 0; $serial=1; if(!empty($money_receipt_list)){ foreach($money_receipt_list as $value){ 
-                    $haji_id = $value->haji_id;
-                    $haji_name = $this->common_model->getInfo('haji_information', array('id' => $haji_id));
+                <?php 
+                //echo '<pre>'; print_r($loan_payment_list); exit(); 
+                $total = 0; $serial=1; if(!empty($loan_payment_list)){ foreach($loan_payment_list as $value){ 
+                    $loan_user_id = $value->loan_user_id;
+                    $loan_user_name = $this->common_model->getInfo('loan_information', array('id' => $loan_user_id));
 
                     ?>
                     <tr>
                         <td> <?php echo $serial; ?> </td>
-                        <td> <?php if(!empty($haji_name->haji_name))echo $haji_name->haji_name  ?> </td>
-                        <td> <?php if(!empty($haji_name->haji_passport))echo $haji_name->haji_passport ?> </td>
-                        <td> <?php if(!empty($value->money_receipt_number))echo $value->money_receipt_number ?> </td>
-                        <td> <?php if(!empty($value->money_receipt_number))echo $value->payment_date ?> </td>
-                        <td> <?php if(!empty($value->money_receipt_number))echo $value->amount ?> </td>
+                        <td><img style="width: 70px; height:70px; " src="<?php echo base_url(); ?>uploads/loan_user_photo/thumbs/<?php echo $loan_user_id.".jpg" ?>" alt=""></td>
+                        <td> <?php echo $loan_user_name->full_name ?> </td>
+                        <td> <?php echo $loan_user_name->mobile_number ?> </td>
+                        <td> <?php echo $value->date ?> </td>
+                        
+                        <td> <?php echo $value->debit ?> </td>
+                        <td> <?php echo $value->credit ?> </td>
+                        <!-- <td> <?php echo $value->balance ?> </td> -->
                         <!-- <td> $1152 </td> -->
                     </tr>
 
-                    <?php $serial++; $total += $value->amount; } }else{ ?>
+                    <?php 
+                    $serial++; 
+                    $total += $value->balance; 
+                    @$total_paid_amount +=$value->debit;
+                    @$total_received_amount +=$value->credit;
+
+                    } }else{ ?>
+
+                        <hr>
                         <tr>
-                            <td colspan="6" align="center">No Transaction Found</td>
+                            <td colspan="7" align="center">No Transaction Found</td>
                         </tr>
                    <?php  } ?>
 
-                    <tr>
-                        <td colspan="2" style="font-weight: bold">Total Collection Amount</td>
-                        <td colspan="3"></td>
-                        <td style="font-weight: bold"> <?php echo $total; ?> </td>
+                    <!-- <tr>
+                        <td colspan="1"></td>
+                        <td style="font-weight: bold">Total Receive Taka</td>
+                        <td style="font-weight: bold; color: #5cb85c !important;"> <?php echo $total; ?> </td>
                         <!-- <td>  </td> -->
+                    </tr> -->
+
+                    <tr>
+                        <td colspan="4"></td>
+                        <td colspan="2" style="font-weight: bold"> Received Amount : </td>
+                        
+                        <td style="font-weight: bold"><?php echo @$total_paid_amount; ?></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td colspan="2" style="font-weight: bold"> Paid Amount : </td>
+                        
+                        <td style="font-weight: bold"><?php echo @$total_received_amount; ?></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4"></td>
+                        <td colspan="2" style="font-weight: bold"><?php 
+                        $balance = @$total_received_amount-@$total_paid_amount;
+                        if($balance<0)echo "Total Payable Amount"; if($balance>0) echo "Total Receivable Amount";
+                         ?></td>
+                        <td style="font-weight: bold; color: red !important;"><?php 
+                        //$contact_ammount=  $contact_ammount->total_amount; 
+                        echo $balance;
+
+                        //echo $due_amount = $contact_ammount-$total_received_amount;
+
+                        ?></td>
                     </tr>
                     <!-- <tr>
                         <td> 2 </td>
@@ -183,4 +195,5 @@ function printContent(el){
         </div>
 
     </div>
-<!-- </div> -->
+<!-- </div>
+ -->

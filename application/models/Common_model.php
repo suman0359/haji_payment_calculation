@@ -336,13 +336,13 @@ class Common_model extends CI_Model{
         return $result;
     }
 
-    public function summery_report_by_transaction($start_date, $end_date){
+    public function summery_report_by_transaction($table_name, $start_date, $end_date){
         $this->db->select('*');
         //$this->db->select_sum('debit');
         $this->db->where('date >=', $start_date);
         $this->db->where('date <=', $end_date);
         //$this->db->group_by('date');
-        $this->db->from('transactions');
+        $this->db->from($table_name);
 
         $query_result=$this->db->get();
         $result=$query_result->result();

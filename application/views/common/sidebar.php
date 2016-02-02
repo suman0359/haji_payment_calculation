@@ -71,7 +71,12 @@
                     </a>
                     <ul class="sub-menu">
 
-                       
+                       <li>
+                            <a href="<?php echo base_url(); ?>haji_info/hajj_contact_and_due_statement">
+                                <span class="title">Hajj Contact & Dues Statement</span>
+                            </a>
+                            
+                        </li>
 
                         <li>
                             <a href="<?php echo base_url(); ?>payment_collection/date_report">
@@ -329,8 +334,20 @@
                         </li>
 
                         <li>
+                            <a href="<?php echo base_url()."bank/bank_deposit_history"; ?>">
+                                <span class="title"> Bank Deposit History </span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="<?php echo base_url()."bank/bank_widthdrawal_form"; ?>">
                                 <span class="title"> Add Bank Withdrawal </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url()."bank/bank_withdrawal_history"; ?>">
+                                <span class="title"> Bank Withdrawal History </span>
                             </a>
                         </li>
 

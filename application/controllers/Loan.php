@@ -90,13 +90,51 @@ class Loan extends CI_Controller {
         $this->common_model->insert('loan_information',$data);
 
         $id = $this->db->insert_id();
-        $temp_path = $_FILES['profile_photo']['tmp_name'];
-        $upload_path = 'uploads/loan_user_photo/' . $id . '.jpg';
-        $thumb_path = 'uploads/loan_user_photo/thumbs/'. $id . '.jpg';
+        if ($_FILES['profile_photo']['size'] > 0) {
+            $this->load->library('upload');
+
+            $config['upload_path'] = 'uploads/loan_user_photo/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            //$config['max_size'] = '500';
+            $config['max_width'] = '25255';
+            $config['max_height'] = '545454';
+            $config['overwrite'] = TRUE;
+            $config['max_filename'] = 25;
+            $config['file_name'] = $id;
+
+            $this->upload->initialize($config);
+
+            if (!$this->upload->do_upload('profile_photo')) {
+
+                    $error = $this->upload->display_errors();
+                    $this->session->set_flashdata('error', $error);
+                    redirect($_SERVER["HTTP_REFERER"]);
+                }
+
+            $photo = $this->upload->file_name;
+
+            $this->load->helper('file');
+            $this->load->library('image_lib');
+            $config['image_library'] = 'gd2';
+            $config['source_image']     = 'uploads/loan_user_photo/'.$photo;
+            $config['new_image']        = 'uploads/loan_user_photo/thumbs/'.$photo;
+            $config['maintain_ratio'] = TRUE;
+            $config['width'] = 150;
+            $config['height'] = 150;
+            $config['file_name'] = $id;
+
+            $this->image_lib->clear();
+            $this->image_lib->initialize($config);
+
+            if (!$this->image_lib->resize()) {
+                echo $this->image_lib->display_errors();
+            }
+        }
+        
 
         
-        move_uploaded_file($temp_path, $upload_path);
-        copy($upload_path, $thumb_path);
+        // move_uploaded_file($temp_path, $upload_path);
+        // copy($upload_path, $thumb_path);
 
         //echo '<pre>'; print_r(); exit();
 
@@ -166,8 +204,50 @@ class Loan extends CI_Controller {
 
         $this->common_model->update('loan_information',$data, array('id' => $id));
 
+        if ($_FILES['profile_photo']['size'] > 0) {
+            $this->load->library('upload');
+
+            $config['upload_path'] = 'uploads/loan_user_photo/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            //$config['max_size'] = '500';
+            $config['max_width'] = '25255';
+            $config['max_height'] = '545454';
+            $config['overwrite'] = TRUE;
+            $config['max_filename'] = 25;
+            $config['file_name'] = $id;
+
+            $this->upload->initialize($config);
+
+            if (!$this->upload->do_upload('profile_photo')) {
+
+                    $error = $this->upload->display_errors();
+                    $this->session->set_flashdata('error', $error);
+                    redirect($_SERVER["HTTP_REFERER"]);
+                }
+
+            $photo = $this->upload->file_name;
+            
+            // echo '<pre>'; print_r($photo); exit();
+
+            $this->load->helper('file');
+            $this->load->library('image_lib');
+            $config['image_library'] = 'gd2';
+            $config['source_image']     = 'uploads/loan_user_photo/'.$photo;
+            $config['new_image']        = 'uploads/loan_user_photo/thumbs/'.$photo;
+            $config['maintain_ratio'] = TRUE;
+            $config['width'] = 150;
+            $config['height'] = 150;
+            $config['file_name'] = $id;
+
+            $this->image_lib->clear();
+            $this->image_lib->initialize($config);
+
+            if (!$this->image_lib->resize()) {
+                echo $this->image_lib->display_errors();
+            }
+        }
         
-        move_uploaded_file($_FILES['profile_photo']['tmp_name'], 'uploads/loan_user_photo/' . $id . '.jpg');
+        //move_uploaded_file($_FILES['profile_photo']['tmp_name'], 'uploads/loan_user_photo/' . $id . '.jpg');
 
         $msg = "Successfully Updated Selected Loan User Information";
         $this->session->set_flashdata('success', $msg);
@@ -262,6 +342,26 @@ class Loan extends CI_Controller {
         $this->load->view('master_dashboard', $data);
     }
 
+    public function loan_given_form($id){
+        $data = array();
+
+        // load Breadcrumbs
+        $this->load->library('breadcrumbcomponent');
+
+
+        $data['user_info'] = $this->common_model->getInfo('loan_information', array('id' => $id));
+
+        $data['loan_user_list']= $this->common_model->selectAll('loan_information'); 
+        
+        $data['header']       = $this->load->view('common/header', '', TRUE);
+        $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar']   = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/loan/loan_paid_form', $data, TRUE);
+        $data['footer']       = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
+    }
+
     public function save_loan_paid_info(){
         
 
@@ -288,6 +388,7 @@ class Loan extends CI_Controller {
         // Transaction Table And Section Start From Here 
         $transaction = array();
         $transaction['loan_paid_id']        = $this->db->insert_id();
+        $transaction['loan_information_id'] = $data['loan_user_id'];
         $transaction['date']                = date('Y-m-d');
 
         $transaction['credit']              = $this->input->post('amount');
@@ -300,6 +401,23 @@ class Loan extends CI_Controller {
         $transaction['balance']             = $last_balance;
                
         $this->common_model->insert('transactions', $transaction);
+
+        // For Loan Transaction Table 
+        $loan_transaction = array();
+        $loan_transaction['paid_id']        = $this->db->insert_id();
+        $loan_transaction['loan_user_id']        = $data['loan_user_id'];
+        $loan_transaction['date']                = date('Y-m-d');
+
+        $loan_transaction['credit']              = $this->input->post('amount');
+
+        // For Sequence Last Balance of the transaction 
+        $last_balance = $this->common_model->getLastRow('loan_transaction');
+        $last_balance = $last_balance->balance;
+        $last_balance = $last_balance-$data['amount'];
+
+        $loan_transaction['balance']             = $last_balance;
+               
+        $this->common_model->insert('loan_transaction', $loan_transaction);
 
         // Session Message And Redirect Page 
         $msg = "Successfully Paid  ";
@@ -353,6 +471,7 @@ class Loan extends CI_Controller {
         // Transaction Table And Section Start From Here 
         $transaction = array();
         $transaction['loan_receive_id']     = $this->db->insert_id();
+        $transaction['loan_information_id'] = $data['loan_user_id'];
         $transaction['date']                = date('Y-m-d');
 
         $transaction['debit']               = $this->input->post('amount');
@@ -366,10 +485,46 @@ class Loan extends CI_Controller {
                
         $this->common_model->insert('transactions', $transaction);
 
+        /* ------------------------------------------------------ */
+        // For Loan Transaction Table 
+        $loan_transaction = array();
+        $loan_transaction['receive_id']        = $this->db->insert_id();
+        $loan_transaction['loan_user_id']        = $data['loan_user_id'];
+        $loan_transaction['date']                = date('Y-m-d');
+
+        $loan_transaction['debit']              = $this->input->post('amount');
+
+        // For Sequence Last Balance of the transaction 
+        $last_balance = $this->common_model->getLastRow('loan_transaction');
+        $last_balance = $last_balance->balance;
+        $last_balance = $last_balance+$data['amount'];
+
+        $loan_transaction['balance']             = $last_balance;
+               
+        $this->common_model->insert('loan_transaction', $loan_transaction);
+
         // Session Message And Redirect Page 
         $msg = "Loan Recieve Amount Successfully";
         $this->session->set_flashdata('success', $msg);
 
         redirect('loan/user_list');
+    }
+
+    public function loan_report($loan_user_id){
+        $data = array();
+        $sub_data = array();
+
+        $this->load->model('loan_model');
+
+        //$sub_data['contact_ammount'] = $this->haji_info_model->contact_ammount($loan_user_id);
+        $sub_data['loan_payment_list'] = $this->loan_model->payment_report_loan_user_wise($loan_user_id);
+
+        $data['header']                     = $this->load->view('common/header', '', TRUE);
+        $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content']               = $this->load->view('includes/loan/loan_report', $sub_data, TRUE);
+        $data['footer']                     = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
     }
 }

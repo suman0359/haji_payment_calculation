@@ -62,7 +62,16 @@
                                             <label class="control-label">
                                                 Loan Status<span class="symbol required"></span>
                                             </label>
-                                            <input type="text" disabled="disabled" class="form-control" value="<?php echo $user_info->balance; ?>">
+                                            <input type="text" disabled="disabled" class="form-control" value="<?php $balance= $user_info->balance; if($balance < 0) echo $balance." (দেনাদার)"; if($balance > 0) echo $balance." (পাউনাদার )"; ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Full Name<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" disabled="disabled" class="form-control" value="<?php echo $user_info->full_name; ?>">
                                         </div>
                                     </div>
 
@@ -93,14 +102,7 @@
 
                             <div class="col-md-6"> <!-- Second Column Start From Here -->
 
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Full Name<span class="symbol required"></span>
-                                    </label>
-                                    <input type="text" disabled="disabled" class="form-control" value="<?php echo $user_info->full_name; ?>">
-                                </div>
-                            </div>
+                            
 
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -110,6 +112,31 @@
                                     <img src="<?php echo base_url(); ?>uploads/loan_user_photo/<?php echo $user_info->id.".jpg" ?>" width="160px">
                                 </div>
                             </div>    
+<fieldset>
+                            <div id="loan_module">                                
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="Loan Type">Loan Status<span class="symbol required"></span></label>
+                                        <select name="loan_type" id="loan_type" class="form-control">
+                                            <option value="">Select Loan Type..</option>
+                                            <option value="1">First Time Loan Recieve</option>
+                                            <option value="2">Recieve Only Profit</option>
+                                        </select>
+                                    </div>
+                                </div>  
+
+                                <div id="percantage_section" class="display_none"> <!--Percantage Section -->
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">
+                                                Profit Amount <span class="symbol"></span>
+                                            </label>
+                                            <input type="text" name="percentage" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
 
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -120,6 +147,7 @@
                                 </div>
                             </div>
 
+                            </fieldset>
 
                                 
 
@@ -140,12 +168,12 @@
                 <div class="row">
                     <div class="col-md-8">
                         <p>
-                            By clicking REGISTER, you are agreeing to the Policy and Terms &amp; Conditions.
+                            By clicking SAVE DATA, you are agreeing to the Policy and Terms &amp; Conditions.
                         </p>
                     </div>
                     <div class="col-md-4">
                         <button class="btn btn-primary btn-wide pull-right" type="submit">
-                            Register <i class="fa fa-arrow-circle-right"></i>
+                            SAVE DATA <i class="fa fa-arrow-circle-right"></i>
                         </button>
                     </div>
                 </div>

@@ -44,6 +44,21 @@ $(document).ready(function(){
     	}
 	});
 
+    $(".main-content").on('change', '#loan_module', function(){
+        var x = document.getElementById("loan_type").value;
+        var x = parseInt(x);
+
+        if (x==1) {
+            $("#percantage_section").removeClass("display_none");
+        }else if(x==2){
+            $("#percantage_section").removeClass("display_block");
+            $("#percantage_section").addClass("display_none");
+        }else if(isNaN(x)==true){
+            $("#percantage_section").removeClass("display_block");
+            $("#percantage_section").addClass("display_none");
+        }
+    });
+
     // $(".main-content").on('change', '#bank_name', function(){
     //     var x = document.getElementById("bank_name").value;
     //     var x = parseInt(x);

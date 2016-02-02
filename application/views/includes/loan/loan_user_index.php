@@ -27,8 +27,8 @@
         <div class="container-fluid container-fullw bg-white">
             <div class="row">
             
-            <div class="col-md-12 text-center">
-            <a href="<?php echo base_url(); ?>loan/add_new_user" class="btn btn-success">Add New User</a>
+            <div class="col-md-12 text-center padding_bottom_4">
+                <a href="<?php echo base_url(); ?>loan/add_new_user" class="btn btn-success">Add New User</a>
             </div>
 
                 <div class="col-md-12">
@@ -44,30 +44,52 @@
                                 <th>Name</th>
                                 <th>Mobile</th>
                                 <th>Present Address</th>
-                                <th>National Id Number</th>
+                                <th>Loan Status</th>
                                 <th>Occupation</th>
-                                <th colspan="3">Action</th>
+                                <th colspan="1">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $serial= 1; foreach ($loan_user_list as $value) { ?>
+                            <?php $serial= 1; foreach ($loan_user_list as $value) { 
+                            $balance= $value->balance;
+
+                            ?>
 
                             <tr>
                                 <td><?php echo $serial; ?></td>
-                                <td><img style="width: 50px; height:40px;" src="<?php echo base_url()."uploads/loan_user_photo/".$value->id.".jpg" ?>" alt="<?php echo $value->full_name ?>"></td>
+                                <td><img style="width: 50px; height:40px;" src="<?php echo base_url()."uploads/loan_user_photo/thumbs/".$value->id.".jpg" ?>" alt="<?php echo $value->full_name ?>"></td>
                                 <td><?php echo $value->full_name ?></td>
                                 <td><?php echo $value->mobile_number; ?></td>
                                 <td><?php echo $value->present_address; ?></td>
-                                <td><?php echo $value->national_id_number; ?></td>
+                                <td><span class="btn btn-xs btn-<?php if($balance<0) echo "success"; if($balance>0) echo "warning"; ?>"><?php if($balance==0) echo "No Transaction"; if($balance<0) echo "Receiveable"; if($balance>0) echo "Payble"; ?></span></td>
                                 <td><?php echo $value->ocupation; ?></td>
                                 
-                                <td colspan="3">
-                                    <a href="<?php echo base_url(); ?>loan/edit_user_form/<?php echo $value->id; ?>" class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="<?php echo base_url(); ?>loan/delete_loan_user/<?php echo $value->id; ?>" class="btn btn-primary btn-sm" onclick="return confirm('Do you want to allow him to');">Delete</a>
-                                     
-                                    <a href="<?php echo base_url(); ?>loan/loan_paid_form/<?php echo $value->id; ?>" class="btn btn-primary btn-sm" onclick="return confirm('Do you want to allow him to');">Loan Paid</a>
+                                <td colspan="1">
+                                    
 
-                                    <a href="<?php echo base_url(); ?>loan/loan_receive_form/<?php echo $value->id; ?>" class="btn btn-primary btn-sm">Receive</a> 
+                                    <!-- Single button -->
+                                    <div class="btn-group">
+                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-settings tiny-icon"></i>
+                                        Action <span class="caret"></span>
+                                      </button>
+                                      <ul class="dropdown-menu">
+                                        <li><a href="<?php echo base_url(); ?>loan/edit_user_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Edit</a>
+                                    <a href="<?php echo base_url(); ?>loan/delete_loan_user/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');"><i class="fa fa-edit tiny-icon"></i>Delete</a></li>
+                                        <li></li>
+                                        <li><a href="<?php echo base_url(); ?>loan/loan_paid_form/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');"><i class="fa fa-edit tiny-icon"></i>Loan Paid</a></li>
+                                        <li><a href="<?php echo base_url(); ?>loan/loan_receive_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Receive</a> </li>
+                                        
+                                        <!-- <li><a href="<?php echo base_url(); ?>loan/loan_given_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Loan Given</a> </li>
+                                        <li><a href="<?php echo base_url(); ?>loan/loan_taken_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Loan Taken</a> </li> -->
+
+                                        <li><a href="<?php echo base_url(); ?>loan/loan_report/<?php echo $value->id; ?>">Report</a></li>
+
+                                      </ul>
+                                    </div>
+                                     
+                                    
+
+                                    
                                 </td>
                             </tr>
 

@@ -31,7 +31,7 @@
             <li class="dropdown current-user">
                 <a href class="dropdown-toggle" data-toggle="dropdown">
                     <?php $profile_picture=$this->session->userdata("profile_picture"); ?>
-                    <img src="<?php echo base_url(); ?><?php if(!empty($profile_picture)) echo $profile_picture; ?>" alt="Peter"> <span class="username"><?php $username = $this->session->userdata("username"); echo $username; ?> <i class="ti-angle-down"></i></i></span>
+                    <img src="<?php echo base_url()."uploads/profile_picture/thumbs/"; ?><?php if(!empty($profile_picture)) echo $profile_picture; ?>" alt="Peter"> <span class="username"><?php $username = $this->session->userdata("username"); echo $username; ?> <i class="ti-angle-down"></i></i></span>
                 </a>
                 <ul class="dropdown-menu dropdown-dark">
                     <li>

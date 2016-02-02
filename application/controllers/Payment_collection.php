@@ -305,7 +305,13 @@ class Payment_collection extends CI_Controller {
 
         $start_date = $this->input->post('start_date');
 
+        @list($m,$d,$y) = explode('/',$start_date);    // split on underscore.
+        $start_date = $y.'-'.$m.'-'.$d;           // glue the pieces.
+
         $end_date = $this->input->post('end_date');
+
+        @list($m,$d,$y) = explode('/',$end_date);    // split on underscore.
+        $end_date = $y.'-'.$m.'-'.$d;
 
         if(empty($start_date) or empty($end_date)){
             $start_date = date('Y-m-d');
@@ -317,7 +323,7 @@ class Payment_collection extends CI_Controller {
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
-        $data['main_content']               = $this->load->view('includes/payment_collection/date_invoice', $sub_data, TRUE);
+        $data['main_content']               = $this->load->view('includes/payment_collection/date_report', $sub_data, TRUE);
         $data['footer']                     = $this->load->view('common/footer', '', TRUE);
 
         $this->load->view('master_dashboard', $data);
@@ -365,18 +371,20 @@ class Payment_collection extends CI_Controller {
 
         $start_date = $this->input->post('start_date');
 
+        @list($m,$d,$y) = explode('/',$start_date);    // split on underscore.
+        $start_date = $y.'-'.$m.'-'.$d;           // glue the pieces.
+
         $end_date = $this->input->post('end_date');
+
+        @list($m,$d,$y) = explode('/',$end_date);    // split on underscore.
+        $end_date = $y.'-'.$m.'-'.$d;  
 
         if(empty($start_date) or empty($end_date)){
             $start_date = date('Y-m-d');
             $end_date = date('Y-m-d');
         }
 
-        $sub_data['summery_report'] = $this->common_model->summery_report_by_transaction($start_date, $end_date);
-
-        // echo '<pre>';
-        // print_r($sub_data['summery_report']);
-        // exit();
+        $sub_data['summery_report'] = $this->common_model->summery_report_by_transaction('transactions', $start_date, $end_date);
 
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);

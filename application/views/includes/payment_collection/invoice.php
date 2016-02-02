@@ -65,7 +65,7 @@
                     <tr>
                         <td colspan="4"></td>
                         <td style="font-weight: bold">Total Receive Taka</td>
-                        <td style="font-weight: bold"> <?php echo $total; ?> </td>
+                        <td style="font-weight: bold; color: #5cb85c !important;"> <?php echo $total; ?> </td>
                         <!-- <td>  </td> -->
                     </tr>
 
@@ -78,7 +78,7 @@
                     <tr>
                         <td colspan="4"></td>
                         <td style="font-weight: bold">Due Amount</td>
-                        <td style="font-weight: bold"><?php 
+                        <td style="font-weight: bold; color: red !important;"><?php 
                         $contact_ammount=  $contact_ammount->total_amount; 
                         $total_received_amount = $total;
 

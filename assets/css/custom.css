@@ -1,3 +1,19 @@
+/* Custom FrameWork Stylesheet */
+
+.margin_4{margin: 4px;}
+.margin_left_4{margin-left: 4px;}
+.margin_top_4{margin-top: 4px;}
+.margin_bottom_4{margin-bottom: 4px;}
+.margin_right_4{margin-right: 4px;}
+
+
+.padding_4{padding: 4px;}
+.padding_left_4{padding-left: 4px;}
+.padding_top_4{padding-top: 4px;}
+.padding_bottom_4{padding-bottom: 4px;}
+.padding_right_4{padding-right: 4px;}
+
+
 .nowrap{
   white-space: pre-line;
 }
@@ -72,3 +88,17 @@ input[type=number]::-webkit-outer-spin-button {
   display: block;
 }
 /* ----------------------------------------- */
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #428bca;
+}
+
+.dropdown-menu {
+  min-width: 105px;
+}
+
+.tiny-icon {
+    margin-right: 6px;
+}
