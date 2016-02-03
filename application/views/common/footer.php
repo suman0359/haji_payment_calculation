@@ -167,7 +167,7 @@
     jQuery(document).ready(function () {
         Main.init();
         //Index.init();
-        //TableData.init();
+        TableData.init();
         FormElements.init();
     });
 </script>

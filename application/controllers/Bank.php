@@ -338,10 +338,10 @@ class Bank extends CI_Controller {
 
         $end_date = $this->input->post('end_date');
 
-        list($m,$d,$y) = explode('/',$start_date);    // split on underscore.
+        @list($m,$d,$y) = explode('/',$start_date);    // split on underscore.
         $start_date = $y.'-'.$m.'-'.$d;           // glue the pieces.
 
-        list($m,$d,$y) = explode('/',$end_date);    // split on underscore.
+        @list($m,$d,$y) = explode('/',$end_date);    // split on underscore.
         $end_date = $y.'-'.$m.'-'.$d;  
 
         if(empty($start_date) or empty($end_date)){

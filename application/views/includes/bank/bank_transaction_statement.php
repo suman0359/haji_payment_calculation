@@ -60,7 +60,7 @@
 
         <!-- End Search Section -->
 
-        <div id="div1" class="container-fluid container-fullw bg-white">
+        <div id="printContent" class="container-fluid container-fullw bg-white">
             <h3 class="text-center">Bank Transaction Statement <!-- <br/><small>From : 01/12/2015 to 31/12/2015</small>  --></h3>
 
             <div class="row">
@@ -103,7 +103,7 @@
 
                     <?php $serial++; $total += $value->balance; } }else{ ?>
                         <tr>
-                            <td colspan="6" align="center">No Transaction Found</td>
+                            <td colspan="7" align="center">No Transaction Found</td>
                             
                         </tr>
                    <?php  } ?>
@@ -121,7 +121,7 @@
     </div>
 
 
-<button class="btn btn-primary hidden-print" onclick="printContent('div1')">Print</button>
+<button class="btn btn-primary hidden-print" onclick="printContent('printContent')">Print</button>
 
 
 

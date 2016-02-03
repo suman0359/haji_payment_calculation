@@ -90,7 +90,7 @@ class Expense extends CI_Controller {
         $data = array();
 
         $data['expense_entry_date']         = date('Y-m-d');
-        $data['date']                       = $this->input->post('date');
+        $data['date']                       = date('Y-m-d');//$this->input->post('date');
         $data['expense_group_id']           = $this->input->post('expense_group_id');
         $data['expense_head_id']            = $this->input->post('expense_head_id');
 

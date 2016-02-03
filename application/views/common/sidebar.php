@@ -60,7 +60,7 @@
 
                 <li  class="active open">
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
-                        <div class="item-content" style="display: block;">
+                        <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-layout-grid2"></i>
                             </div>
@@ -101,7 +101,7 @@
                 
                 <li class="active open">
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
-                        <div class="item-content" style="display: block;">
+                        <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-pencil-alt"></i>
                             </div>
@@ -144,9 +144,9 @@
                 </li>
 
                 <!-- Expense Statement -->
-                <li class="active open">
+                <li class="">
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
-                        <div class="item-content" style="display: block;">
+                        <div class="item-content" >
                             <div class="item-media">
                                 <i class="ti-settings"></i>
                             </div>
@@ -233,7 +233,7 @@
                 </li>
 
 
-                <li>
+                <li class="open active">
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
@@ -253,11 +253,11 @@
                             </a>
                         </li>
 
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo base_url()."loan/add_new_user"; ?>">
                                 <span class="title"> Add New User </span>
                             </a>
-                        </li>
+                        </li> -->
 
                         <li>
                             <a href="<?php echo base_url()."loan/loan_paid_info"; ?>">
@@ -265,11 +265,11 @@
                             </a>
                         </li>
 
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo base_url()."loan/loan_paid_form"; ?>">
                                 <span class="title"> Loan Paid Form </span>
                             </a>
-                        </li>
+                        </li> -->
 
                         <li>
                             <a href="<?php echo base_url()."loan/loan_receive_info"; ?>">
@@ -277,11 +277,11 @@
                             </a>
                         </li>
 
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo base_url()."loan/loan_receive_form"; ?>">
                                 <span class="title"> Loan Receive Form </span>
                             </a>
-                        </li>
+                        </li> -->
                         
                         
                     </ul>
@@ -291,7 +291,7 @@
                 
                 <li class="active open">
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
-                        <div class="item-content" style="display: block;">
+                        <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-settings"></i>
                             </div>
@@ -315,17 +315,17 @@
                             </a>
                         </li>
 
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo base_url()."bank/add_new_bank"; ?>">
                                 <span class="title"> Add New Bank Name </span>
                             </a>
-                        </li>
+                        </li> -->
 
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo base_url()."bank/add_new_bank_account"; ?>">
                                 <span class="title"> Add New Bank Account </span>
                             </a>
-                        </li>
+                        </li> -->
 
                         <li>
                             <a href="<?php echo base_url()."bank/bank_deposit_form"; ?>">

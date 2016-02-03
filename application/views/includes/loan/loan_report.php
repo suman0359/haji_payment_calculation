@@ -21,7 +21,7 @@
         <?php $this->load->view('common/error_show'); ?>
         <!-- start: FORM VALIDATION EXAMPLE 1 -->
         <div id="div1" class="container-fluid container-fullw bg-white">
-            <h3 class="text-center">Loan Report  <!-- <br/><small>From : 01/12/2015 to 31/12/2015</small>  --> </h3>
+            <h3 class="text-center">Loan Report </h3>
 
             <div class="row">
         <div class="col-sm-12">
@@ -80,7 +80,7 @@
                         <td style="font-weight: bold">Total Receive Taka</td>
                         <td style="font-weight: bold; color: #5cb85c !important;"> <?php echo $total; ?> </td>
                         <!-- <td>  </td> -->
-                    </tr> -->
+                    </tr> 
 
                     <tr>
                         <td colspan="4"></td>
@@ -109,30 +109,6 @@
 
                         ?></td>
                     </tr>
-                    <!-- <tr>
-                        <td> 2 </td>
-                        <td> Ipsum </td>
-                        <td class="hidden-480"> Consectetuer adipiscing elit </td>
-                        <td class="hidden-480"> 21 </td>
-                        <td class="hidden-480"> $469 </td>
-                        <td> $6159 </td>
-                    </tr>
-                    <tr>
-                        <td> 3 </td>
-                        <td> Dolor </td>
-                        <td class="hidden-480"> Olor sit amet adipiscing eli </td>
-                        <td class="hidden-480"> 24 </td>
-                        <td class="hidden-480"> $144 </td>
-                        <td> $8270 </td>
-                    </tr>
-                    <tr>
-                        <td> 4 </td>
-                        <td> Sit </td>
-                        <td class="hidden-480"> Laoreet dolore magna </td>
-                        <td class="hidden-480"> 194 </td>
-                        <td class="hidden-480"> $317 </td>
-                        <td> $966 </td>
-                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -142,36 +118,7 @@
 <button class="btn btn-primary hidden-print" onclick="printContent('div1')">Print</button>
 
 
-<!-- 
-            <div class="row">
-                <div class="col-sm-12 invoice-block">
-                    <ul class="list-unstyled amounts text-small">
-                        <li>
-                            <strong>Sub-Total:</strong> $12,876
-                        </li>
-                        <li>
-                            <strong>Discount:</strong> 9.9%
-                        </li>
-                        <li>
-                            <strong>VAT:</strong> 22%
-                        </li>
-                        <li class="text-extra-large text-dark margin-top-15">
-                            <strong >Total:</strong> $11,400
-                        </li>
-                    </ul>
-                    <br>
-                    <a onclick="javascript:window.print();" class="btn btn-lg btn-primary hidden-print">
-                        Print <i class="fa fa-print"></i>
-                    </a>
-                    <a class="btn btn-lg btn-primary btn-o hidden-print">
-                        Submit Your Invoice <i class="fa fa-check"></i>
-                    </a>
-                </div>
-            </div>
- -->
-
-
-            <script>
+<script>
 function printContent(el){
     var restorepage = document.body.innerHTML;
     var printcontent = document.getElementById(el).innerHTML;

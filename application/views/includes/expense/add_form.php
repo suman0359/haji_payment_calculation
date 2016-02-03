@@ -211,3 +211,33 @@
     }
 
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".main-content").on('change', '#expense_group_name', function(){
+        var x = document.getElementById("expense_group_name").value;
+        var x = parseInt(x);
+        // document.getElementById('account_number').value=x;
+
+        // var div_id = $(this).val();
+        $.ajax({
+            url: "<?php echo base_url(); ?>expense/get_account_number_list/" + x,
+            beforeSend: function (xhr) {
+                xhr.overrideMimeType("text/plain; charset=x-user-defined");
+                $("#expense_head_name").html("<option>Loading .... </option>");
+            }
+        })
+        .done(function (data) {
+            $("#expense_head_name").html("<option value=''>Select Account Number </option>");
+            data = JSON.parse(data);
+            $.each(data, function (key, val) {
+                $("#expense_head_name").append("<option value='" + val.id + "'>" + val.account_number + "</option>");
+                document.getElementById('account_name').value=null;
+            });
+
+        });
+    });
+    })
+</script>
+
+

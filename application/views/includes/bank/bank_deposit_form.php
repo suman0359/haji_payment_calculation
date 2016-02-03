@@ -166,7 +166,7 @@
 
 
 
-<script type="text/javascript">
+<script type="text/javascript"> 
 $(document).ready(function(){
         $(".main-content").on('change', '#bank_name', function(){
         var x = document.getElementById("bank_name").value;
