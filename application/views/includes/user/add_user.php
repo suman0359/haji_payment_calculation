@@ -51,11 +51,14 @@
                                         </div>
                                     </div> -->
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="form-group" id="username_validation">
                                             <label class="control-label">
                                                 User Name <span class="symbol required"></span>
                                             </label>
-                                            <input type="text" placeholder="Insert User Name" class="form-control" id="username" name="username">
+                                            <input type="text" autocomplete="off" placeholder="Insert User Name" class="form-control" id="username" name="username">
+                                            <code id="validation_error" class="danger display_none">Username Must be at least 4 character</code>
+                                            <span id="validation" class="success display_none">User Name is Available</span>
+                                            <span id="validation_exist" class="danger display_none">User Name is Already Exist</span>
                                         </div>
                                     </div>
 
@@ -91,7 +94,8 @@
                                             <label class="control-label">
                                                 Email<span class="symbol required"></span>
                                             </label>
-                                            <input type="email" placeholder="Insert Email Address" class="form-control" id="user_email" name="user_email">
+                                            <input type="email" autocomplete="off" placeholder="Insert Email Address" class="form-control" id="user_email" name="user_email">
+                                            <small id="username_validation" style="color: red; display:block;">Just for Testing</small>
                                         </div>
                                     </div>
                                 

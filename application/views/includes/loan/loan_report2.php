@@ -22,19 +22,43 @@
         <!-- start: FORM VALIDATION EXAMPLE 1 -->
         <div id="div1" class="container-fluid container-fullw bg-white">
             <h3 class="text-center">Loan Report </h3>
-
+            <h5 class="text-center">
+                    <span>Start Date</span><span class="btn btn-xs btn-primary"><?php echo @$start_date ?></span>
+                    <span>End Date</span><span class="btn btn-xs btn-primary"><?php echo @$end_date ?></span>
+            </h5>
+            
             <div class="row">
         <div class="col-sm-12">
+        <div class="profile">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="loan-profile-image">
+                            <img style="width: 70px; height:70px; " src="<?php echo base_url(); ?>uploads/loan_user_photo/thumbs/<?php echo $loan_user_id.".jpg" ?>" alt="">
+                        </div>
+                            <div class="col-md-6">
+                                <label for="Name">Name : </label>        
+                            </div>
+                            <div class="col-md-6">
+                                <input disabled="" type="text" class="form-control" value="<?php $username = $this->common_model->getInfo('loan_information', array('id' => $loan_user_id)); echo $username->full_name; ?>">
+                            </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th> # </th>
                         <th>Photo</th>
-                        <th> Loan User Name </th>
+                        
+                        <th>Status</th>
                         <th> Phone No </th>
                         <th> Payment Date </th>
-                        <th> Loan Receive </th>
-                        <th> Loan Paid </th>
+                        <th> Installment </th>
+                        <th> Loan Given/Taken </th>
                         <!-- <th> Balance </th> -->
                         <!-- <th> Total </th> -->
                     </tr>
@@ -46,17 +70,18 @@
                 $total = 0; $serial=1; if(!empty($loan_payment_list)){ foreach($loan_payment_list as $value){ 
                     $loan_user_id = $value->loan_user_id;
                     $loan_user_name = $this->common_model->getInfo('loan_information', array('id' => $loan_user_id));
-
+                    $status= $value->loan_type;
                     ?>
                     <tr>
                         <td> <?php echo $serial; ?> </td>
-                        <td><img style="width: 70px; height:70px; " src="<?php echo base_url(); ?>uploads/loan_user_photo/thumbs/<?php echo $loan_user_id.".jpg" ?>" alt=""></td>
-                        <td> <?php echo $loan_user_name->full_name ?> </td>
+                        <td></td>
+                    
+                        <td> <?php if($status==1) echo "Loan Given"; if($status==2)echo "Loan Taken"; if($status==3) echo "Receive Inst."; if($status==4) echo "Paid Inst."; ?> </td>
                         <td> <?php echo $loan_user_name->mobile_number ?> </td>
                         <td> <?php echo $value->date ?> </td>
                         
-                        <td> <?php echo $value->debit ?> </td>
-                        <td> <?php echo $value->credit ?> </td>
+                        <td> <?php if($status==1) echo $value->debit; if($status==2)echo $value->credit; if($status==3 ) echo $value->debit; if($status==4) echo $value->credit;  ?> </td>
+                        <td> <?php if($status==2) echo $value->debit; if($status==1)echo $value->credit; ?> </td>
                         <!-- <td> <?php echo $value->balance ?> </td> -->
                         <!-- <td> $1152 </td> -->
                     </tr>
@@ -97,10 +122,10 @@
 
                     <tr>
                         <td colspan="4"></td>
-                        <td colspan="2" style="font-weight: bold"><?php 
-                        $balance = @$total_received_amount-@$total_paid_amount;
-                        if($balance<0)echo "Total Payable Amount"; if($balance>0) echo "Total Receivable Amount";
-                         ?></td>
+                        <td colspan="2" style="font-weight: bold">Total Due Amount
+                        <?php 
+                        $balance = @$total_received_amount-@$total_paid_amount; ?>
+                        </td>
                         <td style="font-weight: bold; color: red !important;"><?php 
                         //$contact_ammount=  $contact_ammount->total_amount; 
                         echo $balance;

@@ -26,13 +26,13 @@ class Commission_agent extends CI_Controller {
 
         $sub_data['commission_agent_list'] = $this->common_model->selectAll('commission_agent');
 
-	$data['header'] = $this->load->view('common/header', '', TRUE);
+	    $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
         $data['main_content'] = $this->load->view('includes/commission_agent/index', $sub_data, TRUE);
         $data['footer'] = $this->load->view('common/footer', '', TRUE);
 
-	$this->load->view('master_dashboard', $data);
+	   $this->load->view('master_dashboard', $data);
 	}
 
 	public function add_form(){

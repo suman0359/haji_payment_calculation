@@ -3,20 +3,37 @@
         
 <div id="" class="container-fluid container-fullw bg-white">
         <div class="row">
-            <form action="<?php echo base_url(); ?>bank/hajj_contact_and_due_statement" method="POST">
-            <div class="col-md-6">
-                <div class="input-group input-daterange datepicker">
+            <form action="<?php echo base_url(); ?>haji_info/hajj_contact_and_due_statement" method="POST">
+            <div class="col-md-4">
+                <!-- <div class="input-group input-daterange datepicker"> -->
                     <!-- <label for="Start Date">Start Date</label> -->
-                    <input type="text" placeholder="Start Date" class="form-control" id="start_date" name="start_date">
-                    <span class="input-group-addon bg-primary">to</span>
+                    <!-- <input type="text" placeholder="Start Date" class="form-control" id="start_date" name="start_date">
+                    <span class="input-group-addon bg-primary">to</span> -->
                     <!-- <label for="Start Date">Start Date</label> -->
-                    <input type="text" placeholder="End Date" class="form-control" id="end_date" name="end_date">
+                    <!-- <input type="text" placeholder="End Date" class="form-control" id="end_date" name="end_date"> -->
+                <!-- </div> -->
+
+                <div class="form-group text-right margin_top_10">
+                    <label for="">
+                        Select 2016 <span class="symbol"></span>
+                    </label>
                 </div>
             </div>
+
             <div class="col-md-4">
-                <button class="btn btn-primary btn-wide" type="submit">
-                    Search <i class="fa fa-arrow-circle-right"></i>
-                </button>
+                <select name="select_year" id="select_year" class="form-control">
+                    <option value="">Select Year..</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <button class="btn btn-primary btn-wide" type="submit">
+                        Search <i class="fa fa-arrow-circle-right"></i>
+                    </button>
+                </div>
             </div>
 
             </form>
@@ -36,37 +53,66 @@
                         <th> # </th>
                         <th>Haji Name</th>
                         <th> Address </th>
-                        <th> Contact Amount </th>
-                        <th> Dues Amount </th>
                         <th> Phone </th>
-                        <th> Amount </th>
+                        <th> Contact Amount </th>
+                        <th> Collect Amount </th>
+                        <th> Dues Amount </th>
                         <!-- <th> Total </th> -->
                     </tr>
                 </thead>
                 <tbody>
 
-                <?php $total = 0; $serial=1; if(!empty($hajj_contact_and_due_statement)){ foreach($hajj_contact_and_due_statement as $value){ 
-                    $deposit_id = $value->deposit_id;
-                    $deposit_account_name = $this->common_model->getInfo('bank_deposit', array('id' => $deposit_id));
+                <?php $total_contact_amount = 0;
+                        $total_due_amount = 0;
+                        $total_collect_amount = 0; $serial=1; if(!empty($hajj_contact_and_due_statement)){ foreach($hajj_contact_and_due_statement as $value){ 
+                    // $deposit_id = $value->deposit_id;
+                    // $deposit_account_name = $this->common_model->getInfo('bank_deposit', array('id' => $deposit_id));
 
-                    $withdrawal_id = $value->withdrawal_id;
-                    $withdrawal_account_name = $this->common_model->getInfo('bank_withdrawal', array('id' => $withdrawal_id));
+                    // $withdrawal_id = $value->withdrawal_id;
+                    // $withdrawal_account_name = $this->common_model->getInfo('bank_withdrawal', array('id' => $withdrawal_id));
 
-                    $transaction_type= $value->transaction_type;
+                    // $transaction_type= $value->transaction_type;
+                    // echo "<pre>";
+                    // print_r($value);
+                    // exit();
+
+                    $hajj_year = $value->hajj_year;
+                    $haji_id = $value->id;
+                    $haji_info = $this->haji_info_model->contact_and_due_statement('transactions', array('haji_id' => $haji_id));
+
+                    // echo '<pre>';
+                    // print_r($haji_info);
+                    // exit();
+
+                    $contact_amount= $value->total_amount;
+                    $collect_amount=$haji_info[0]->debit;
+                    $total_due_amount = $contact_amount-$collect_amount;
+                    // echo '<pre>';
+                    // print_r($haji_info);
+                    // exit();
 
                     ?>
                     <tr>
                         <td> <?php echo $serial; ?> </td>
-                        <td> <?php if(!empty($value->date))echo $value->date ?> </td>
-                        <td> <?php if(!empty($deposit_account_name->account_name))echo $deposit_account_name->account_name; if(!empty($withdrawal_account_name->account_name))echo $withdrawal_account_name->account_name;  ?> </td>
-                        <td> <?php if(!empty($value->debit))echo $value->debit ?> </td>
-                        <td> <?php if(!empty($value->credit))echo $value->credit ?> </td>
-                        <td> <?php if($transaction_type==1)echo "Cash"; if($transaction_type==2)echo "Bank"; if($transaction_type==3)echo "ATM Booth"; ?> </td>
-                        <td> <?php if(!empty($value->balance))echo $value->balance ?> </td>
+                        <td> <?php if(!empty($value->haji_name))echo $value->haji_name ?> </td>
+                        <td> <?php if(!empty($value->haji_address))echo $value->haji_address; //if(!empty($withdrawal_account_name->account_name))echo $withdrawal_account_name->account_name;  ?> </td>
+                        <td> <?php if(!empty($value->haji_mobile))echo $value->haji_mobile ?> </td>
+                        <td> <?php if(!empty($value->total_amount))echo $value->total_amount ?> </td>
+                        <td> <?php if(!empty($haji_info[0]->debit))echo $haji_info[0]->debit ?> </td>
+                        <td> <?php echo $total_due_amount; ?> </td>
+                        
                         <!-- <td> $1152 </td> -->
                     </tr>
 
-                    <?php $serial++; $total += $value->balance; } }else{ ?>
+                    <?php 
+
+
+                        $serial++; 
+                        $total_contact_amount += $contact_amount; 
+                        $total_due_amount += $total_due_amount; 
+                        $total_collect_amount += $collect_amount; 
+                        } 
+                    }else{ ?>
                         <tr>
                             <td colspan="7" align="center">No Transaction Found</td>
                             
@@ -74,11 +120,11 @@
                    <?php  } ?>
 
                     <tr>
-                        <td colspan="3" style="font-weight: bold">Total Amount</td>
-                        <td>Deposit</td>
-                        <td colspan="2" >Withdraw</td>
-                        <td  style="font-weight: bold"> <?php echo $total; ?> </td>
-                        <!-- <td>  </td> -->
+                        <td colspan="4" style="font-weight: bold">Total Amount</td>
+                        
+                        <td colspan="1" ><?php echo $total_contact_amount ?></td>
+                        <td  style="font-weight: bold"> <?php echo $total_collect_amount; ?> </td>
+                        <td  style="font-weight: bold"> <?php echo $total_due_amount; ?> </td>
                     </tr>
                 </tbody>
             </table>

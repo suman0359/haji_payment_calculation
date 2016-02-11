@@ -29,7 +29,9 @@
             
             <div class="col-md-12 text-center padding_bottom_4">
                 <a href="<?php echo base_url(); ?>loan/add_new_user" class="btn btn-success">Add New User</a>
+                <a href="<?php echo base_url(); ?>loan/given_and_taken" class="btn btn-success">Given And Taken Info</a>
             </div>
+
 
                 <div class="col-md-12">
                     <!-- <h5 class="over-title margin-bottom-15">Basic <span class="text-bold">Data Table</span></h5>
@@ -51,7 +53,7 @@
                         </thead>
                         <tbody>
                             <?php $serial= 1; foreach ($loan_user_list as $value) { 
-                            $balance= $value->balance;
+                            $balance= $value->net_balance;
 
                             ?>
 
@@ -76,11 +78,11 @@
                                         <li><a href="<?php echo base_url(); ?>loan/edit_user_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Edit</a>
                                     <a href="<?php echo base_url(); ?>loan/delete_loan_user/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');"><i class="fa fa-edit tiny-icon"></i>Delete</a></li>
                                         <li></li>
-                                        <li><a href="<?php echo base_url(); ?>loan/loan_paid_form/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');"><i class="fa fa-edit tiny-icon"></i>Loan Paid</a></li>
-                                        <li><a href="<?php echo base_url(); ?>loan/loan_receive_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Receive</a> </li>
+                                        <li><a href="<?php echo base_url(); ?>loan/loan_paid_form/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');"><i class="fa fa-edit tiny-icon"></i>Loan Paid Installment</a></li>
+                                        <li><a href="<?php echo base_url(); ?>loan/loan_receive_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Receive Installment</a> </li>
                                         
-                                        <!-- <li><a href="<?php echo base_url(); ?>loan/loan_given_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Loan Given</a> </li>
-                                        <li><a href="<?php echo base_url(); ?>loan/loan_taken_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Loan Taken</a> </li> -->
+                                        <li><a href="<?php echo base_url(); ?>loan/give_new_loan_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Give New Loan</a> </li>
+                                        <li><a href="<?php echo base_url(); ?>loan/take_new_loan_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Take New Loan</a> </li>
 
                                         <li><a href="<?php echo base_url(); ?>loan/loan_report/<?php echo $value->id; ?>">Report</a></li>
 

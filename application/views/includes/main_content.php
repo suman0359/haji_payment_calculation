@@ -21,9 +21,9 @@
                                 <span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-smile-o fa-stack-1x fa-inverse"></i> </span>
                                 <h2 class="StepTitle">Haji Entry Module</h2>                            
                                 <p class="links cl-effect-1">
-                                    <a href="<?php echo base_url()."haji_info"; ?>">
-                                        view more
-                                    </a>
+                                    <p class="btn btn-primary">
+                                        View More
+                                    </p>
                                 </p>
                             </a>
                         </div>
@@ -38,9 +38,9 @@
                                 <h2 class="StepTitle">Collection Module</h2>                     
 
                                 <p class="cl-effect-1">
-                                    <a href="<?php echo base_url()."payment_collection/date_report"; ?>">
-                                        view more
-                                    </a>
+                                    <p class="btn btn-primary">
+                                        View More
+                                    </p>
                                 </p>
                             </a>
                         </div>
@@ -54,9 +54,9 @@
                             <h2 class="StepTitle">Expense Module</h2>
                            
                             <p class="links cl-effect-1">
-                                <a href="<?php echo base_url()."expense/expense_entry_index" ?>">
+                                <p class="btn btn-primary">
                                     view more
-                                </a>
+                                </p>
                             </p>
                             </a>
                         </div>
@@ -71,9 +71,9 @@
                             <h2 class="StepTitle">Haji Agent Module</h2>
                             
                             <p class="links cl-effect-1">
-                                <a href="<?php echo base_url()."commission_agent" ?>">
+                                <p class="btn btn-primary">
                                     view more
-                                </a>
+                                </p>
                             </p>
                             </a>
                         </div>

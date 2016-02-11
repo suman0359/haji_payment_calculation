@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Description of Haji_info
  *
- * @author tasfir
+ * @author tasfir 
  */
 class Haji_info extends CI_Controller {
     
@@ -161,33 +161,38 @@ class Haji_info extends CI_Controller {
     public function hajj_contact_and_due_statement(){
         $data = array();
 
-        $start_date = date('Y-m-d');
-        $end_date = date('Y-m-d');
+        // $start_date = date('Y-m-d');
+        // $end_date = date('Y-m-d');
+
+        $select_year = $this->input->post('select_year');
 
         $start_date = $this->input->post('start_date');
 
         $end_date = $this->input->post('end_date');
 
-        @list($m,$d,$y) = explode('/',$start_date);    // split on underscore.
-        $start_date = $y.'-'.$m.'-'.$d;           // glue the pieces.
+        // @list($m,$d,$y) = explode('/',$start_date);    // split on underscore.
+        // $start_date = $y.'-'.$m.'-'.$d;           // glue the pieces.
 
-        @list($m,$d,$y) = explode('/',$end_date);    // split on underscore.
-        $end_date = $y.'-'.$m.'-'.$d;  
+        // @list($m,$d,$y) = explode('/',$end_date);    // split on underscore.
+        // $end_date = $y.'-'.$m.'-'.$d;  
 
-        if(empty($start_date) or empty($end_date)){
-            $start_date = date('Y-m-d');
-            $end_date = date('Y-m-d');
-        }
+        // if(empty($start_date) or empty($end_date)){
+        //     $start_date = date('Y-m-d');
+        //     $end_date = date('Y-m-d');
+        // }
 
-        $hajj_contact_and_due_statement['hajj_contact_and_due_statement'] = $this->haji_info_model->hajj_contact_and_due_statement('transactions', $start_date, $end_date);
+        $hajj_contact_and_due_statement['hajj_contact_and_due_statement'] = $this->haji_info_model->hajj_contact_and_due_statement('haji_information', array('hajj_year' => $select_year));
 
+        // echo '<pre>';
+        // print_r($hajj_contact_and_due_statement);
+        // exit();
 
-        $data['header'] = $this->load->view('common/header', '', TRUE);
-        $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
-        $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
-        $data['main_content'] = $this->load->view('includes/haji_information/hajj_contact_and_due_statement', $hajj_contact_and_due_statement, TRUE);
+        $data['header']         = $this->load->view('common/header', '', TRUE);
+        $data['sidebar']        = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar']     = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content']   = $this->load->view('includes/haji_information/hajj_contact_and_due_statement', $hajj_contact_and_due_statement, TRUE);
         //$data['main_content'] = $this->load->view('includes/main_content', '', TRUE);
-        $data['footer'] = $this->load->view('common/footer', '', TRUE);
+        $data['footer']         = $this->load->view('common/footer', '', TRUE);
 
         $this->load->view('master_dashboard', $data);
     }

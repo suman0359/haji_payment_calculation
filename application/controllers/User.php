@@ -7,6 +7,7 @@ class User extends CI_Controller {
         parent::__construct();
 
         $this->load->model('common_model');
+        $this->load->model('user_model');
         $this->load->library('Encrypt');
         $user_id = $this->session->userdata('user_id');
         
@@ -155,11 +156,27 @@ class User extends CI_Controller {
 		$user_id = $this->input->post('user_id', TRUE);
 		$password = $this->input->post('password', TRUE);
 
-		$data['username'] = $this->input->post('username', TRUE);
-		$data['user_first_name'] = $this->input->post('user_first_name', TRUE);
-		$data['user_last_name'] = $this->input->post('user_last_name', TRUE);
-		$data['phone'] = $this->input->post('phone', TRUE);
-		$data['user_email'] = $this->input->post('email', TRUE);
+
+        if($this->input->post('username') !=''){
+		    $data['username'] = $this->input->post('username', TRUE);
+        }
+
+        if($this->input->post('user_first_name') !=''){
+		    $data['user_first_name'] = $this->input->post('user_first_name', TRUE);
+        }
+
+        if($this->input->post('user_last_name') !=''){
+		    $data['user_last_name'] = $this->input->post('user_last_name', TRUE);
+        }
+
+        if($this->input->post('phone') !=''){
+            $data['phone'] = $this->input->post('phone', TRUE);
+        }
+		
+        if($this->input->post('user_email') !=''){
+            $data['user_email'] = $this->input->post('user_email', TRUE);
+        }
+		
 
 		if($password!=null){
 			$data['password'] = md5($password);
@@ -218,13 +235,18 @@ class User extends CI_Controller {
             if (!$this->image_lib->resize()) {
                 echo $this->image_lib->display_errors();
             }
-        }	
-	        // get the Image Extension
-	  		$path = $_FILES['profile_picture']['name'];
-			$ext = pathinfo($path, PATHINFO_EXTENSION);
-	        $file_name = $user_id . '.'.$ext;
 
-	        $data['profile_picture'] = $file_name;
+            // get the Image Extension
+            $path = $_FILES['profile_picture']['name'];
+            if($path!=''){
+                $ext = pathinfo($path, PATHINFO_EXTENSION);
+                $file_name = $user_id . '.'.$ext;
+
+                $data['profile_picture'] = $file_name;
+            }
+            
+        }	
+	        
 
         $this->common_model->update('users', $data, array('user_id' => $user_id));
         
@@ -243,4 +265,26 @@ class User extends CI_Controller {
 	public function delete_seleted_user(){
 
 	}
+
+    /* For Ajax Call */
+
+    public function check_username($username){
+        
+        $username=trim($username);
+        $username=$this->user_model->check_username($username);
+
+        if($username==TRUE){$username = array( 'value' => 1);}else{$username = array( 'value' => 2);}
+        
+
+        echo json_encode($username);
+    }
+
+    public function check_email_address($email){
+        $email=trim($email);
+        $email=$this->user_model->check_username($email);
+        echo 'pre';
+        print_r($email);
+        exit();
+        echo json_encode($email);
+    }
 }

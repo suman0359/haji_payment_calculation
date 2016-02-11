@@ -36,6 +36,8 @@
         <link href="<?php echo base_url(); ?>vendor/select2/select2.min.css" rel="stylesheet" media="screen">
         <link href="<?php echo base_url(); ?>vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
 
+        <link href="<?php echo base_url(); ?>vendor/bootstrap-fileinput/jasny-bootstrap.min.css" rel="stylesheet" media="screen">
+
         <link rel="stylesheet" type="text/css" media="print" href="<?php echo base_url(); ?>assets/css/print-style.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/plugins.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/themes/theme-5.css" id="skin_color" />

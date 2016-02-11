@@ -3,6 +3,7 @@
 .margin_4{margin: 4px;}
 .margin_left_4{margin-left: 4px;}
 .margin_top_4{margin-top: 4px;}
+.margin_top_10{margin-top: 10px;}
 .margin_bottom_4{margin-bottom: 4px;}
 .margin_right_4{margin-right: 4px;}
 
@@ -13,7 +14,14 @@
 .padding_bottom_4{padding-bottom: 4px;}
 .padding_right_4{padding-right: 4px;}
 
+/* Color Code */
+.success{
+  color: #05C505;
+}
 
+.danger {
+  color: #d9534f;
+}
 .nowrap{
   white-space: pre-line;
 }

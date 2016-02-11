@@ -4,7 +4,7 @@
         <section id="page-title" style="padding: 20px 0">
             <div class="row">
                 <div class="col-md-8 col-sm-8">
-                    <h1 class="mainTitle text-center">Loan Paid Form</h1>
+                    <h1 class="mainTitle text-center">Give New Loan Form</h1>
                     
                 </div>
                 <div class="col-md-4">
@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-md-12">
                     
-                    <form action="<?php echo base_url() . "loan/save_loan_paid_info"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
+                    <form action="<?php echo base_url() . "loan/save_given_new_loan_info"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
                         <div class="row">
 
                             <div class="col-md-12">
@@ -57,14 +57,14 @@
 
                                     <input type="hidden" name="loan_user_id" value="<?php echo $user_info->id; ?>">
 
-                                    <div class="col-md-12">
+                                 <!--    <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">
                                                 Loan Status<span class="symbol required"></span>
                                             </label>
                                             <input type="text" disabled="disabled" class="form-control" value="<?php $balance= $user_info->balance; if($balance < 0) echo $balance." (দেনাদার)"; if($balance > 0) echo $balance." (পাউনাদার )"; ?>">
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -113,7 +113,7 @@
                                 </div>
                             </div>    
 <fieldset>
-                            <div id="loan_module">                                
+                               <!--                              
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="Loan Type">Loan Status<span class="symbol required"></span></label>
@@ -125,7 +125,7 @@
                                     </div>
                                 </div>  
 
-                                <div id="percantage_section" class="display_none"> <!--Percantage Section -->
+                                <div id="percantage_section"> 
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="">
@@ -136,8 +136,8 @@
                                     </div>
                                 </div>
 
-                            </div>
-
+                            
+ -->
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label">

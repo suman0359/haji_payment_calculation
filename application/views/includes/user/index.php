@@ -40,11 +40,12 @@
                         <thead>
                             <tr>
                                 <th>User Id</th>
+                                <th>Profile</th>
                                 <th>User Name</th>
                                 <th>Full Name</th>
                                 <th>Phone No</th>
                                 <th>User Type</th>
-                                <th>CM ID</th>
+                                
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -58,11 +59,12 @@
 
                             <tr>
                                 <td><?php echo $value->user_id ?></td>
+                                <td><img src="<?php echo base_url(); ?><?php if(!empty($value->profile_picture)) echo "uploads/profile_picture/thumbs/".$value->profile_picture; ?>" width="70px;" /></td>
                                 <td><?php echo $value->username ?></td>
                                 <td><?php echo $value->user_first_name." ".$value->user_last_name; ?></td>
                                 <td><?php echo $value->phone; ?></td>
                                 <td><?php if($ut==1){echo "Super Admin";}elseif ($ut==2){echo "Admin";} else{echo "User";} ?></td>
-                                <td><img src="<?php echo base_url(); ?><?php if(!empty($value->profile_picture)) echo "uploads/profile_picture/thumbs/".$value->profile_picture; ?>" width="70px;" /></td>
+                                
                                 <td>
 
                                     <?php

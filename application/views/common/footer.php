@@ -155,6 +155,9 @@
 <script src="<?php echo base_url(); ?>vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
 <!-- End: Date Picker --> 
 
+<script src="<?php echo base_url(); ?>vendor/bootstrap-fileinput/jasny-bootstrap.js"></script>
+
+
 <!-- start: CLIP-TWO JAVASCRIPTS -->
 <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/index.js"></script>

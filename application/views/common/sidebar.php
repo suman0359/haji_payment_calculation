@@ -277,11 +277,17 @@
                             </a>
                         </li>
 
-                        <!-- <li>
-                            <a href="<?php echo base_url()."loan/loan_receive_form"; ?>">
-                                <span class="title"> Loan Receive Form </span>
+                        <li>
+                            <a href="<?php echo base_url()."loan/loan_summery_report"; ?>">
+                                <span class="title"> Loan Summery Report </span>
                             </a>
-                        </li> -->
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url()."loan/party_loan_statement_details"; ?>">
+                                <span class="title"> Statement Details </span>
+                            </a>
+                        </li>
                         
                         
                     </ul>
@@ -357,11 +363,11 @@
                             </a>
                         </li>
 
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo base_url()."bank/bank_transaction_report"; ?>">
                                 <span class="title"> Bank Transaction Report </span>
                             </a>
-                        </li>
+                        </li> -->
                         
                         
                     </ul>

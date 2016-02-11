@@ -91,5 +91,54 @@ $(document).ready(function(){
 
     //     });
     // });
+
+    $("#username_validation").keyup('#username_validation', function(){
+        var username = document.getElementById("username").value;
+        var username = username.replace(/\s/g,''); 
+  
+        //alert(username);
+
+        // Get Length of Username Variable
+        var user = username.length;
+
+        if(user<4){
+            $("#validation_error").addClass("display_block");
+
+            $.ajax({
+            url: "http://localhost/haji_payment_calculation/index.php/user/check_username/" + username,
+
+            })
+
+            .done(function (data) {
+                data = JSON.parse(data);
+                $.each(data, function (key, val) {
+           
+                        if(data.value==1){
+                            $("#validation").removeClass("display_block");
+                            $("#validation_exist").removeClass("display_none");
+                            $("#validation_exist").addClass("display_block");
+                        }else if(data.value=2){
+                            $("#validation_exist").removeClass("display_block");
+                            $("#validation_exist").addClass("display_none");
+                            $("#validation").addClass("display_block");
+                        }else{
+                            console.log("Not Find Any Data");
+                        }
+                        
+                });
+
+
+            });
+
+        }else if(user>=4){
+            $("#validation_error").removeClass("display_block");
+            $("#validation_error").addClass("display_none");
+        }
+        
+
+        
+
+
+    });
 });
 
