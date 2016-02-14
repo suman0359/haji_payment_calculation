@@ -1,8 +1,10 @@
 <div class="main-content" >
     <div class="wrap-content container" id="container">
 <!-- start: USER PROFILE -->
+
 	<div class="container-fluid container-fullw bg-white">
 		<div class="row">
+		<?php $this->load->view('common/error_show'); ?>
 			<div class="col-md-12">
 				<div class="tabbable">
 					<ul class="nav nav-tabs tab-padding tab-space-3 tab-blue" id="myTab4">

@@ -51,6 +51,11 @@
         <!-- end: CLIP-TWO CSS -->
         <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
         <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+        <script type="text/javascript">
+            var base_url = "<?php echo base_url(); ?>";
+            //console.log("Hello"+base_url);
+        </script>
+        
     </head>
     <!-- end: HEAD -->
     <body>

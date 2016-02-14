@@ -4,7 +4,16 @@
 <div id="" class="container-fluid container-fullw bg-white">
         <div class="row">
             <form action="<?php echo base_url(); ?>loan/party_loan_statement_details" method="POST">
-            <div class="col-md-4">
+            <div class="col-md-6">
+                <div class="input-group input-daterange datepicker">
+                    <!-- <label for="Start Date">Start Date</label> -->
+                    <input type="text" placeholder="Start Date" class="form-control" id="start_date" name="start_date">
+                    <span class="input-group-addon bg-primary">to</span>
+                    <!-- <label for="Start Date">Start Date</label> -->
+                    <input type="text" placeholder="End Date" class="form-control" id="end_date" name="end_date">
+                </div>
+            </div>
+            <!-- <div class="col-md-4">
                 <div class="form-group">
                     <label class="control-label">
                         Start Date <span class="required"></span>
@@ -19,7 +28,8 @@
                     </label>
                     <input type="text" autocomplete="off" class="form-control datepicker" id="end_date" name="end_date">
                 </div>
-            </div>
+            </div> -->
+
             <div class="col-md-4">
                 <button class="btn btn-primary btn-wide pull-right" type="submit">
                     Search <i class="fa fa-arrow-circle-right"></i>

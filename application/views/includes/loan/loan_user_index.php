@@ -77,10 +77,11 @@
                                       <ul class="dropdown-menu">
                                         <li><a href="<?php echo base_url(); ?>loan/edit_user_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Edit</a>
                                     <a href="<?php echo base_url(); ?>loan/delete_loan_user/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');"><i class="fa fa-edit tiny-icon"></i>Delete</a></li>
+                                    <!-- 
                                         <li></li>
                                         <li><a href="<?php echo base_url(); ?>loan/loan_paid_form/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');"><i class="fa fa-edit tiny-icon"></i>Loan Paid Installment</a></li>
                                         <li><a href="<?php echo base_url(); ?>loan/loan_receive_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Receive Installment</a> </li>
-                                        
+                                         -->
                                         <li><a href="<?php echo base_url(); ?>loan/give_new_loan_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Give New Loan</a> </li>
                                         <li><a href="<?php echo base_url(); ?>loan/take_new_loan_form/<?php echo $value->id; ?>"><i class="fa fa-edit tiny-icon"></i>Take New Loan</a> </li>
 

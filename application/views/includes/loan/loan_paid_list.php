@@ -70,7 +70,7 @@
                                 <td><?php echo $value->comments; ?></td>
                                 <td><?php echo $value->entry_date; ?></td>
                                 <td><?php echo $entry_by->username; ?></td>
-                                <td><?php echo $value->amount; ?></td>
+                                <td><?php echo $value->net_balance; ?></td>
                                 
                                 <td>
                                     <a href="<?php echo base_url(); ?>loan/edit_user_form/<?php echo $value->id; ?>" class="btn btn-primary btn-sm">Edit</a>

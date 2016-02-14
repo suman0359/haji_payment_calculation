@@ -154,7 +154,9 @@ class User extends CI_Controller {
 	public function update_selected_user(){
 		$data = array();
 		$user_id = $this->input->post('user_id', TRUE);
-		$password = $this->input->post('password', TRUE);
+        $password = $this->input->post('password', TRUE);
+		$password_again = $this->input->post('password_again', TRUE);
+
 
 
         if($this->input->post('username') !=''){
@@ -180,6 +182,12 @@ class User extends CI_Controller {
 
 		if($password!=null){
 			$data['password'] = md5($password);
+            if ($password!=$password_again) {
+                $msg = "New Password and Confirm Password are not Matched";
+                $this->session->set_flashdata('error', $msg);
+
+                redirect($_SERVER['HTTP_REFERER']);
+            }
 		}
 
 		if((strlen($password)>0) && (strlen($password)<6)){
