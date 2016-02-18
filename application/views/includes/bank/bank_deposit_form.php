@@ -3,24 +3,11 @@
         <!-- start: PAGE TITLE -->
         <section id="page-title" style="padding: 20px 0">
             <div class="row">
-                <div class="col-md-8 col-sm-8">
+                <div class="col-md-8">
                     <h1 class="mainTitle text-center">Bank Deposit Form</h1>
                     
                 </div>
-                <div class="col-md-4">
-                    <ol class="breadcrumb">
-                    <?php 
-                // $this->load->library('breadcrumbcomponent');
-                // $this->breadcrumbcomponent->add('Home', base_url());
-                ?>
-                    <li>
-                        <span>Forms</span>
-                    </li>
-                    <li class="active">
-                        <span>Form Validation</span>
-                    </li>
-                </ol>
-                </div>
+                <?php $this->load->view('common/breadcrumb');?>
             </div>
         </section>
         <!-- end: PAGE TITLE -->

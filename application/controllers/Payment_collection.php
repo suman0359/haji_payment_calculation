@@ -18,7 +18,21 @@ class Payment_collection extends CI_Controller {
         }
     }
 
-    /* ---------------------------------------------------------------------------------------------------------------- */
+    public function index(){
+        $data = array();
+
+        $data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'));
+
+        $data['header']       = $this->load->view('common/header', '', TRUE);
+        $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar']   = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/payment_collection/index', $data, TRUE);
+        $data['footer']       = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
+    }
+
+    /* -------------------------------------------------------------------------- */
 
     public function payment($id){
         $data = array();
@@ -28,13 +42,12 @@ class Payment_collection extends CI_Controller {
 
         $sub_data['select_haji_for_payment']=  $this->haji_info_model->select_haji_for_payment($id);
 
-        // echo '<pre>';
-        // print_r($sub_data['select_haji_for_payment']);
-        // exit();
 
         $sub_data['commission_agent_list']  = $this->common_model->selectAll('commission_agent');
 
         $sub_data['income_head_list']       = $this->common_model->selectAll('income_head');
+
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'), array('link' => '#', 'page' => 'Payment Collection'));
         
 
         $data['header']          = $this->load->view('common/header', '', TRUE);
@@ -72,9 +85,7 @@ class Payment_collection extends CI_Controller {
         $this->common_model->insert('money_receipt', $data);
 
         $money_receipt_id = $this->db->insert_id();
-        // echo '<pre>';
-        // print_r($get_id);
-        // exit();
+
         // Transaction Section Start From Here 
         $transaction['money_receipt_id']    = $this->db->insert_id();
         $transaction['date']                = date('Y-m-d');
@@ -99,8 +110,6 @@ class Payment_collection extends CI_Controller {
         $data['main_content']      = $this->load->view('includes/payment_collection/money_receipt', $data, TRUE);
         $data['footer']            = $this->load->view('common/footer', '', TRUE);
 
-        // $this->load->view('master_dashboard', $data);
-
         $msg = "Successfully Add New Payment and Print Your Money Receipt";
         $this->session->set_flashdata('success', $msg);
 
@@ -113,25 +122,10 @@ class Payment_collection extends CI_Controller {
 
         $sub_data['money_receipt'] = $this->common_model->getInfo('money_receipt', array('id' => $id));
 
-        // echo '<pre>';
-        // print_r($sub_data['money_receipt']);
-        // print_r($id);
-        // exit();
-        
-        // $sub_data['money_receipt_number'] = $data['money_receipt_number'];
-        // $sub_data['customer_name'] = $data['haji_id'];
-        // $sub_data['what_against'] = "tasfir Hossain";
-        // $sub_data['amount'] = "tasfir Hossain";
-        // $sub_data['amount_in_word'] = "tasfir Hossain";
-        // $sub_data['payment_mode'] = "tasfir Hossain";
-        // $sub_data['bank_name'] = "tasfir Hossain";
-        // $sub_data['branch_name'] = "tasfir Hossain";
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'), array('link' => '#', 'page' => 'Money Receipt'));
 
         $this->load->library('numbertowords');
-        // $number=10000;
-        // $number = $this->numbertowords->convert_number($number);
-
-        
+                
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
@@ -154,28 +148,10 @@ class Payment_collection extends CI_Controller {
         $this->load->view('master_dashboard', $data);
     }
 
-    /* ---------------------------------------------------------------------------------------------------------------- */
+    /* ---------------------------------------------------------------------------------------- */
 
 	
-	public function index(){
-		$data = array();
-
-        $sub_data['haji_payment_list']=$this->common_model->selectAll('haji_payment_contact');
-        $sub_data['money_receipt_list']=$this->common_model->selectAll('money_receipt');
-
-        // echo '<pre>';
-        // print_r($sub_data['haji_payment_list']);
-        // print_r($sub_data['money_receipt_list']);
-        // exit();
-
-		$data['header']       = $this->load->view('common/header', '', TRUE);
-        $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
-        $data['top_navbar']   = $this->load->view('common/top_navbar', '', TRUE);
-        $data['main_content'] = $this->load->view('includes/payment_collection/index', $sub_data, TRUE);
-        $data['footer']       = $this->load->view('common/footer', '', TRUE);
-
-		$this->load->view('master_dashboard', $data);
-	}
+	
 
 	public function add_form(){
         $data = array();
@@ -213,8 +189,6 @@ class Payment_collection extends CI_Controller {
         $sub_data['branch_name'] = "";
         $sub_data['payment_head'] = "";
         
-
-
 
         $data['passport_number'] = $this->input->post('passport_number');
         $data['voucher_no'] = $this->input->post('voucher_no');
@@ -267,6 +241,8 @@ class Payment_collection extends CI_Controller {
 
         $sub_data['money_receipt_list'] = $this->common_model->selectAll('money_receipt');
 
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'), array('link' => '#', 'page' => 'Money Receipt Information'));
+
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
@@ -285,6 +261,8 @@ class Payment_collection extends CI_Controller {
         $this->load->model('haji_info_model');
         $sub_data['contact_ammount'] = $this->haji_info_model->contact_ammount($haji_id);
         $sub_data['money_receipt_list'] = $this->common_model->payment_report_haji_wise($haji_id);
+
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'), array('link' => '#', 'page' => 'Haji Payment Report'));
 
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
@@ -319,6 +297,7 @@ class Payment_collection extends CI_Controller {
         }
 
         $sub_data['money_receipt_list'] = $this->common_model->payment_report_date_wise($start_date, $end_date);
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'), array('link' => '#', 'page' => 'Collection Statement'));
 
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
@@ -329,37 +308,6 @@ class Payment_collection extends CI_Controller {
         $this->load->view('master_dashboard', $data);
     }
 
-    // public function summery_report(){
-
-    //     $data = array();
-    //     $sub_data = array();
-
-    //     $start_date = date('Y-m-d');
-    //     $end_date = date('Y-m-d');
-
-    //     $start_date = $this->input->post('start_date');
-
-    //     $end_date = $this->input->post('end_date');
-
-    //     if(empty($start_date) or empty($end_date)){
-    //         $start_date = date('Y-m-d');
-    //         $end_date = date('Y-m-d');
-    //     }
-
-    //     $sub_data['summery_report'] = $this->common_model->summery_report($start_date, $end_date);
-
-    //     // echo '<pre>';
-    //     // print_r($end_date);
-    //     // exit();
-
-    //     $data['header']                     = $this->load->view('common/header', '', TRUE);
-    //     $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
-    //     $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
-    //     $data['main_content']               = $this->load->view('includes/payment_collection/summery_report', $sub_data, TRUE);
-    //     $data['footer']                     = $this->load->view('common/footer', '', TRUE);
-
-    //     $this->load->view('master_dashboard', $data);
-    // }
 
     public function summery_report(){
 
@@ -385,6 +333,8 @@ class Payment_collection extends CI_Controller {
         }
 
         $sub_data['summery_report'] = $this->common_model->summery_report_by_transaction('transactions', $start_date, $end_date);
+
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'), array('link' => '#', 'page' => 'Summery Report'));
 
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);

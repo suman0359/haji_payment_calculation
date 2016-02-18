@@ -4,7 +4,7 @@
         <nav>
             
             <ul class="main-navigation-menu">
-                <li class="active open">
+                <li>
                     <a href="<?php echo base_url()."dashboard"; ?>">
                         <div class="item-content">
                             <div class="item-media">
@@ -17,6 +17,11 @@
                         </div>
                     </a>
                 </li>
+
+                <!-- CodeIgniter URI Segment And Active class added -->
+                <?php
+                  $segment=  $this->uri->segment(1);
+                 // print_r($segment);                ?>
                 
                 <li>
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
@@ -58,14 +63,14 @@
                     </ul>
                 </li>
 
-                <li  class="active open">
+                <li>
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-layout-grid2"></i>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> Collection/ Statement </span><i class="icon-arrow"></i>
+                                <span class="title"> Report/ Statement </span><i class="icon-arrow"></i>
                             </div>
                         </div>
                     </a>
@@ -79,39 +84,21 @@
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url(); ?>payment_collection/date_report">
+                            <?php echo anchor('payment_collection/date_report', 'Daily/ Monthly/Yearly Collection Statement', "class=title"); ?>
+                            <!-- <a href="<?php echo base_url(); ?>payment_collection/date_report">
                                 <span class="title">Daily/ Monthly/Yearly Collection Statement</span>
                                 
-                            </a>
+                            </a> -->
                             
                         </li>
 
                         <li>
                             <a href="<?php echo base_url(); ?>expense/expense_statement">
-                                <span class="title">Expense Statement</span>
+                                <span class="title">Daily/Monthly Expense Statement </span>
                             </a>
                            
                         </li>
 
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                <li class="active open">
-                    <a href="<?php echo base_url(); ?>javascript:void(0)">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <i class="ti-pencil-alt"></i>
-                            </div>
-                            <div class="item-inner">
-                                <span class="title"> Report </span><i class="icon-arrow"></i>
-                            </div>
-                        </div>
-                    </a>
-
-                    <ul class="sub-menu">
 
                          <li>
                             <a href="<?php echo base_url(); ?>payment_collection/money_receipt_index">
@@ -120,29 +107,15 @@
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url(); ?>commission_agent/add_form">
-                                <span class="title">Commission Agent Payment Report</span>
-                            </a>
-                        </li>
-                         <li>
-                            <a href="<?php echo base_url(); ?>expense/expense_statement">
-                                <span class="title">Daily/Monthly Expense Statement </span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="<?php echo base_url(); ?>payment_collection/summery_report">
                                 <span class="title">Daily Summery Report</span>
                             </a>
                         </li>
 
-                       
-                       
-                        
-                     
                         
                     </ul>
                 </li>
-
+       
                 <!-- Expense Statement -->
                 <li class="">
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
@@ -168,18 +141,6 @@
                             </a>
                             
                         </li>
-
-                         <li>
-                            <a href="<?php echo base_url()."expense/group_entry_index"; ?>">
-                                <span class="title">Expense Group List/ Entry</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="<?php echo base_url()."expense/expense_head_entry_index"; ?>">
-                                <span class="title">Expense Head List/ Entry</span>
-                            </a>
-                        </li>  
 
                         <li>
                             <a href="<?php echo base_url()."expense/expense_entry_index"; ?>">
@@ -218,7 +179,6 @@
                         <li>
                             <a href="<?php echo base_url()."income/group_form"; ?>">
                                 <span class="title"> Income Group Entry Form </span>
-                                <hr>
                             </a>
                             
                         </li>
@@ -233,7 +193,7 @@
                 </li>
 
 
-                <li class="open active">
+                <li>
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
@@ -295,7 +255,7 @@
 
                 <!-- Bank Section Start From Here -->
                 
-                <li class="active open">
+                <li>
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
@@ -401,38 +361,13 @@
                                 <span class="title"> Add New User </span>
                             </a>
                         </li>
-
-                        <li>
-                            <a href="<?php echo base_url()."loan/loan_paid_info"; ?>">
-                                <span class="title"> Loan Paid Information </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="<?php echo base_url()."loan/loan_paid_form"; ?>">
-                                <span class="title"> Loan Paid Form </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="<?php echo base_url()."loan/loan_receive_info"; ?>">
-                                <span class="title"> Loan Receive Information </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="<?php echo base_url()."loan/loan_receive_form"; ?>">
-                                <span class="title"> Loan Receive Form </span>
-                            </a>
-                        </li>
-                        
                         
                     </ul>
                 </li>
                 <?php } ?>
                  <!-- End: User Management Sidebar -->
-               
+               </ul>
         </nav>
     </div>
 </div>
-<!-- / sidebar
+<!-- / sidebar -->

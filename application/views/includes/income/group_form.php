@@ -7,14 +7,7 @@
                     <h1 class="mainTitle text-center">Income Group Entry Form</h1>
                     <!-- <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span> -->
                 </div>
-                <ol class="breadcrumb">
-                    <li>
-                        <span>Income Group</span>
-                    </li>
-                    <li class="active">
-                        <span>Add Form</span>
-                    </li>
-                </ol>
+                <?php $this->load->view('common/breadcrumb'); ?>
             </div>
         </section>
         <!-- end: PAGE TITLE -->

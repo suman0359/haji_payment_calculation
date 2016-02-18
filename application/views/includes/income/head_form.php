@@ -7,14 +7,7 @@
                     <h1 class="mainTitle text-center">Income Head Entry Form</h1>
                     <!-- <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span> -->
                 </div>
-                <ol class="breadcrumb">
-                    <li>
-                        <span>Income Group</span>
-                    </li>
-                    <li class="active">
-                        <span>Add Form</span>
-                    </li>
-                </ol>
+                <?php $this->load->view('common/breadcrumb'); ?>
             </div>
         </section>
         <!-- end: PAGE TITLE -->
@@ -98,12 +91,12 @@
                 <div class="row">
                     <div class="col-md-8">
                         <p>
-                            By clicking REGISTER, you are agreeing to the Policy and Terms &amp; Conditions.
+                            By clicking SAVE DATA, you are agreeing to the Policy and Terms &amp; Conditions.
                         </p>
                     </div>
                     <div class="col-md-4">
                         <button class="btn btn-primary btn-wide pull-right" type="submit">
-                            Register <i class="fa fa-arrow-circle-right"></i>
+                            Save Data <i class="fa fa-arrow-circle-right"></i>
                         </button>
                     </div>
                 </div>

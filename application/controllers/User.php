@@ -20,7 +20,7 @@ class User extends CI_Controller {
 		$data = array();
         $sub_data = array();
 
-        
+        $data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('user'), 'page' => 'User'), array('link' => '#', 'page' => 'All User Information'));
 
         $data['users']=$this->common_model->selectAll('users');
 
@@ -36,6 +36,8 @@ class User extends CI_Controller {
 
 	public function new_user(){
 		$data = array();
+
+        $data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('user'), 'page' => 'User'), array('link' => '#', 'page' => 'Add New User'));
         
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
@@ -71,9 +73,7 @@ class User extends CI_Controller {
 		$data['address'] = $this->input->post('address', TRUE);
 		$data['user_type'] = $this->input->post('user_type', TRUE);
 
-		
-
-        
+		        
 		$this->common_model->insert('users', $data);
 
 		$id = $this->db->insert_id();
@@ -140,6 +140,8 @@ class User extends CI_Controller {
 		$data = array();
 
 		$user_info['user_info'] = $this->common_model->getInfo('users', array('user_id' => $id));
+
+        $user_info['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('user'), 'page' => 'User'), array('link' => '#', 'page' => 'Edit User Information'));
        
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);

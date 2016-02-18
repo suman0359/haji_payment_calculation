@@ -7,16 +7,7 @@
                     <h1 class="mainTitle text-center">Hajj and Omra Information Form</h1>
                     
                 </div>
-                <div class="col-md-4">
-                    <ol class="breadcrumb">
-                    <li>
-                        <span>Forms</span>
-                    </li>
-                    <li class="active">
-                        <span>Form Validation</span>
-                    </li>
-                </ol>
-                </div>
+                <?php $this->load->view('common/breadcrumb'); ?>
             </div>
         </section>
         <!-- end: PAGE TITLE -->

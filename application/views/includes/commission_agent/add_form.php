@@ -5,16 +5,9 @@
             <div class="row">
                 <div class="col-sm-8">
                     <h1 class="mainTitle text-center">Commission Agent Entry Form</h1>
-                    <!-- <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span> -->
+                    
                 </div>
-                <ol class="breadcrumb">
-                    <li>
-                        <span>Commission Agent</span>
-                    </li>
-                    <li class="active">
-                        <span>Add Form</span>
-                    </li>
-                </ol>
+                <?php $this->load->view('common/breadcrumb');?>
             </div>
         </section>
         <!-- end: PAGE TITLE -->
@@ -22,11 +15,7 @@
         <div class="container-fluid container-fullw bg-white">
             <div class="row">
                 <div class="col-md-12">
-                    <!-- <h2 class="text-center">Commission Agent Entry Form</h2>
-                    <p class="text-center">
-                        Create one account to manage everything you do with Clip-Two, from your shopping preferences to your Clip-Two activity.
-                    </p>
-                    <hr> -->
+                    
                     <form action="<?php echo base_url() . "commission_agent/add"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12">

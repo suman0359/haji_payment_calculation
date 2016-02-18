@@ -6,14 +6,7 @@
                 <div class="col-sm-8">
                     <h1 class="mainTitle text-center">Expense Edit Form</h1>
                 </div>    
-                <ol class="breadcrumb">
-                    <li>
-                        <span>Forms</span>
-                    </li>
-                    <li class="active">
-                        <span>Form Validation</span>
-                    </li>
-                </ol>
+                <?php $this->load->view('common/breadcrumb');?>
             </div>
         </section>
         <!-- end: PAGE TITLE -->

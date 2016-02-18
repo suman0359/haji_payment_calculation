@@ -115,7 +115,7 @@
                         <span class="ti-check"></span>
                         <span class="split header"> <span class="color th-header"></span> <span class="color th-collapse"></span> </span>
                         <span class="split"> <span class="color th-sidebar"><i class="element"></i></span> <span class="color th-body"></span> </span>
-                    </label>
+                    </label> 
                 </div>
             </div>
         </div>
@@ -123,7 +123,7 @@
     </div>
 </div>
 <!-- end: SETTINGS -->
-</div>
+
 <!-- start: MAIN JAVASCRIPTS -->
 <script src="<?php echo base_url(); ?>vendor/jquery/jquery.min.js"></script>
 <script src="<?php echo base_url(); ?>vendor/bootstrap/js/bootstrap.min.js"></script>

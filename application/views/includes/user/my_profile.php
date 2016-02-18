@@ -1,5 +1,15 @@
 <div class="main-content" >
     <div class="wrap-content container" id="container">
+
+    <section id="page-title" style="padding: 20px 0">
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    <h1 class="mainTitle">My Profile</h1>
+                    
+                </div>
+                <?php $this->load->view('common/breadcrumb');?>
+            </div>
+        </section>
 <!-- start: USER PROFILE -->
 
 	<div class="container-fluid container-fullw bg-white">
@@ -93,7 +103,7 @@
 											
 										</div>
 										<div class="col-md-6">
-											<div class="form-group">
+											<!-- <div class="form-group">
 												<label class="control-label">
 													Gender
 												</label>
@@ -107,7 +117,7 @@
 														Male
 													</label>
 												</div>
-											</div>
+											</div> -->
 
 											<div class="form-group">
 												<label class="control-label">
@@ -247,7 +257,7 @@
 											
 										</div>
 										<div class="col-md-6">
-											<div class="form-group">
+											<!-- <div class="form-group">
 												<label class="control-label">
 													Gender
 												</label>
@@ -261,7 +271,7 @@
 														Male
 													</label>
 												</div>
-											</div>
+											</div> -->
 
 											<div class="form-group">
 												<label class="control-label">

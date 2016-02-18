@@ -1,7 +1,7 @@
 <header class="navbar navbar-default navbar-static-top">
     <!-- start: NAVBAR HEADER -->
     <div class="navbar-header">
-        <a href="#" class="sidebar-mobile-toggler pull-left hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
+        <a href="#" class="sidebar-mobile-toggler pull-left hidden-md hidden-lg btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
             <i class="ti-align-justify"></i>
         </a>
         <a class="navbar-brand" href="<?php echo base_url()."dashboard"; ?>">
@@ -29,9 +29,9 @@
             
 
             <li class="dropdown current-user">
-                <a href class="dropdown-toggle" data-toggle="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
                     <?php $profile_picture=$this->session->userdata("profile_picture"); ?>
-                    <img src="<?php echo base_url()."uploads/profile_picture/thumbs/"; ?><?php if(!empty($profile_picture)) echo $profile_picture; ?>" alt="Peter"> <span class="username"><?php $username = $this->session->userdata("username"); echo $username; ?> <i class="ti-angle-down"></i></i></span>
+                    <img src="<?php echo base_url()."uploads/profile_picture/thumbs/"; ?><?php if(!empty($profile_picture)) echo $profile_picture; ?>" alt="Peter"> <span class="username"><?php $username = $this->session->userdata("username"); echo $username; ?> <i class="ti-angle-down"></i></span>
                 </a>
                 <ul class="dropdown-menu dropdown-dark">
                     <li>
@@ -39,21 +39,7 @@
                             My Profile
                         </a>
                     </li>
-                    <!-- <li>
-                        <a href="pages_calendar.html">
-                            My Calendar
-                        </a>
-                    </li>
-                    <li>
-                        <a hef="pages_messages.html">
-                            My Messages (3)
-                        </a>
-                    </li>
-                    <li>
-                        <a href="login_lockscreen.html">
-                            Lock Screen
-                        </a>
-                    </li> -->
+
                     <li>
                         <a href="<?php echo base_url()."auth/logout"; ?>">
                             Log Out

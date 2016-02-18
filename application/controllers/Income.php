@@ -35,7 +35,7 @@ class Income extends CI_Controller {
         $data = array();
 
         $data['income_group_list'] = $this->common_model->selectAll('income_group');
-
+        $data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('income'), 'page' => 'Income'), array('link' => '#', 'page' => 'Income Group Index'));
         $data['header']       = $this->load->view('common/header', '', TRUE);
         $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']   = $this->load->view('common/top_navbar', '', TRUE);
@@ -107,6 +107,7 @@ class Income extends CI_Controller {
         $data = array();
 
         $sub_data['income_group'] = $this->common_model->getInfo('income_group', array('id' => $id));
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('income'), 'page' => 'Income'), array('link' => '#', 'page' => 'Edit Income Group'));
 
 
         $data['header']       = $this->load->view('common/header', '', TRUE);
@@ -134,7 +135,7 @@ class Income extends CI_Controller {
         $data = array();
 
         $sub_data['income_head_list'] = $this->common_model->selectAll('income_head');
-
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('income'), 'page' => 'Income'), array('link' => '#', 'page' => 'Income Head Index'));
         $data['header']       = $this->load->view('common/header', '', TRUE);
         $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']   = $this->load->view('common/top_navbar', '', TRUE);
@@ -149,6 +150,8 @@ class Income extends CI_Controller {
 
         $sub_data['income_group_list'] = $this->common_model->selectAll('income_group');
 
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('income'), 'page' => 'Income'), array('link' => '#', 'page' => 'Head Form'));
+
         $data['header']       = $this->load->view('common/header', '', TRUE);
         $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']   = $this->load->view('common/top_navbar', '', TRUE);
@@ -162,6 +165,8 @@ class Income extends CI_Controller {
         $sub_data['income_head'] = $this->common_model->getInfo('income_head', array('id' => $id));
 
         $sub_data['income_group_list'] = $this->common_model->selectAll('income_group');
+
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('income'), 'page' => 'Income'), array('link' => '#', 'page' => 'Edit Income Head'));
 
         $data['header']       = $this->load->view('common/header', '', TRUE);
         $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
@@ -206,9 +211,7 @@ class Income extends CI_Controller {
         $data['income_group_id'] = $this->input->post('income_group_id');
         //$data['income_head_code'] = $this->input->post('income_head_code');
         $data['income_head_name'] = $this->input->post('income_head_name');
-// echo '<pre>';
-// print_r($data);
-// exit();
+
         $this->common_model->update('income_head', $data, array('id' => $income_head_id));
     //    $this->common_model->update('income_group', $data, array('id' => $id));
 

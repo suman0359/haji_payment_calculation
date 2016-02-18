@@ -1,22 +1,12 @@
 <div class="main-content" >
     <div class="wrap-content container" id="container">
         <!-- start: PAGE TITLE -->
-        <!-- <section id="page-title">
+        <section id="page-title" style="padding: 20px 0">
             <div class="row">
-                <div class="col-sm-8">
-                    <h1 class="mainTitle">Form Validation</h1>
-                    <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span>
-                </div>
-                <ol class="breadcrumb">
-                    <li>
-                        <span>Forms</span>
-                    </li>
-                    <li class="active">
-                        <span>Form Validation</span>
-                    </li>
-                </ol>
+                
+                <?php $this->load->view('common/breadcrumb'); ?>
             </div>
-        </section> -->
+        </section>
         <!-- end: PAGE TITLE -->
         <!-- start: FORM VALIDATION EXAMPLE 1 -->
         <?php $this->load->view('common/error_show'); ?>
@@ -24,27 +14,17 @@
 <div id="" class="container-fluid container-fullw bg-white">
         <div class="row">
             <form action="<?php echo base_url(); ?>payment_collection/summery_report" method="POST">
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label class="control-label">
-                        Start Date <span class="required"></span>
-                    </label>
-                    <input type="text" class="form-control datepicker" id="start_date" name="start_date">
+            
+            <div class="col-md-6">
+                <div class="input-group input-daterange datepicker">
+                    <!-- <label for="Start Date">Start Date</label> -->
+                    <input type="text" autocomplete="off" placeholder="Start Date" class="form-control" id="start_date" name="start_date">
+                    <span class="input-group-addon bg-primary">to</span>
+                    <!-- <label for="Start Date">Start Date</label> -->
+                    <input type="text" autocomplete="off" placeholder="End Date" class="form-control" id="end_date" name="end_date">
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label class="control-label">
-                        End Date <span class="required"></span>
-                    </label>
-                    <input type="text" class="form-control datepicker" id="end_date" name="end_date">
-                </div>
-            </div>
-            <!-- <div class="input-group input-daterange datepicker">
-                <input type="text" class="form-control">
-                <span class="input-group-addon bg-primary">to</span>
-                <input type="text" class="form-control">
-            </div> -->
+
             <div class="col-md-4">
                 <button class="btn btn-primary btn-wide pull-right" type="submit">
                     Search <i class="fa fa-arrow-circle-right"></i>

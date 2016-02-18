@@ -7,20 +7,7 @@
                     <h1 class="mainTitle text-center">Bank Withdrawal Form</h1>
                     
                 </div>
-                <div class="col-md-4">
-                    <ol class="breadcrumb">
-                    <?php 
-                // $this->load->library('breadcrumbcomponent');
-                // $this->breadcrumbcomponent->add('Home', base_url());
-                ?>
-                    <li>
-                        <span>Forms</span>
-                    </li>
-                    <li class="active">
-                        <span>Form Validation</span>
-                    </li>
-                </ol>
-                </div>
+                <?php $this->load->view('common/breadcrumb');?>
             </div>
         </section>
         <!-- end: PAGE TITLE -->
@@ -42,14 +29,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
-                                    <!-- <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="control-label">
-                                                HAJI ID <span class="symbol required"></span>
-                                            </label>
-                                            <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="haji_id" name="haji_id">
-                                        </div>
-                                    </div> -->
+                                   
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">

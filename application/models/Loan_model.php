@@ -47,7 +47,7 @@ class Loan_model extends CI_Model{
         $this->db->group_by('against_given_taken_history');
 
         $query_result=$this->db->get();
-        $result=$query_result->result();
+        $result=$query_result->row_array();
         return $result;   
     }
 

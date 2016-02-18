@@ -23,6 +23,8 @@ class Bank extends CI_Controller {
     	$bank_data = array();
         $bank_data['bank_list']=$this->common_model->selectAllStatus('bank_info');
 
+        $bank_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('bank'), 'page' => 'Bank'), array('link' => '#', 'page' => 'Bank Information'));
+
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
@@ -36,10 +38,12 @@ class Bank extends CI_Controller {
     public function add_new_bank(){
     	$data = array();
 
+        $bank_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('bank'), 'page' => 'Bank'), array('link' => '#', 'page' => 'Add New Bank'));
+
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
-        $data['main_content'] = $this->load->view('includes/bank/add_new_bank', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/bank/add_new_bank', $bank_data, TRUE);
         //$data['main_content'] = $this->load->view('includes/main_content', '', TRUE);
         $data['footer'] = $this->load->view('common/footer', '', TRUE);
 
@@ -50,6 +54,8 @@ class Bank extends CI_Controller {
     	$data = array();
     	$bank_account_data = array();
         $bank_account_data['bank_account_list']=$this->common_model->selectAllStatus('bank_account_info');
+
+        $bank_account_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('bank'), 'page' => 'Bank'), array('link' => '#', 'page' => 'Bank Account List'));
 
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
@@ -66,6 +72,8 @@ class Bank extends CI_Controller {
 
     	$bank_info = array();
     	$bank_info['bank_list'] = $this->common_model->selectAllStatus('bank_info');
+
+        $bank_info['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('bank'), 'page' => 'Bank'), array('link' => '#', 'page' => 'Add New Bank Account'));
 
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
@@ -101,6 +109,8 @@ class Bank extends CI_Controller {
         $bank_info=array();
         $bank_info['bank_info'] = $this->common_model->getInfo('bank_info', array('id' => $id));
 
+        $bank_info['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('bank'), 'page' => 'Bank'), array('link' => '#', 'page' => 'Edit Bank Account Information'));
+
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
@@ -135,6 +145,8 @@ class Bank extends CI_Controller {
 
     	$bank_info=array();
     	$bank_info['bank_info'] = $this->common_model->getInfo('bank_info', array('id' => $id));
+
+        $bank_info['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('bank'), 'page' => 'Bank'), array('link' => '#', 'page' => 'Edit Bank Info'));
 
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
@@ -181,6 +193,8 @@ class Bank extends CI_Controller {
     	$data = array();
     	$bank_data = array();
         $bank_data['bank_list']=$this->common_model->selectAllStatus('bank_info');
+
+        $bank_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('bank'), 'page' => 'Bank'), array('link' => '#', 'page' => ' Bank Deposit Form'));
 
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
@@ -242,6 +256,8 @@ class Bank extends CI_Controller {
         $bank_deposit_history = array();
         $bank_deposit_history['bank_deposit_history']=$this->common_model->selectAllStatus('bank_deposit');
 
+        $bank_deposit_history['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('bank'), 'page' => 'Bank'), array('link' => '#', 'page' => ' Bank Deposit History'));
+
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
@@ -256,6 +272,7 @@ class Bank extends CI_Controller {
     	$data = array();
     	$bank_data = array();
         $bank_data['bank_list']=$this->common_model->selectAllStatus('bank_info');
+        $bank_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('bank'), 'page' => 'Bank'), array('link' => '#', 'page' => ' Bank Withdrawal Form'));
 
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
@@ -269,10 +286,6 @@ class Bank extends CI_Controller {
 
     public function save_bank_withdraw(){
     	$data = array();
-
-        // echo '<pre>';
-        // print_r($_POST);
-        // exit();
 
         $data['bank_id'] = $this->input->post('bank_name');
         $data['account_number'] = $this->input->post('account_number');
@@ -318,6 +331,8 @@ class Bank extends CI_Controller {
         $bank_withdrawal_history = array();
         $bank_withdrawal_history['bank_withdrawal_history']=$this->common_model->selectAllStatus('bank_withdrawal');
 
+        $bank_withdrawal_history['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('bank'), 'page' => 'Bank'), array('link' => '#', 'page' => ' Bank Withdrawal History'));
+
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
@@ -350,6 +365,8 @@ class Bank extends CI_Controller {
         }
 
         $bank_withdrawal_history['bank_withdrawal_history'] = $this->common_model->summery_report_by_transaction('bank_transaction', $start_date, $end_date);
+
+        $bank_withdrawal_history['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('bank'), 'page' => 'Bank'), array('link' => '#', 'page' => ' Bank Transaction Statement'));
 
 
         $data['header'] = $this->load->view('common/header', '', TRUE);

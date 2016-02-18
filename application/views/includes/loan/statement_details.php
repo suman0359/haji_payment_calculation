@@ -1,9 +1,17 @@
 <div class="main-content" >
     <div class="wrap-content container" id="container">
+
+    <section id="page-title" style="padding: 20px 0">
+            <div class="row">
+                
+                <?php $this->load->view('common/breadcrumb'); ?>
+            </div>
+        </section>
         
 <div id="" class="container-fluid container-fullw bg-white">
         <div class="row">
             <form action="<?php echo base_url(); ?>loan/party_loan_statement_details" method="POST">
+
             <div class="col-md-6">
                 <div class="input-group input-daterange datepicker">
                     <!-- <label for="Start Date">Start Date</label> -->
@@ -13,6 +21,7 @@
                     <input type="text" placeholder="End Date" class="form-control" id="end_date" name="end_date">
                 </div>
             </div>
+
             <div class="col-md-4">
                 <button class="btn btn-primary btn-wide pull-right" type="submit">
                     Search <i class="fa fa-arrow-circle-right"></i>

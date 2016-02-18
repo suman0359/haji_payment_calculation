@@ -7,20 +7,7 @@
                     <h1 class="mainTitle text-center">Add New Bank Account Form</h1>
                     
                 </div>
-                <div class="col-md-4">
-                    <ol class="breadcrumb">
-                    <?php 
-                // $this->load->library('breadcrumbcomponent');
-                // $this->breadcrumbcomponent->add('Home', base_url());
-                ?>
-                    <li>
-                        <span>Forms</span>
-                    </li>
-                    <li class="active">
-                        <span>Form Validation</span>
-                    </li>
-                </ol>
-                </div>
+                <?php $this->load->view('common/breadcrumb');?>
             </div>
         </section>
         <!-- end: PAGE TITLE -->

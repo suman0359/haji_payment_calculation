@@ -1,5 +1,12 @@
 <div class="main-content" >
     <div class="wrap-content container" id="container">
+
+    <section id="page-title" style="padding: 20px 0">
+            <div class="row">
+                
+                <?php $this->load->view('common/breadcrumb'); ?>
+            </div>
+        </section>
         
 <div id="" class="container-fluid container-fullw bg-white">
         <div class="row">
@@ -7,28 +14,13 @@
             <div class="col-md-6">
                 <div class="input-group input-daterange datepicker">
                     <!-- <label for="Start Date">Start Date</label> -->
-                    <input type="text" placeholder="Start Date" class="form-control" id="start_date" name="start_date">
+                    <input type="text" autocomplete="off" placeholder="Start Date" class="form-control" id="start_date" name="start_date">
                     <span class="input-group-addon bg-primary">to</span>
                     <!-- <label for="Start Date">Start Date</label> -->
-                    <input type="text" placeholder="End Date" class="form-control" id="end_date" name="end_date">
+                    <input type="text" autocomplete="off" placeholder="End Date" class="form-control" id="end_date" name="end_date">
                 </div>
             </div>
-            <!-- <div class="col-md-4">
-                <div class="form-group">
-                    <label class="control-label">
-                        Start Date <span class="required"></span>
-                    </label>
-                    <input type="text" autocomplete="off" class="form-control datepicker" id="start_date" name="start_date">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label class="control-label">
-                        End Date <span class="required"></span>
-                    </label>
-                    <input type="text" autocomplete="off" class="form-control datepicker" id="end_date" name="end_date">
-                </div>
-            </div> -->
+           
 
             <div class="col-md-4">
                 <button class="btn btn-primary btn-wide pull-right" type="submit">
@@ -85,7 +77,10 @@
                         <td><?php 
                         if($loan_status==1){ 
                             $installment=$this->loan_model->given_installment_summation('loan_history_of_installment', array('against_given_taken_history' => $against_id)); 
-                            $receive_amount= $installment[0]->receive_amount; 
+                            // echo "<pre>";
+                            // print_r($installment);
+
+                            $receive_amount=$installment['receive_amount']; 
                             echo $receive_amount;} 
 
                         if($loan_status==2){ 

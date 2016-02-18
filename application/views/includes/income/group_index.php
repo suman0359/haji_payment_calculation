@@ -7,16 +7,9 @@
             <div class="row">
                 <div class="col-sm-8">
                     <h1 class="mainTitle text-center">Income Group Information</h1>
-                    <!-- <span class="mainDescription">Refers to data arranged in rows and columns. A spreadsheet, for example, is a table. In relational database management systems, all information is stored in the form of tables. <small class="block">Webopedia - Online Tech Dictionary for IT Professionals</small></span> -->
+                    
                 </div>
-                <ol class="breadcrumb">
-                    <li>
-                        <span>Income Group</span>
-                    </li>
-                    <li class="active">
-                        <span>Group Index</span>
-                    </li>
-                </ol>
+                <?php $this->load->view('common/breadcrumb') ?>
             </div>
         </section>
         <!-- end: PAGE TITLE -->
@@ -30,10 +23,7 @@
                 </div>
 
                 <div class="col-md-12">
-                    <!-- <h5 class="over-title margin-bottom-15">Basic <span class="text-bold">Data Table</span></h5>
-                    <p>
-                        DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table.
-                    </p> -->
+                   
                     <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
                         <thead>
                             <tr>

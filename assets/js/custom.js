@@ -15,6 +15,29 @@
 //     });
 // });
 
+// $("ul.main-navigation-menu > li").hover(function(){
+//   //alert("Hello");
+
+//   $('.sub-menu').css('display', 'block');
+//   var index = $("ul.main-navigation-menu > li").index( this );
+//   $('ul.main-navigation-menu > li:nth-child(4)').css('background', '#fff !important');
+//   //$("ul.main-navigation-menu > li").eq($(this).index()).addClass('open').siblings().removeClass('open');
+//   //alert(index);
+//   //$("main-navigation-menu>li").addClass("test");
+// });
+
+// $("ul.main-navigation-menu > li").hover(function(){
+  
+//   var index = $("ul.main-navigation-menu > li").index( this );
+//   index = parseInt(index+1);
+  
+//   $('ul.main-navigation-menu > li:nth-child(' + index + ') > ul.sub-menu').css('display', 'block');
+//   $('ul.main-navigation-menu > li:nth-child(' + index + ')').addClass('active open');
+//   //$("ul.main-navigation-menu > li").eq($(this).index()).addClass('open').siblings().removeClass('open');
+  
+//   //$("main-navigation-menu>li").addClass("test");
+// });
+
 
 $(document).ready(function(){
 	$(".main-content").on('change', '#payment_mode', function(){
@@ -59,6 +82,19 @@ $(document).ready(function(){
         }
     });
 
+
+    /* SideBar Active Class and Open Class and Display block */
+
+    $('.sub-menu > li > a').each(function(e){
+      var path= window.location;
+      var link2 = $(this).attr('href');
+        if(path==link2){
+        $(this).parents().addClass('open active');
+        }
+       });
+
+    /* ----------------------------------------------------- */
+
     // $(".main-content").on('change', '#bank_name', function(){
     //     var x = document.getElementById("bank_name").value;
     //     var x = parseInt(x);
@@ -100,12 +136,17 @@ $(document).ready(function(){
 
         // Get Length of Username Variable
         var user = username.length;
-
         if(user<4){
             $("#validation_error").addClass("display_block");
+        }else{
+            $("#validation_error").addClass("display_none");
+            $("#validation_error").removeClass("display_block");
+        }
+        if(user>3){
+            
 
             $.ajax({
-            url: "http://localhost/haji_payment_calculation/index.php/user/check_username/" + username,
+            url: base_url+"user/check_username/" + username,
 
             })
 
@@ -114,10 +155,12 @@ $(document).ready(function(){
                 $.each(data, function (key, val) {
            
                         if(data.value==1){
+                            console.log('Hello');
                             $("#validation").removeClass("display_block");
                             $("#validation_exist").removeClass("display_none");
                             $("#validation_exist").addClass("display_block");
                         }else if(data.value=2){
+                            console.log("Fuck");
                             $("#validation_exist").removeClass("display_block");
                             $("#validation_exist").addClass("display_none");
                             $("#validation").addClass("display_block");

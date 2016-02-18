@@ -26,6 +26,8 @@ class Commission_agent extends CI_Controller {
 
         $sub_data['commission_agent_list'] = $this->common_model->selectAll('commission_agent');
 
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('commission_agent'), 'page' => 'Commission Agent'));
+
 	    $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar'] = $this->load->view('common/top_navbar', '', TRUE);
@@ -40,6 +42,9 @@ class Commission_agent extends CI_Controller {
         $sub_data = array();
 
         $sub_data['commission_agent_list'] = $this->common_model->selectAll('commission_agent');
+
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('commission_agent'), 'page' => 'Commission Agent'), array('link' => '#', 'page' => 'Add Commission Agent'));
+
         
         $data['header'] = $this->load->view('common/header', '', TRUE);
         $data['sidebar'] = $this->load->view('common/sidebar', '', TRUE);

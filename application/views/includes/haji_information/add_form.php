@@ -3,24 +3,8 @@
         <!-- start: PAGE TITLE -->
         <section id="page-title" style="padding: 20px 0">
             <div class="row">
-                <div class="col-md-8 col-sm-8">
-                    <h1 class="mainTitle text-center">Hajj and Omra Information Form</h1>
-                    
-                </div>
-                <div class="col-md-4">
-                    <ol class="breadcrumb">
-                    <?php 
-                $this->load->library('breadcrumbcomponent');
-                $this->breadcrumbcomponent->add('Home', base_url());
-                ?>
-                    <li>
-                        <span>Forms</span>
-                    </li>
-                    <li class="active">
-                        <span>Form Validation</span>
-                    </li>
-                </ol>
-                </div>
+                <h1 class="mainTitle">Hajj and Omra Information Form</h1>
+                 <?php $this->load->view('common/breadcrumb'); ?>
             </div>
         </section>
         <!-- end: PAGE TITLE -->
@@ -42,14 +26,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="row">
-                                    <!-- <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="control-label">
-                                                HAJI ID <span class="symbol required"></span>
-                                            </label>
-                                            <input type="text" placeholder="Insert Prilgrim ID" class="form-control" id="haji_id" name="haji_id">
-                                        </div>
-                                    </div> -->
+
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">
@@ -116,7 +93,7 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="Commission Agent" class="control-label">Refference Name</label>
+                                        <label for="Refference_Name" class="control-label">Refference Name</label>
                                     </div>
 
                                     <select name="commission_agent_id" id="commission_agent_id" class="form-control">
@@ -134,11 +111,11 @@
                                             Profile Photo <span class="symbol required"></span>
                                         </label>
                                         <div class="profile_image">
-                                            <img src="" alt="" id="target" width="300px" height="200px">
+                                            <img src="<?php echo base_url(); ?>assets/images/thumbnail.png" alt="" id="target" style="width: 300px; height: 200px" />
                                         </div>
                                         <span class="btn btn-success fileinput-button"> 
                                         <i class="glyphicon glyphicon-plus"></i> <span>Add files...</span>
-                                            <input type="file" class="form-control" id="select_image" onchange="putImage()" name="profile_photo">
+                                            <input type="file" id="select_image" onchange="putImage()" name="profile_photo">
                                         </span>
                                         
                                         

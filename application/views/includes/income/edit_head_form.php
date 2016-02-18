@@ -4,17 +4,10 @@
         <section id="page-title" style="padding: 20px 0">
             <div class="row">
                 <div class="col-sm-8">
-                    <h1 class="mainTitle text-center">Income Head Entry Form</h1>
-                    <!-- <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span> -->
+                    <h1 class="mainTitle text-center">Edit Income Head Information</h1>
+                    
                 </div>
-                <ol class="breadcrumb">
-                    <li>
-                        <span>Income</span>
-                    </li>
-                    <li class="active">
-                        <span>Edit Form</span>
-                    </li>
-                </ol>
+                <?php $this->load->view('common/breadcrumb'); ?>
             </div>
         </section>
         <!-- end: PAGE TITLE -->

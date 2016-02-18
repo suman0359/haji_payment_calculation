@@ -33,16 +33,9 @@ class Auth extends CI_Controller {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-//            echo '<pre>';
-//            print_r($username);
-//            print_r($password);
-//            exit();
 
             $checkdata = $this->Auth_model->checklogin($username, $password);
 
-//            echo '<pre>';
-//            print_r($checkdata);
-//            exit();
             
             if (!empty($checkdata)) {
                 $userinfo = array(
@@ -79,6 +72,8 @@ class Auth extends CI_Controller {
     }
 
     public function my_profile(){
+        $data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('user'), 'page' => 'User'), array('link' => '#', 'page' => 'My Profile'));
+
         $data['header']       = $this->load->view('common/header', '', TRUE);
         $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']   = $this->load->view('common/top_navbar', '', TRUE);

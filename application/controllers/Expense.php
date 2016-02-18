@@ -38,6 +38,7 @@ class Expense extends CI_Controller {
 
         $sub_data['expense_entry_list'] = $this->common_model->selectAll('expense_entry');
 
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('expense'), 'page' => 'Expense'), array('link' => '#', 'page' => 'Expense Entry Index'));
 
         $data['header']       = $this->load->view('common/header', '', TRUE);
         $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
@@ -56,6 +57,8 @@ class Expense extends CI_Controller {
         $sub_data['group_entry_list']       = $this->common_model->selectAll('expense_group_entry');
         $sub_data['head_entry_list']        = $this->common_model->selectAll('expense_head_entry');
 
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('expense'), 'page' => 'Expense'), array('link' => '#', 'page' => 'Expense Entry Form'));
+
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
@@ -71,6 +74,7 @@ class Expense extends CI_Controller {
 
         $sub_data['expense_info']           = $this->common_model->getInfo('expense_entry', array('id' => $id));
 
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('expense'), 'page' => 'Expense'), array('link' => '#', 'page' => 'Edit Expense Entry Information'));
 
         $sub_data['group_entry_list']       = $this->common_model->selectAll('expense_group_entry');
         $sub_data['head_entry_list']        = $this->common_model->selectAll('expense_head_entry');
@@ -143,10 +147,6 @@ class Expense extends CI_Controller {
         $data['bank_acc_number'] = $this->input->post('bank_acc_number');
         $data['amount'] = $this->input->post('amount');
 
-        // echo '<pre>';
-        // print_r($data);
-        // exit();
-
         $this->common_model->update('expense_entry', $data, array('id' => $id));
 
         $msg = "Successfully Updated Of Your Selected Expense Entry";
@@ -174,6 +174,8 @@ class Expense extends CI_Controller {
 
         $sub_data['group_entry_list']          = $this->common_model->selectAll('expense_group_entry
 ');     
+        // BreadCrumb 
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('expense'), 'page' => 'Expense'), array('link' => '#', 'page' => 'Group Entry Index'));
 
         $data['header']       = $this->load->view('common/header', '', TRUE);
         $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
@@ -191,6 +193,8 @@ class Expense extends CI_Controller {
         $sub_data['district_list']          = $this->common_model->selectAll('district');
         $sub_data['police_station_list']    = $this->common_model->selectAll('police_station');
 
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('expense'), 'page' => 'Expense'), array('link' => '#', 'page' => 'Expense Group Entry'));
+
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
@@ -202,7 +206,9 @@ class Expense extends CI_Controller {
 
     public function expense_group_edit_form($id){
         $data = array();
-        $sub_data = array();
+
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('expense'), 'page' => 'Expense'), array('link' => '#', 'page' => 'Expense Group Edit Form'));
+
         $sub_data['selected_expense']       = $this->common_model->getInfo('expense_group_entry', array('id' => $id));
         $sub_data['group_entry_list']       = $this->common_model->selectAll('expense_group_entry');
         $sub_data['head_entry_list']        = $this->common_model->selectAll('expense_head_entry');
@@ -274,6 +280,7 @@ class Expense extends CI_Controller {
 
         $sub_data['head_entry_list']          = $this->common_model->selectAll('expense_head_entry
 ');
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('expense'), 'page' => 'Expense'), array('link' => '#', 'page' => 'Head Entry Index'));
 
         $data['header']       = $this->load->view('common/header', '', TRUE);
         $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
@@ -290,6 +297,8 @@ class Expense extends CI_Controller {
 
         $sub_data['group_entry_list'] = $this->common_model->selectAll('expense_group_entry', 'expense_group_entry_name ASC ');
 
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('expense'), 'page' => 'Expense'), array('link' => '#', 'page' => 'Expense Head Entry'));
+
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
@@ -304,6 +313,8 @@ class Expense extends CI_Controller {
         $sub_data = array();
 
         $sub_data['expense_head_info'] = $this->common_model->getInfo('expense_head_entry', array('id' => $id));
+
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('expense'), 'page' => 'Expense'), array('link' => '#', 'page' => 'Edit Expense Head Entry'));
 
         $sub_data['group_entry_list'] = $this->common_model->selectAll('expense_group_entry', 'expense_group_entry_name ASC ');
 
@@ -394,6 +405,8 @@ class Expense extends CI_Controller {
         }
 
         $sub_data['expense_entry_list'] = $this->common_model->expense_statement_collection($start_date, $end_date);
+
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('expense'), 'page' => 'Expense'), array('link' => '#', 'page' => 'Expense Statement'));
 
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);

@@ -10,9 +10,6 @@ class Loan extends CI_Controller {
 
         $this->load->model('common_model');
 
-        // load Breadcrumbs
-        $this->load->library('breadcrumbs');
-
         $this->load->library('Encrypt');
         $user_id = $this->session->userdata('user_id');
         
@@ -37,13 +34,9 @@ class Loan extends CI_Controller {
     public function user_list(){
         $data = array();
 
-        // add breadcrumbs
-        $this->breadcrumbs->push('Loan', '/loan');
-        $this->breadcrumbs->push('User List', '/loan/user_list');
-
-        
-
         $data['loan_user_list']= $this->common_model->selectAll('loan_information'); 
+
+        $data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('loan'), 'page' => 'Loan'), array('link' => '#', 'page' => 'Loan User List'));
         
         $data['header']       = $this->load->view('common/header', '', TRUE);
         $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
@@ -249,8 +242,7 @@ class Loan extends CI_Controller {
     public function loan_receive_info(){
         $data = array();
 
-        // load Breadcrumbs
-        $this->load->library('breadcrumbcomponent');
+        $data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('loan'), 'page' => 'Loan'), array('link' => '#', 'page' => 'Loan Recieve Information'));
 
         $data['loan_receive_list']= $this->common_model->selectAll('loan_receive'); 
         
@@ -346,13 +338,31 @@ class Loan extends CI_Controller {
         $given_insert_id = $this->db->insert_id();
         
         // For Loan Transaction Table 
-        $transaction['loan_user_id'] = $data['loan_user_id'];
-        $transaction['loan_type'] = 1; // give_new_loan==1; Take new Loan==2; Receive Installment ==2; Paid Installment == 2;
-        $transaction['transaction_type'] = 1; // Cash ==1; Bank ==2; bKash ==3; 
-        $transaction['credit'] = $this->input->post('amount');
-        $transaction['entry_by'] = $data['entry_by'];
-        $transaction['date']   = date('Y-m-d');
-        $this->common_model->insert('loan_transaction', $transaction);
+        $loan_transaction['loan_user_id'] = $data['loan_user_id'];
+        $loan_transaction['loan_type'] = 1; // give_new_loan==1; Take new Loan==2; Receive Installment ==2; Paid Installment == 2;
+        $loan_transaction['transaction_type'] = 1; // Cash ==1; Bank ==2; bKash ==3; 
+        $loan_transaction['credit'] = $this->input->post('amount');
+        $loan_transaction['entry_by'] = $data['entry_by'];
+        $loan_transaction['date']   = date('Y-m-d');
+        $this->common_model->insert('loan_transaction', $loan_transaction);
+
+        // For All Transaction Table 
+            
+        // Transaction Section Start From Here 
+        $transaction['loan_information_id']     = $data['loan_user_id'];
+        $transaction['date']                    = date('Y-m-d');
+        $transaction['credit']                  = $this->input->post('amount');
+        $transaction['loan_give_and_take_id']   = $given_insert_id;
+
+        // For Sequence Last Balance of the transaction 
+        $last_balance = $this->common_model->getLastRow('transactions');
+        $last_balance = $last_balance->balance;
+        $last_balance = $last_balance-$data['given_amount'];
+
+        $transaction['balance']             = $last_balance;
+
+        $this->common_model->insert('transactions', $transaction);
+        /* ---------------------------------------------------------- */
 
         
         $msg = "Successfully Save Given Loan Information";
@@ -391,14 +401,30 @@ class Loan extends CI_Controller {
         
         // For Loan Transaction Table 
         // give_new_loan==1; Take new Loan==2; Receive Installment ==2; Paid Installment == 2;
-        $transaction['loan_type'] = 2; 
-        $transaction['loan_user_id'] = $data['loan_user_id'];
-        $transaction['transaction_type'] = 1; // Cash ==1; Bank ==2; bKash ==3; 
-        $transaction['debit'] = $this->input->post('amount');
-        $transaction['entry_by'] = $data['entry_by'];
-        $transaction['date']   = date('Y-m-d');
-        $this->common_model->insert('loan_transaction', $transaction);
+        $loan_transaction['loan_type'] = 2; 
+        $loan_transaction['loan_user_id'] = $data['loan_user_id'];
+        $loan_transaction['transaction_type'] = 1; // Cash ==1; Bank ==2; bKash ==3; 
+        $loan_transaction['debit'] = $this->input->post('amount');
+        $loan_transaction['entry_by'] = $data['entry_by'];
+        $loan_transaction['date']   = date('Y-m-d');
+        $this->common_model->insert('loan_transaction', $loan_transaction);
+        /* ------------------------------------------------- */
 
+        // Transaction Section Start From Here 
+        $transaction['loan_information_id']     = $data['loan_user_id'];
+        $transaction['date']                    = date('Y-m-d');
+        $transaction['debit']                   = $this->input->post('amount');
+        $transaction['loan_give_and_take_id']   = $given_insert_id;
+
+        // For Sequence Last Balance of the transaction 
+        $last_balance = $this->common_model->getLastRow('transactions');
+        $last_balance = $last_balance->balance;
+        $last_balance = $last_balance+$data['given_amount'];
+
+        $transaction['balance']             = $last_balance;
+
+        $this->common_model->insert('transactions', $transaction);
+        /* ---------------------------------------------------------- */
         
         $msg = "Successfully Save Loan Taken Information";
         $this->session->set_flashdata('success', $msg);
@@ -406,94 +432,10 @@ class Loan extends CI_Controller {
 
     }
 
-    // public function save_give_new_loan_info2(){
-
-    //     if($this->input->post('loan_user_id')!=''){
-    //         $data['loan_user_id']   = $this->input->post('loan_user_id');
-    //     }
-
-    //     if($this->input->post('comments')!=''){
-    //         $data['comments']   = $this->input->post('comments');
-    //     }
-
-    //     if($this->input->post('entry_by')!=''){
-    //         $data['entry_by']   = $this->input->post('entry_by');
-    //     }
-
-    //     // if($this->input->post('percentage')!=''){
-    //     //     $data['profit_amount']   = $this->input->post('percentage');
-    //     // }
-
-    //     if($this->input->post('amount')!=''){
-    //         $data['amount']   = $this->input->post('amount');
-    //     }
-
-    //     $data['entry_date']   = date('Y-m-d');
-        
-    //     // Loan Information 
-    //     $net_balance = $this->common_model->getInfo('loan_information', array('id' => $data['loan_user_id']));
-        
-    //     $net_balance                        = $net_balance->net_balance;
-    //     $net_balance                        -= $data['amount'];
-    //     $loan_information['net_balance']    = $net_balance;
-
-    //     // Update Loan Information User Balance 
-    //     $this->common_model->update('loan_information', $loan_information, array('id' => $data['loan_user_id']));
-
-    //     $data['loan_type'] = 1; // give New Loan ==1; Take New Loan == 2
-    //     $data['transaction_type'] = 1; //Cash ==1; Bank ==2; bKash ==3;
-    //     $data['loan_amount'] = $data['amount'];
-    //     //$data['profit_amount'] = $data['profit_amount'];
-    //     //$data['net_balance'] = 
-    //     $this->common_model->insert('history_give_and_take_new_loan', $data);
-
-    //     // Transaction Table And Section Start From Here 
-    //     $transaction = array();
-    //     $transaction['loan_paid_id']        = $this->db->insert_id();
-    //     $transaction['loan_information_id'] = $data['loan_user_id'];
-    //     $transaction['date']                = date('Y-m-d');
-
-    //     $transaction['credit']              = $this->input->post('amount');
-
-    //     // For Sequence Last Balance of the transaction 
-    //     $last_balance = $this->common_model->getLastRow('transactions');
-    //     $last_balance = $last_balance->balance;
-    //     $last_balance = $last_balance-$data['amount'];
-
-    //     $transaction['balance']             = $last_balance;
-               
-    //     $this->common_model->insert('transactions', $transaction);
-
-    //     // For Loan Transaction Table 
-    //     $loan_transaction['paid_id']             = $this->db->insert_id();
-    //     $loan_transaction['loan_user_id']        = $data['loan_user_id'];
-    //     $loan_transaction['date']                = date('Y-m-d');
-
-    //     $loan_transaction['credit']              = $this->input->post('amount');
-
-    //     // For Sequence Last Balance of the transaction 
-    //     $last_balance = $this->common_model->getLastRow('loan_transaction');
-    //     $last_balance = $last_balance->balance;
-    //     $last_balance = $last_balance-$data['amount'];
-
-    //     $loan_transaction['balance']             = $last_balance;
-               
-    //     $this->common_model->insert('loan_transaction', $loan_transaction);
-
-
-
-    // }
-
-    /*
-    * Loan Paid Section 
-    */
-
-    // All Loan Paid List Information 
     public function loan_paid_info(){
         $data = array();
 
-        // load Breadcrumbs
-        $this->load->library('breadcrumbcomponent');
+        $data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('loan'), 'page' => 'Loan'), array('link' => '#', 'page' => 'Loan Paid Information'));
 
         $data['loan_info_list'] = $this->common_model->selectAll('loan_paid'); 
      
@@ -544,14 +486,30 @@ class Loan extends CI_Controller {
         $installment_insert_id = $this->db->insert_id();
 
         // For Loan Transaction Table 
-        $transaction['loan_user_id'] = $data['loan_user_id'];
-        $transaction['loan_type'] = 4; // give_new_loan==1; Take new Loan==2; Receive Installment ==3; Paid Installment == 4;
-        $transaction['transaction_type'] = 1; // Cash ==1; Bank ==2; bKash ==3; 
-        $transaction['credit'] = $this->input->post('amount');
-        $transaction['entry_by'] = $data['entry_by'];
-        $transaction['date']   = date('Y-m-d');
-        $transaction['loan_against_id'] = $data['against_given_taken_history'];
-        $this->common_model->insert('loan_transaction', $transaction);
+        $loan_transaction['loan_user_id'] = $data['loan_user_id'];
+        $loan_transaction['loan_type'] = 4; // give_new_loan==1; Take new Loan==2; Receive Installment ==3; Paid Installment == 4;
+        $loan_transaction['transaction_type'] = 1; // Cash ==1; Bank ==2; bKash ==3; 
+        $loan_transaction['credit'] = $this->input->post('amount');
+        $loan_transaction['entry_by'] = $data['entry_by'];
+        $loan_transaction['date']   = date('Y-m-d');
+        $loan_transaction['loan_against_id'] = $data['against_given_taken_history'];
+        $this->common_model->insert('loan_transaction', $loan_transaction);
+
+        // Transaction Section Start From Here 
+        $transaction['loan_information_id']     = $data['loan_user_id'];
+        $transaction['date']                    = date('Y-m-d');
+        $transaction['credit']                  = $this->input->post('amount');
+        $transaction['loan_give_and_take_id']   = $given_insert_id;
+
+        // For Sequence Last Balance of the transaction 
+        $last_balance = $this->common_model->getLastRow('transactions');
+        $last_balance = $last_balance->balance;
+        $last_balance = $last_balance-$data['given_amount'];
+
+        $transaction['balance']             = $last_balance;
+
+        $this->common_model->insert('transactions', $transaction);
+        /* ---------------------------------------------------------- */
 
         $msg = "Successfully Paid Installment ";
         $this->session->set_flashdata('success', $msg);
@@ -595,13 +553,29 @@ class Loan extends CI_Controller {
         $installment_insert_id = $this->db->insert_id();
 
         // For Loan Transaction Table 
-        $transaction['loan_user_id'] = $data['loan_user_id'];
-        $transaction['loan_type'] = 3; // give_new_loan==1; Take new Loan==2; Receive Installment ==3; Paid Installment == 4;
-        $transaction['transaction_type'] = 1; // Cash ==1; Bank ==2; bKash ==3; 
-        $transaction['debit'] = $this->input->post('amount');
-        $transaction['entry_by'] = $data['entry_by'];
-        $transaction['date']   = date('Y-m-d');
-        $this->common_model->insert('loan_transaction', $transaction);
+        $loan_transaction['loan_user_id'] = $data['loan_user_id'];
+        $loan_transaction['loan_type'] = 3; // give_new_loan==1; Take new Loan==2; Receive Installment ==3; Paid Installment == 4;
+        $loan_transaction['transaction_type'] = 1; // Cash ==1; Bank ==2; bKash ==3; 
+        $loan_transaction['debit'] = $this->input->post('amount');
+        $loan_transaction['entry_by'] = $data['entry_by'];
+        $loan_transaction['date']   = date('Y-m-d');
+        $this->common_model->insert('loan_transaction', $loan_transaction);
+
+        // Transaction Section Start From Here 
+        $transaction['loan_information_id']     = $data['loan_user_id'];
+        $transaction['date']                    = date('Y-m-d');
+        $transaction['debit']                   = $this->input->post('amount');
+        $transaction['loan_give_and_take_id']   = $given_insert_id;
+
+        // For Sequence Last Balance of the transaction 
+        $last_balance = $this->common_model->getLastRow('transactions');
+        $last_balance = $last_balance->balance;
+        $last_balance = $last_balance+$data['given_amount'];
+
+        $transaction['balance']             = $last_balance;
+
+        $this->common_model->insert('transactions', $transaction);
+        /* ---------------------------------------------------------- */
 
         $msg = "Successfully Recieve Installment ";
         $this->session->set_flashdata('success', $msg);
@@ -672,10 +646,10 @@ class Loan extends CI_Controller {
         // For Loan Transaction Table 
         $loan_transaction = array();
         $loan_transaction['receive_id']        = $this->db->insert_id();
-        $loan_transaction['loan_user_id']        = $data['loan_user_id'];
-        $loan_transaction['date']                = date('Y-m-d');
+        $loan_transaction['loan_user_id']      = $data['loan_user_id'];
+        $loan_transaction['date']              = date('Y-m-d');
 
-        $loan_transaction['debit']              = $this->input->post('amount');
+        $loan_transaction['debit']             = $this->input->post('amount');
 
         // For Sequence Last Balance of the transaction 
         $last_balance = $this->common_model->getLastRow('loan_transaction');
@@ -698,6 +672,8 @@ class Loan extends CI_Controller {
         $this->load->library('breadcrumbcomponent');
 
         $data['installment_detials']= $this->common_model->selectAll('loan_history_of_installment', 'id DESC');
+
+        $data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('loan'), 'page' => 'Loan'), array('link' => '#', 'page' => 'Loan Installment Details'));
         
         $data['header']       = $this->load->view('common/header', '', TRUE);
         $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
@@ -752,6 +728,8 @@ class Loan extends CI_Controller {
 
         $sub_data['summery_report'] = $this->loan_model->loan_summery_report('loan_transaction', $start_date, $end_date);
 
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('loan'), 'page' => 'Loan'), array('link' => '#', 'page' => 'Loan Summery Report'));
+
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
@@ -784,9 +762,8 @@ class Loan extends CI_Controller {
 
         $sub_data['statement_details'] = $this->loan_model->statement_details('history_give_and_take_new_loan', $start_date, $end_date);
 
-        // echo '<pre>';
-        // print_r($sub_data['statement_details']);
-        // exit();
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('loan'), 'page' => 'Loan'), array('link' => '#', 'page' => 'Party Loan Installment Details'));
+
 
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);

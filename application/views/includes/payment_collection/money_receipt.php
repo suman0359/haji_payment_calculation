@@ -1,22 +1,15 @@
 <div class="main-content" >
     <div class="wrap-content container" id="container">
         <!-- start: PAGE TITLE -->
-        <!-- <section id="page-title">
+        <section id="page-title">
             <div class="row">
                 <div class="col-sm-8">
-                    <h1 class="mainTitle">Form Validation</h1>
-                    <span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span>
+                    <h1 class="mainTitle">Money Receipt</h1>
+                    
                 </div>
-                <ol class="breadcrumb">
-                    <li>
-                        <span>Forms</span>
-                    </li>
-                    <li class="active">
-                        <span>Form Validation</span>
-                    </li>
-                </ol>
+                <?php $this->load->view('common/breadcrumb'); ?>
             </div>
-        </section> -->
+        </section>
         <!-- end: PAGE TITLE -->
         <?php $this->load->view('common/error_show'); ?>
         <!-- start: FORM VALIDATION EXAMPLE 1 -->
