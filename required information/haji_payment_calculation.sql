@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.0.2
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 27, 2016 at 10:44 AM
--- Server version: 10.0.17-MariaDB
--- PHP Version: 5.6.14
+-- Host: localhost
+-- Generation Time: Mar 02, 2016 at 01:39 PM
+-- Server version: 5.5.47-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `haji_payment_calculation`
@@ -23,25 +23,182 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bank_account_info`
+--
+
+CREATE TABLE IF NOT EXISTS `bank_account_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `account_name` varchar(150) NOT NULL,
+  `account_number` varchar(50) NOT NULL,
+  `bank_id` varchar(10) NOT NULL,
+  `branch_name` varchar(255) NOT NULL,
+  `account_type` tinyint(1) NOT NULL DEFAULT '1',
+  `entry_date` date NOT NULL,
+  `entry_by` varchar(10) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `account_number` (`account_number`),
+  KEY `bank_id` (`bank_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `bank_account_info`
+--
+
+INSERT INTO `bank_account_info` (`id`, `account_name`, `account_number`, `bank_id`, `branch_name`, `account_type`, `entry_date`, `entry_by`, `status`) VALUES
+(1, 'Tasfir hossain Suman', '65148486868688', '1', 'Rampura', 1, '2016-01-28', '1', 1),
+(2, 'Tonmoy ', '745645646322', '4', 'Malibag', 1, '2016-01-28', '1', 1),
+(3, 'Chamiul', '914654985454', '4', 'Malibag', 1, '2016-01-28', '1', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bank_deposit`
+--
+
+CREATE TABLE IF NOT EXISTS `bank_deposit` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bank_id` varchar(10) NOT NULL,
+  `account_number` varchar(20) NOT NULL,
+  `account_name` varchar(150) NOT NULL,
+  `chaque_number` varchar(50) DEFAULT NULL,
+  `chaque_date` varchar(10) DEFAULT NULL,
+  `transaction_type` tinyint(1) NOT NULL DEFAULT '1',
+  `amount` varchar(20) NOT NULL,
+  `entry_by` varchar(10) NOT NULL,
+  `entry_date` date NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `bank_id` (`bank_id`),
+  KEY `account_number` (`account_number`),
+  KEY `transaction_type` (`transaction_type`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `bank_deposit`
+--
+
+INSERT INTO `bank_deposit` (`id`, `bank_id`, `account_number`, `account_name`, `chaque_number`, `chaque_date`, `transaction_type`, `amount`, `entry_by`, `entry_date`, `status`) VALUES
+(1, '1', '1', 'Tasfir hossain Suman', '4545454544554', '2016-01-21', 2, '50000', '1', '2016-01-30', 1),
+(2, '4', '3', 'Chamiul', '57656767', '2016-01-19', 2, '75000', '1', '2016-01-30', 1),
+(3, '4', '3', 'Chamiul', '57656767', '2016-01-19', 2, '75000', '1', '2016-01-30', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bank_info`
+--
+
+CREATE TABLE IF NOT EXISTS `bank_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bank_name` varchar(255) NOT NULL,
+  `account_name` varchar(150) NOT NULL,
+  `account_number` varchar(20) NOT NULL,
+  `branch_name` varchar(255) NOT NULL,
+  `entry_date` date NOT NULL,
+  `entry_by` varchar(10) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `bank_info`
+--
+
+INSERT INTO `bank_info` (`id`, `bank_name`, `account_name`, `account_number`, `branch_name`, `entry_date`, `entry_by`, `status`) VALUES
+(1, 'Dutch Bank Bank Limited(Rampura)', 'Tasfir hossain Suman', '65148486868688', 'Rampura', '2016-01-28', '1', 1),
+(2, 'Bank Asia (Gulshan)', 'Tasfir hossain Suman', '342423', 'Gulshan', '2016-01-30', '1', 1),
+(3, 'NCC BANK (Malibag)', 'Tasfir hossain Suman', '65148486868688', 'Malibag', '2016-01-31', '1', 1),
+(4, 'Brack Bank (Malibag)', 'Tonmoy ', '8514548564688', 'Malibag', '2016-01-28', '1', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bank_transaction`
+--
+
+CREATE TABLE IF NOT EXISTS `bank_transaction` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `deposit_id` varchar(10) DEFAULT NULL,
+  `withdrawal_id` varchar(10) DEFAULT NULL,
+  `debit` varchar(20) NOT NULL,
+  `credit` varchar(20) NOT NULL,
+  `balance` varchar(20) NOT NULL,
+  `transaction_type` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'cash=1; cheque=0',
+  `date` date NOT NULL,
+  `entry_by` varchar(10) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `deposit_id` (`deposit_id`),
+  KEY `withdrawal_id` (`withdrawal_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `bank_transaction`
+--
+
+INSERT INTO `bank_transaction` (`id`, `deposit_id`, `withdrawal_id`, `debit`, `credit`, `balance`, `transaction_type`, `date`, `entry_by`, `status`) VALUES
+(1, '1', NULL, '50000', '', '50000', 1, '2016-01-30', '1', 1),
+(2, NULL, '1', '', '20000', '30000', 1, '2016-01-30', '1', 1),
+(3, NULL, '2', '', '18000', '12000', 2, '2016-01-30', '1', 1),
+(4, '3', NULL, '75000', '', '87000', 2, '2016-01-30', '1', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bank_withdrawal`
+--
+
+CREATE TABLE IF NOT EXISTS `bank_withdrawal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bank_id` varchar(10) NOT NULL,
+  `account_number` varchar(20) NOT NULL,
+  `account_name` varchar(150) NOT NULL,
+  `chaque_number` varchar(50) DEFAULT NULL,
+  `chaque_date` varchar(10) DEFAULT NULL,
+  `transaction_type` tinyint(1) NOT NULL,
+  `atm_transaction_no` varchar(50) NOT NULL,
+  `amount` varchar(20) NOT NULL,
+  `entry_by` varchar(10) NOT NULL,
+  `entry_date` date NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `bank_id` (`bank_id`),
+  KEY `account_number` (`account_number`),
+  KEY `transaction_type` (`transaction_type`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `bank_withdrawal`
+--
+
+INSERT INTO `bank_withdrawal` (`id`, `bank_id`, `account_number`, `account_name`, `chaque_number`, `chaque_date`, `transaction_type`, `atm_transaction_no`, `amount`, `entry_by`, `entry_date`, `status`) VALUES
+(1, '4', '3', 'Chamiul', '', '', 3, '3453252353543', '20000', '1', '2016-01-30', 1),
+(2, '4', '2', 'Tonmoy ', '75565445433', '2016-01-29', 2, '', '18000', '1', '2016-01-30', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `commission_agent`
 --
 
-CREATE TABLE `commission_agent` (
-  `id` int(4) NOT NULL,
+CREATE TABLE IF NOT EXISTS `commission_agent` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
   `commission_agent_code` varchar(30) NOT NULL,
   `commision_agent_name` varchar(150) NOT NULL,
   `commision_agent_mobile` varchar(15) NOT NULL,
   `commision_agent_address` text NOT NULL,
   `passport_no` varchar(25) NOT NULL,
-  `status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `commission_agent`
 --
 
 INSERT INTO `commission_agent` (`id`, `commission_agent_code`, `commision_agent_name`, `commision_agent_mobile`, `commision_agent_address`, `passport_no`, `status`) VALUES
-(1, 'CID-0001', 'Tasfir Hossain Suman', '01911198784', 'Dhaka', '454DFDS', 0);
+(1, 'CID-001', 'Tasfir Hossain Suman', '01911198784', 'House# 01, Road# 06, Block# C, Banasree, Rampura', '54649846464', 1);
 
 -- --------------------------------------------------------
 
@@ -49,11 +206,12 @@ INSERT INTO `commission_agent` (`id`, `commission_agent_code`, `commision_agent_
 -- Table structure for table `district`
 --
 
-CREATE TABLE `district` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `district` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=66 ;
 
 --
 -- Dumping data for table `district`
@@ -132,8 +290,8 @@ INSERT INTO `district` (`id`, `name`, `status`) VALUES
 -- Table structure for table `expense_entry`
 --
 
-CREATE TABLE `expense_entry` (
-  `id` int(4) NOT NULL,
+CREATE TABLE IF NOT EXISTS `expense_entry` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
   `expense_name` varchar(255) NOT NULL,
   `date` varchar(10) NOT NULL,
   `expense_entry_date` date NOT NULL,
@@ -146,15 +304,18 @@ CREATE TABLE `expense_entry` (
   `bank_acc_number` varchar(30) NOT NULL,
   `amount` varchar(30) NOT NULL,
   `data_entry_user_name` int(3) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `expense_entry`
 --
 
 INSERT INTO `expense_entry` (`id`, `expense_name`, `date`, `expense_entry_date`, `expense_group_id`, `expense_head_id`, `payment_mode`, `cheque_number`, `cheque_date`, `bank_name`, `bank_acc_number`, `amount`, `data_entry_user_name`, `status`) VALUES
-(1, 'Employee Salary Paid', '2016-01-14', '2016-01-14', 3, 1, 1, '', '', '', '', '15000', 0, 1);
+(1, 'Employee Salary Paid', '2016-01-14', '2016-01-14', 3, 1, 1, '', '', '', '', '15000', 0, 1),
+(2, 'Employee Salary Paid', '2016-02-03', '2016-02-03', 3, 1, 1, '', '', '', '', '5000', 0, 1),
+(3, 'Ticket 2016', '2016-02-03', '2016-02-03', 1, 2, 1, '', '', '', '', '1000000', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -162,12 +323,13 @@ INSERT INTO `expense_entry` (`id`, `expense_name`, `date`, `expense_entry_date`,
 -- Table structure for table `expense_group_entry`
 --
 
-CREATE TABLE `expense_group_entry` (
-  `id` int(3) NOT NULL,
+CREATE TABLE IF NOT EXISTS `expense_group_entry` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
   `expense_group_entry_code` varchar(50) NOT NULL,
   `expense_group_entry_name` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `expense_group_entry`
@@ -188,20 +350,22 @@ INSERT INTO `expense_group_entry` (`id`, `expense_group_entry_code`, `expense_gr
 -- Table structure for table `expense_head_entry`
 --
 
-CREATE TABLE `expense_head_entry` (
-  `id` int(3) NOT NULL,
+CREATE TABLE IF NOT EXISTS `expense_head_entry` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
   `expense_group_entry_id` varchar(3) NOT NULL,
   `expense_head_entry_code` varchar(50) NOT NULL,
   `expense_head_entry_name` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `expense_head_entry`
 --
 
 INSERT INTO `expense_head_entry` (`id`, `expense_group_entry_id`, `expense_head_entry_code`, `expense_head_entry_name`, `status`) VALUES
-(1, '3', 'HID-0001', 'Employee Salary', 1);
+(1, '3', 'HID-0001', 'Employee Salary', 1),
+(2, '1', 'HID-0002', 'Hajj Ticket', 1);
 
 -- --------------------------------------------------------
 
@@ -209,9 +373,9 @@ INSERT INTO `expense_head_entry` (`id`, `expense_group_entry_id`, `expense_head_
 -- Table structure for table `haji_information`
 --
 
-CREATE TABLE `haji_information` (
-  `id` int(3) NOT NULL,
-  `haji_id` varchar(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `haji_information` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `haji_id` varchar(50) NOT NULL,
   `haji_omra_type` tinyint(1) NOT NULL DEFAULT '1',
   `haji_name` varchar(150) NOT NULL,
   `haji_passport` varchar(20) NOT NULL,
@@ -223,17 +387,17 @@ CREATE TABLE `haji_information` (
   `total_amount` varchar(10) NOT NULL,
   `date_time` datetime NOT NULL,
   `creator_user_id` varchar(3) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `haji_information`
 --
 
 INSERT INTO `haji_information` (`id`, `haji_id`, `haji_omra_type`, `haji_name`, `haji_passport`, `haji_mobile`, `haji_address`, `hajj_year`, `commission_agent_id`, `commission_amount`, `total_amount`, `date_time`, `creator_user_id`, `status`) VALUES
-(8, 'HID-0001', 1, 'Tasfir Hossain Suman', '4545ED', '0171215458', 'Dhaka Rampura', 2015, '1', '', '', '0000-00-00 00:00:00', '', 1),
-(9, 'HID-0002', 1, 'Kofil Uddin', '52DEF', '65466565', 'Dhaka Rampura', 2016, '4', '', '500000', '0000-00-00 00:00:00', '', 1),
-(10, 'HID-0003', 1, 'Gias Uddin', '45F54D', '01911198784', 'Malibag', 2015, '4', '', '300000', '0000-00-00 00:00:00', '', 1);
+(1, '2016-0715001', 1, 'Tasfir Hossain Suman', '154545', '01911198784', 'Dhaka', 2016, '', '', '300000', '0000-00-00 00:00:00', '', 1),
+(2, '2016-0715002', 1, 'MD. ALI HAIDER KHAN', '154545', '01723230609', 'Dhaka', 2016, '', '', '300000', '0000-00-00 00:00:00', '', 1);
 
 -- --------------------------------------------------------
 
@@ -241,8 +405,8 @@ INSERT INTO `haji_information` (`id`, `haji_id`, `haji_omra_type`, `haji_name`, 
 -- Table structure for table `haji_info_old`
 --
 
-CREATE TABLE `haji_info_old` (
-  `haji_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `haji_info_old` (
+  `haji_id` int(11) NOT NULL AUTO_INCREMENT,
   `pilgrim_id` int(11) NOT NULL,
   `pilgrim_type` tinyint(4) NOT NULL,
   `pilgrim_full_name` varchar(255) NOT NULL,
@@ -304,8 +468,9 @@ CREATE TABLE `haji_info_old` (
   `pilgrim_health_information_of_disease` varchar(30) NOT NULL,
   `pilgrim_health_information_of_medicine` varchar(50) NOT NULL,
   `pilgrim_blood_group` varchar(20) NOT NULL,
-  `haji_status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `haji_status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`haji_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `haji_info_old`
@@ -324,16 +489,62 @@ INSERT INTO `haji_info_old` (`haji_id`, `pilgrim_id`, `pilgrim_type`, `pilgrim_f
 -- Table structure for table `haji_payment_contact`
 --
 
-CREATE TABLE `haji_payment_contact` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `haji_payment_contact` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `voucher_no` varchar(10) DEFAULT NULL,
   `passport_number` varchar(20) DEFAULT NULL,
   `total_amount` varchar(10) DEFAULT NULL,
   `commission_agent_id` varchar(5) DEFAULT NULL,
   `commission_amount` varchar(10) DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `status` tinyint(1) DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `voucher_no` (`voucher_no`,`passport_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history_give_and_take_new_loan`
+--
+
+CREATE TABLE IF NOT EXISTS `history_give_and_take_new_loan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `loan_user_id` varchar(10) NOT NULL,
+  `entry_by` varchar(10) NOT NULL,
+  `date` date NOT NULL,
+  `comments` text NOT NULL,
+  `loan_amount` varchar(10) NOT NULL,
+  `profit_amount` varchar(10) NOT NULL,
+  `net_amount` varchar(10) NOT NULL,
+  `given_amount` varchar(10) DEFAULT NULL,
+  `taken_amount` varchar(10) DEFAULT NULL,
+  `loan_type` tinyint(1) NOT NULL DEFAULT '1',
+  `transaction_type` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'cash=1; bank=2; bkash;=3',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `transaction_type` (`transaction_type`),
+  KEY `loan_user_id` (`loan_user_id`),
+  KEY `loan_type` (`loan_type`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `history_give_and_take_new_loan`
+--
+
+INSERT INTO `history_give_and_take_new_loan` (`id`, `loan_user_id`, `entry_by`, `date`, `comments`, `loan_amount`, `profit_amount`, `net_amount`, `given_amount`, `taken_amount`, `loan_type`, `transaction_type`, `status`) VALUES
+(1, '28', '2', '2016-02-11', '', '', '', '50000', '50000', NULL, 1, 1, 1),
+(2, '30', '2', '2016-02-11', '', '', '', '70000', NULL, '70000', 2, 1, 1),
+(3, '28', '2', '2016-02-11', '', '', '', '40000', NULL, '40000', 2, 1, 1),
+(4, '28', '1', '2016-02-16', 'Texting Loan ', '', '', '8564', '8564', NULL, 1, 1, 1),
+(5, '28', '1', '2016-02-16', 'Texting Loan ', '', '', '8564', '8564', NULL, 1, 1, 1),
+(6, '28', '1', '2016-02-16', 'sss', '', '', '8564', '8564', NULL, 1, 1, 1),
+(7, '28', '1', '2016-02-16', 'sss', '', '', '8564', '8564', NULL, 1, 1, 1),
+(8, '28', '1', '2016-02-16', 'sssss', '', '', '8564', '8564', NULL, 1, 1, 1),
+(9, '28', '1', '2016-02-16', 'sssss', '', '', '8564', '8564', NULL, 1, 1, 1),
+(10, '28', '1', '2016-02-16', 'sssss', '', '', '8564', '8564', NULL, 1, 1, 1),
+(11, '28', '1', '2016-02-16', 'sssss', '', '', '8564', '8564', NULL, 1, 1, 1),
+(12, '28', '1', '2016-02-16', 'sssss', '', '', '8564', '8564', NULL, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -341,21 +552,23 @@ CREATE TABLE `haji_payment_contact` (
 -- Table structure for table `income_group`
 --
 
-CREATE TABLE `income_group` (
-  `id` int(3) NOT NULL,
+CREATE TABLE IF NOT EXISTS `income_group` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
   `income_group_code` varchar(50) NOT NULL,
   `income_group_name` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `income_group`
 --
 
 INSERT INTO `income_group` (`id`, `income_group_code`, `income_group_name`, `status`) VALUES
-(3, 'IGC-0002', 'Group 3', 1),
-(5, 'IGC-0004', 'Group 1', 1),
-(7, 'IGC-0005', 'Group 2', 1);
+(3, 'IGC-0002', 'Ticket Processing', 1),
+(5, 'IGC-0004', 'Visa Processing', 1),
+(7, 'IGC-0005', 'Omra', 1),
+(8, 'HID-0006', 'Hajj', 1);
 
 -- --------------------------------------------------------
 
@@ -363,20 +576,61 @@ INSERT INTO `income_group` (`id`, `income_group_code`, `income_group_name`, `sta
 -- Table structure for table `income_head`
 --
 
-CREATE TABLE `income_head` (
-  `id` int(3) NOT NULL,
+CREATE TABLE IF NOT EXISTS `income_head` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
   `income_group_id` varchar(3) NOT NULL,
   `income_head_code` varchar(50) NOT NULL,
   `income_head_name` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `income_head`
 --
 
 INSERT INTO `income_head` (`id`, `income_group_id`, `income_head_code`, `income_head_name`, `status`) VALUES
-(1, '3', 'HID-0001', 'Office Rent', 1);
+(1, '3', 'HID-0001', 'Ticket Processing', 1),
+(2, '5', 'HID-0002', 'Visha Processing', 1),
+(3, '7', 'HID-0003', 'Omra ', 1),
+(4, '8', 'HID-0004', 'Hajj 2016', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loan_history_of_installment`
+--
+
+CREATE TABLE IF NOT EXISTS `loan_history_of_installment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `loan_user_id` varchar(10) NOT NULL,
+  `against_given_taken_history` varchar(10) NOT NULL,
+  `loan_date` varchar(10) NOT NULL,
+  `installment_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Receive ==1; Paid ==2;',
+  `comments` text NOT NULL,
+  `receive_amount` varchar(10) NOT NULL,
+  `paid_amount` varchar(10) NOT NULL,
+  `installment_amount` varchar(10) NOT NULL,
+  `entry_by` varchar(10) NOT NULL,
+  `date` varchar(10) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `loan_date` (`loan_date`),
+  KEY `loan_user_id` (`loan_user_id`),
+  KEY `against_given_taken_history` (`against_given_taken_history`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `loan_history_of_installment`
+--
+
+INSERT INTO `loan_history_of_installment` (`id`, `loan_user_id`, `against_given_taken_history`, `loan_date`, `installment_status`, `comments`, `receive_amount`, `paid_amount`, `installment_amount`, `entry_by`, `date`, `status`) VALUES
+(1, '28', '1', '', 1, '', '20000', '', '20000', '2', '2016-02-11', 1),
+(2, '30', '2', '', 2, '', '', '20500', '20500', '2', '2016-02-11', 1),
+(3, '30', '2', '', 2, '', '', '20500', '20500', '2', '2016-02-11', 1),
+(4, '30', '2', '', 2, 'ss', '', '15000', '15000', '2', '2016-02-11', 1),
+(5, '28', '1', '', 1, '', '636', '', '636', '2', '2016-02-11', 1),
+(6, '28', '3', '', 2, '', '', '10000', '10000', '2', '2016-02-11', 1);
 
 -- --------------------------------------------------------
 
@@ -384,8 +638,8 @@ INSERT INTO `income_head` (`id`, `income_group_id`, `income_head_code`, `income_
 -- Table structure for table `loan_information`
 --
 
-CREATE TABLE `loan_information` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `loan_information` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `full_name` varchar(150) NOT NULL,
   `email_address` varchar(100) NOT NULL,
   `mobile_number` varchar(150) NOT NULL,
@@ -396,17 +650,22 @@ CREATE TABLE `loan_information` (
   `company_address` text NOT NULL,
   `national_id_number` varchar(25) NOT NULL,
   `profile_photo` varchar(255) NOT NULL,
-  `balance` varchar(20) NOT NULL DEFAULT '0',
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `loan_amount` varchar(10) NOT NULL,
+  `profit_amount` varchar(10) NOT NULL,
+  `net_balance` varchar(20) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
 
 --
 -- Dumping data for table `loan_information`
 --
 
-INSERT INTO `loan_information` (`id`, `full_name`, `email_address`, `mobile_number`, `permanent_address`, `present_address`, `ocupation`, `company_name`, `company_address`, `national_id_number`, `profile_photo`, `balance`, `status`) VALUES
-(28, 'Tasfir Hossain Suman', 'tasfirsuman@gmail.com', '01911198784', 'Jamalpur', '', '', '', '', '', '', '321934', 1),
-(29, 'Giash Uddin', 'giashuddin@gmail.com', '', '', '', '', '', '', '', '', '-10000', 1);
+INSERT INTO `loan_information` (`id`, `full_name`, `email_address`, `mobile_number`, `permanent_address`, `present_address`, `ocupation`, `company_name`, `company_address`, `national_id_number`, `profile_photo`, `loan_amount`, `profit_amount`, `net_balance`, `status`) VALUES
+(28, 'Tasfir Hossain Suman', 'tasfirsuman@gmail.com', '01911198784', 'Jamalpur', 'Dhaka', 'Web Developer', 'Micron Techno', 'Malibag', '3424242345234', '', '', '', '90000', 1),
+(29, 'Giash Uddin', 'giashuddin@gmail.com', '01911198784', 'Jamalpur', 'Dhaka', 'Programmer', '', '', '', '', '', '', '-30000', 1),
+(30, 'Monjurol Haque', 'tasfirsuman@gmail.com', '01911198784', 'Jamalpur', 'Dhaka', 'Programmer', 'Micron Techno', 'Malibag', '3424242345234', '', '', '', '30000', 1),
+(31, 'Tasfir Hossain Suman', 'tasfirsuman@gmail.com', '01911198784', 'Jamalpur', 'Dhaka', 'Programmer', 'Micron Techno', 'Malibag', '3424242345234', '', '', '', '0', 1);
 
 -- --------------------------------------------------------
 
@@ -414,32 +673,30 @@ INSERT INTO `loan_information` (`id`, `full_name`, `email_address`, `mobile_numb
 -- Table structure for table `loan_paid`
 --
 
-CREATE TABLE `loan_paid` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `loan_paid` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `loan_user_id` varchar(4) NOT NULL,
   `entry_date` date NOT NULL,
   `entry_by` varchar(4) NOT NULL,
   `comments` text NOT NULL,
-  `amount` varchar(20) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `loan_type` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'new_loan=1; installment=2;',
+  `loan_amount` varchar(10) NOT NULL,
+  `profit_amount` varchar(10) DEFAULT NULL,
+  `net_balance` varchar(20) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `loan_type` (`loan_type`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `loan_paid`
 --
 
-INSERT INTO `loan_paid` (`id`, `loan_user_id`, `entry_date`, `entry_by`, `comments`, `amount`, `status`) VALUES
-(1, '21', '2016-01-18', '1', 'This is First Payment of Demo', '5000', 1),
-(2, '21', '2016-01-18', '1', 'This is Second Transaction ', '9000', 1),
-(3, '21', '2016-01-18', '1', 'Just Checking Loan Receive for First Time ', '15000', 1),
-(4, '21', '2016-01-19', '1', '', '15000', 1),
-(5, '21', '2016-01-19', '1', '', '15000', 1),
-(6, '21', '2016-01-19', '1', '', '20500', 1),
-(7, '23', '2016-01-19', '1', '', '15000', 1),
-(8, '25', '2016-01-19', '1', '', '20500', 1),
-(9, '26', '2016-01-19', '1', '', '', 1),
-(10, '28', '2016-01-19', '1', '', '20500', 1),
-(11, '29', '2016-01-19', '1', 'Loan Give to Giash Uddin', '20000', 1);
+INSERT INTO `loan_paid` (`id`, `loan_user_id`, `entry_date`, `entry_by`, `comments`, `loan_type`, `loan_amount`, `profit_amount`, `net_balance`, `status`) VALUES
+(1, '29', '2016-02-02', '1', '', 1, '', '', '30000', 1),
+(2, '28', '2016-02-02', '1', '', 1, '', '', '40000', 1),
+(3, '29', '2016-02-02', '1', '', 1, '', '', '10000', 1),
+(4, '30', '2016-02-03', '1', 'Paid Only 20000 from 50000', 1, '', '', '20000', 1);
 
 -- --------------------------------------------------------
 
@@ -447,26 +704,75 @@ INSERT INTO `loan_paid` (`id`, `loan_user_id`, `entry_date`, `entry_by`, `commen
 -- Table structure for table `loan_receive`
 --
 
-CREATE TABLE `loan_receive` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `loan_receive` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `loan_user_id` varchar(4) NOT NULL,
   `entry_date` date NOT NULL,
   `entry_by` varchar(4) NOT NULL,
   `comments` text NOT NULL,
   `amount` varchar(20) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `loan_receive`
 --
 
 INSERT INTO `loan_receive` (`id`, `loan_user_id`, `entry_date`, `entry_by`, `comments`, `amount`, `status`) VALUES
-(1, '21', '2016-01-18', '1', 's', '20500', 1),
-(2, '21', '2016-01-19', '1', '', '15000', 1),
-(3, '24', '2016-01-19', '1', '', '20500', 1),
-(4, '28', '2016-01-19', '1', '', '342434', 1),
-(5, '29', '2016-01-19', '1', '', '10000', 1);
+(1, '28', '2016-02-02', '1', '', '50000', 1),
+(2, '28', '2016-02-02', '1', '', '50000', 1),
+(3, '29', '2016-02-02', '1', '', '5000', 1),
+(4, '29', '2016-02-02', '1', '', '5000', 1),
+(5, '30', '2016-02-03', '1', 'Take Loan From This Person', '50000', 1),
+(6, '28', '2016-02-06', '1', 'Taking More 30000 Taka Loan From Tasfir Hossain SUman', '30000', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loan_transaction`
+--
+
+CREATE TABLE IF NOT EXISTS `loan_transaction` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `loan_user_id` varchar(10) NOT NULL,
+  `loan_type` tinyint(1) NOT NULL DEFAULT '1',
+  `transaction_type` tinyint(1) NOT NULL DEFAULT '1',
+  `loan_against_id` varchar(10) NOT NULL,
+  `comments` text NOT NULL,
+  `debit` varchar(10) NOT NULL,
+  `credit` varchar(10) NOT NULL,
+  `entry_by` varchar(10) NOT NULL,
+  `date` varchar(10) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `loan_user_id` (`loan_user_id`),
+  KEY `loan_type` (`loan_type`),
+  KEY `transaction_type` (`transaction_type`),
+  KEY `loan_against_id` (`loan_against_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `loan_transaction`
+--
+
+INSERT INTO `loan_transaction` (`id`, `loan_user_id`, `loan_type`, `transaction_type`, `loan_against_id`, `comments`, `debit`, `credit`, `entry_by`, `date`, `status`) VALUES
+(1, '28', 1, 1, '', '', '', '50000', '2', '2016-02-11', 1),
+(2, '30', 2, 1, '', '', '70000', '', '2', '2016-02-11', 1),
+(3, '28', 3, 1, '', '', '20000', '', '2', '2016-02-11', 1),
+(4, '30', 4, 1, '2', '', '', '20500', '2', '2016-02-11', 1),
+(5, '30', 4, 1, '2', '', '', '20500', '2', '2016-02-11', 1),
+(6, '30', 4, 1, '2', '', '', '15000', '2', '2016-02-11', 1),
+(7, '28', 3, 1, '', '', '636', '', '2', '2016-02-11', 1),
+(8, '28', 2, 1, '', '', '40000', '', '2', '2016-02-11', 1),
+(9, '28', 4, 1, '3', '', '', '10000', '2', '2016-02-11', 1),
+(10, '28', 1, 1, '', '', '', '8564', '1', '2016-02-16', 1),
+(11, '28', 1, 1, '', '', '', '8564', '1', '2016-02-16', 1),
+(12, '28', 1, 1, '', '', '', '8564', '1', '2016-02-16', 1),
+(13, '28', 1, 1, '', '', '', '8564', '1', '2016-02-16', 1),
+(14, '28', 1, 1, '', '', '', '8564', '1', '2016-02-16', 1),
+(15, '28', 1, 1, '', '', '', '8564', '1', '2016-02-16', 1),
+(16, '28', 1, 1, '', '', '', '8564', '1', '2016-02-16', 1);
 
 -- --------------------------------------------------------
 
@@ -474,8 +780,8 @@ INSERT INTO `loan_receive` (`id`, `loan_user_id`, `entry_date`, `entry_by`, `com
 -- Table structure for table `money_receipt`
 --
 
-CREATE TABLE `money_receipt` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `money_receipt` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `haji_id` varchar(5) NOT NULL,
   `money_receipt_number` varchar(10) DEFAULT NULL,
   `payment_mode` tinyint(1) DEFAULT '1',
@@ -486,8 +792,10 @@ CREATE TABLE `money_receipt` (
   `branch_name` varchar(255) DEFAULT NULL,
   `amount` varchar(10) DEFAULT NULL,
   `payment_head` varchar(3) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `haji_id` (`haji_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `money_receipt`
@@ -500,7 +808,8 @@ INSERT INTO `money_receipt` (`id`, `haji_id`, `money_receipt_number`, `payment_m
 (4, '9', 'MRH-0004', 1, '2016-01-23', '', '', '', '', '85200', '', 1),
 (5, '9', 'MRH-0005', 1, '2016-01-23', '', '', '', '', '85200', '', 1),
 (6, '9', 'MRH-0006', 1, '2016-01-23', '', '', '', '', '85200', '', 1),
-(7, '8', 'MRH-0007', 1, '2016-01-23', '', '', '', '', '78920', '', 1);
+(7, '8', 'MRH-0007', 1, '2016-01-23', '', '', '', '', '78920', '', 1),
+(8, '8', 'MRH-0008', 1, '2016-02-03', '', '', '', '', '12300', '4', 1);
 
 -- --------------------------------------------------------
 
@@ -508,12 +817,13 @@ INSERT INTO `money_receipt` (`id`, `haji_id`, `money_receipt_number`, `payment_m
 -- Table structure for table `police_station`
 --
 
-CREATE TABLE `police_station` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `police_station` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `district_id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=580 ;
 
 --
 -- Dumping data for table `police_station`
@@ -1101,16 +1411,45 @@ INSERT INTO `police_station` (`id`, `district_id`, `name`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_contact_amount`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_contact_amount` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `haji_id` varchar(10) NOT NULL,
+  `commission_agent_id` varchar(10) NOT NULL,
+  `hajj_year` varchar(4) NOT NULL,
+  `entry_by` varchar(10) NOT NULL,
+  `amount` varchar(10) NOT NULL DEFAULT '0',
+  `date` varchar(10) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `tbl_contact_amount`
+--
+
+INSERT INTO `tbl_contact_amount` (`id`, `haji_id`, `commission_agent_id`, `hajj_year`, `entry_by`, `amount`, `date`, `status`) VALUES
+(1, '', '1', '2016', '1', '300000', '2016-03-02', 1),
+(2, '1', '', '2016', '1', '400000', '2016-03-02', 1),
+(3, '2', '', '2016', '1', '600000', '2016-03-02', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `transactions`
 --
 
-CREATE TABLE `transactions` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `transactions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `money_receipt_id` varchar(11) NOT NULL,
   `haji_id` varchar(4) NOT NULL,
   `loan_paid_id` varchar(20) NOT NULL,
   `loan_information_id` varchar(4) NOT NULL,
   `loan_receive_id` varchar(4) NOT NULL,
+  `loan_give_and_take_id` varchar(10) NOT NULL,
+  `loan_installment_history_id` varchar(10) NOT NULL,
   `expense_id` varchar(11) NOT NULL,
   `date` date NOT NULL,
   `balance_status` tinyint(1) NOT NULL DEFAULT '1',
@@ -1118,37 +1457,44 @@ CREATE TABLE `transactions` (
   `credit` varchar(10) NOT NULL,
   `balance` varchar(10) NOT NULL,
   `last_transaction_amount` varchar(30) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `money_receipt_id` (`money_receipt_id`),
+  KEY `expense_id` (`expense_id`),
+  KEY `loan_id` (`loan_paid_id`),
+  KEY `loan_receive_id` (`loan_receive_id`),
+  KEY `haji_id` (`haji_id`),
+  KEY `loan_information_id` (`loan_information_id`),
+  KEY `date` (`date`),
+  KEY `loan_history_id` (`loan_installment_history_id`),
+  KEY `loan_user_id` (`loan_give_and_take_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=58 ;
 
 --
 -- Dumping data for table `transactions`
 --
 
-INSERT INTO `transactions` (`id`, `money_receipt_id`, `haji_id`, `loan_paid_id`, `loan_information_id`, `loan_receive_id`, `expense_id`, `date`, `balance_status`, `debit`, `credit`, `balance`, `last_transaction_amount`, `status`) VALUES
-(1, '1', '10', '', '', '', '', '2016-01-14', 1, '15000', '', '15000', '', 1),
-(2, '2', '9', '', '', '', '', '2016-01-14', 1, '20000', '', '35000', '', 1),
-(3, '', '', '', '', '', '1', '2016-01-14', 1, '', '15000', '20000', '', 1),
-(4, '', '', '1', '', '', '', '2016-01-18', 1, '', '5000', '15000', '', 1),
-(5, '', '', '2', '', '', '', '2016-01-18', 1, '', '9000', '6000', '', 1),
-(6, '', '', '3', '', '', '', '2016-01-18', 1, '', '15000', '-9000', '', 1),
-(7, '', '', '', '', '1', '', '2016-01-18', 1, '20500', '', '11500', '', 1),
-(8, '', '', '4', '', '', '', '2016-01-19', 1, '', '15000', '-3500', '', 1),
-(9, '', '', '5', '', '', '', '2016-01-19', 1, '', '15000', '-18500', '', 1),
-(10, '', '', '6', '', '', '', '2016-01-19', 1, '', '20500', '-39000', '', 1),
-(11, '', '', '', '', '2', '', '2016-01-19', 1, '15000', '', '-24000', '', 1),
-(12, '', '', '7', '', '', '', '2016-01-19', 1, '', '15000', '-39000', '', 1),
-(13, '', '', '', '', '3', '', '2016-01-19', 1, '20500', '', '-18500', '', 1),
-(14, '', '', '8', '', '', '', '2016-01-19', 1, '', '20500', '-39000', '', 1),
-(15, '', '', '9', '', '', '', '2016-01-19', 1, '', '', '-39000', '', 1),
-(16, '', '', '10', '', '', '', '2016-01-19', 1, '', '20500', '-59500', '', 1),
-(17, '', '', '', '', '4', '', '2016-01-19', 1, '342434', '', '282934', '', 1),
-(18, '', '', '11', '', '', '', '2016-01-19', 1, '', '20000', '262934', '', 1),
-(19, '', '', '', '', '5', '', '2016-01-19', 1, '10000', '', '272934', '', 1),
-(20, '3', '9', '', '', '', '', '2016-01-23', 1, '123000', '', '395934', '', 1),
-(21, '4', '9', '', '', '', '', '2016-01-23', 1, '85200', '', '481134', '', 1),
-(22, '6', '9', '', '', '', '', '2016-01-23', 1, '85200', '', '566334', '', 1),
-(23, '7', '8', '', '', '', '', '2016-01-23', 1, '78920', '', '645254', '', 1);
+INSERT INTO `transactions` (`id`, `money_receipt_id`, `haji_id`, `loan_paid_id`, `loan_information_id`, `loan_receive_id`, `loan_give_and_take_id`, `loan_installment_history_id`, `expense_id`, `date`, `balance_status`, `debit`, `credit`, `balance`, `last_transaction_amount`, `status`) VALUES
+(1, '1', '10', '', '', '', '', '', '', '2016-01-14', 1, '15000', '', '15000', '', 1),
+(2, '2', '9', '', '', '', '', '', '', '2016-01-14', 1, '20000', '', '35000', '', 1),
+(20, '3', '9', '', '', '', '', '', '', '2016-01-23', 1, '123000', '', '395934', '', 1),
+(21, '4', '9', '', '', '', '', '', '', '2016-01-23', 1, '85200', '', '481134', '', 1),
+(22, '6', '9', '', '', '', '', '', '', '2016-01-23', 1, '85200', '', '566334', '', 1),
+(23, '7', '8', '', '', '', '', '', '', '2016-01-23', 1, '78920', '', '645254', '', 1),
+(44, '', '', '', '28', '1', '', '', '', '2016-02-02', 1, '50000', '', '695254', '', 1),
+(45, '', '', '1', '29', '', '', '', '', '2016-02-02', 1, '', '30000', '665254', '', 1),
+(46, '', '', '', '28', '2', '', '', '', '2016-02-02', 1, '50000', '', '715254', '', 1),
+(47, '', '', '2', '28', '', '', '', '', '2016-02-02', 1, '', '40000', '675254', '', 1),
+(48, '', '', '3', '29', '', '', '', '', '2016-02-02', 1, '', '10000', '665254', '', 1),
+(49, '', '', '', '29', '3', '', '', '', '2016-02-02', 1, '5000', '', '670254', '', 1),
+(50, '', '', '', '29', '4', '', '', '', '2016-02-02', 1, '5000', '', '675254', '', 1),
+(51, '', '', '', '', '', '', '', '2', '2016-02-03', 1, '', '5000', '670254', '', 1),
+(52, '', '', '', '', '', '', '', '3', '2016-02-03', 1, '', '1000000', '-329746', '', 1),
+(53, '8', '8', '', '', '', '', '', '', '2016-02-03', 1, '12300', '', '-317446', '', 1),
+(54, '', '', '', '30', '5', '', '', '', '2016-02-03', 1, '50000', '', '-267446', '', 1),
+(55, '', '', '4', '30', '', '', '', '', '2016-02-03', 1, '', '20000', '-287446', '', 1),
+(56, '', '', '', '28', '6', '', '', '', '2016-02-06', 1, '30000', '', '-257446', '', 1),
+(57, '', '', '', '28', '', '12', '', '', '2016-02-16', 1, '', '8564', '-266010', '', 1);
 
 -- --------------------------------------------------------
 
@@ -1156,8 +1502,8 @@ INSERT INTO `transactions` (`id`, `money_receipt_id`, `haji_id`, `loan_paid_id`,
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `user_email` varchar(50) NOT NULL,
@@ -1167,222 +1513,20 @@ CREATE TABLE `users` (
   `address` text NOT NULL,
   `profile_picture` varchar(255) NOT NULL,
   `user_type` tinyint(1) NOT NULL DEFAULT '1',
-  `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `user_email`, `user_first_name`, `user_last_name`, `phone`, `address`, `profile_picture`, `user_type`, `status`) VALUES
-(1, 'admin', '40c076e29f6106a4f4e3c8d5c8c3d2c5', 'tasfirsuman@gmail.com', 'Tasfir Hossain', 'Suman', '01911198784', 'Micron Techno', 'uploads/profile_picture/suman.jpg', 1, 1),
-(2, 'micron', 'e10adc3949ba59abbe56e057f20f883e', 'micronhost@gmail.com', 'Micron', 'Techno', '01911198784', 'Dhaka', 'uploads/profile_picture/10.jpg', 1, 1),
-(3, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'user@gmail.com', 'user name', '', '', '', 'uploads/profile_picture/10.jpg', 3, 1),
-(4, 'tasfir', '40c076e29f6106a4f4e3c8d5c8c3d2c5', 'tasfirsuman@gmail.com', 'Tasfir Hossain ', 'Suman', '01723230609', 'Banasere', 'uploads/profile_picture/thumbs/4.jpg', 3, 1);
+(1, 'admin', '40c076e29f6106a4f4e3c8d5c8c3d2c5', 'tasfirsuman@gmail.com', 'Tasfir Hossain', 'Suman', '01911198784', '', '1.jpg', 1, 1),
+(2, 'micron', '4e8192d5c24a51e5fda5e9e010296aaa', 'micronhost@gmail.com', 'Micron', 'Techno', '01911198784', 'Dhaka', '2.jpg', 1, 1),
+(3, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'user@gmail.com', 'user name', '', '', '', '3.jpg', 3, 1),
+(4, 'tasfir', '40c076e29f6106a4f4e3c8d5c8c3d2c5', 'tasfirsuman@gmail.com', 'Tasfir Hossain ', 'Suman', '01723230609', 'Banasere', '4.jpg', 3, 1);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `commission_agent`
---
-ALTER TABLE `commission_agent`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `district`
---
-ALTER TABLE `district`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `expense_entry`
---
-ALTER TABLE `expense_entry`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `expense_group_entry`
---
-ALTER TABLE `expense_group_entry`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `expense_head_entry`
---
-ALTER TABLE `expense_head_entry`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `haji_information`
---
-ALTER TABLE `haji_information`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `haji_info_old`
---
-ALTER TABLE `haji_info_old`
-  ADD PRIMARY KEY (`haji_id`);
-
---
--- Indexes for table `haji_payment_contact`
---
-ALTER TABLE `haji_payment_contact`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `voucher_no` (`voucher_no`,`passport_number`);
-
---
--- Indexes for table `income_group`
---
-ALTER TABLE `income_group`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `income_head`
---
-ALTER TABLE `income_head`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `loan_information`
---
-ALTER TABLE `loan_information`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `loan_paid`
---
-ALTER TABLE `loan_paid`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `loan_receive`
---
-ALTER TABLE `loan_receive`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `money_receipt`
---
-ALTER TABLE `money_receipt`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `haji_id` (`haji_id`);
-
---
--- Indexes for table `police_station`
---
-ALTER TABLE `police_station`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `transactions`
---
-ALTER TABLE `transactions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `money_receipt_id` (`money_receipt_id`),
-  ADD KEY `expense_id` (`expense_id`),
-  ADD KEY `loan_id` (`loan_paid_id`),
-  ADD KEY `loan_receive_id` (`loan_receive_id`),
-  ADD KEY `haji_id` (`haji_id`),
-  ADD KEY `loan_information_id` (`loan_information_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `commission_agent`
---
-ALTER TABLE `commission_agent`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `district`
---
-ALTER TABLE `district`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
---
--- AUTO_INCREMENT for table `expense_entry`
---
-ALTER TABLE `expense_entry`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `expense_group_entry`
---
-ALTER TABLE `expense_group_entry`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `expense_head_entry`
---
-ALTER TABLE `expense_head_entry`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `haji_information`
---
-ALTER TABLE `haji_information`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `haji_info_old`
---
-ALTER TABLE `haji_info_old`
-  MODIFY `haji_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `haji_payment_contact`
---
-ALTER TABLE `haji_payment_contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `income_group`
---
-ALTER TABLE `income_group`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `income_head`
---
-ALTER TABLE `income_head`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `loan_information`
---
-ALTER TABLE `loan_information`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
---
--- AUTO_INCREMENT for table `loan_paid`
---
-ALTER TABLE `loan_paid`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT for table `loan_receive`
---
-ALTER TABLE `loan_receive`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `money_receipt`
---
-ALTER TABLE `money_receipt`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `police_station`
---
-ALTER TABLE `police_station`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=580;
---
--- AUTO_INCREMENT for table `transactions`
---
-ALTER TABLE `transactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
