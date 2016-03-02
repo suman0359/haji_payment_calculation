@@ -55,19 +55,30 @@
                                 <td><?php if(!empty($commission_agent_name->commision_agent_name)) echo $commission_agent_name->commision_agent_name; ?></td>
                                 <td>
 
+                                <!-- Single button -->
+                                    <div class="btn-group">
+                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-settings tiny-icon"></i>
+                                        Action <span class="caret"></span>
+                                      </button>
+                                      <ul class="dropdown-menu">
+
+
                                     <?php
                                        $user_type = $this->session->userdata('user_type');
-                                       // echo '<pre>';
-                                       // print_r($user_type);
-                                       // exit();
-                                     if($user_type==1){ ?>
-                                    <a href="<?php echo base_url(); ?>haji_info/edit_form/<?php echo $value->id; ?>" class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="<?php echo base_url(); ?>haji_info/delete_haji/<?php echo $value->id; ?>" class="btn btn-primary btn-sm" onclick="return confirm('Do you want to allow him to');">Delete</a>
 
+                                     if($user_type==1){ ?>
+                                     <li><a href="<?php echo base_url(); ?>haji_info/edit_form/<?php echo $value->id; ?>" >Edit</a></li>
+                                     <li><a href="<?php echo base_url(); ?>haji_info/delete_haji/<?php echo $value->id; ?>"  onclick="return confirm('Do you want to allow him to');">Delete</a></li>
+                                                                       
                                     <?php } ?>
                                     
-                                    <a href="<?php echo base_url(); ?>payment_collection/payment/<?php echo $value->id; ?>" class="btn btn-primary btn-sm" onclick="return confirm('Do you want to allow him to');">Payment</a>
-                                    <a href="<?php echo base_url(); ?>payment_collection/haji_payment_report/<?php echo $value->id; ?>" class="btn btn-primary btn-sm" onclick="return confirm('Do you want to allow him to');">Report</a>
+                                    <li><a href="<?php echo base_url(); ?>payment_collection/payment/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');">Payment</a></li>
+                                    <li><a href="<?php echo base_url(); ?>payment_collection/haji_payment_report/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');">Report</a></li>
+
+                                    <li><a href="<?php echo base_url();?>haji_info/set_contact_amount/<?php echo $value->id; ?>">Set Contact Amount</a></li>
+                                      </ul>
+                                    </div>
+
                                 </td>
                             </tr>
 

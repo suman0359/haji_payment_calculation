@@ -274,11 +274,11 @@ var Main = function() {
 				case "theme-3":
 				case "theme-5":
 				case "theme-6":
-					$(".navbar-brand img").attr("src", base_url+"assets/images/Logo-Bag.gif");
+					$(".navbar-brand img").attr("src", base_url+"assets/images/century_aviation.png");
 					break;
 
 				default:
-					$(".navbar-brand img").attr("src", base_url+"assets/images/Logo-Bag.gif");
+					$(".navbar-brand img").attr("src", base_url+"assets/images/century_aviation.png");
 					break;
 			};
 		};
@@ -288,7 +288,7 @@ var Main = function() {
 			$('#closed-sidebar').prop('checked', false);
 			$('#fixed-footer').prop('checked', false);
 			$('#skin_color').attr("href", base_url+"assets/css/themes/theme-1.css");
-			$(".navbar-brand img").attr("src", base_url+"assets/images/Logo-Bag.gif");
+			$(".navbar-brand img").attr("src", base_url+"assets/images/century_aviation.png");
 
 		};
 	};

@@ -6,7 +6,7 @@
         <section id="page-title" style="padding: 20px 0">
             <div class="row">
                 <div class="col-sm-8">
-                    <h1 class="mainTitle text-center">Commission Agent </h1>
+                    <h1 class="mainTitle text-center"> Group Leader List </h1>
                    
                 </div>
                 <?php $this->load->view('common/breadcrumb'); ?>
@@ -27,8 +27,8 @@
                     <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
                         <thead>
                             <tr>
-                                <th>AGENT CODE</th>
-                                <th class="hidden-xs">AGENT NAME</th>
+                                <th>CODE</th>
+                                <th class="hidden-xs">Leader Name</th>
                                 <th>Passport</th>
                                 <th class="hidden-xs"> ADDRESS</th>
                                 <th>MOBILE</th>
@@ -44,8 +44,21 @@
                                 <td class="hidden-xs"><?php echo $value->commision_agent_address; ?></td>
                                 <td><?php echo $value->commision_agent_mobile; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url(); ?>commission_agent/update_form/<?php echo $value->id; ?>" class="btn btn-primary">Edit</a>
-                                    <a href="<?php echo base_url(); ?>commission_agent/delete/<?php echo $value->id; ?>" class="btn btn-primary" onclick="return confirm('Do you want to allow him to');">Delete</a>
+                                    <!-- Single button -->
+                                    <div class="btn-group">
+                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-settings tiny-icon"></i>
+                                        Action <span class="caret"></span>
+                                      </button>
+                                      <ul class="dropdown-menu">
+                                            <li><a href="<?php echo base_url(); ?>commission_agent/update_form/<?php echo $value->id; ?>" >Edit</a></li>
+                                            <li><a href="<?php echo base_url(); ?>commission_agent/delete/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');">Delete</a></li>
+                                            <li><a href="<?php echo base_url(); ?>payment_collection/group_payment_collect_form/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');">Group Payment Collect</a></li>
+                                            <li><a href="<?php echo base_url();?>commission_agent/set_group_contact_amount/<?php echo $value->id; ?>">Set Contact Amount</a></li>
+                                      </ul>
+                                    </div>
+                                    
+                                    
+                                    
                                 </td>
                             </tr>
 

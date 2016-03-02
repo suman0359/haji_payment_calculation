@@ -67,13 +67,6 @@
 								</div>
 								<div class="col-sm-7 col-md-8">
 									
-									<!-- <div class="panel panel-white" id="activities">
-										<div class="panel-heading border-light">
-											<h4 class="panel-title text-primary">Recent Activities</h4>
-											<paneltool class="panel-tools" tool-collapse="tool-collapse" tool-refresh="load1" tool-dismiss="tool-dismiss"></paneltool>
-										</div>
-										
-									</div> -->
 									<div class="panel panel-white space20">
 										<fieldset>
 									<legend>
@@ -103,21 +96,7 @@
 											
 										</div>
 										<div class="col-md-6">
-											<!-- <div class="form-group">
-												<label class="control-label">
-													Gender
-												</label>
-												<div class="clip-radio radio-primary">
-													<input disabled="" type="radio" value="female" name="gender" id="us-female">
-													<label for="us-female">
-														Female
-													</label>
-													<input disabled="" type="radio" value="male" name="gender" id="us-male" checked>
-													<label for="us-male">
-														Male
-													</label>
-												</div>
-											</div> -->
+											
 
 											<div class="form-group">
 												<label class="control-label">
@@ -133,94 +112,17 @@
 												<input disabled="" value="<?php $user_role =  $this->session->userdata("user_type"); if($user_role==1)echo "Super Admin"; if($user_role==2) echo "Admin"; if($user_role==3) echo "User"; ?>" type="text" placeholder="(641)-734-4763" class="form-control" id="user_type" name="user_type">
 											</div>
 
-
-											<!-- <div class="row">
-												<div class="col-md-4">
-													<div class="form-group">
-														<label class="control-label">
-															Zip Code
-														</label>
-														<input class="form-control" placeholder="12345" type="text" name="zipcode" id="zipcode">
-													</div>
-												</div>
-												<div class="col-md-8">
-													<div class="form-group">
-														<label class="control-label">
-															City
-														</label>
-														<input class="form-control tooltips" placeholder="London (UK)" type="text" data-original-title="We'll display it when you write reviews" data-rel="tooltip"  title="" data-placement="top" name="city" id="city">
-													</div>
-												</div>
-											</div> -->
 											
 										</div>
 									</div>
 								</fieldset>
-								<!-- <fieldset>
-									<legend>
-										Additional Info
-									</legend>
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">
-													Twitter
-												</label>
-												<span class="input-icon">
-													<input class="form-control" type="text" placeholder="Text Field">
-													<i class="fa fa-twitter"></i> </span>
-											</div>
-											<div class="form-group">
-												<label class="control-label">
-													Facebook
-												</label>
-												<span class="input-icon">
-													<input class="form-control" type="text" placeholder="Text Field">
-													<i class="fa fa-facebook"></i> </span>
-											</div>
-											<div class="form-group">
-												<label class="control-label">
-													Google Plus
-												</label>
-												<span class="input-icon">
-													<input class="form-control" type="text" placeholder="Text Field">
-													<i class="fa fa-google-plus"></i> </span>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">
-													Github
-												</label>
-												<span class="input-icon">
-													<input class="form-control" type="text" placeholder="Text Field">
-													<i class="fa fa-github"></i> </span>
-											</div>
-											<div class="form-group">
-												<label class="control-label">
-													Linkedin
-												</label>
-												<span class="input-icon">
-													<input class="form-control" type="text" placeholder="Text Field">
-													<i class="fa fa-linkedin"></i> </span>
-											</div>
-											<div class="form-group">
-												<label class="control-label">
-													Skype
-												</label>
-												<span class="input-icon">
-													<input class="form-control" type="text" placeholder="Text Field">
-													<i class="fa fa-skype"></i> </span>
-											</div>
-										</div>
-									</div>
-								</fieldset> -->
+								
 									</div>
 								</div>
 							</div>
 						</div>
 						<div id="panel_edit_account" class="tab-pane fade">
-							<form action="<?php echo base_url() . "user/update_selected_user"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
+							<form action="<?php echo base_url() . "user/update_my_profile"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
 								<fieldset>
 									<legend>
 										Account Info
@@ -257,22 +159,7 @@
 											
 										</div>
 										<div class="col-md-6">
-											<!-- <div class="form-group">
-												<label class="control-label">
-													Gender
-												</label>
-												<div class="clip-radio radio-primary">
-													<input type="radio" value="female" name="gender" id="us-female">
-													<label for="us-female">
-														Female
-													</label>
-													<input type="radio" value="male" name="gender" id="us-male" checked>
-													<label for="us-male">
-														Male
-													</label>
-												</div>
-											</div> -->
-
+											
 											<div class="form-group">
 												<label class="control-label">
 													Password
@@ -286,116 +173,36 @@
 												<input type="password"  placeholder="password" class="form-control" id="password_again" name="password_again">
 											</div>
 
+											<!-- Update My Profile Image -->
 											<div class="form-group">
-		                                        <label for="Commission Agent" class="control-label">User Role</label>
-
-		                                        <select name="user_type" id="user_type" class="form-control">
-		                                            <option value="">Select User Role..</option>
-
-		                                            <option value="3" <?php if($user_role==3)echo "selected"; ?>>User</option>
-		                                            <option value="2" <?php if($user_role==2)echo "selected"; ?>>Admin</option>
-		                                            <option value="1" <?php if($user_role==1)echo "selected"; ?>>Super Admin</option>
-		                                        </select>
-		                                    </div>
-
-											<!-- <div class="row">
-												<div class="col-md-4">
-													<div class="form-group">
-														<label class="control-label">
-															Zip Code
-														</label>
-														<input class="form-control" placeholder="12345" type="text" name="zipcode" id="zipcode">
-													</div>
-												</div>
-												<div class="col-md-8">
-													<div class="form-group">
-														<label class="control-label">
-															City
-														</label>
-														<input class="form-control tooltips" placeholder="London (UK)" type="text" data-original-title="We'll display it when you write reviews" data-rel="tooltip"  title="" data-placement="top" name="city" id="city">
-													</div>
-												</div>
-											</div> -->
-											<!-- <div class="form-group">
 												<label>
 													Image Upload
 												</label>
 												<div class="fileinput fileinput-new" data-provides="fileinput">
-													<div class="fileinput-new thumbnail"><img src="<?php echo base_url(); ?>assets/images/avatar-1-xl.jpg" alt="">
+													<div class="fileinput-new thumbnail">
+													<img src="<?php if(!empty($profile_picture)){echo base_url().'uploads/profile_picture/'.$profile_picture;}else{ echo base_url().'assets/images/thumbnail.png';} ?>" alt="">
 													</div>
 													<div class="fileinput-preview fileinput-exists thumbnail"></div>
 													<div class="user-edit-image-buttons">
-														<span class="btn btn-azure btn-file"><span class="fileinput-new"><i class="fa fa-picture"></i> Select image</span><span class="fileinput-exists"><i class="fa fa-picture"></i> Change</span>
-															<input type="file">
+														<span class="btn btn-azure btn-file">
+														<span class="fileinput-new">
+														<i class="fa fa-picture"></i> Select image
+														</span>
+														<span class="fileinput-exists"><i class="fa fa-picture"></i> Change</span>
+															<input type="file" name="profile_picture">
 														</span>
 														<a href="#" class="btn fileinput-exists btn-red" data-dismiss="fileinput">
 															<i class="fa fa-times"></i> Remove
 														</a>
 													</div>
 												</div>
-											</div> -->
+											</div>
+
+
 										</div>
 									</div>
 								</fieldset>
-								<!-- <fieldset>
-									<legend>
-										Additional Info
-									</legend>
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">
-													Twitter
-												</label>
-												<span class="input-icon">
-													<input class="form-control" type="text" placeholder="Text Field">
-													<i class="fa fa-twitter"></i> </span>
-											</div>
-											<div class="form-group">
-												<label class="control-label">
-													Facebook
-												</label>
-												<span class="input-icon">
-													<input class="form-control" type="text" placeholder="Text Field">
-													<i class="fa fa-facebook"></i> </span>
-											</div>
-											<div class="form-group">
-												<label class="control-label">
-													Google Plus
-												</label>
-												<span class="input-icon">
-													<input class="form-control" type="text" placeholder="Text Field">
-													<i class="fa fa-google-plus"></i> </span>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">
-													Github
-												</label>
-												<span class="input-icon">
-													<input class="form-control" type="text" placeholder="Text Field">
-													<i class="fa fa-github"></i> </span>
-											</div>
-											<div class="form-group">
-												<label class="control-label">
-													Linkedin
-												</label>
-												<span class="input-icon">
-													<input class="form-control" type="text" placeholder="Text Field">
-													<i class="fa fa-linkedin"></i> </span>
-											</div>
-											<div class="form-group">
-												<label class="control-label">
-													Skype
-												</label>
-												<span class="input-icon">
-													<input class="form-control" type="text" placeholder="Text Field">
-													<i class="fa fa-skype"></i> </span>
-											</div>
-										</div>
-									</div>
-								</fieldset> -->
+								
 								<div class="row">
 									<div class="col-md-12">
 										<div>
@@ -418,93 +225,7 @@
 								</div>
 							</form>
 						</div>
-						<!-- <div id="panel_projects" class="tab-pane fade">
-							<table class="table" id="projects">
-								<thead>
-									<tr>
-										<th>Project Name</th>
-										<th class="hidden-xs">Client</th>
-										<th>Proj Comp</th>
-										<th class="hidden-xs">%Comp</th>
-										<th class="hidden-xs center">Priority</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>IT Help Desk</td>
-										<td class="hidden-xs">Master Company</td>
-										<td>11 november 2014</td>
-										<td class="hidden-xs">
-										<div class="progress active progress-xs">
-											<div style="width: 70%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" role="progressbar" class="progress-bar progress-bar-warning">
-												<span class="sr-only"> 70% Complete (danger)</span>
-											</div>
-										</div></td>
-										<td class="center hidden-xs"><span class="label label-danger">Critical</span></td>
-									</tr>
-									<tr>
-										<td>PM New Product Dev</td>
-										<td class="hidden-xs">Brand Company</td>
-										<td>12 june 2014</td>
-										<td class="hidden-xs">
-										<div class="progress active progress-xs">
-											<div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-info">
-												<span class="sr-only"> 40% Complete</span>
-											</div>
-										</div></td>
-										<td class="center hidden-xs"><span class="label label-warning">High</span></td>
-									</tr>
-									<tr>
-										<td>ClipTheme Web Site</td>
-										<td class="hidden-xs">Internal</td>
-										<td>11 november 2014</td>
-										<td class="hidden-xs">
-										<div class="progress active progress-xs">
-											<div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success">
-												<span class="sr-only"> 90% Complete</span>
-											</div>
-										</div></td>
-										<td class="center hidden-xs"><span class="label label-success">Normal</span></td>
-									</tr>
-									<tr>
-										<td>Local Ad</td>
-										<td class="hidden-xs">UI Fab</td>
-										<td>15 april 2014</td>
-										<td class="hidden-xs">
-										<div class="progress active progress-xs">
-											<div style="width: 50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar" class="progress-bar progress-bar-warning">
-												<span class="sr-only"> 50% Complete</span>
-											</div>
-										</div></td>
-										<td class="center hidden-xs"><span class="label label-success">Normal</span></td>
-									</tr>
-									<tr>
-										<td>Design new theme</td>
-										<td class="hidden-xs">Internal</td>
-										<td>2 october 2014</td>
-										<td class="hidden-xs">
-										<div class="progress active progress-xs">
-											<div style="width: 20%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" role="progressbar" class="progress-bar progress-bar-success">
-												<span class="sr-only"> 20% Complete (warning)</span>
-											</div>
-										</div></td>
-										<td class="center hidden-xs"><span class="label label-danger">Critical</span></td>
-									</tr>
-									<tr>
-										<td>IT Help Desk</td>
-										<td class="hidden-xs">Designer TM</td>
-										<td>6 december 2014</td>
-										<td class="hidden-xs">
-										<div class="progress active progress-xs">
-											<div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
-												<span class="sr-only"> 40% Complete (warning)</span>
-											</div>
-										</div></td>
-										<td class="center hidden-xs"><span class="label label-warning">High</span></td>
-									</tr>
-								</tbody>
-							</table>
-						</div> -->
+						
 
 					</div>
 				</div>

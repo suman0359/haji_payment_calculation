@@ -5,7 +5,7 @@
             <i class="ti-align-justify"></i>
         </a>
         <a class="navbar-brand" href="<?php echo base_url()."dashboard"; ?>">
-            <img style="width: 70px" src="<?php echo base_url(); ?>assets/images/Logo-Bag.gif" alt="Micron Techno BD" />
+            <img style="width: 180px" src="<?php echo base_url(); ?>assets/images/century_aviation.png" alt="Micron Techno BD" />
         </a>
         <a href="#" class="sidebar-toggler pull-right visible-md visible-lg" data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
             <i class="ti-align-justify"></i>

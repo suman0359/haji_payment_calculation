@@ -21,14 +21,14 @@
                <!--  <span class="logo">
                     <img style="width: 150px" src="http://localhost/haji_payment_calculation/assets/images/logo.png" alt="Micron Techno BD">
                 </span> -->
-                AL-QUTUB HAJJ TRAVELS  <br/>
+                CENTURY AVIATION <br/>
                 <strong>Money Receipt</strong><br>
-                <small>Ga-3/1, Shajadpur Eidgah Masjid Complex Gulshan, </small> <br>
-                <small>Dhaka-1212, Bangladesh</small> <br>
-                <small>Telephone & Fax : 0088-02-8899795</small><br>
-                <small>Mobile: +880-1738246402, +880 01673637138</small><br>
-                <small>Web: www.esunnah.org</small>
-                <small>Email : humqutub@gmail.com</small>
+                <small>Tropicana Tower (10th Floor) </small> <br>
+                <small>45, Topkahana Road, Purana Paltan, Dhaka-1000.</small> <br>
+                <small>Phone: +88-02-9573888</small><br>
+                <small>Mobile: +880-1755505580; +966-504933129(Saudi Arabia)</small><br>
+                <!-- <small>Web: www.esunnah.org</small> -->
+                <small>Email : centuryaviation@yahoo.com</small>
 
                 <hr>
 

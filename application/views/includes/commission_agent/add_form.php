@@ -4,7 +4,7 @@
         <section id="page-title" style="padding: 20px 0">
             <div class="row">
                 <div class="col-sm-8">
-                    <h1 class="mainTitle text-center">Commission Agent Entry Form</h1>
+                    <h1 class="mainTitle text-center">Group Leader Entry Form</h1>
                     
                 </div>
                 <?php $this->load->view('common/breadcrumb');?>
@@ -26,20 +26,13 @@
                                     <i class="fa fa-ok"></i> Your form validation is successful!
                                 </div>
                             </div>
+                            
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Agent Code <span class="symbol required"></span>
+                                        Leader Name <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="Agent Code" class="form-control" id="agent_code" name="agent_code">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Agent Name <span class="symbol required"></span>
-                                    </label>
-                                    <input type="text" placeholder="Agent Name" class="form-control" id="agent_name" name="agent_name">
+                                    <input type="text" placeholder="Leader Name" class="form-control" id="agent_name" name="agent_name">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -50,11 +43,7 @@
                                     <input type="text" placeholder="Address" class="form-control" id="address" name="address">
                                 </div>
                             </div>
-                            <!-- End First Column -->
                             
-                            <!-- Second Column --> 
-                            
-                                
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
@@ -72,9 +61,7 @@
                                     <input type="text" placeholder="Insert Passport No" class="form-control" id="passport_no" name="passport_no">
                                 </div>
                             </div>
-                            <!-- End Second Column -->
-
-                            <hr>
+                            
                         </div>
 
 

@@ -49,7 +49,39 @@ class Haji_info_model extends CI_Model{
         $this->db->from($table_name);
 
         $query_result=$this->db->get();
-        $result=$query_result->result();
+        $result=$query_result->row_array();
+        return $result;
+    }
+
+    public function select_group_leader_for_payment($group_leader_id){
+        $this->db->select('id, commission_agent_code, commision_agent_name, passport_no');
+        $this->db->where('id', $group_leader_id);
+        $this->db->from('commission_agent');
+
+        $query_result=$this->db->get();
+        $result=$query_result->row();
+        return $result;
+    }
+
+    public function check_hajj_year($haji_id, $hajj_year){
+        $this->db->select('id, haji_id, hajj_year');
+        $this->db->where('haji_id', $haji_id);
+        $this->db->where('hajj_year', $hajj_year);
+        $this->db->from('tbl_contact_amount');
+
+        $query_result=$this->db->get();
+        $result=$query_result->row();
+        return $result;
+    }
+
+    public function check_group_leader_contact($commission_agent_id, $hajj_year){
+        $this->db->select('id, commission_agent_id, hajj_year');
+        $this->db->where('commission_agent_id', $commission_agent_id);
+        $this->db->where('hajj_year', $hajj_year);
+        $this->db->from('tbl_contact_amount');
+
+        $query_result=$this->db->get();
+        $result=$query_result->row();
         return $result;
     }
 }

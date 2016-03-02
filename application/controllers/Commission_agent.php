@@ -99,9 +99,10 @@ class Commission_agent extends CI_Controller {
             $r = explode("-",$commission_agent_code_last->commission_agent_code);
         
             $commission_agent_code_last_sum = $r[1]+1;
-            $commission_agent_code = "CID-000".$commission_agent_code_last_sum;
+            $commission_agent_code = "CID-".sprintf('%03d', $commission_agent_code_last_sum);
+            
         }else{
-            $commission_agent_code = "CID-000"."1";
+            $commission_agent_code = "CID-001";
         }
 
         $data['commission_agent_code'] = $commission_agent_code;
@@ -126,5 +127,22 @@ class Commission_agent extends CI_Controller {
         $this->session->set_flashdata('success', $msg);
 
         redirect('commission_agent/index');
+    }
+
+    public function set_group_contact_amount($group_leader_id){
+        $data = array();
+        $sub_data = array();
+
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('haji_info'), 'page' => 'Haji Info'), array('link' => '#', 'page' => 'Group Leader Contact '));
+
+        $sub_data['group_leader_information'] = $this->common_model->getInfo('commission_agent', array('id' => $group_leader_id));
+
+        $data['header']         = $this->load->view('common/header', '', TRUE);
+        $data['sidebar']        = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar']     = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content']   = $this->load->view('includes/commission_agent/contact_amount_form', $sub_data, TRUE);
+        $data['footer']         = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
     }
 }

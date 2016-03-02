@@ -34,6 +34,8 @@ class Income extends CI_Controller {
     public function group_index(){
         $data = array();
 
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('income'), 'page' => 'Income'), array('link' => '#', 'page' => 'Income Group Index'));
+
         $data['income_group_list'] = $this->common_model->selectAll('income_group');
         $data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('income'), 'page' => 'Income'), array('link' => '#', 'page' => 'Income Group Index'));
         $data['header']       = $this->load->view('common/header', '', TRUE);
@@ -48,10 +50,12 @@ class Income extends CI_Controller {
     public function group_form(){
         $data = array();
 
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('income'), 'page' => 'Income'), array('link' => '#', 'page' => 'Income Group Entry Form'));
+
         $data['header']       = $this->load->view('common/header', '', TRUE);
         $data['sidebar']      = $this->load->view('common/sidebar', '', TRUE);
         $data['top_navbar']   = $this->load->view('common/top_navbar', '', TRUE);
-        $data['main_content'] = $this->load->view('includes/income/group_form', '', TRUE);
+        $data['main_content'] = $this->load->view('includes/income/group_form', $sub_data, TRUE);
         $data['footer']       = $this->load->view('common/footer', '', TRUE);
 
         $this->load->view('master_dashboard', $data);

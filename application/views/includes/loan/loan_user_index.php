@@ -43,6 +43,9 @@
                         </thead>
                         <tbody>
                             <?php $serial= 1; foreach ($loan_user_list as $value) { 
+                                // echo "<pre>";
+                                // print_r($value);
+                                // exit();
                             $balance= $value->net_balance;
 
                             ?>

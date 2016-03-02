@@ -42,9 +42,6 @@ class Payment_collection extends CI_Controller {
 
         $sub_data['select_haji_for_payment']=  $this->haji_info_model->select_haji_for_payment($id);
 
-
-        $sub_data['commission_agent_list']  = $this->common_model->selectAll('commission_agent');
-
         $sub_data['income_head_list']       = $this->common_model->selectAll('income_head');
 
         $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'), array('link' => '#', 'page' => 'Payment Collection'));
@@ -343,6 +340,72 @@ class Payment_collection extends CI_Controller {
         $data['footer']                     = $this->load->view('common/footer', '', TRUE);
 
         $this->load->view('master_dashboard', $data);
+    }
+
+    // Group Haji Payment Collect From Group Leader 
+    public function group_payment_collect_form($group_leader_id){
+        $data = array();
+
+        $this->load->model('haji_info_model');
+
+        $sub_data['select_group_leader_for_payment']=  $this->haji_info_model->select_group_leader_for_payment($group_leader_id);
+
+        $sub_data['income_head_list']       = $this->common_model->selectAll('income_head');
+        
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'), array('link' => '#', 'page' => 'Group Payment'));
+
+        $data['header']                     = $this->load->view('common/header', '', TRUE);
+        $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content']               = $this->load->view('includes/payment_collection/group_payment_collect_form', $sub_data, TRUE);
+        $data['footer']                     = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
+    }
+
+    public function save_group_payment_collection_data(){
+        $data = array();
+
+        $data['commission_agent_id']    = $this->input->post('commission_agent_id');
+        $data['amount']                 = $this->input->post('total_amount');
+        $data['hajj_year']              = $this->input->post('hajj_year');
+
+        $data['date']                   = date('Y-m-d');
+        $data['entry_by']               = $this->session->userdata('uid');
+
+        $this->load->model('haji_info_model');
+        $check_hajj_year= $this->haji_info_model->check_group_leader_contact($data['commission_agent_id'], $data['hajj_year']);
+
+        if ($check_hajj_year!=TRUE) {
+
+            $this->common_model->insert('tbl_contact_amount', $data);
+
+            $msg = "Successfully Set Group Leader Amount Information";
+            $this->session->set_flashdata('success', $msg);
+
+            redirect('commission_agent');
+        }elseif ($check_hajj_year!=FALSE) {
+            $msg = "You Are Already Set Contact Amount with This User and Hajj Year";
+            $this->session->set_flashdata('error', $msg);
+
+            redirect('commission_agent');
+        }
+
+    }
+
+
+    // For View Contact Amount 
+    public function view_contact_amount(){
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'), array('link' => '#', 'page' => 'Group Payment'));
+
+        $data['header']                     = $this->load->view('common/header', '', TRUE);
+        $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content']               = $this->load->view('includes/payment_collection/view_contact_amount', $sub_data, TRUE);
+        $data['footer']                     = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
+    
     }
 
     

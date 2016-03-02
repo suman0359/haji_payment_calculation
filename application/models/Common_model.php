@@ -32,6 +32,7 @@ class Common_model extends CI_Model{
 
     public function selectAll($table_name, $order = NULL){
     	$this->db->select('*');
+        $this->db->where('status !=', 0);
 
         if (!($order == NULL)) {
             $this->db->order_by($order);
@@ -100,7 +101,19 @@ class Common_model extends CI_Model{
 
     public function getInfo($table, $id) {
         $this->db->from($table);
-        $this->db->where('status !=', 13);
+        $this->db->where('status !=', 0);
+        $this->db->where($id);
+        $query = $this->db->get()->row();
+        return $query;
+    }
+
+    public function getInfoWtihYear($table, $id, $hajj_year=NULL) {
+        $this->db->from($table);
+        $this->db->where('status !=', 0);
+        if ($hajj_year!=NULL) {
+            $this->db->where('hajj_year', $hajj_year);
+        }
+        
         $this->db->where($id);
         $query = $this->db->get()->row();
         return $query;
@@ -108,7 +121,7 @@ class Common_model extends CI_Model{
 
     public function getInfoStatus($table, $id) {
         $this->db->from($table);
-        $this->db->where('status !=', 13);
+        $this->db->where('status !=', 0);
         $this->db->where($id);
         $this->db->where('status', 1);
         $query = $this->db->get()->row();
@@ -117,7 +130,7 @@ class Common_model extends CI_Model{
 
     public function getLastRow($table_name){
         $this->db->from($table_name);
-        $this->db->where('status !=', 13);
+        $this->db->where('status !=', 0);
         $this->db->order_by('id','desc');
         $this->db->limit(1);
         $query = $this->db->get()->row();

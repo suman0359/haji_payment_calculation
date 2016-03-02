@@ -18,7 +18,7 @@ var TableData = function() {
 					"sNext" : ""
 				}
 			},
-			"aaSorting" : [[1, 'asc']],
+			"aaSorting" : [[0, 'asc']], //Filtering Table Column
 			"aLengthMenu" : [[5, 10, 15, 20, -1], [5, 10, 15, 20, "All"] // change per page values here
 			],
 			// set the initial value

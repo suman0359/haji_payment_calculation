@@ -1,4 +1,4 @@
-<!--sidebar -->
+
 <div class="sidebar app-aside" id="sidebar">
     <div class="sidebar-container perfect-scrollbar">
         <nav>
@@ -27,7 +27,7 @@
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media" >
-                                <i class="ti-user"></i>
+                                <i class="ti-panel"></i>
                             </div>
                             <div class="item-inner">
                                 <span class="title"> Setup Form </span><i class="icon-arrow"></i>
@@ -67,7 +67,7 @@
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
-                                <i class="ti-layout-grid2"></i>
+                                <i class="ti-printer"></i>
                             </div>
                             <div class="item-inner">
                                 <span class="title"> Report/ Statement </span><i class="icon-arrow"></i>
@@ -121,7 +121,7 @@
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content" >
                             <div class="item-media">
-                                <i class="ti-settings"></i>
+                                <i class="ti-receipt"></i>
                             </div>
                             <div class="item-inner">
                                 <span class="title"> Entry Form</span><i class="icon-arrow"></i>
@@ -144,60 +144,30 @@
 
                         <li>
                             <a href="<?php echo base_url()."expense/expense_entry_index"; ?>">
-                                <span class="title">Expense List/ Entry</span>
+                                <span class="title">Daily Expense List/ Entry</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="<?php echo base_url(); ?>commission_agent">
-                                <span class="title">Commission Agent List </span>
+                                <span class="title">Group Leader List </span>
                             </a>
                         </li>
                         <li>
                             <a href="<?php echo base_url(); ?>commission_agent/add_form">
-                                <span class="title"> Add New Commission Agent </span>
+                                <span class="title"> Add New Group Leader </span>
                             </a>
                         </li>
 
                     </ul>
                 </li>
-                <!-- Expense Statement -->
+                
 
                 <li>
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
-                                <i class="ti-settings"></i>
-                            </div>
-                            <div class="item-inner">
-                                <span class="title"> Income Head </span><i class="icon-arrow"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <ul class="sub-menu">
-                        
-                        <li>
-                            <a href="<?php echo base_url()."income/group_form"; ?>">
-                                <span class="title"> Income Group Entry Form </span>
-                            </a>
-                            
-                        </li>
-
-                        <li>
-                            <a href="<?php echo base_url()."income/head_form"; ?>">
-                                <span class="title"> Income Head Entry Form </span>
-                            </a>
-                        </li>
-                        
-                    </ul>
-                </li>
-
-
-                <li>
-                    <a href="<?php echo base_url(); ?>javascript:void(0)">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <i class="ti-settings"></i>
+                                <i class="ti-money"></i>
                             </div>
                             <div class="item-inner">
                                 <span class="title"> Loan Information </span><i class="icon-arrow"></i>
@@ -259,7 +229,7 @@
                     <a href="<?php echo base_url(); ?>javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
-                                <i class="ti-settings"></i>
+                                <i class="ti-stats-up"></i>
                             </div>
                             <div class="item-inner">
                                 <span class="title"> Bank Information </span><i class="icon-arrow"></i>
@@ -370,4 +340,4 @@
         </nav>
     </div>
 </div>
-<!-- / sidebar -->
+<!-- / sidebar 
