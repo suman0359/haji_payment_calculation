@@ -112,7 +112,12 @@
                             </a>
                         </li>
 
-                        
+                        <li>
+                            <a href="<?php echo base_url(); ?>payment_collection/view_contact_amount">
+                                <span class="title">Contact Amount Details</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
        
@@ -207,11 +212,11 @@
                             </a>
                         </li>
 
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo base_url()."loan/loan_summery_report"; ?>">
                                 <span class="title"> Loan Summery Report </span>
                             </a>
-                        </li>
+                        </li> -->
 
                         <li>
                             <a href="<?php echo base_url()."loan/party_loan_statement_details"; ?>">

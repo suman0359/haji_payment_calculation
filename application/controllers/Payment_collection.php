@@ -62,10 +62,20 @@ class Payment_collection extends CI_Controller {
         $transaction = array();
 
         $money_receipt_number_last=$this->common_model->getLastRow('money_receipt');
-        $r = explode("-",$money_receipt_number_last->money_receipt_number);
+        // $r = explode("-",$money_receipt_number_last->money_receipt_number);
         
-        $money_receipt_number_last          = $r[1]+1;
-        $money_receipt_number               = "MRH-"."000".$money_receipt_number_last;
+        // $money_receipt_number_last          = $r[1]+1;
+        // $money_receipt_number               = "MRH-"."000".$money_receipt_number_last;
+
+        if($money_receipt_number_last ==TRUE){
+            $r = explode("-",$money_receipt_number_last->money_receipt_number);
+        
+            $money_receipt_number_last_sum = $r[1]+1;
+            $money_receipt_number = "MRH-".sprintf('%03d', $money_receipt_number_last_sum);
+            
+        }else{
+            $money_receipt_number = "MRH-001";
+        }
         
         $data['haji_id']                    = $this->input->post('id');
         $data['money_receipt_number']       = $money_receipt_number;
@@ -363,37 +373,7 @@ class Payment_collection extends CI_Controller {
         $this->load->view('master_dashboard', $data);
     }
 
-    public function save_group_payment_collection_data(){
-        $data = array();
-
-        $data['commission_agent_id']    = $this->input->post('commission_agent_id');
-        $data['amount']                 = $this->input->post('total_amount');
-        $data['hajj_year']              = $this->input->post('hajj_year');
-
-        $data['date']                   = date('Y-m-d');
-        $data['entry_by']               = $this->session->userdata('uid');
-
-        $this->load->model('haji_info_model');
-        $check_hajj_year= $this->haji_info_model->check_group_leader_contact($data['commission_agent_id'], $data['hajj_year']);
-
-        if ($check_hajj_year!=TRUE) {
-
-            $this->common_model->insert('tbl_contact_amount', $data);
-
-            $msg = "Successfully Set Group Leader Amount Information";
-            $this->session->set_flashdata('success', $msg);
-
-            redirect('commission_agent');
-        }elseif ($check_hajj_year!=FALSE) {
-            $msg = "You Are Already Set Contact Amount with This User and Hajj Year";
-            $this->session->set_flashdata('error', $msg);
-
-            redirect('commission_agent');
-        }
-
-    }
-
-
+    
     // For View Contact Amount 
     public function view_contact_amount(){
         $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'), array('link' => '#', 'page' => 'Group Payment'));
@@ -406,6 +386,111 @@ class Payment_collection extends CI_Controller {
 
         $this->load->view('master_dashboard', $data);
     
+    }
+
+    public function save_group_payment_collection_data(){
+        
+        $data['commission_agent_id']    = $this->input->post('id');
+        $data['amount']                 = $this->input->post('amount');
+        $data['hajj_year']              = $this->input->post('hajj_year');
+
+        $data['date']                   = date('Y-m-d');
+        $data['entry_by']               = $this->session->userdata('uid');
+        $check_exist= $this->common_model->check_exist('tbl_contact_amount', array('commission_agent_id' => $data['commission_agent_id'], 'hajj_year' => $data['hajj_year']));
+        if ($check_exist==FALSE) {
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
+
+        if($this->input->post('payment_mode') !=''){
+            $data['payment_mode'] = $this->input->post('payment_mode', TRUE);
+            $money_receipt['payment_mode'] = $this->input->post('payment_mode', TRUE);
+        }
+
+        if($this->input->post('chaque_number') !=''){
+            $data['chaque_number'] = $this->input->post('chaque_number', TRUE);
+            $money_receipt['chaque_number'] = $this->input->post('chaque_number', TRUE);
+        }
+
+        if($this->input->post('chaque_date') !=''){
+            $data['chaque_date'] = $this->input->post('chaque_date', TRUE);
+            $money_receipt['chaque_date'] = $this->input->post('chaque_date', TRUE);
+        }
+
+        if($this->input->post('bank_name') !=''){
+            $data['bank_name'] = $this->input->post('bank_name', TRUE);
+            $money_receipt['bank_name'] = $this->input->post('bank_name', TRUE);
+        }
+
+        if($this->input->post('branch_name') !=''){
+            $data['branch_name'] = $this->input->post('branch_name', TRUE);
+            $money_receipt['branch_name'] = $this->input->post('branch_name', TRUE);
+        }
+
+        if($this->input->post('bkash_phone_no') !=''){
+            $data['bkash_phone_no'] = $this->input->post('bkash_phone_no', TRUE);
+        }
+
+        if($this->input->post('transaction_no') !=''){
+            $data['transaction_no'] = $this->input->post('transaction_no', TRUE);
+            // $money_receipt['transaction_no'] = $this->input->post('transaction_no', TRUE);
+        }
+
+        // Money Recript Section INSERT
+        $money_receipt_number_last=$this->common_model->getLastRow('money_receipt');
+        if($money_receipt_number_last ==TRUE){
+            $r = explode("-",$money_receipt_number_last->money_receipt_number);
+        
+            $money_receipt_number_last_sum = $r[1]+1;
+            $money_receipt_number = "MRH-".sprintf('%03d', $money_receipt_number_last_sum);
+            
+        }else{
+            $money_receipt_number = "MRH-001";
+        }
+        
+        $money_receipt['commission_agent_id']        = $this->input->post('id');
+        $money_receipt['money_receipt_number']       = $money_receipt_number;
+
+        $money_receipt['amount']                     = $this->input->post('amount');
+        $money_receipt['payment_head']               = $this->input->post('payment_head');
+        $money_receipt['payment_date']               = date('Y-m-d');
+        
+
+        $this->common_model->insert('money_receipt', $money_receipt);
+
+        $money_receipt_id = $this->db->insert_id();
+
+        // Transaction Section INSERT
+        $transaction['commission_agent_id'] = $this->input->post('id');
+        $transaction['money_receipt_id']    = $money_receipt_id;
+        $transaction['date']                = date('Y-m-d');
+        $transaction['debit']               = $this->input->post('amount');
+        // For Sequence Last Balance of the transaction 
+        $last_balance = $this->common_model->getLastRow('transactions');
+        $last_balance = $last_balance->balance;
+        $last_balance = $last_balance+$data['amount'];
+
+        $transaction['balance']             = $last_balance;
+
+        $this->common_model->insert('transactions', $transaction);
+
+        //Contact Amount Table UPDATE
+        $due_contact_amount = $this->common_model->getInfo('tbl_contact_amount', array('commission_agent_id' => $data['commission_agent_id'], 'hajj_year' => $data['hajj_year']));
+        $due_amount = $due_contact_amount->due_amount;
+        $due_amount -= $data['amount'];
+        $tbl_contact_amount['due_amount'] = $due_amount;
+
+        $this->common_model->update('tbl_contact_amount', $tbl_contact_amount, array('id' => $due_contact_amount->id));
+
+        $msg = "Successfully Collect Due Amount of Group Leader";
+        $this->session->set_flashdata('success', $msg);
+
+        redirect('payment_collection/money_receipt/'.$money_receipt_id);
+
+    }
+
+    // Ajax Call 
+    public function find_contact_amount_and_year($hajj_year, $group_leader_id){
+
     }
 
     

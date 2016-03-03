@@ -145,4 +145,34 @@ class Commission_agent extends CI_Controller {
 
         $this->load->view('master_dashboard', $data);
     }
+
+    public function save_contact_amount_data(){
+        $data = array();
+
+        $data['commission_agent_id']    = $this->input->post('commission_agent_id');
+        $data['amount']                 = $this->input->post('total_amount');
+        $data['due_amount']             = $this->input->post('total_amount');
+        $data['hajj_year']              = $this->input->post('hajj_year');
+
+        $data['date']                   = date('Y-m-d');
+        $data['entry_by']               = $this->session->userdata('uid');
+
+        $this->load->model('haji_info_model');
+        $check_hajj_year= $this->haji_info_model->check_group_leader_contact($data['commission_agent_id'], $data['hajj_year']);
+
+        if ($check_hajj_year!=TRUE) {
+
+            $this->common_model->insert('tbl_contact_amount', $data);
+
+            $msg = "Successfully Set Group Leader Amount Information";
+            $this->session->set_flashdata('success', $msg);
+
+            redirect('commission_agent');
+        }elseif ($check_hajj_year!=FALSE) {
+            $msg = "You Are Already Set Contact Amount with This User and Hajj Year";
+            $this->session->set_flashdata('error', $msg);
+
+            redirect('commission_agent');
+        }
+    }
 }

@@ -99,9 +99,13 @@ class Common_model extends CI_Model{
     }
 
 
-    public function getInfo($table, $id) {
+    public function getInfo($table, $id, $hajj_year=NULL) {
+        $this->db->select('*');
         $this->db->from($table);
         $this->db->where('status !=', 0);
+        if($hajj_year!=NULL){
+            $this->db->where($hajj_year);
+        }
         $this->db->where($id);
         $query = $this->db->get()->row();
         return $query;
@@ -150,6 +154,29 @@ class Common_model extends CI_Model{
         $query_result=$this->db->get();
         $result=$query_result->row();
         return $result;
+    }
+
+    public function check_exist($table_name, $where_1=NULL, $where_2=NULL, $where_3=NULL, $where_4=NULL){
+        $this->db->from($table_name);
+        if ($where_1!=NULL) {
+            $this->db->where($where_1);
+        }
+        if ($where_2!=NULL) {
+            $this->db->where($where_2);
+        }
+        if ($where_3!=NULL) {
+            $this->db->where($where_3);
+        }
+        if ($where_4!=NULL) {
+            $this->db->where($where_4);
+        }
+
+        $this->db->where('status !=', 0);
+
+        $query_result=$this->db->get();
+        $result=$query_result->row();
+        return $result;
+
     }
 
     /*

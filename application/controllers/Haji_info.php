@@ -115,31 +115,31 @@ class Haji_info extends CI_Controller {
         move_uploaded_file($_FILES['profile_photo']['tmp_name'], 'uploads/haji_profile_photo/' . $id . '.jpg');
 
         // SMS API Inegration 
-        if($id!=NULL){
-            try
-            {
+        // if($id!=NULL){
+        //     try
+        //     {
                 
-            $userName = "01911198784";
-            $userPassword = "01911198784";
-            $mobileNumber = $data['haji_mobile'];  //"01730869866";
-            $smsText = "Assalamu Alaikum, \n Mr. ".$data['haji_name']."\n You Are Successfully Enlisted in Century Aviation (HL-715). Your Haji Id is $haji_id \n Alhamdulillah";
-            $maskName = "Century0715";
-            $campaignName = "Century0715";
+        //     $userName = "01911198784";
+        //     $userPassword = "01911198784";
+        //     $mobileNumber = $data['haji_mobile'];  //"01730869866";
+        //     $smsText = "Assalamu Alaikum, \n Mr. ".$data['haji_name']."\n You Are Successfully Enlisted in Century Aviation (HL-715). Your Haji Id is $haji_id \n Alhamdulillah";
+        //     $maskName = "Century0715";
+        //     $campaignName = "Century0715";
 
-            $soapClient = new SoapClient("https://api2.onnorokomSMS.com/sendSMS.asmx?wsdl"); 
-            $paramArray = array(
-            'userName'=>$userName,
-            'userPassword'=>$userPassword, 'mobileNumber'=> $mobileNumber, 'smsText'=>$smsText, 'type'=>"TEXT",
-            'maskName'=> $maskName, 'campaignName'=>$campaignName,
-            );
+        //     $soapClient = new SoapClient("https://api2.onnorokomSMS.com/sendSMS.asmx?wsdl"); 
+        //     $paramArray = array(
+        //     'userName'=>$userName,
+        //     'userPassword'=>$userPassword, 'mobileNumber'=> $mobileNumber, 'smsText'=>$smsText, 'type'=>"TEXT",
+        //     'maskName'=> $maskName, 'campaignName'=>$campaignName,
+        //     );
           
             
-            $value = $soapClient->__call("OneToOne", array($paramArray));
-            }
-            catch (Exception $e) {
-            echo $e;
-            }
-        }
+        //     $value = $soapClient->__call("OneToOne", array($paramArray));
+        //     }
+        //     catch (Exception $e) {
+        //     echo $e;
+        //     }
+        // }
         // *************************
 
         $msg = "Successfully Added New Haji Information";

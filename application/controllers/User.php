@@ -381,6 +381,15 @@ class User extends CI_Controller {
 
         redirect('auth/my_profile');
     }
+
+    public function delete_seleted_user($user_id){
+        //$this->common_model->delete('users', array('user_id' => $user_id));
+        $this->common_model->change_status_unpublished('users', array('user_id' => $user_id));
+
+        $msg = "Seuccessfully Delete Your Selected User";
+        $this->session->set_flashdata('success', $msg);
+        redirect($_SERVER["HTTP_REFERER"]);
+    }
 	
 
     /* For Ajax Call */

@@ -49,69 +49,25 @@
 
             <hr>
 
-            <!-- <div class="row money-receipt-form">
-
-                <div class="col-md-12">
-                    <label for="Customer name"> Received with thanks from : </label> 
-                    <label for="">Tasfir Hossain Suman</label>
-                </div>
-
-                <div class="col-md-12">
-                    <label for="Customer name"> Against: </label> 
-                    <label for="">For Hajj </label>
-                </div>
-
-                <div class="col-md-12">
-                    <label for="Customer name"> A Sum of Taka : </label> 
-                    <label for="">Four Thousand Five Hundred Only </label>
-                </div>
-
-                <div class="col-md-12">
-                    <label for="Customer name"> A Sum of Taka : </label> 
-                    <label for="">Four Thousand Five Hundred Only </label>
-                </div>
-
-                <div class="col-md-12">
-                    <label for="Customer name"> Payment Mode : </label> 
-                    <label for="">Cash </label>
-                </div>
-
-                <div class="col-md-12">
-                    <label for="Customer name"> Bank Name : </label> 
-                    <label for="">Dutch Bangla Bank LTD </label>
-                </div>
-
-                <div class="col-md-12">
-                    <label for="Customer name">Branch : </label> 
-                    <label for="">Branch Malibag Branch</label>
-                </div>
-
-
-            </div>
- -->
-           
  
             <div class="row">
                 <div class="col-sm-12">
                     <table class="table table-striped">
-                        <!-- <thead>
-                            <tr>
-                                <th> Received with thanks from</th>
-                                <th> Against </th>
-                                <th class="hidden-480"> Description </th>
-                                <th class="hidden-480"> Quantity </th>
-                                <th class="hidden-480"> Unit Cost </th>
-                                <th> Total </th>
-                            </tr>
-                        </thead> -->
+                        
                         <tbody>
                             <tr>
                                 <td> Received with thanks from :</td>
                                 <td> <?php if(!empty($money_receipt->haji_id)) 
-                                $haji_id = $money_receipt->haji_id;
-                                $haji_name = $this->common_model->getInfo('haji_information', array('id' => $haji_id));
-
-                                echo $haji_name->haji_name; ?> </td>
+                                @$haji_id = @$money_receipt->haji_id;
+                                @$haji_name = @$this->common_model->getInfo('haji_information', array('id' => $haji_id));
+                                
+                                @$commission_agent_id = @$money_receipt->commission_agent_id;
+                                @$group_leader_name = @$this->common_model->getInfo('commission_agent', array('id' => $commission_agent_id));
+                                
+                                
+                                echo @$group_leader_name->commision_agent_name;
+                                
+                                echo @$haji_name->haji_name; ?> </td>
                             </tr>
                             <tr>
                                 <td> Against :</td>
@@ -175,89 +131,7 @@
                     <label for="date" class="pull-right">Authorized Signature:...........................</label> 
                 </div>
             </div>
-<!-- 
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th> # </th>
-                                <th> Item </th>
-                                <th class="hidden-480"> Description </th>
-                                <th class="hidden-480"> Quantity </th>
-                                <th class="hidden-480"> Unit Cost </th>
-                                <th> Total </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td> 1 </td>
-                                <td> Lorem </td>
-                                <td class="hidden-480"> Drem psum dolor </td>
-                                <td class="hidden-480"> 12 </td>
-                                <td class="hidden-480"> $35 </td>
-                                <td> $1152 </td>
-                            </tr>
-                            <tr>
-                                <td> 2 </td>
-                                <td> Ipsum </td>
-                                <td class="hidden-480"> Consectetuer adipiscing elit </td>
-                                <td class="hidden-480"> 21 </td>
-                                <td class="hidden-480"> $469 </td>
-                                <td> $6159 </td>
-                            </tr>
-                            <tr>
-                                <td> 3 </td>
-                                <td> Dolor </td>
-                                <td class="hidden-480"> Olor sit amet adipiscing eli </td>
-                                <td class="hidden-480"> 24 </td>
-                                <td class="hidden-480"> $144 </td>
-                                <td> $8270 </td>
-                            </tr>
-                            <tr>
-                                <td> 4 </td>
-                                <td> Sit </td>
-                                <td class="hidden-480"> Laoreet dolore magna </td>
-                                <td class="hidden-480"> 194 </td>
-                                <td class="hidden-480"> $317 </td>
-                                <td> $966 </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div> -->
-
-
             <button class="btn btn-primary hidden-print pull-right" onclick="printContent('div1')">Print</button>
-
-
-<!-- 
-            <div class="row">
-                <div class="col-sm-12 invoice-block">
-                    <ul class="list-unstyled amounts text-small">
-                        <li>
-                            <strong>Sub-Total:</strong> $12,876
-                        </li>
-                        <li>
-                            <strong>Discount:</strong> 9.9%
-                        </li>
-                        <li>
-                            <strong>VAT:</strong> 22%
-                        </li>
-                        <li class="text-extra-large text-dark margin-top-15">
-                            <strong >Total:</strong> $11,400
-                        </li>
-                    </ul>
-                    <br>
-                    <a onclick="javascript:window.print();" class="btn btn-lg btn-primary hidden-print">
-                        Print <i class="fa fa-print"></i>
-                    </a>
-                    <a class="btn btn-lg btn-primary btn-o hidden-print">
-                        Submit Your Invoice <i class="fa fa-check"></i>
-                    </a>
-                </div>
-            </div>
- -->
 
 
 <script>

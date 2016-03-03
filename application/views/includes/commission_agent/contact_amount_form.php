@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <form action="<?php echo base_url() . "payment_collection/save_group_payment_collection_data"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
+                    <form action="<?php echo base_url() . "commission_agent/save_contact_amount_data"; ?>" method="POST" role="form" id="form" accept-charset="utf-8" enctype="multipart/form-data">
                         <div class="row">
 
                             <div class="col-md-6">

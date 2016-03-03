@@ -21,10 +21,10 @@
             <div class="row">
             
             <div class="col-md-12 text-center">
-            <a href="<?php echo base_url(); ?>haji_info/add_form" class="btn btn-success">Add New Information</a>
+                <a href="<?php echo base_url(); ?>haji_info/add_form" class="btn btn-success">Add New Information</a>
             </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12" id="div1">
                     <!-- <h5 class="over-title margin-bottom-15">Basic <span class="text-bold">Data Table</span></h5>
                     <p>
                         DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table.
@@ -88,8 +88,35 @@
                     </table>
                 </div>
             </div>
+
+            <button class="btn btn-primary hidden-print" onclick="printContent('div1')">Print</button>
+
         </div>
         <!-- end: DYNAMIC TABLE -->
         
     </div>
-<!-- </div> -->
+
+
+<script>
+$.fn.dataTable.Buttons.swfPath = '<?php echo base_url(); ?>assets/swf/flashExport.swf';
+ 
+$(document).ready(function() {
+    $('#sample_1').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyFlash',
+            'csvFlash',
+            'excelFlash',
+            'pdfFlash'
+        ]
+    } );
+} );
+
+function printContent(el){
+    var restorepage = document.body.innerHTML;
+    var printcontent = document.getElementById(el).innerHTML;
+    document.body.innerHTML = printcontent;
+    window.print();
+    document.body.innerHTML = restorepage;
+}
+</script>

@@ -20,7 +20,7 @@
                             <label for="Contact Amount">Contact Amount : <?php $contact_amount= $this->common_model->getInfoWtihYear('tbl_contact_amount', array('haji_id' => $select_haji_for_payment->id)); echo $contact_amount->amount;  ?></label>
                         </div>
                         <div class="col-md-6">
-                            <label for="Contact Amount">Dues Amount : <?php echo "1,00,000" ?></label>
+                            <label for="Contact Amount">Dues Amount : <?php //echo "1,00,000" ?></label>
                         </div>
                     </div>
                     <hr>
