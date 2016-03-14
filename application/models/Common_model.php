@@ -66,9 +66,6 @@ class Common_model extends CI_Model{
 
         $query_result=$this->db->get();
         $result=$query_result->result();
-        // echo '<pre>';
-        // print_r($account_id);
-        // exit();
         return $result;
     }
 

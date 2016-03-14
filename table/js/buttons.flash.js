@@ -6,6 +6,7 @@
  * Copyright (c) 2012 Joseph Huckaby
  */
 
+
 (function( factory ){
 	if ( typeof define === 'function' && define.amd ) {
 		// AMD
@@ -688,7 +689,8 @@ var flashButton = {
  */
 
 // Set the default SWF path
-DataTable.Buttons.swfPath = '//cdn.datatables.net/buttons/1.0.0/swf/flashExport.swf';
+DataTable.Buttons.swfPath = base_url+'table/swf/flashExport.swf';
+// DataTable.Buttons.swfPath = '//cdn.datatables.net/buttons/1.0.0/swf/flashExport.swf';
 
 // Method to allow Flash buttons to be resized when made visible - as they are
 // of zero height and width if initialised hidden

@@ -118,6 +118,18 @@
                             </a>
                         </li>
 
+                        <li>
+                            <a href="<?php echo base_url(); ?>reports/income_ledger_statement">
+                                <span class="title">Income Ledger</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url(); ?>reports/expense_ledger_statement">
+                                <span class="title">Expense Ledger</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
        
@@ -162,6 +174,10 @@
                             <a href="<?php echo base_url(); ?>commission_agent/add_form">
                                 <span class="title"> Add New Group Leader </span>
                             </a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url(); ?>payment_collection/money_receipt_entry_form">Money Receipt Entry From</a>
                         </li>
 
                     </ul>

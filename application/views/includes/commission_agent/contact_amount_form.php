@@ -74,6 +74,13 @@
                                         
                                     </div>
                                 </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Number of Haji</label>
+                                        <input type="text" class="form-control" name="number_of_haji" id="number_of_haji">
+                                    </div>
+                                </div>
                             </div> <!-- End First Column -->
 
                         </div> <!-- End Row -->

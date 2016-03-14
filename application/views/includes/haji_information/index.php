@@ -29,7 +29,7 @@
                     <p>
                         DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table.
                     </p> -->
-                    <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
+                    <table class="table table-striped table-bordered table-hover table-full-width" id="example">
                         <thead>
                             <tr>
                                 <th>Haji ID</th>
@@ -60,7 +60,7 @@
                                       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-settings tiny-icon"></i>
                                         Action <span class="caret"></span>
                                       </button>
-                                      <ul class="dropdown-menu">
+                                      <ul class="dropdown-menu" style="right: 0; left: auto;">
 
 
                                     <?php
@@ -76,6 +76,7 @@
                                     <li><a href="<?php echo base_url(); ?>payment_collection/haji_payment_report/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');">Report</a></li>
 
                                     <li><a href="<?php echo base_url();?>haji_info/set_contact_amount/<?php echo $value->id; ?>">Set Contact Amount</a></li>
+                                    <li><a href="<?php echo base_url();?>haji_info/resent_haji_reg_sms/<?php echo $value->id; ?>" onclick="return confirm('Do You Really Want to Sent SMS Again');">Re-Sent Haji Reg SMS</a></li>
                                       </ul>
                                     </div>
 

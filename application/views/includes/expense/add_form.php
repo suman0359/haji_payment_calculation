@@ -15,31 +15,9 @@
         <div class="container-fluid container-fullw bg-white">
             <div class="row">
                 <div class="col-md-12">
-                    <!-- <h2 class="text-center">Expense Entry Form</h2>
-                    <p class="text-center">
-                        Create one account to manage everything you do with Clip-Two, from your shopping preferences to your Clip-Two activity.
-                    </p>
-                    <hr> -->
+                    
                     <form action="<?php echo base_url() . "expense/add_entry_form"; ?>" method="POST"> 
                         <div class="row">
-
-                            <div class="col-md-12">
-                                <div class="errorHandler alert alert-danger no-display">
-                                    <i class="fa fa-times-sign"></i> You have some form errors. Please check below.
-                                </div>
-                                <div class="successHandler alert alert-success no-display">
-                                    <i class="fa fa-ok"></i> Your form validation is successful!
-                                </div>
-                            </div>
-
-                            <!-- <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Date <span class="symbol required"></span>
-                                    </label>
-                                    <input type="text" placeholder="Insert Prilgrim ID" class="form-control datepicker" id="date" name="date">
-                                </div>
-                            </div> -->
 
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
@@ -47,7 +25,7 @@
                                         Group Name <span class="symbol required"></span>
                                     </label>
                                     <select class="form-control" name="expense_group_id" id="expense_group_name">
-                                        <option> Select Goup Name </option>
+                                        <option value=""> Select Goup Name </option>
                                         <?php foreach ($group_entry_list as $value) { ?>
                                         <option value="<?php echo $value->id; ?>"> <?php echo $value->expense_group_entry_name; ?> </option>
                                         
@@ -62,11 +40,11 @@
                                         Head Name <span class="symbol required"></span>
                                     </label>
                                     <select class="form-control" name="expense_head_id" id="expense_head_name">
-                                        <option> Select Head Name </option>
-                                        <?php foreach ($head_entry_list as $value) { ?>
+                                        <option value=""> Select Head Name </option>
+                                        <!-- <?php foreach ($head_entry_list as $value) { ?>
                                         <option value="<?php echo $value->id; ?>"> <?php echo $value->expense_head_entry_name; ?> </option>
                                         
-                                        <?php }  ?>
+                                        <?php }  ?> -->
                                     </select>
                                 </div>
                             </div>
@@ -83,8 +61,6 @@
                             <!-- End First Column -->
 
                             <!-- Second Column --> 
-
-
                             
                              <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
@@ -137,6 +113,29 @@
                                     </div>
                                 </div>
                             </div><!-- End: Bank Section -->
+
+                            <!-- bKash Section -->
+                            <div id="bkash_section" class="display_none">
+                            
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Bkash Phone No <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Bkash Phone No" class="form-control" id="bkash_phone_no" name="bkash_phone_no">
+                                    </div>
+                                </div> 
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Bkash Transaction No<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" placeholder="Bkash Transaction No" class="form-control" id="bkash_transaction_no" name="bkash_transaction_no">
+                                    </div>
+                                </div> 
+
+                            </div>
+                            
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label">
@@ -148,14 +147,6 @@
 
 
                         </div>
-
-
-
-
-
-
-
-
 
                 </div>
                 <div class="row">
@@ -186,7 +177,7 @@
 
 <!-- </div> -->
 
-
+<script src="<?php echo base_url(); ?>vendor/jquery/jquery.min.js"></script>
 
 <script>
     function showImage(src, target) {
@@ -210,22 +201,19 @@
         $(".main-content").on('change', '#expense_group_name', function(){
         var x = document.getElementById("expense_group_name").value;
         var x = parseInt(x);
-        // document.getElementById('account_number').value=x;
 
-        // var div_id = $(this).val();
         $.ajax({
-            url: "<?php echo base_url(); ?>expense/get_account_number_list/" + x,
+            url: "<?php echo base_url(); ?>expense/get_expense_head_list/" + x,
             beforeSend: function (xhr) {
                 xhr.overrideMimeType("text/plain; charset=x-user-defined");
                 $("#expense_head_name").html("<option>Loading .... </option>");
             }
         })
         .done(function (data) {
-            $("#expense_head_name").html("<option value=''>Select Account Number </option>");
+            $("#expense_head_name").html("<option value=''> Select Head Name </option>");
             data = JSON.parse(data);
             $.each(data, function (key, val) {
-                $("#expense_head_name").append("<option value='" + val.id + "'>" + val.account_number + "</option>");
-                document.getElementById('account_name').value=null;
+                $("#expense_head_name").append("<option value='" + val.id + "'>" + val.expense_head_entry_name + "</option>");
             });
 
         });

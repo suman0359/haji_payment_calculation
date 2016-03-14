@@ -12,6 +12,7 @@
         <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta content="" name="description" />
@@ -28,6 +29,15 @@
         <link href="<?php echo base_url(); ?>vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
         <link href="<?php echo base_url(); ?>vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
         <!-- end: MAIN CSS -->
+
+        <!-- start: For Print and Export EXCEL, CSV, PDF, COPY DATA -->
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>table/css/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>table/css/dataTables.jqueryui.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>table/css/buttons.jqueryui.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>table/css/shCore.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>table/css/demo.css">
+        <!-- end: For Print and Export EXCEL, CSV, PDF, COPY DATA -->
+
         <!-- start: CLIP-TWO CSS -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/styles.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/custom.css">
@@ -58,6 +68,6 @@
         
     </head>
     <!-- end: HEAD -->
-    <body>
+    <body class="dt-example dt-example-jqueryui">
         <div id="app"> 
         

@@ -135,10 +135,22 @@
 
 <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 <script src="<?php echo base_url(); ?>vendor/select2/select2.min.js"></script>
-<script src="<?php echo base_url(); ?>vendor/DataTables/jquery.dataTables.min.js"></script>
+<!-- <script src="<?php echo base_url(); ?>vendor/DataTables/jquery.dataTables.min.js"></script> -->
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+<!-- start: For Print and Export EXCEL, CSV, PDF, COPY DATA -->
+<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>table/js/jquery.dataTables.js"></script>
+<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>table/js/dataTables.jqueryui.js"></script>
+<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>table/js/dataTables.buttons.js"></script>
+<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>table/js/buttons.jqueryui.js"></script>
 
-
+<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>table/js/jszip.min.js"></script>
+<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>table/js/pdfmake.min.js"></script>
+<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>table/js/vfs_fonts.js"></script>
+<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>table/js/buttons.html5.js"></script>
+<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>table/js/buttons.print.js"></script>
+<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>table/js/shCore.js"></script>
+<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>table/js/demo.js"></script>
+<!-- end: For Print and Export EXCEL, CSV, PDF, COPY DATA -->
 
 <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 <script src="<?php echo base_url(); ?>vendor/Chart.js/Chart.min.js"></script>

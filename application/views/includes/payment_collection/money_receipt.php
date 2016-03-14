@@ -67,7 +67,10 @@
                                 
                                 echo @$group_leader_name->commision_agent_name;
                                 
-                                echo @$haji_name->haji_name; ?> </td>
+                                echo @$haji_name->haji_name; 
+
+                                echo $money_receipt->name;
+                                ?> </td>
                             </tr>
                             <tr>
                                 <td> Against :</td>

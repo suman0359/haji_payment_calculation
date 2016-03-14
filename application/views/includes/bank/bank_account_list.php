@@ -33,10 +33,11 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Bank Account Name</th>
                                 <th>Bank Name</th>
-                                <th>Account Number</th>
                                 <th>Branch Name</th>
+                                <th>Bank Account Name</th>
+                                <th>Bank Account Number</th>
+                                
                                 
                                 <th>Action</th>
                             </tr>
@@ -49,11 +50,12 @@
                                
                             <tr>
                                 <td><?php echo $value->id ?></td>
-                                <td><?php echo $value->account_name ?></td>
-                                <td><?php echo $value->account_number ?></td>
+                                
                                 <td><?php echo $bank_name->bank_name; ?></td>
                                 <td><?php echo $value->branch_name; ?></td>
-                                
+
+                                <td><?php echo $value->account_name ?></td>
+                                <td><?php echo $value->account_number ?></td>
                                 
                                 <td>
 

@@ -34,11 +34,18 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Bank Name</th>
+                                <th>Branch Name</th>
                                 <th>Account Name</th>
                                 <th>Account Number</th>
                                 <th>Deposit Amount</th>
-                                
+
+                                <?php
+                                       $user_type = $this->session->userdata('user_type');
+
+                                if($user_type==1){ ?>
                                 <th>Action</th>
+                                <?php } ?>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -53,25 +60,23 @@
                             <tr>
                                 <td><?php echo $value->id ?></td>
                                 <td><?php echo $bank_name->bank_name; ?></td>
+                                <td><?php echo $bank_name->branch_name; ?></td>
                                 <td><?php echo $value->account_name ?></td>
                                 <td><?php echo $account_number->account_number; ?></td>
                                 <td><?php echo $value->amount; ?></td>
                                 
-                                
+                                <?php
+                                       $user_type = $this->session->userdata('user_type');
+                                       if($user_type==1){ ?>
                                 <td>
 
-                                    <?php
-                                       $user_type = $this->session->userdata('user_type');
-                                       // echo '<pre>';
-                                       // print_r($user_type);
-                                       // exit();
-                                     if($user_type==1){ ?>
+                                    
+                                       
                                     <a href="<?php echo base_url(); ?>bank/edit_bank_info/<?php echo $value->id; ?>" class="btn btn-primary btn-sm">Edit</a>
                                     <a href="<?php echo base_url(); ?>bank/delete_bank_info/<?php echo $value->id; ?>" class="btn btn-primary btn-sm" onclick="return confirm('Do you want to allow him to');">Delete</a>
 
-                                    <?php } ?>
-                                    
                                 </td>
+                                <?php } ?>
                             </tr>
 
                             <?php } ?>

@@ -129,7 +129,7 @@ class Commission_agent extends CI_Controller {
         redirect('commission_agent/index');
     }
 
-    public function set_group_contact_amount($group_leader_id){
+    public function set_group_leader_contact_amount($group_leader_id){
         $data = array();
         $sub_data = array();
 
@@ -153,6 +153,7 @@ class Commission_agent extends CI_Controller {
         $data['amount']                 = $this->input->post('total_amount');
         $data['due_amount']             = $this->input->post('total_amount');
         $data['hajj_year']              = $this->input->post('hajj_year');
+        $data['number_of_haji']         = $this->input->post('number_of_haji');
 
         $data['date']                   = date('Y-m-d');
         $data['entry_by']               = $this->session->userdata('uid');

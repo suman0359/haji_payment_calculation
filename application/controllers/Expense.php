@@ -93,7 +93,7 @@ class Expense extends CI_Controller {
     public function add_entry_form(){
         $data = array();
 
-        $data['expense_entry_date']         = date('Y-m-d');
+        //$data['expense_entry_date']         = date('Y-m-d');
         $data['date']                       = date('Y-m-d');//$this->input->post('date');
         $data['expense_group_id']           = $this->input->post('expense_group_id');
         $data['expense_head_id']            = $this->input->post('expense_head_id');
@@ -415,6 +415,17 @@ class Expense extends CI_Controller {
         $data['footer']                     = $this->load->view('common/footer', '', TRUE);
 
         $this->load->view('master_dashboard', $data);
+    }
+
+    /*
+    * Ajax Request 
+    */
+
+    public function get_expense_head_list($group_id){
+        $group_id=trim($group_id);
+        $head_list=$this->common_model->selectAllWhere('expense_head_entry', array('expense_group_entry_id' => $group_id));
+        
+        echo json_encode($head_list);
     }
 
 }

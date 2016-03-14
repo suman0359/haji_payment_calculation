@@ -88,11 +88,8 @@
                         <td> <?php if(!empty($value->date))echo $value->date ?> </td>
                         <td> <?php if(!empty($expense_name->expense_name))echo $expense_name->expense_name; ?> </td>
                         
-                        
-                        <!-- <td> <?php //echo $value->payment_date ?> </td> -->
-                        
                         <td> <?php if(!empty($value->credit))echo $value->credit; ?> </td>
-                        <!-- <td> $1152 </td> -->
+                        
                     </tr>
 
                     <?php 

@@ -10,7 +10,7 @@
         <div id="" class="container-fluid container-fullw bg-white">
             <div class="row">
 
-                <form action="<?php echo base_url(); ?>haji_info/hajj_contact_and_due_statement" method="POST">
+                <form action="<?php echo base_url(); ?>payment_collection/view_contact_amount" method="POST">
                     <div class="col-md-4">
 
                         <div class="form-group text-right margin_top_10">
@@ -23,6 +23,7 @@
                     <div class="col-md-4">
                         <select name="select_year" id="select_year" class="form-control">
                             <option value="">Select Year..</option>
+                            <option value="all">All</option>
                             <option value="2015">2015</option>
                             <option value="2016">2016</option>
                             <option value="2017">2017</option>
@@ -62,7 +63,8 @@
                                 <th> Address </th>
                                 <th> Phone </th>
                                 <th> Contact Amount </th>
-                                <!-- <th> Collect Amount </th> -->
+                                <th> Number of Haji </th>
+                                <th> Hajj Year </th>
                                 <th> Dues Amount </th>
                                 <!-- <th> Total </th> -->
                             </tr>
@@ -71,76 +73,68 @@
 
                             <?php
                             $total_contact_amount = 0;
-                            $sum_due_amount = 0;
-                            $total_collect_amount = 0;
+                            $total_due_amount = 0;
+
                             $serial = 1;
-                            if (!empty($hajj_contact_and_due_statement)) {
-                                foreach ($hajj_contact_and_due_statement as $value) {
+                            if (!empty($contact_amount_data)) {
+                                foreach ($contact_amount_data as $value) {
 
                                     $hajj_year = $value->hajj_year;
-                                    $haji_id = $value->id;
-                                    $haji_info = $this->haji_info_model->contact_and_due_statement('transactions', array('haji_id' => $haji_id));
 
-                                    $contact_amount = $value->total_amount;
-                                    
-                                    $collect_amount = $haji_info['debit'];
-                                    // echo "<pre>";
-                                    // print_r($contact_amount);
-                                    // exit();
+                                    $haji_id = $value->haji_id;
+                                    $haji_info = $this->common_model->getInfo('haji_information', array('id' => $haji_id));
 
-                                    if ($contact_amount !=0 OR $contact_amount != NULL OR $contact_amount != "") {
-                                        $total_due_amount = $contact_amount - $collect_amount;
-                                    }else{
-                                        $total_due_amount=0;
-                                    }
+                                    $commission_agent_id = $value->commission_agent_id;
+                                    $group_leader_info = $this->common_model->getInfo('commission_agent', array('id' => $commission_agent_id));
 
+
+                                    $contact_amount = $value->amount;
+                                    $due_amount = $value->due_amount;
+                                
                                     
                                     ?>
                                     <tr>
                                         <td> <?php echo $serial; ?> </td>
-                                        <td> <?php if (!empty($value->haji_name)) echo $value->haji_name ?> </td>
-                                        <td> <?php if (!empty($value->haji_address)) echo $value->haji_address; ?> </td>
-                                        <td> <?php if (!empty($value->haji_mobile)) echo $value->haji_mobile ?> </td>
-                                        <td> <?php if (!empty($value->total_amount)) echo $value->total_amount ?> </td>
-                                        <td> <?php if (!empty($haji_info['debit'])) echo $haji_info['debit'] ?> </td>
-                                        <td> <?php echo $total_due_amount; ?> </td>
+                                        <td> <?php if (!empty($haji_info->haji_name)) echo $haji_info->haji_name; if (!empty($group_leader_info->commision_agent_name)) echo $group_leader_info->commision_agent_name; ?> </td>
+                                        <td> <?php if ($value->haji_id!=NULL) echo "Hajj User";  if ($value->commission_agent_id!=NULL) echo "Group Leader";?> </td>
+                                        <td> <?php if (!empty($haji_info->haji_address)) echo $haji_info->haji_address; if (!empty($group_leader_info->commision_agent_address)) echo $group_leader_info->commision_agent_address;?> </td>
+                                        <td> <?php 
+                                        if (!empty($haji_info->haji_mobile)) echo @$haji_info->haji_mobile; if (!empty($group_leader_info->commision_agent_mobile)) echo @$group_leader_info->commision_agent_mobile; ?> </td>
+                                        <td> <?php if (!empty($value->amount)) echo $value->amount; ?> </td>
 
+                                        <td><?php if(!empty($value->number_of_haji)) echo @$value->number_of_haji; ?></td>
+
+                                        <td><?php if(!empty($value->hajj_year)) echo @$value->hajj_year; ?></td>
+                                        <td> <?php if (!empty($value->due_amount)) echo $value->due_amount ?> </td>
+                                        
                                     </tr>
 
                                     <?php
-                                    //echo "<pre>";
-                                    //print_r($total_due_amount);
-
+                                    
                                     $serial++;
                                     $total_contact_amount += $contact_amount;
-                                    $sum_due_amount += $total_due_amount;
-                                    $total_collect_amount += $collect_amount;
-                                    
-                                    // print_r($haji_info);
-                                    // print_r($value->haji_name);
-                                    // print_r($sum_due_amount);
-                                    // exit();
+                                    $total_due_amount +=$due_amount;
+                                   
                                 }
                             }else {
                                 ?>
-<!--                                <tr>
+                                <tr>
                                     <td colspan="7" align="center">No Transaction Found</td>
 
-                                </tr>-->
+                                </tr>
                             <?php } ?>
 
                             
                         </tbody>
                         <tr>
-                                <td></td>
-                                <td colspan="3" style="font-weight: bold">Total Amount</td>
-
-                                <td colspan="1" ><?php echo $total_contact_amount ?></td>
-                                <td  style="font-weight: bold"> <?php echo $total_collect_amount; ?> </td>
-                                <td  style="font-weight: bold"> <?php echo $sum_due_amount; ?> </td>
-                            </tr>
+                            <td></td>
+                            <td colspan="4" style="font-weight: bold">Total Amount</td>
+                            <td  style="font-weight: bold"> <?php echo $total_contact_amount; ?> </td>
+                            <td colspan="2"></td>
+                            <td  style="font-weight: bold"> <?php echo $total_due_amount; ?> </td>
+                        </tr>
                     </table>
-                    tabla
+                    
                 </div>
             </div>
 
@@ -163,4 +157,4 @@
         </div>
 
     </div>
-    <!-- </div> -->
+    

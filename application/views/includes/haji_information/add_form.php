@@ -31,7 +31,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                HAJI Name <span class="symbol required"></span>
+                                                Full Name <span class="symbol required"></span>
                                             </label>
                                             <input type="text" placeholder="Insert Haji Name" class="form-control" id="haji_name" name="haji_name">
                                         </div>
@@ -40,7 +40,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                HAJI Passport <span class="symbol required"></span>
+                                                Passport No<span class="symbol required"></span>
                                             </label>
                                             <input type="text" placeholder="Insert Haji Passport" class="form-control" id="haji_passport" name="haji_passport">
                                         </div>
@@ -49,7 +49,25 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                HAJI Mobile <span class="symbol required"></span>
+                                                Passport Expired Date<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" placeholder="MM/DD/YYYY" class="form-control datepicker" id="passport_expired_date" name="passport_expired_date">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                National ID <span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" placeholder="XXXXXXXX" class="form-control" id="national_id_no" name="national_id_no">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Mobile No <span class="symbol required"></span>
                                             </label>
                                             <input type="text" placeholder="Insert Haji Mobile" class="form-control" id="haji_mobile" name="haji_mobile">
                                         </div>
@@ -58,13 +76,22 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">
-                                                HAJI Address <span class="symbol required"></span>
+                                                Date of Birth<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" placeholder="MM/DD/YYYY" class="form-control datepicker" id="date_of_birth" name="date_of_birth">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Address <span class="symbol required"></span>
                                             </label>
                                             <input type="text" placeholder="Insert Haji Address" class="form-control" id="haji_address" name="haji_address">
                                         </div>
                                     </div>
 
-
+                                    
                                     <div class="col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label class="control-label">
@@ -98,20 +125,48 @@
                                         <div class="clip-radio radio-primary">
                                             <input type="radio" id="female" name="gender" value="female">
                                             <label for="female">
-                                                Single Hajji
+                                                Female
                                             </label>
                                             <input type="radio" id="male" name="gender" value="male" checked="checked">
                                             <label for="male">
-                                                Group Hajji
+                                                Male
                                             </label>
                                         </div>
                                     </div>
                                 </div>
 
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="Refference_Name" class="control-label">Mahrim Name</label>
+                                    
+
+                                    <select name="commission_agent_id" id="commission_agent_id" class="form-control">
+                                        <option value="">Select Mahrim Name..</option>
+                                        <?php foreach ($commission_agent_list as $value) { ?> 
+                                            <option value="<?php echo $value->id ?>"><?php echo $value->commision_agent_name; ?></option>
+                                        <?php } ?>
+                                    </select>
+
+                                    </div>
+                                </div>
+
+                                
+                                <div class="col-md-12">
+                                    <label for="HajiType" class="control-label">Type</label>
+                                    <select name="type" id="type" class="form-control">
+                                        <option value="0">Select Type</option>
+                                        <option value="1">Hajj</option>
+                                        <option value="2">Omra</option>
+                                        <option value="3">Visa Processing</option>
+                                        <option value="4">Ticket Processing</option>
+                                    </select>
+                                </div>
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="Refference_Name" class="control-label">Refference Name</label>
-                                    </div>
+                                    
 
                                     <select name="commission_agent_id" id="commission_agent_id" class="form-control">
                                         <option value="">Select Refference Name..</option>
@@ -119,6 +174,8 @@
                                             <option value="<?php echo $value->id ?>"><?php echo $value->commision_agent_name; ?></option>
                                         <?php } ?>
                                     </select>
+                                    </div>
+
                                 </div>
 
 

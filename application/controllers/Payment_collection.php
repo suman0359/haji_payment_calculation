@@ -111,13 +111,107 @@ class Payment_collection extends CI_Controller {
         $id= $this->db->insert_id();
         // End Transaction From Here 
         
-        $data['header']            = $this->load->view('common/header', '', TRUE);
-        $data['sidebar']           = $this->load->view('common/sidebar', '', TRUE);
-        $data['top_navbar']        = $this->load->view('common/top_navbar', '', TRUE);
-        $data['main_content']      = $this->load->view('includes/payment_collection/money_receipt', $data, TRUE);
-        $data['footer']            = $this->load->view('common/footer', '', TRUE);
+        // $data['header']            = $this->load->view('common/header', '', TRUE);
+        // $data['sidebar']           = $this->load->view('common/sidebar', '', TRUE);
+        // $data['top_navbar']        = $this->load->view('common/top_navbar', '', TRUE);
+        // $data['main_content']      = $this->load->view('includes/payment_collection/money_receipt', $data, TRUE);
+        // $data['footer']            = $this->load->view('common/footer', '', TRUE);
 
         $msg = "Successfully Add New Payment and Print Your Money Receipt";
+        $this->session->set_flashdata('success', $msg);
+
+        redirect('payment_collection/money_receipt/'.$money_receipt_id);
+    }
+
+    public function money_receipt_entry_form(){
+        $data = array();
+        $sub_data = array();
+
+        $sub_data['income_head_list'] = $this->common_model->selectAll('income_head');
+
+        $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'));
+        
+        $data['header']                     = $this->load->view('common/header', '', TRUE);
+        $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);
+        $data['top_navbar']                 = $this->load->view('common/top_navbar', '', TRUE);
+        $data['main_content']               = $this->load->view('includes/payment_collection/money_receipt_entry_form', $sub_data, TRUE);
+        $data['footer']                     = $this->load->view('common/footer', '', TRUE);
+
+        $this->load->view('master_dashboard', $data);
+    }
+
+    public function save_money_receipt(){
+        // $data = array();
+        // $sub_data = array();
+        // $transaction = array();
+
+        $money_receipt_number_last=$this->common_model->getLastRow('money_receipt');
+
+        if($money_receipt_number_last ==TRUE){
+            $r = explode("-",$money_receipt_number_last->money_receipt_number);
+        
+            $money_receipt_number_last_sum = $r[1]+1;
+            $money_receipt_number = "MRH-".sprintf('%03d', $money_receipt_number_last_sum);
+            
+        }else{
+            $money_receipt_number = "MRH-001";
+        }
+        $money_receipt['money_receipt_number']=$money_receipt_number;
+        $money_receipt['name']                = $this->input->post('name');
+        $money_receipt['payment_head']        = $this->input->post('income_head_id');
+        $money_receipt['payment_mode']        = $this->input->post('payment_mode');
+        $money_receipt['amount']              = $this->input->post('total_amount');
+        $money_receipt['payment_date']        = date('Y-m-d');
+
+
+        if ($this->input->post('payment_mode')==2) {
+            if ($this->input->post('chaque_number')!='') {
+                $money_receipt['chaque_number'] = $this->input->post('chaque_number');
+            }
+
+            if ($this->input->post('chaque_date')!='') {
+                $money_receipt['chaque_date'] = $this->input->post('chaque_date');
+            }
+
+            if ($this->input->post('bank_name')!='') {
+                $money_receipt['bank_name'] = $this->input->post('bank_name');
+            }
+
+            if ($this->input->post('branch_name')!='') {
+                $money_receipt['branch_name'] = $this->input->post('branch_name');
+            }
+        }
+
+        if ($this->input->post('payment_mode')==3) {
+            if ($this->input->post('bkash_transaction_no')!='') {
+                $money_receipt['transaction_no'] = $this->input->post('bkash_transaction_no');
+            }
+
+            if ($this->input->post('bkash_phone_no')!='') {
+                $money_receipt['bkash_phone_no'] = $this->input->post('bkash_phone_no');
+            }
+        }
+
+        // INSERT Money Receipt Information in MONEY_RECERIPT TABLE 
+        
+        $this->common_model->insert('money_receipt', $money_receipt);
+        $money_receipt_id = $this->db->insert_id();
+
+        // Insert Section in TRANSACTION TABLE 
+        // $transaction['commission_agent_id'] = $this->input->post('id');
+        $transaction['money_receipt_id']    = $money_receipt_id;
+        $transaction['date']                = date('Y-m-d');
+        $transaction['debit']               = $this->input->post('total_amount');
+        // For Sequence Last Balance of the transaction 
+        $last_balance = $this->common_model->getLastRow('transactions');
+        $last_balance = $last_balance->balance;
+        $last_balance = $last_balance+$money_receipt['amount'];
+
+        $transaction['balance']             = $last_balance;
+
+        $this->common_model->insert('transactions', $transaction);
+        
+        $msg = "Successfully Receive Payment By Income Head";
         $this->session->set_flashdata('success', $msg);
 
         redirect('payment_collection/money_receipt/'.$money_receipt_id);
@@ -377,6 +471,11 @@ class Payment_collection extends CI_Controller {
     // For View Contact Amount 
     public function view_contact_amount(){
         $sub_data['bc'] = array(array('link' => base_url(), 'page' => 'Home'), array('link' => site_url('payment_collection'), 'page' => 'Payment Collection'), array('link' => '#', 'page' => 'Group Payment'));
+
+        $select_year                        = $this->input->post('select_year');
+
+        $this->load->model('reports_model');
+        $sub_data['contact_amount_data']    = $this->reports_model->getAllContactAmount('tbl_contact_amount', array('hajj_year' => $select_year));
 
         $data['header']                     = $this->load->view('common/header', '', TRUE);
         $data['sidebar']                    = $this->load->view('common/sidebar', '', TRUE);

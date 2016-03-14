@@ -148,6 +148,42 @@ class Haji_info extends CI_Controller {
         redirect('haji_info');
     }
 
+    public function resent_haji_reg_sms($haji_id){
+        $haji_info = $this->common_model->getInfo('haji_information', array('id' => $haji_id));
+        // SMS API Inegration 
+        // if($haji_info!=NULL){
+        //     try
+        //     {
+                
+        //     $userName = "01911198784";
+        //     $userPassword = "01911198784";
+        //     $mobileNumber = $haji_info->haji_mobile;  //"01730869866";
+        //     $smsText = "Assalamu Alaikum, \n Mr. ".$haji_info->haji_name."\n You Are Successfully Enlisted in Century Aviation (HL-715). Your Haji Id is $haji_info->haji_id \n Alhamdulillah";
+        //     $maskName = "Century0715";
+        //     $campaignName = "Century0715";
+
+        //     $soapClient = new SoapClient("https://api2.onnorokomSMS.com/sendSMS.asmx?wsdl"); 
+        //     $paramArray = array(
+        //     'userName'=>$userName,
+        //     'userPassword'=>$userPassword, 'mobileNumber'=> $mobileNumber, 'smsText'=>$smsText, 'type'=>"TEXT",
+        //     'maskName'=> $maskName, 'campaignName'=>$campaignName,
+        //     );
+          
+            
+        //     $value = $soapClient->__call("OneToOne", array($paramArray));
+        //     }
+        //     catch (Exception $e) {
+        //     echo $e;
+        //     }
+        // }
+        // *************************
+
+        $msg = "Successfully ReSent Haji Registration Info";
+        $this->session->set_flashdata('success', $msg);
+
+        redirect('haji_info');
+    }
+
     public function edit_form($id) {
         $data = array();
         $sub_data = array();

@@ -53,7 +53,7 @@
                                             <li><a href="<?php echo base_url(); ?>commission_agent/update_form/<?php echo $value->id; ?>" >Edit</a></li>
                                             <li><a href="<?php echo base_url(); ?>commission_agent/delete/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');">Delete</a></li>
                                             <li><a href="<?php echo base_url(); ?>payment_collection/group_payment_collect_form/<?php echo $value->id; ?>" onclick="return confirm('Do you want to allow him to');">Group Payment Collect</a></li>
-                                            <li><a href="<?php echo base_url();?>commission_agent/set_group_contact_amount/<?php echo $value->id; ?>">Set Contact Amount</a></li>
+                                            <li><a href="<?php echo base_url();?>commission_agent/set_group_leader_contact_amount/<?php echo $value->id; ?>">Set Contact Amount</a></li>
                                       </ul>
                                     </div>
                                     
